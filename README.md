@@ -63,18 +63,23 @@ Example Sentence:
 
 ## Existing Constructicons
 
-Overview: CAW, November 2022 https://www.globalframenet.org/caw2022 
+Overview: CAW (Constructicon Alignment Workshop, November 2022): https://www.globalframenet.org/caw2022 
 
-- English: https://constructicon.de/ and https://www.google.com/url?q=http://sato.fm.senshu-u.ac.jp/frameSQL/cxn/CxNeng/cxn00/21colorTag/index.html&sa=D&source=editors&ust=1683996774758710&usg=AOvVaw2nAtAknV5pnjpNFFLeU15U
-- German: https://gsw.phil.hhu.de/ 
-- Swedish: https://spraakbanken.gu.se/karp/#?mode=konstruktikon
-- Brazilian Portuguese: https://www2.ufjf.br/framenetbr-en/ 
-- Japanese: https://jfn.st.hc.keio.ac.jp/ 
-- Russian: https://site.uit.no/russian-constructicon/ 
+- English: CASA (FAU Erlangen-Nürnberg): https://constructicon.de/
+- English: Berkeley FrameNet Cxn: http://sato.fm.senshu-u.ac.jp/frameSQL/cxn/CxNeng/cxn00/21colorTag/
+- German: FrameNet-Konstruktikon (HHU Düsseldorf): https://gsw.phil.hhu.de/
+- Swedish: Svenskt konstruktikon (Univ. of Gothenburg): https://spraakbanken.gu.se/karp/#?mode=konstruktikon
+- Brazilian Portuguese: FrameNet Brasil (FU Juiz de Fora): https://www2.ufjf.br/framenetbr-en/
+- Japanese: Japanese FrameNet (Keio University): https://jfn.st.hc.keio.ac.jp/
+- Russian: Russian Constructicon (UiT Arctic University of Norway): https://constructicon.github.io/russian/
 
-## Database of Croft's Comparative Concepts: https://spraakbanken.github.io/ComparativeConcepts/
+## Database of Croft's Comparative Concepts
+
+- Searchable interface: https://spraakbanken.github.io/ComparativeConcepts/
+- GitHub repo: https://github.com/spraakbanken/ComparativeConcepts
 
 ## Search/query engines
+
 - Grew-match: https://match.grew.fr/ 
 - Corpus workbench (for large corpora): several sites use CWB
 - SPIKE (query-by-example): https://spike.apps.allenai.org/datasets/wikipedia/search 
