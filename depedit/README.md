@@ -16,21 +16,24 @@ To add a new language these are the recommended steps:
 
 1. Find a good UD treebank in the target language. If multiple treebanks are available for a language, consider factors such as size, quality of the annotation, and likelihood that target constructions will appear (for example: question constructions are rare in news language; informal constructions are more common in spoken data; etc.)
 2. Search for the construction you are targeting using https://universal.grew.fr/. 
-  * The interface covers the latest UD corpus releases, and features some example queries on the right to get you started. 
-  * When formulating the initial query, try to use simple lexical items which will catch many instances of the constructions (focus on recall, not precision)
-  * For example, for English Comparative Correlatives, we can search for the sequence "the more" like this: `pattern { N1 [lemma="the"]; N2 [lemma="more"]; N1 < N2 }`
+    * The interface covers the latest UD corpus releases, and features some example queries on the right to get you started. 
+    * When formulating the initial query, try to use simple lexical items which will catch many instances of the constructions (focus on recall, not precision)
+    * For example, for English Comparative Correlatives, we can search for the sequence "the more" like this: `pattern { N1 [lemma="the"]; N2 [lemma="more"]; N1 < N2 }`
 3. After finding some examples, look at the graphs for several correct and incorrect results (for example "the more the merrier" is correct, but "the more recent past" is incorrect)
-  * Try to figure out what parts of the graph guarantee a correct result
-  * It's OK to use many queries to capture different variants of the construction - the most imortant thing is to gradually improve the precision (ruling out false positives), and use multiple queries to improve recall
+    * Try to figure out what parts of the graph guarantee a correct result
+    * It's OK to use many queries to capture different variants of the construction - the most imortant thing is to gradually improve the precision (ruling out false positives), and use multiple queries to improve recall
 4. Once you have figured out the properties of graphs instantiating your construction, add the treebank files to the repo
-  * Make a folder in data/ named after the corpus identifier, for example `en_gum/`
-  * Copy the current .conllu release files of the corpus from GitHub to the folder (for example from https://github.com/UniversalDependencies/UD_English-GUM/)
+    * Make a folder in data/ named after the corpus identifier, for example `en_gum/`
+    * Copy the current .conllu release files of the corpus from GitHub to the folder (for example from https://github.com/UniversalDependencies/UD_English-GUM/)
 5. Make a script file under `rules/` using the language code as a prefix, for example `en_cxn.ini`.
-  * Rules consist of lines with three tab separated columns: a declaration of nodes to find, the relations between the nodes (precedence, dominance, etc.) and what to do to the nodes (for example add a `Cxn=` annotation in the MISC column
-  * You can use the existing rule files as examples to get started
-  * It is recommended to read the documentation on writing DepEdit rule files at https://gucorpling.org/depedit/
+    * Rules consist of lines with three tab separated columns: a declaration of nodes to find, the relations between the nodes (precedence, dominance, etc.) and what to do to the nodes (for example add a `Cxn=` annotation in the MISC column
+    * You can use the existing rule files as examples to get started
+    * It is recommended to read the documentation on writing DepEdit rule files at https://gucorpling.org/depedit/
 6. Make sure python and depedit are installed and run: `> python run_cxn.py --lang en`
 
+To add rules to an existing rule file, follow the same steps without creating a new rule file, and add your rules to the existing language file. It is recommended to test that adding rules does not remove any of the existing constructions. You can also test by diffing outputs or using a GitHub client to notice changes produced by your new rules compared to the committed state of the rules file.
+
+If you are satisfied with the new rules, please re-run the script on your language and push both the new rules and the updated files to GitHub.
 
 ## Worked rule examples
 
