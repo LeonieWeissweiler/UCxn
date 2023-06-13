@@ -630,7 +630,7 @@
 25	road	road	NOUN	NN	Number=Sing	28	nsubj	28:nsubj|29:nsubj:xsubj	_
 26	of	of	ADP	IN	_	27	case	27:case	_
 27	negotiations	negotiation	NOUN	NNS	Number=Plur	25	nmod	25:nmod:of	_
-28	remained	remain	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	15	advcl	15:advcl:if	_
+28	remained	remain	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	15	advcl	15:advcl:if	Cxn=Condition-Realistic
 29	rocky	rocky	ADJ	JJ	Degree=Pos	28	xcomp	28:xcomp	SpaceAfter=No
 30	.	.	PUNCT	.	_	7	punct	7:punct	_
 
@@ -726,7 +726,7 @@
 8-9	cannot	_	_	_	_	_	_	_	_
 8	can	can	AUX	MD	VerbForm=Fin	10	aux	10:aux	_
 9	not	not	PART	RB	_	10	advmod	10:advmod	_
-10	find	find	VERB	VB	VerbForm=Inf	25	advcl	25:advcl:if	_
+10	find	find	VERB	VB	VerbForm=Inf	25	advcl	25:advcl:if	Cxn=Condition-Reduced
 11	a	a	DET	DT	Definite=Ind|PronType=Art	12	det	12:det	_
 12	way	way	NOUN	NN	Number=Sing	10	obj	10:obj	_
 13	to	to	PART	TO	_	14	mark	14:mark	_
@@ -760,7 +760,7 @@
 3	local	local	ADJ	JJ	Degree=Pos	5	amod	5:amod	_
 4	Palestinian	Palestinian	ADJ	JJ	Degree=Pos	5	amod	5:amod	_
 5	leaders	leader	NOUN	NNS	Number=Plur	6	nsubj	6:nsubj|7:nsubj:xsubj	_
-6	remain	remain	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	22	advcl	22:advcl:if	_
+6	remain	remain	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	22	advcl	22:advcl:if	Cxn=Condition-Realistic
 7	strong	strong	ADJ	JJ	Degree=Pos	6	xcomp	6:xcomp	_
 8	enough	enough	ADV	RB	_	7	advmod	7:advmod	_
 9	to	to	PART	TO	_	10	mark	10:mark	_
@@ -1398,7 +1398,7 @@
 # text = If they continue to add features so they can justify their likely sky-high valuation, Google risks losing a huge chunk of their customer base to the next keep-it-simple search engine.
 1	If	if	SCONJ	IN	_	3	mark	3:mark	_
 2	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	3	nsubj	3:nsubj|5:nsubj:xsubj	_
-3	continue	continue	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	19	advcl	19:advcl:if	_
+3	continue	continue	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	19	advcl	19:advcl:if	Cxn=Condition-Realistic
 4	to	to	PART	TO	_	5	mark	5:mark	_
 5	add	add	VERB	VB	VerbForm=Inf	3	xcomp	3:xcomp	_
 6	features	feature	NOUN	NNS	Number=Plur	5	obj	5:obj	_
@@ -1606,7 +1606,7 @@
 13	but	but	CCONJ	CC	_	24	cc	24:cc	_
 14	if	if	SCONJ	IN	_	16	mark	16:mark	_
 15	one	one	PRON	PRP	Number=Sing|Person=3|PronType=Prs	16	nsubj	16:nsubj	_
-16	raises	raise	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	24	advcl	24:advcl:if	_
+16	raises	raise	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	24	advcl	24:advcl:if	Cxn=Condition-Realistic
 17	doubts	doubt	NOUN	NNS	Number=Plur	16	obj	16:obj	_
 18	about	about	ADP	IN	_	20	case	20:case	_
 19	the	the	DET	DT	Definite=Def|PronType=Art	20	det	20:det	_
@@ -1976,7 +1976,7 @@
 27	compaign	compaign	NOUN	NN	Number=Sing	30	nsubj:pass	30:nsubj:pass	_
 28	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	30	aux:pass	30:aux:pass	_
 29	not	not	PART	RB	_	30	advmod	30:advmod	_
-30	stopped	stop	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	22	advcl	22:advcl:if	SpaceAfter=No
+30	stopped	stop	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	22	advcl	22:advcl:if	Cxn=Condition-Reduced|SpaceAfter=No
 31	.	.	PUNCT	.	_	17	punct	17:punct	_
 
 # sent_id = weblog-juancole.com_juancole_20041111060900_ENG_20041111_060900-0008
@@ -2043,7 +2043,7 @@
 5	cities	city	NOUN	NNS	Number=Plur	2	conj	2:conj:and|8:nsubj	_
 6	are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	8	cop	8:cop	_
 7	any	any	DET	DT	_	8	det	8:det	_
-8	guide	guide	NOUN	NN	Number=Sing	15	advcl	15:advcl:if	SpaceAfter=No
+8	guide	guide	NOUN	NN	Number=Sing	15	advcl	15:advcl:if	Cxn=Condition-Realistic|SpaceAfter=No
 9	,	,	PUNCT	,	_	15	punct	15:punct	_
 10	those	that	DET	DT	Number=Plur|PronType=Dem	11	det	11:det	_
 11	pockets	pocket	NOUN	NNS	Number=Plur	15	nsubj	15:nsubj|17:nsubj:xsubj	_
@@ -4409,7 +4409,7 @@
 3	have	have	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	6	aux	6:aux	_
 4	not	not	PART	RB	_	6	advmod	6:advmod	_
 5	already	already	ADV	RB	_	6	advmod	6:advmod	_
-6	seen	see	VERB	VBN	Tense=Past|VerbForm=Part	14	advcl	14:advcl:if	_
+6	seen	see	VERB	VBN	Tense=Past|VerbForm=Part	14	advcl	14:advcl:if	Cxn=Condition-Realistic
 7	the	the	DET	DT	Definite=Def|PronType=Art	9	det	9:det	_
 8	Flash	Flash	PROPN	NNP	Number=Sing	9	compound	9:compound	_
 9	movie	movie	NOUN	NN	Number=Sing	6	obj	6:obj	_
@@ -5787,7 +5787,7 @@
 9	if	if	SCONJ	IN	_	12	mark	12:mark	_
 10	anyone	anyone	PRON	NN	Number=Sing|PronType=Ind	12	nsubj	12:nsubj	_
 11	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	12	cop	12:cop	_
-12	interested	interested	ADJ	JJ	Degree=Pos	3	advcl	3:advcl:if	SpaceAfter=No
+12	interested	interested	ADJ	JJ	Degree=Pos	3	advcl	3:advcl:if	Cxn=Condition-Realistic|SpaceAfter=No
 13	.	.	PUNCT	.	_	3	punct	3:punct	_
 
 # sent_id = email-enronsent23_08-0002
@@ -6192,7 +6192,7 @@
 11	if	if	SCONJ	IN	_	14	mark	14:mark	_
 12	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	14	nsubj	14:nsubj	_
 13	expeditiously	expeditiously	ADV	RB	_	14	advmod	14:advmod	_
-14	suspend	suspend	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	24	advcl	24:advcl:if	_
+14	suspend	suspend	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	24	advcl	24:advcl:if	Cxn=Condition-Realistic
 15-16	everyone's	_	_	_	_	_	_	_	_
 15	everyone	everyone	PRON	NN	Number=Sing|PronType=Tot	17	nmod:poss	17:nmod:poss	_
 16	's	's	PART	POS	_	15	case	15:case	_
@@ -6493,7 +6493,7 @@
 1	If	if	SCONJ	IN	_	4	mark	4:mark	_
 2	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	4	nsubj	4:nsubj	_
 3	have	have	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	4	aux	4:aux	_
-4	received	receive	VERB	VBN	Tense=Past|VerbForm=Part	10	advcl	10:advcl:if	_
+4	received	receive	VERB	VBN	Tense=Past|VerbForm=Part	10	advcl	10:advcl:if	Cxn=Condition-Realistic
 5	it	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	4	obj	4:obj	_
 6	in	in	ADP	IN	_	7	case	7:case	_
 7	error	error	NOUN	NN	Number=Sing	4	obl	4:obl:in	SpaceAfter=No
@@ -6718,7 +6718,7 @@
 14	but	but	CCONJ	CC	_	24	cc	24:cc	_
 15	if	if	SCONJ	IN	_	17	mark	17:mark	_
 16	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	17	nsubj	17:nsubj|19:nsubj:xsubj	_
-17	want	want	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	24	advcl	24:advcl:if	_
+17	want	want	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	24	advcl	24:advcl:if	Cxn=Condition-Realistic
 18	to	to	PART	TO	_	19	mark	19:mark	_
 19	reach	reach	VERB	VB	VerbForm=Inf	17	xcomp	17:xcomp	_
 20	me	I	PRON	PRP	Case=Acc|Number=Sing|Person=1|PronType=Prs	19	obj	19:obj	SpaceAfter=No
@@ -6809,7 +6809,7 @@
 1	If	if	SCONJ	IN	_	4	mark	4:mark	_
 2	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	4	nsubj	4:nsubj	_
 3	can	can	AUX	MD	VerbForm=Fin	4	aux	4:aux	_
-4	make	make	VERB	VB	VerbForm=Inf	8	advcl	8:advcl:if	_
+4	make	make	VERB	VB	VerbForm=Inf	8	advcl	8:advcl:if	Cxn=Condition-Reduced
 5	it	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	4	obj	4:obj	SpaceAfter=No
 6	,	,	PUNCT	,	_	8	punct	8:punct	_
 7	please	please	INTJ	UH	_	8	discourse	8:discourse	_
@@ -7051,7 +7051,7 @@
 # text = If you have any questions, please contact us at noc@paulhastings.com.
 1	If	if	SCONJ	IN	_	3	mark	3:mark	_
 2	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	3	nsubj	3:nsubj	_
-3	have	have	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	8	advcl	8:advcl:if	_
+3	have	have	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	8	advcl	8:advcl:if	Cxn=Condition-Realistic
 4	any	any	DET	DT	_	5	det	5:det	_
 5	questions	question	NOUN	NNS	Number=Plur	3	obj	3:obj	SpaceAfter=No
 6	,	,	PUNCT	,	_	8	punct	8:punct	_
@@ -7138,7 +7138,7 @@
 # text = If you received this in error, please contact the sender and delete the material from all computers."
 1	If	if	SCONJ	IN	_	3	mark	3:mark	_
 2	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	3	nsubj	3:nsubj	_
-3	received	receive	VERB	VBD	Mood=Ind|Number=Sing|Person=2|Tense=Past|VerbForm=Fin	9	advcl	9:advcl:if	_
+3	received	receive	VERB	VBD	Mood=Ind|Number=Sing|Person=2|Tense=Past|VerbForm=Fin	9	advcl	9:advcl:if	Cxn=Condition-Realistic
 4	this	this	PRON	DT	Number=Sing|PronType=Dem	3	obj	3:obj	_
 5	in	in	ADP	IN	_	6	case	6:case	_
 6	error	error	NOUN	NN	Number=Sing	3	obl	3:obl:in	SpaceAfter=No
@@ -7423,7 +7423,7 @@
 # text = If you have any other questions, please let me know.
 1	If	if	SCONJ	IN	_	3	mark	3:mark	_
 2	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	3	nsubj	3:nsubj	_
-3	have	have	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	9	advcl	9:advcl:if	_
+3	have	have	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	9	advcl	9:advcl:if	Cxn=Condition-Realistic
 4	any	any	DET	DT	_	6	det	6:det	_
 5	other	other	ADJ	JJ	Degree=Pos	6	amod	6:amod	_
 6	questions	question	NOUN	NNS	Number=Plur	3	obj	3:obj	SpaceAfter=No
@@ -8230,7 +8230,7 @@
 7	if	if	SCONJ	IN	_	10	mark	10:mark	_
 8	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	10	nsubj	10:nsubj	_
 9	are	be	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	10	cop	10:cop	_
-10	ready	ready	ADJ	JJ	Degree=Pos	4	advcl	4:advcl:if	SpaceAfter=No
+10	ready	ready	ADJ	JJ	Degree=Pos	4	advcl	4:advcl:if	Cxn=Condition-Realistic|SpaceAfter=No
 11	.	.	PUNCT	.	_	1	punct	1:punct	_
 
 # newdoc id = email-enronsent01_01
@@ -8583,7 +8583,7 @@
 2	:	:	PUNCT	:	_	1	punct	1:punct	_
 3	If	if	SCONJ	IN	_	5	mark	5:mark	_
 4	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	5	nsubj	5:nsubj	_
-5	have	have	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	14	advcl	14:advcl:if	_
+5	have	have	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	14	advcl	14:advcl:if	Cxn=Condition-Realistic
 6	any	any	DET	DT	_	7	det	7:det	_
 7	questions	question	NOUN	NNS	Number=Plur	5	obj	5:obj	_
 8	regarding	regard	VERB	VBG	VerbForm=Ger	11	case	11:case	_
@@ -9315,7 +9315,7 @@
 4	not	not	PART	RB	_	7	advmod	7:advmod	_
 5	the	the	DET	DT	Definite=Def|PronType=Art	7	det	7:det	_
 6	intended	intend	VERB	VBN	Tense=Past|VerbForm=Part	7	amod	7:amod	_
-7	recipient	recipient	NOUN	NN	Number=Sing	12	advcl	12:advcl:if	SpaceAfter=No
+7	recipient	recipient	NOUN	NN	Number=Sing	12	advcl	12:advcl:if	Cxn=Condition-Realistic|SpaceAfter=No
 8	,	,	PUNCT	,	_	12	punct	12:punct	_
 9	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	12	nsubj:pass	12:nsubj:pass	_
 10	are	be	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	12	aux:pass	12:aux:pass	_
@@ -9351,7 +9351,7 @@
 1	If	if	SCONJ	IN	_	4	mark	4:mark	_
 2	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	4	nsubj	4:nsubj	_
 3	have	have	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	4	aux	4:aux	_
-4	received	receive	VERB	VBN	Tense=Past|VerbForm=Part	15	advcl	15:advcl:if	_
+4	received	receive	VERB	VBN	Tense=Past|VerbForm=Part	15	advcl	15:advcl:if	Cxn=Condition-Realistic
 5	this	this	DET	DT	Number=Sing|PronType=Dem	6	det	6:det	_
 6	transmittal	transmittal	NOUN	NN	Number=Sing	4	obj	4:obj	_
 7	and	and	CCONJ	CC	_	10	cc	10:cc	SpaceAfter=No
@@ -9562,7 +9562,7 @@
 22-23	haven't	_	_	_	_	_	_	_	_
 22	have	have	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	24	aux	24:aux	_
 23	n't	not	PART	RB	_	24	advmod	24:advmod	_
-24	found	find	VERB	VBN	Tense=Past|VerbForm=Part	32	advcl	32:advcl:if	_
+24	found	find	VERB	VBN	Tense=Past|VerbForm=Part	32	advcl	32:advcl:if	Cxn=Condition-Realistic
 25	it	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	24	obj	24:obj	_
 26	as	as	ADP	IN	_	27	case	27:case	_
 27	yet	yet	ADV	RB	_	24	obl	24:obl:as	_
@@ -9978,7 +9978,7 @@
 # text = If you do would you send me a copy?
 1	If	if	SCONJ	IN	_	3	mark	3:mark	_
 2	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	3	nsubj	3:nsubj	_
-3	do	do	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	6	advcl	6:advcl:if	_
+3	do	do	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	6	advcl	6:advcl:if	Cxn=Condition-Realistic
 4	would	would	AUX	MD	VerbForm=Fin	6	aux	6:aux	_
 5	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	6	nsubj	6:nsubj	_
 6	send	send	VERB	VB	VerbForm=Inf	0	root	0:root	Cxn=Ditransitive
@@ -10037,7 +10037,7 @@
 1	If	if	SCONJ	IN	_	4	mark	4:mark	_
 2	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	4	nsubj:pass	4:nsubj:pass	_
 3	are	be	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	4	aux:pass	4:aux:pass	_
-4	located	locate	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	26	advcl	26:advcl:if	_
+4	located	locate	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	26	advcl	26:advcl:if	Cxn=Condition-Reduced
 5	in	in	ADP	IN	_	6	case	6:case	_
 6	London	London	PROPN	NNP	Number=Sing	4	obl	4:obl:in	SpaceAfter=No
 7	,	,	PUNCT	,	_	8	punct	8:punct	_
@@ -10800,7 +10800,7 @@
 7	if	if	SCONJ	IN	_	10	mark	10:mark	_
 8	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	10	nsubj	10:nsubj	_
 9	are	be	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	10	cop	10:cop	_
-10	ready	ready	ADJ	JJ	Degree=Pos	4	advcl	4:advcl:if	SpaceAfter=No
+10	ready	ready	ADJ	JJ	Degree=Pos	4	advcl	4:advcl:if	Cxn=Condition-Realistic|SpaceAfter=No
 11	.	.	PUNCT	.	_	1	punct	1:punct	_
 
 # sent_id = email-enronsent29_01-0055
@@ -11369,7 +11369,7 @@
 5	if	if	SCONJ	IN	_	8	mark	8:mark	_
 6	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	8	nsubj	8:nsubj	_
 7	could	could	AUX	MD	VerbForm=Fin	8	aux	8:aux	_
-8	advice	advice	VERB	VB	VerbForm=Inf	4	advcl	4:advcl:if	_
+8	advice	advice	VERB	VB	VerbForm=Inf	4	advcl	4:advcl:if	Cxn=Condition-Reduced
 9	me	I	PRON	PRP	Case=Acc|Number=Sing|Person=1|PronType=Prs	8	obj	8:obj	_
 10	on	on	ADP	IN	_	12	case	12:case	_
 11	this	this	DET	DT	Number=Sing|PronType=Dem	12	det	12:det	_
@@ -12170,7 +12170,7 @@
 1	If	if	SCONJ	IN	_	4	mark	4:mark	_
 2	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	4	nsubj	4:nsubj|6:nsubj:xsubj	_
 3	would	would	AUX	MD	VerbForm=Fin	4	aux	4:aux	_
-4	prefer	prefer	VERB	VB	VerbForm=Inf	16	advcl	16:advcl:if	_
+4	prefer	prefer	VERB	VB	VerbForm=Inf	16	advcl	16:advcl:if	Cxn=Condition-Reduced
 5	to	to	PART	TO	_	6	mark	6:mark	_
 6	settle	settle	VERB	VB	VerbForm=Inf	4	xcomp	4:xcomp	_
 7	the	the	DET	DT	Definite=Def|PronType=Art	8	det	8:det	_
@@ -12276,7 +12276,7 @@
 1	If	if	SCONJ	IN	_	4	mark	4:mark	_
 2	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	4	nsubj	4:nsubj	_
 3	would	would	AUX	MD	VerbForm=Fin	4	aux	4:aux	_
-4	like	like	VERB	VB	VerbForm=Inf	8	advcl	8:advcl:if	SpaceAfter=No
+4	like	like	VERB	VB	VerbForm=Inf	8	advcl	8:advcl:if	Cxn=Condition-Reduced|SpaceAfter=No
 5	,	,	PUNCT	,	_	8	punct	8:punct	_
 6	we	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	8	nsubj	8:nsubj	_
 7	can	can	AUX	MD	VerbForm=Fin	8	aux	8:aux	_
@@ -12566,7 +12566,7 @@
 1	If	if	SCONJ	IN	_	4	mark	4:mark	_
 2	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	4	nsubj	4:nsubj	_
 3	are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	4	aux	4:aux	_
-4	getting	get	VERB	VBG	Tense=Pres|VerbForm=Part	14	advcl	14:advcl:if	_
+4	getting	get	VERB	VBG	Tense=Pres|VerbForm=Part	14	advcl	14:advcl:if	Cxn=Condition-Realistic
 5	quotes	quote	NOUN	NNS	Number=Plur	4	obj	4:obj	_
 6	to	to	PART	TO	_	7	mark	7:mark	_
 7	put	put	VERB	VB	VerbForm=Inf	5	acl	5:acl:to	_
@@ -12602,7 +12602,7 @@
 1	If	if	SCONJ	IN	_	4	mark	4:mark	_
 2	the	the	DET	DT	Definite=Def|PronType=Art	3	det	3:det	_
 3	negotiations	negotiation	NOUN	NNS	Number=Plur	4	nsubj	4:nsubj	_
-4	stall	stall	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	7	advcl	7:advcl:if	SpaceAfter=No
+4	stall	stall	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	7	advcl	7:advcl:if	Cxn=Condition-Realistic|SpaceAfter=No
 5	,	,	PUNCT	,	_	7	punct	7:punct	_
 6	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	7	expl	7:expl	_
 7	seems	seem	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
@@ -13536,7 +13536,7 @@
 18	if	if	SCONJ	IN	_	21	mark	21:mark	_
 19	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	21	nsubj	21:nsubj	_
 20	could	could	AUX	MD	VerbForm=Fin	21	aux	21:aux	_
-21	get	get	VERB	VB	VerbForm=Inf	17	advcl	17:advcl:if	_
+21	get	get	VERB	VB	VerbForm=Inf	17	advcl	17:advcl:if	Cxn=Condition-Reduced
 22	the	the	DET	DT	Definite=Def|PronType=Art	23	det	23:det	_
 23	cash	cash	NOUN	NN	Number=Sing	21	obj	21:obj	_
 24	to	to	ADP	IN	_	25	case	25:case	_
@@ -13898,7 +13898,7 @@
 12	them	they	PRON	PRP	Case=Acc|Number=Plur|Person=3|PronType=Prs	10	nmod	10:nmod:of	_
 13	if	if	SCONJ	IN	_	15	mark	15:mark	_
 14	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	15	nsubj	15:nsubj	_
-15	have	have	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	8	advcl	8:advcl:if	_
+15	have	have	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	8	advcl	8:advcl:if	Cxn=Condition-Realistic
 16	time	time	NOUN	NN	Number=Sing	15	obj	15:obj	SpaceAfter=No
 17	,	,	PUNCT	,	_	2	punct	2:punct	_
 18-19	they're	_	_	_	_	_	_	_	_
@@ -14267,7 +14267,7 @@
 10	and	and	CCONJ	CC	_	18	cc	18:cc	_
 11	if	if	SCONJ	IN	_	13	mark	13:mark	_
 12	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	13	nsubj	13:nsubj	_
-13	have	have	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	18	advcl	18:advcl:if	_
+13	have	have	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	18	advcl	18:advcl:if	Cxn=Condition-Realistic
 14	any	any	DET	DT	_	15	det	15:det	_
 15	question	question	NOUN	NN	Number=Sing	13	obj	13:obj	SpaceAfter=No
 16	,	,	PUNCT	,	_	18	punct	18:punct	_
@@ -14391,7 +14391,7 @@
 7	this	this	DET	DT	Number=Sing|PronType=Dem	8	det	8:det	_
 8	message	message	NOUN	NN	Number=Sing	10	nsubj:pass	10:nsubj:pass	_
 9	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	10	aux:pass	10:aux:pass	_
-10	forwarded	forward	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	5	advcl	5:advcl:if	_
+10	forwarded	forward	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	5	advcl	5:advcl:if	Cxn=Condition-Reduced
 11	to	to	ADP	IN	_	12	case	12:case	_
 12	you	you	PRON	PRP	Case=Acc|Person=2|PronType=Prs	10	obl	10:obl:to	SpaceAfter=No
 13	)	)	PUNCT	-RRB-	_	2	punct	2:punct	_
@@ -14766,7 +14766,7 @@
 1	If	if	SCONJ	IN	_	4	mark	4:mark	_
 2	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	4	nsubj	4:nsubj	_
 3	are	be	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	4	cop	4:cop	_
-4	new	new	ADJ	JJ	Degree=Pos	13	advcl	13:advcl:if	_
+4	new	new	ADJ	JJ	Degree=Pos	13	advcl	13:advcl:if	Cxn=Condition-Realistic
 5	to	to	ADP	IN	_	9	case	9:case	_
 6	"	"	PUNCT	``	_	9	punct	9:punct	SpaceAfter=No
 7	The	the	DET	DT	Definite=Def|PronType=Art	9	det	9:det	_
@@ -14867,7 +14867,7 @@
 1	And	and	CCONJ	CC	_	12	cc	12:cc	_
 2	if	if	SCONJ	IN	_	4	mark	4:mark	_
 3	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	4	nsubj	4:nsubj	_
-4	send	send	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	12	advcl	12:advcl:if	Cxn=Ditransitive
+4	send	send	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	12	advcl	12:advcl:if	Cxn=Condition-Realistic
 5	me	I	PRON	PRP	Case=Acc|Number=Sing|Person=1|PronType=Prs	4	iobj	4:iobj	_
 6	a	a	DET	DT	Definite=Ind|PronType=Art	7	det	7:det	_
 7	story	story	NOUN	NN	Number=Sing	4	obj	4:obj	SpaceAfter=No
@@ -15303,7 +15303,7 @@
 1	If	if	SCONJ	IN	_	4	mark	4:mark	_
 2	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	4	nsubj	4:nsubj	_
 3	can	can	AUX	MD	VerbForm=Fin	4	aux	4:aux	_
-4	check	check	VERB	VB	VerbForm=Inf	15	advcl	15:advcl:if	_
+4	check	check	VERB	VB	VerbForm=Inf	15	advcl	15:advcl:if	Cxn=Condition-Reduced
 5	with	with	ADP	IN	_	8	case	8:case	_
 6	the	the	DET	DT	Definite=Def|PronType=Art	8	det	8:det	_
 7	other	other	ADJ	JJ	Degree=Pos	8	amod	8:amod	_
@@ -15551,7 +15551,7 @@
 10	,	,	PUNCT	,	_	17	punct	17:punct	_
 11	if	if	SCONJ	IN	_	13	mark	13:mark	_
 12	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	13	nsubj	13:nsubj	_
-13	have	have	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	17	advcl	17:advcl:if	_
+13	have	have	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	17	advcl	17:advcl:if	Cxn=Condition-Realistic
 14	a	a	DET	DT	Definite=Ind|PronType=Art	15	det	15:det	_
 15	website	website	NOUN	NN	Number=Sing	13	obj	13:obj	SpaceAfter=No
 16	,	,	PUNCT	,	_	17	punct	17:punct	_
@@ -16016,7 +16016,7 @@
 2	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	5	nsubj	5:nsubj	_
 3	've	have	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	5	aux	5:aux	_
 4	successfully	successfully	ADV	RB	_	5	advmod	5:advmod	_
-5	used	use	VERB	VBN	Tense=Past|VerbForm=Part	16	advcl	16:advcl:if	_
+5	used	use	VERB	VBN	Tense=Past|VerbForm=Part	16	advcl	16:advcl:if	Cxn=Condition-Realistic
 6	any	any	DET	DT	_	5	obj	5:obj	_
 7	of	of	ADP	IN	_	9	case	9:case	_
 8	these	this	DET	DT	Number=Plur|PronType=Dem	9	det	9:det	_
@@ -17135,7 +17135,7 @@
 5	industry	industry	NOUN	NN	Number=Sing	14	nsubj	14:nsubj	SpaceAfter=No
 6	,	,	PUNCT	,	_	14	punct	14:punct	_
 7	if	if	SCONJ	IN	_	8	mark	8:mark	_
-8	put	put	VERB	VBN	Tense=Past|VerbForm=Part	14	advcl	14:advcl:if	_
+8	put	put	VERB	VBN	Tense=Past|VerbForm=Part	14	advcl	14:advcl:if	Cxn=Condition-Reduced
 9	to	to	ADP	IN	_	11	case	11:case	_
 10	the	the	DET	DT	Definite=Def|PronType=Art	11	det	11:det	_
 11	test	test	NOUN	NN	Number=Sing	8	obl	8:obl:to	SpaceAfter=No
@@ -17209,7 +17209,7 @@
 26	,	,	PUNCT	,	_	29	punct	29:punct	_
 27	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	29	nsubj	29:nsubj	_
 28	would	would	AUX	MD	VerbForm=Fin	29	aux	29:aux	_
-29	come	come	VERB	VB	VerbForm=Inf	0	root	0:root	Cxn=Condition-Hypothetical-Modal
+29	come	come	VERB	VB	VerbForm=Inf	0	root	0:root	_
 30	to	to	ADP	IN	_	32	case	32:case	_
 31	no	no	DET	DT	_	32	det	32:det	_
 32	surprise	surprise	NOUN	NN	Number=Sing	29	obl	29:obl:to	_
@@ -17217,7 +17217,7 @@
 34	corporate	corporate	ADJ	JJ	Degree=Pos	35	amod	35:amod	_
 35	America	America	PROPN	NNP	Number=Sing	37	nsubj	37:nsubj|40:nsubj:xsubj	_
 36	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	37	cop	37:cop	_
-37	able	able	ADJ	JJ	Degree=Pos	29	advcl	29:advcl:if	_
+37	able	able	ADJ	JJ	Degree=Pos	29	advcl	29:advcl:if	Cxn=Condition-Realistic
 38	to	to	PART	TO	_	40	mark	40:mark	_
 39	out	out	ADV	AFX	_	40	advmod	40:advmod	_
 40	perform	perform	VERB	VB	VerbForm=Inf	37	xcomp	37:xcomp	_
@@ -17320,7 +17320,7 @@
 # text = If Abbas keeps up this "macho talk" he will kill potential peace talks and might as well allow Hamas (which has probably done a better job at providing for the Palestinians) rule the West Bank.
 1	If	if	SCONJ	IN	_	3	mark	3:mark	_
 2	Abbas	Abbas	PROPN	NNP	Number=Sing	3	nsubj	3:nsubj	_
-3	keeps	keep	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	12	advcl	12:advcl:if	_
+3	keeps	keep	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	12	advcl	12:advcl:if	Cxn=Condition-Realistic
 4	up	up	ADP	RP	_	3	compound:prt	3:compound:prt	_
 5	this	this	DET	DT	Number=Sing|PronType=Dem	8	det	8:det	_
 6	"	"	PUNCT	``	_	8	punct	8:punct	SpaceAfter=No
@@ -17600,7 +17600,7 @@
 2	Abbas	Abbas	PROPN	NNP	Number=Sing	5	nsubj	5:nsubj|10:nsubj	_
 3	does	do	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	5	aux	5:aux	_
 4	not	not	PART	RB	_	5	advmod	5:advmod	_
-5	change	change	VERB	VB	VerbForm=Inf	21	advcl	21:advcl:if	_
+5	change	change	VERB	VB	VerbForm=Inf	21	advcl	21:advcl:if	Cxn=Condition-Reduced
 6	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	8	nmod:poss	8:nmod:poss	_
 7	former	former	ADJ	JJ	Degree=Pos	8	amod	8:amod	_
 8	thinking	thinking	NOUN	NN	Number=Sing	5	obj	5:obj	_
@@ -17783,7 +17783,7 @@
 4	if	if	SCONJ	IN	_	7	mark	7:mark	_
 5	Hamas	Hamas	PROPN	NNP	Number=Sing	7	nsubj	7:nsubj	_
 6	has	have	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	7	aux	7:aux	_
-7	thrown	throw	VERB	VBN	Tense=Past|VerbForm=Part	2	advcl	2:advcl:if	_
+7	thrown	throw	VERB	VBN	Tense=Past|VerbForm=Part	2	advcl	2:advcl:if	Cxn=Condition-Realistic
 8	in	in	ADV	RB	_	7	advmod	7:advmod	_
 9	the	the	DET	DT	Definite=Def|PronType=Art	10	det	10:det	_
 10	towel	towel	NOUN	NN	Number=Sing	7	obj	7:obj	_
@@ -18667,7 +18667,7 @@
 5	if	if	SCONJ	IN	_	8	mark	8:mark	_
 6	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	8	nsubj	8:nsubj	_
 7	are	be	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	8	cop	8:cop	_
-8	lucky	lucky	ADJ	JJ	Degree=Pos	4	advcl	4:advcl:if	_
+8	lucky	lucky	ADJ	JJ	Degree=Pos	4	advcl	4:advcl:if	Cxn=Condition-Realistic
 9	on	on	ADP	IN	_	10	case	10:case	_
 10	average	average	ADJ	JJ	Degree=Pos	12	obl	12:obl:on	_
 11	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	12	nsubj	12:nsubj	_
@@ -19987,7 +19987,7 @@
 12-13	don't	_	_	_	_	_	_	_	_
 12	do	do	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	14	aux	14:aux	_
 13	n't	not	PART	RB	_	14	advmod	14:advmod	_
-14	know	know	VERB	VB	VerbForm=Inf	3	advcl	3:advcl:if	_
+14	know	know	VERB	VB	VerbForm=Inf	3	advcl	3:advcl:if	Cxn=Condition-Reduced
 15-16	its	_	_	_	_	_	_	_	_
 15	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	17	nsubj:pass	17:nsubj:pass	_
 16	s	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	17	aux:pass	17:aux:pass	_
@@ -20480,7 +20480,7 @@
 1	If	if	SCONJ	IN	_	4	mark	4:mark	_
 2	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	4	nsubj	4:nsubj	_
 3	are	be	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	4	cop	4:cop	_
-4	unsure	unsure	ADJ	JJ	Degree=Pos	16	advcl	16:advcl:if	_
+4	unsure	unsure	ADJ	JJ	Degree=Pos	16	advcl	16:advcl:if	Cxn=Condition-Realistic
 5	whether	whether	SCONJ	IN	_	9	mark	9:mark	_
 6	or	or	CCONJ	CC	_	5	fixed	5:fixed	_
 7	not	not	PART	RB	_	5	fixed	5:fixed	_
@@ -20531,7 +20531,7 @@
 3	r	be	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|Typo=Yes|VerbForm=Fin	6	cop	6:cop	CorrectForm='re
 4	in	in	ADP	IN	_	6	case	6:case	_
 5	the	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	_
-6	USA	USA	PROPN	NNP	Number=Sing	13	advcl	13:advcl:in	_
+6	USA	USA	PROPN	NNP	Number=Sing	13	advcl	13:advcl:in	Cxn=Condition-Realistic
 7	and	and	CCONJ	CC	_	8	cc	8:cc	_
 8	venture	venture	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	6	conj	6:conj:and|13:advcl:in	_
 9	into	into	ADP	IN	_	10	case	10:case	_
@@ -20777,7 +20777,7 @@
 2	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	5	nsubj	5:nsubj	_
 3	s	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	5	cop	5:cop	_
 4	a	a	DET	DT	Definite=Ind|PronType=Art	5	det	5:det	_
-5	reel	reel	NOUN	NN	Number=Sing	9	advcl	9:advcl:if	_
+5	reel	reel	NOUN	NN	Number=Sing	9	advcl	9:advcl:if	Cxn=Condition-Realistic
 6	then	then	ADV	RB	PronType=Dem	9	advmod	9:advmod	_
 7-8	its	_	_	_	_	_	_	_	_
 7	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	9	nsubj	9:nsubj	_
@@ -20901,7 +20901,7 @@
 3	happen	happen	VERB	VB	VerbForm=Inf	0	root	0:root	_
 4	if	if	SCONJ	IN	_	6	mark	6:mark	_
 5	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	6	nsubj	6:nsubj	_
-6	flew	fly	VERB	VBD	Mood=Ind|Number=Sing|Person=2|Tense=Past|VerbForm=Fin	3	advcl	3:advcl:if	_
+6	flew	fly	VERB	VBD	Mood=Ind|Number=Sing|Person=2|Tense=Past|VerbForm=Fin	3	advcl	3:advcl:if	Cxn=Condition-Realistic
 7	the	the	DET	DT	Definite=Def|PronType=Art	8	det	8:det	_
 8	flag	flag	NOUN	NN	Number=Sing	6	obj	6:obj	_
 9	of	of	ADP	IN	_	11	case	11:case	_
@@ -21061,7 +21061,7 @@
 3	anyone	anyone	PRON	NN	Number=Sing|PronType=Ind	6	nsubj	6:nsubj	_
 4	else	else	ADJ	JJ	Degree=Pos	3	amod	3:amod	_
 5	has	have	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	aux	6:aux	_
-6	voted	vote	VERB	VBN	Tense=Past|VerbForm=Part	12	advcl	12:advcl:if	SpaceAfter=No
+6	voted	vote	VERB	VBN	Tense=Past|VerbForm=Part	12	advcl	12:advcl:if	Cxn=Condition-Realistic|SpaceAfter=No
 7	,	,	PUNCT	,	_	12	punct	12:punct	_
 8	what	what	PRON	WP	PronType=Int	12	obj	12:obj	_
 9	did	do	AUX	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	12	aux	12:aux	_
@@ -21512,7 +21512,7 @@
 20-21	weren't	_	_	_	_	_	_	_	_
 20	were	be	AUX	VBD	Mood=Ind|Number=Sing|Person=2|Tense=Past|VerbForm=Fin	22	aux	22:aux	_
 21	n't	not	PART	RB	_	22	advmod	22:advmod	_
-22	soing	so	VERB	VBG	Tense=Pres|VerbForm=Part	17	advcl	17:advcl:if	_
+22	soing	so	VERB	VBG	Tense=Pres|VerbForm=Part	17	advcl	17:advcl:if	Cxn=Condition-Realistic
 23	that	that	DET	DT	Number=Sing|PronType=Dem	24	det	24:det	_
 24	job	job	NOUN	NN	Number=Sing	22	obj	22:obj	_
 
@@ -21633,7 +21633,7 @@
 1	Maybe	maybe	ADV	RB	_	11	advmod	11:advmod	_
 2	if	if	SCONJ	IN	_	4	mark	4:mark	_
 3	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	4	nsubj	4:nsubj	_
-4	post	post	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	11	advcl	11:advcl:if	_
+4	post	post	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	11	advcl	11:advcl:if	Cxn=Condition-Realistic
 5	the	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	_
 6	question	question	NOUN	NN	Number=Sing	4	obj	4:obj	_
 7	again	again	ADV	RB	_	4	advmod	4:advmod	SpaceAfter=No
@@ -21700,7 +21700,7 @@
 # text = If you know or work there could you enlighten me?
 1	If	if	SCONJ	IN	_	3	mark	3:mark	_
 2	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	3	nsubj	3:nsubj|5:nsubj	_
-3	know	know	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	9	advcl	9:advcl:if	_
+3	know	know	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	9	advcl	9:advcl:if	Cxn=Condition-Realistic
 4	or	or	CCONJ	CC	_	5	cc	5:cc	_
 5	work	work	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	3	conj	3:conj:or|9:advcl:if	_
 6	there	there	ADV	RB	PronType=Dem	5	advmod	5:advmod	_
@@ -21741,7 +21741,7 @@
 10-11	aren't	_	_	_	_	_	_	_	_
 10	are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	12	cop	12:cop	_
 11	n't	not	PART	RB	_	12	advmod	12:advmod	_
-12	offensive	offensive	ADJ	JJ	Degree=Pos	6	advcl	6:advcl:if	_
+12	offensive	offensive	ADJ	JJ	Degree=Pos	6	advcl	6:advcl:if	Cxn=Condition-Realistic
 13	and	and	CCONJ	CC	_	16	cc	16:cc	_
 14	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	16	nsubj	16:nsubj	_
 15	should	should	AUX	MD	VerbForm=Fin	16	aux	16:aux	_
@@ -21768,7 +21768,7 @@
 36	really	really	ADV	RB	_	37	advmod	37:advmod	_
 37	say	say	VERB	VB	VerbForm=Inf	33	acl:relcl	33:acl:relcl	_
 38	if	if	SCONJ	IN	_	39	mark	39:mark	_
-39	so	so	ADV	RB	_	41	advcl	41:advcl:if	_
+39	so	so	ADV	RB	_	41	advcl	41:advcl:if	Cxn=Condition-Reduced
 40	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	41	nsubj	41:nsubj	_
 41	have	have	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	33	parataxis	33:parataxis	_
 42	a	a	DET	DT	Definite=Ind|PronType=Art	43	det	43:det	_
@@ -21948,7 +21948,7 @@
 4	,	,	PUNCT	,	_	3	punct	3:punct	_
 5	if	if	SCONJ	IN	_	7	mark	7:mark	_
 6	there	there	PRON	EX	_	7	expl	7:expl	_
-7	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	3	advcl	3:advcl:if	_
+7	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	3	advcl	3:advcl:if	Cxn=Condition-Realistic
 8	not	not	PART	RB	_	7	advmod	7:advmod	_
 9	a	a	DET	DT	Definite=Ind|PronType=Art	10	det	10:det	_
 10	bird	bird	NOUN	NN	Number=Sing	7	nsubj	7:nsubj	_
@@ -22025,7 +22025,7 @@
 # text = If you see a dark spot in the egg, that means it is fertilized and will hatch if cared for properly.
 1	If	if	SCONJ	IN	_	3	mark	3:mark	_
 2	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	3	nsubj	3:nsubj	_
-3	see	see	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	12	advcl	12:advcl:if	_
+3	see	see	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	12	advcl	12:advcl:if	Cxn=Condition-Realistic
 4	a	a	DET	DT	Definite=Ind|PronType=Art	6	det	6:det	_
 5	dark	dark	ADJ	JJ	Degree=Pos	6	amod	6:amod	_
 6	spot	spot	NOUN	NN	Number=Sing	3	obj	3:obj	_
@@ -22042,7 +22042,7 @@
 17	will	will	AUX	MD	VerbForm=Fin	18	aux	18:aux	_
 18	hatch	hatch	VERB	VB	VerbForm=Inf	15	conj	12:ccomp|15:conj:and	_
 19	if	if	SCONJ	IN	_	20	mark	20:mark	_
-20	cared	care	VERB	VBN	Tense=Past|VerbForm=Part	18	advcl	18:advcl:if	_
+20	cared	care	VERB	VBN	Tense=Past|VerbForm=Part	18	advcl	18:advcl:if	Cxn=Condition-Reduced
 21	for	for	ADP	IN	_	20	obl	20:obl	_
 22	properly	properly	ADV	RB	_	20	advmod	20:advmod	SpaceAfter=No
 23	.	.	PUNCT	.	_	12	punct	12:punct	_
@@ -22123,7 +22123,7 @@
 13	lot	lot	NOUN	NN	Number=Sing	11	obl:npmod	11:obl:npmod	_
 14	if	if	SCONJ	IN	_	16	mark	16:mark	_
 15	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	16	nsubj	16:nsubj	_
-16	listed	list	VERB	VBD	Mood=Ind|Number=Sing|Person=2|Tense=Past|VerbForm=Fin	11	advcl	11:advcl:if	_
+16	listed	list	VERB	VBD	Mood=Ind|Number=Sing|Person=2|Tense=Past|VerbForm=Fin	11	advcl	11:advcl:if	Cxn=Condition-Realistic
 17	a	a	DET	DT	Definite=Ind|PronType=Art	18	det	18:det	_
 18	state	state	NOUN	NN	Number=Sing	16	obj	16:obj	_
 19	or	or	CCONJ	CC	_	21	cc	21:cc	_
@@ -22402,7 +22402,7 @@
 2	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	5	nsubj	5:nsubj	_
 3	s	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	5	cop	5:cop	_
 4	not	not	PART	RB	_	5	advmod	5:advmod	_
-5	available	available	ADJ	JJ	Degree=Pos	6	advcl	6:advcl:if	_
+5	available	available	ADJ	JJ	Degree=Pos	6	advcl	6:advcl:if	Cxn=Condition-Realistic
 6	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
 7	there	there	PRON	EX	_	6	expl	6:expl	_
 8	nearby	nearby	ADJ	JJ	Degree=Pos	9	amod	9:amod	_
@@ -22584,7 +22584,7 @@
 6	if	if	SCONJ	IN	_	9	mark	9:mark	_
 7	i	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	9	nsubj	9:nsubj	_
 8	am	be	AUX	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	9	cop	9:cop	_
-9	mexican	Mexican	ADJ	JJ	Degree=Pos	3	advcl	3:advcl:if	SpaceAfter=No
+9	mexican	Mexican	ADJ	JJ	Degree=Pos	3	advcl	3:advcl:if	Cxn=Condition-Realistic|SpaceAfter=No
 10	?	?	PUNCT	.	_	3	punct	3:punct	_
 
 # sent_id = answers-20111108110008AA7xHnL_ans-0005
@@ -22834,7 +22834,7 @@
 3-4	cannot	_	_	_	_	_	_	_	_
 3	can	can	AUX	MD	VerbForm=Fin	5	aux	5:aux	_
 4	not	not	PART	RB	_	5	advmod	5:advmod	_
-5	wait	wait	VERB	VB	VerbForm=Inf	8	advcl	8:advcl:if	_
+5	wait	wait	VERB	VB	VerbForm=Inf	8	advcl	8:advcl:if	Cxn=Condition-Reduced
 6	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	8	nsubj	8:nsubj	_
 7	should	should	AUX	MD	VerbForm=Fin	8	aux	8:aux	_
 8	book	book	VERB	VB	VerbForm=Inf	0	root	0:root	_
@@ -23811,7 +23811,7 @@
 # text = If there is no male they are probably infertile!
 1	If	if	SCONJ	IN	_	3	mark	3:mark	_
 2	there	there	PRON	EX	_	3	expl	3:expl	_
-3	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	9	advcl	9:advcl:if	_
+3	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	9	advcl	9:advcl:if	Cxn=Condition-Realistic
 4	no	no	DET	DT	_	5	det	5:det	_
 5	male	male	NOUN	NN	Number=Sing	3	nsubj	3:nsubj	_
 6	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	9	nsubj	9:nsubj	_
@@ -23824,7 +23824,7 @@
 # text = If you take a flash light and shine it through the eggs and you see nothing throw them away!
 1	If	if	SCONJ	IN	_	3	mark	3:mark	_
 2	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	3	nsubj	3:nsubj|8:nsubj	_
-3	take	take	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	17	advcl	17:advcl:if	_
+3	take	take	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	17	advcl	17:advcl:if	Cxn=Condition-Realistic
 4	a	a	DET	DT	Definite=Ind|PronType=Art	6	det	6:det	_
 5	flash	flash	NOUN	NN	Number=Sing	6	compound	6:compound	_
 6	light	light	NOUN	NN	Number=Sing	3	obj	3:obj	_
@@ -23847,7 +23847,7 @@
 # text = If you do not they will start to rot!
 1	If	if	SCONJ	IN	_	3	mark	3:mark	_
 2	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	3	nsubj	3:nsubj	_
-3	do	do	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	7	advcl	7:advcl:if	_
+3	do	do	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	7	advcl	7:advcl:if	Cxn=Condition-Realistic
 4	not	not	PART	RB	_	3	advmod	3:advmod	_
 5	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	7	nsubj	7:nsubj|9:nsubj:xsubj	_
 6	will	will	AUX	MD	VerbForm=Fin	7	aux	7:aux	_
@@ -23860,7 +23860,7 @@
 # text = If she has no male to fertilize the eggs, the eggs will aways be infertile.
 1	If	if	SCONJ	IN	_	3	mark	3:mark	_
 2	she	she	PRON	PRP	Case=Nom|Gender=Fem|Number=Sing|Person=3|PronType=Prs	3	nsubj	3:nsubj	_
-3	has	have	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	16	advcl	16:advcl:if	_
+3	has	have	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	16	advcl	16:advcl:if	Cxn=Condition-Realistic
 4	no	no	DET	DT	_	5	det	5:det	_
 5	male	male	NOUN	NN	Number=Sing	3	obj	3:obj	_
 6	to	to	PART	TO	_	7	mark	7:mark	_
@@ -23881,7 +23881,7 @@
 1	if	if	SCONJ	IN	_	4	mark	4:mark	_
 2	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	4	nsubj	4:nsubj	_
 3	do	do	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	4	aux	4:aux	_
-4	have	have	VERB	VB	VerbForm=Inf	25	advcl	25:advcl:if	_
+4	have	have	VERB	VB	VerbForm=Inf	25	advcl	25:advcl:if	Cxn=Condition-Reduced
 5	a	a	DET	DT	Definite=Ind|PronType=Art	6	det	6:det	_
 6	male	male	NOUN	NN	Number=Sing	4	obj	4:obj	_
 7	but	but	CCONJ	CC	_	14	cc	14:cc	_
@@ -24707,7 +24707,7 @@
 # text = If you want easy then go with a gold fish or hamster.
 1	If	if	SCONJ	IN	_	3	mark	3:mark	_
 2	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	3	nsubj	3:nsubj	_
-3	want	want	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	6	advcl	6:advcl:if	_
+3	want	want	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	6	advcl	6:advcl:if	Cxn=Condition-Realistic
 4	easy	easy	ADJ	JJ	Degree=Pos	3	obj	3:obj	_
 5	then	then	ADV	RB	PronType=Dem	6	advmod	6:advmod	_
 6	go	go	VERB	VB	Mood=Imp|VerbForm=Fin	0	root	0:root	_
@@ -24741,7 +24741,7 @@
 17	gerbil	gerbil	NOUN	NN	Number=Sing	11	conj	7:nmod:such_as|11:conj:or	_
 18	if	if	SCONJ	IN	_	20	mark	20:mark	_
 19	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	20	nsubj	20:nsubj	_
-20	want	want	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	3	advcl	3:advcl:if	_
+20	want	want	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	3	advcl	3:advcl:if	Cxn=Condition-Realistic
 21	something	something	PRON	NN	Number=Sing|PronType=Ind	20	obj	20:obj	_
 22	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	24	nsubj	24:nsubj|26:nsubj	_
 23	can	can	AUX	MD	VerbForm=Fin	24	aux	24:aux	_
@@ -25774,7 +25774,7 @@
 2-3	you're	_	_	_	_	_	_	_	_
 2	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	4	nsubj	4:nsubj	_
 3	're	be	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	4	aux	4:aux	_
-4	looking	look	VERB	VBG	VerbForm=Ger	13	advcl	13:advcl:if	_
+4	looking	look	VERB	VBG	VerbForm=Ger	13	advcl	13:advcl:if	Cxn=Condition-Realistic
 5	for	for	ADP	IN	_	8	case	8:case	_
 6	homestyle	homestyle	ADJ	JJ	Degree=Pos	8	amod	8:amod	_
 7	Japanese	Japanese	ADJ	JJ	Degree=Pos	8	amod	8:amod	_
@@ -28639,7 +28639,7 @@
 # text = If you mention the name Amir you will receive %10 off at time of purchase
 1	If	if	SCONJ	IN	_	3	mark	3:mark	_
 2	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	3	nsubj	3:nsubj	_
-3	mention	mention	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	9	advcl	9:advcl:if	_
+3	mention	mention	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	9	advcl	9:advcl:if	Cxn=Condition-Realistic
 4	the	the	DET	DT	Definite=Def|PronType=Art	5	det	5:det	_
 5	name	name	NOUN	NN	Number=Sing	3	obj	3:obj	_
 6	Amir	Amir	PROPN	NNP	Number=Sing	5	appos	5:appos	_
@@ -28750,7 +28750,7 @@
 6	if	if	SCONJ	IN	_	9	mark	9:mark	_
 7	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	9	nsubj	9:nsubj	_
 8	are	be	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	9	aux	9:aux	_
-9	looking	look	VERB	VBG	VerbForm=Ger	3	advcl	3:advcl:if	_
+9	looking	look	VERB	VBG	VerbForm=Ger	3	advcl	3:advcl:if	Cxn=Condition-Realistic
 10	for	for	ADP	IN	_	11	case	11:case	_
 11	Accommodation	accommodation	NOUN	NN	Number=Sing	9	obl	9:obl:for	_
 12	in	in	ADP	IN	_	14	case	14:case	_
@@ -30428,7 +30428,7 @@
 # text = If you want an attorney who will defend your right, contact Law Offices of Armando Villega
 1	If	if	SCONJ	IN	_	3	mark	3:mark	_
 2	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	3	nsubj	3:nsubj	_
-3	want	want	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	12	advcl	12:advcl:if	_
+3	want	want	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	12	advcl	12:advcl:if	Cxn=Condition-Realistic
 4	an	a	DET	DT	Definite=Ind|PronType=Art	5	det	5:det	_
 5	attorney	attorney	NOUN	NN	Number=Sing	3	obj	3:obj|8:nsubj	_
 6	who	who	PRON	WP	PronType=Rel	8	nsubj	5:ref	_
@@ -30589,7 +30589,7 @@
 1	If	if	SCONJ	IN	_	4	mark	4:mark	_
 2	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	4	nsubj	4:nsubj	_
 3	are	be	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	4	aux	4:aux	_
-4	looking	look	VERB	VBG	VerbForm=Ger	12	advcl	12:advcl:if	_
+4	looking	look	VERB	VBG	VerbForm=Ger	12	advcl	12:advcl:if	Cxn=Condition-Realistic
 5	for	for	ADP	IN	_	9	case	9:case	_
 6	authentic	authentic	ADJ	JJ	Degree=Pos	9	amod	9:amod	_
 7	British	British	ADJ	JJ	Degree=Pos	9	amod	9:amod	_
@@ -31306,7 +31306,7 @@
 # text = If you want cheaply made glass from India and China, this is not your place.
 1	If	if	SCONJ	IN	_	3	mark	3:mark	_
 2	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	3	nsubj	3:nsubj	_
-3	want	want	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	16	advcl	16:advcl:if	_
+3	want	want	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	16	advcl	16:advcl:if	Cxn=Condition-Realistic
 4	cheaply	cheaply	ADV	RB	_	5	advmod	5:advmod	_
 5	made	make	VERB	VBN	Tense=Past|VerbForm=Part	6	amod	6:amod	_
 6	glass	glass	NOUN	NN	Number=Sing	3	obj	3:obj	_
@@ -31626,7 +31626,7 @@
 # text = if you want good pizza, go to famoso.
 1	if	if	SCONJ	IN	_	3	mark	3:mark	_
 2	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	3	nsubj	3:nsubj	_
-3	want	want	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	7	advcl	7:advcl:if	_
+3	want	want	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	7	advcl	7:advcl:if	Cxn=Condition-Realistic
 4	good	good	ADJ	JJ	Degree=Pos	5	amod	5:amod	_
 5	pizza	pizza	NOUN	NN	Number=Sing	3	obj	3:obj	SpaceAfter=No
 6	,	,	PUNCT	,	_	7	punct	7:punct	_
@@ -31742,7 +31742,7 @@
 10-11	can't	_	_	_	_	_	_	_	_
 10	ca	can	AUX	MD	VerbForm=Fin	12	aux	12:aux	_
 11	n't	not	PART	RB	_	12	advmod	12:advmod	_
-12	decide	decide	VERB	VB	VerbForm=Inf	7	advcl	7:advcl:if|15:csubj	_
+12	decide	decide	VERB	VB	VerbForm=Inf	7	advcl	7:advcl:if|15:csubj	Cxn=Condition-Reduced
 13	(	(	PUNCT	-LRB-	_	15	punct	15:punct	SpaceAfter=No
 14	which	which	PRON	WDT	PronType=Rel	15	nsubj	12:ref	_
 15	happens	happen	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	12	advcl:relcl	12:advcl:relcl	_
@@ -32233,7 +32233,7 @@
 # newpar id = reviews-313558-p0002
 # text = If possible I try the services on myself before I bring in my son.
 1	If	if	SCONJ	IN	_	2	mark	2:mark	_
-2	possible	possible	ADJ	JJ	Degree=Pos	4	advcl	4:advcl:if	_
+2	possible	possible	ADJ	JJ	Degree=Pos	4	advcl	4:advcl:if	Cxn=Condition-Reduced
 3	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	4:nsubj	_
 4	try	try	VERB	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	0	root	0:root	_
 5	the	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	_

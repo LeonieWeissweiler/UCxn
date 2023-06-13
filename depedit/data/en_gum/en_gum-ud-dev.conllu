@@ -2663,7 +2663,7 @@
 15	if	if	SCONJ	IN	_	18	mark	18:mark	Discourse=adversative-concession:54->53:0
 16	short	short	ADJ	JJ	Degree=Pos	18	compound	18:compound	SpaceAfter=No|XML=<w>
 17	-	-	PUNCT	HYPH	_	16	punct	16:punct	SpaceAfter=No
-18	lived	lived	ADJ	JJ	Degree=Pos	14	advcl	14:advcl:if	XML=</w>
+18	lived	lived	ADJ	JJ	Degree=Pos	14	advcl	14:advcl:if	Cxn=Condition-Reduced|XML=</w>
 19	romantic	romantic	ADJ	JJ	Degree=Pos	20	amod	20:amod	Discourse=same-unit_m:55->53:1
 20	relationship	relationship	NOUN	NN	Number=Sing	10	nmod	10:nmod:of	_
 21	with	with	ADP	IN	_	24	case	24:case	_
@@ -4637,7 +4637,7 @@
 1	If	if	SCONJ	IN	_	4	mark	4:mark	Discourse=contingency-condition:26->28:0
 2	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	4:nsubj	Entity=(4-person-giv:inact-cf1-1-ana)
 3	did	do	AUX	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	4	aux	4:aux	_
-4	spend	spend	VERB	VB	VerbForm=Inf	17	advcl	17:advcl:if	Entity=(17-event-new-cf4-1-disc
+4	spend	spend	VERB	VB	VerbForm=Inf	17	advcl	17:advcl:if	Cxn=Condition-Reduced|Entity=(17-event-new-cf4-1-disc
 5	the	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	Entity=(7-time-giv:act-cf2*-2-coref
 6	night	night	NOUN	NN	Number=Sing	4	obj	4:obj	Entity=7)17)|SpaceAfter=No
 7	,	,	PUNCT	,	_	11	punct	11:punct	_
@@ -4650,7 +4650,7 @@
 14	,	,	PUNCT	,	_	4	punct	4:punct	_
 15	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	17	nsubj	17:nsubj	Discourse=joint-list_m:28->25:0|Entity=(4-person-giv:act-cf1-1-ana)
 16	would	would	AUX	MD	VerbForm=Fin	17	aux	17:aux	_
-17	give	give	VERB	VB	VerbForm=Inf	0	root	0:root	Cxn=Condition-Hypothetical-Modal
+17	give	give	VERB	VB	VerbForm=Inf	0	root	0:root	_
 18	up	up	ADP	RP	_	17	compound:prt	17:compound:prt	SpaceAfter=No
 19	,	,	PUNCT	,	_	25	punct	25:punct	_
 20	cause	cause	SCONJ	IN	_	25	mark	25:mark	Discourse=causal-cause:29->28:1
@@ -5676,7 +5676,7 @@
 2	time	time	NOUN	NN	Number=Sing	12	obl:tmod	12:obl:tmod	Entity=50)
 3	if	if	SCONJ	IN	_	5	mark	5:mark	Discourse=contingency-condition:116->117:0
 4	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	5	nsubj	5:nsubj	Entity=(4-person-giv:inact-cf1-1-ana)
-5	leave	leave	VERB	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	12	advcl	12:advcl:if	_
+5	leave	leave	VERB	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	12	advcl	12:advcl:if	Cxn=Condition-Realistic
 6	in	in	ADP	IN	_	8	case	8:case	_
 7	the	the	DET	DT	Definite=Def|PronType=Art	8	det	8:det	Entity=(51-time-new-cf3-2-sgl
 8	morning	morning	NOUN	NN	Number=Sing	5	obl	5:obl:in	Entity=51)|SpaceAfter=No
@@ -5809,7 +5809,7 @@
 2	if	if	SCONJ	IN	_	5	mark	5:mark	_
 3	we	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	5	nsubj	5:nsubj	Entity=(52-person-giv:act-cf1*-1-ana)
 4	are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=1|Tense=Pres|VerbForm=Fin	5	cop	5:cop	_
-5	awake	awake	ADJ	JJ	Degree=Pos	1	advcl	1:advcl:if	SpaceAfter=No
+5	awake	awake	ADJ	JJ	Degree=Pos	1	advcl	1:advcl:if	Cxn=Condition-What-If|SpaceAfter=No
 6	?	?	PUNCT	.	_	1	punct	1:punct	_
 
 # sent_id = GUM_conversation_grounded-79
@@ -5891,14 +5891,14 @@
 2	think	think	VERB	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	0	root	0:root	_
 3	if	if	SCONJ	IN	_	5	mark	5:mark	Discourse=contingency-condition:137->138:0
 4	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	5	nsubj	5:nsubj	Entity=(4-person-giv:act-cf1*-1-ana)
-5	spent	spend	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	11	advcl	11:advcl:if	_
+5	spent	spend	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	11	advcl	11:advcl:if	Cxn=Condition-Unrealistic-Modal
 6	the	the	DET	DT	Definite=Def|PronType=Art	7	det	7:det	Entity=(7-time-giv:inact-cf3-2-coref
 7	night	night	NOUN	NN	Number=Sing	5	obj	5:obj	Entity=7)
 8	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	11	nsubj	11:nsubj	Discourse=explanation-evidence:138->109:4|Entity=(4-person-giv:act-cf1*-1-ana)
 9-10	would've	_	_	_	_	_	_	_	_
 9	would	would	AUX	MD	VerbForm=Fin	11	aux	11:aux	_
 10	've	have	AUX	VB	VerbForm=Inf	11	aux	11:aux	_
-11	took	take	VERB	VBN	Tense=Past|Typo=Yes|VerbForm=Part	2	ccomp	2:ccomp	CorrectForm=taken|Cxn=Condition-Unrealistic-Modal|XML=<sic ana:::"taken"></sic>
+11	took	take	VERB	VBN	Tense=Past|Typo=Yes|VerbForm=Part	2	ccomp	2:ccomp	CorrectForm=taken|XML=<sic ana:::"taken"></sic>
 12	a	a	DET	DT	Definite=Ind|PronType=Art	13	det	13:det	Entity=(59-event-giv:act-cf2-2-coref
 13	shower	shower	NOUN	NN	Number=Sing	11	obj	11:obj	Entity=59)|SpaceAfter=No
 14	.	.	PUNCT	.	_	2	punct	2:punct	_
@@ -6245,7 +6245,7 @@
 1	See	see	VERB	VB	Person=2|VerbForm=Inf	0	root	0:root	Discourse=organization-preparation:166->169:2
 2	if	if	SCONJ	IN	_	4	mark	4:mark	Discourse=contingency-condition:167->169:1
 3	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	4:nsubj	Entity=(4-person-giv:inact-cf2-1-ana)
-4	spent	spend	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	11	advcl	11:advcl:if	_
+4	spent	spend	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	11	advcl	11:advcl:if	Cxn=Condition-Realistic
 5	the	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	Entity=(77-time-new-cf3-2-sgl
 6	night	night	NOUN	NN	Number=Sing	4	obj	4:obj	Entity=77)
 7	mom	mom	NOUN	NN	Number=Sing	11	vocative	11:vocative	Entity=(10-person-giv:inact-cf1-1-coref)|SpaceAfter=No
@@ -15120,7 +15120,7 @@
 17	that	that	PRON	WDT	PronType=Rel	28	nsubj	16:ref	Discourse=elaboration-additional:71->70:0|SpaceAfter=No
 18	,	,	PUNCT	,	_	17	punct	17:punct	_
 19	if	if	SCONJ	IN	_	20	mark	20:mark	Discourse=contingency-condition:72->73:0
-20	given	give	VERB	VBN	Tense=Past|VerbForm=Part	28	advcl	28:advcl:if	_
+20	given	give	VERB	VBN	Tense=Past|VerbForm=Part	28	advcl	28:advcl:if	Cxn=Condition-Reduced
 21	to	to	ADP	IN	_	24	case	24:case	_
 22	a	a	DET	DT	Definite=Ind|PronType=Art	24	det	24:det	_
 23	healthy	healthy	ADJ	JJ	Degree=Pos	24	amod	24:amod	_
@@ -15846,7 +15846,7 @@
 4	that	that	SCONJ	IN	_	10	mark	10:mark	Discourse=explanation-evidence:55->52:1
 5	few	few	ADJ	JJ	Degree=Pos	9	amod	9:amod	Entity=(61-organization-giv:inact-cf4-5-coref
 6	if	if	SCONJ	IN	_	7	mark	7:mark	_
-7	any	any	DET	DT	PronType=Ind	5	advcl	5:advcl:if	_
+7	any	any	DET	DT	PronType=Ind	5	advcl	5:advcl:if	Cxn=Condition-Reduced
 8	food	food	NOUN	NN	Number=Sing	9	compound	9:compound	Entity=(47-substance-giv:act-cf2-1-coref)
 9	manufacturers	manufacturer	NOUN	NNS	Number=Plur	10	nsubj	10:nsubj	Entity=61)
 10	use	use	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	3	ccomp	3:ccomp	_
@@ -15952,7 +15952,7 @@
 1	So	so	ADV	RB	_	13	advmod	13:advmod	Discourse=joint-other_m:62->3:8|XML=<quote>
 2	if	if	SCONJ	IN	_	4	mark	4:mark	Discourse=contingency-condition:63->65:2
 3	we	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	4	nsubj	4:nsubj	Entity=(87-person-acc:com-cf6-1-sgl)
-4	go	go	VERB	VBP	Mood=Ind|Number=Plur|Person=1|Tense=Pres|VerbForm=Fin	13	advcl	13:advcl:if	_
+4	go	go	VERB	VBP	Mood=Ind|Number=Plur|Person=1|Tense=Pres|VerbForm=Fin	13	advcl	13:advcl:if	Cxn=Condition-Realistic
 5	to	to	ADP	IN	_	8	case	8:case	_
 6	the	the	DET	DT	Definite=Def|PronType=Art	8	det	8:det	Entity=(88-person-new-cf1-3-coref
 7	pregnant	pregnant	ADJ	JJ	Degree=Pos	8	amod	8:amod	_
@@ -16040,7 +16040,7 @@
 4	infant	infant	NOUN	NN	Number=Sing	7	nsubj	7:nsubj	Entity=102)
 5	's	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	7	aux	7:aux	_
 6	not	not	PART	RB	Polarity=Neg	7	advmod	7:advmod	_
-7	getting	get	VERB	VBG	Tense=Pres|VerbForm=Part	16	advcl	16:advcl:if	_
+7	getting	get	VERB	VBG	Tense=Pres|VerbForm=Part	16	advcl	16:advcl:if	Cxn=Condition-Realistic
 8	enough	enough	ADJ	JJ	Degree=Pos	9	amod	9:amod	Entity=(3-substance-giv:act-cf5-2-coref-Iodine
 9	iodine	iodine	NOUN	NN	Number=Sing	7	obj	7:obj	Entity=3)
 10	...	…	PUNCT	:	_	7	punct	7:punct	_
@@ -16314,7 +16314,7 @@
 3	Iodine	iodine	NOUN	NN	Number=Sing	4	compound	4:compound	Entity=(2-abstract-giv:inact-cf2-2-coref(3-substance-giv:inact-cf3-1-coref-Iodine)
 4	deficiency	deficiency	NOUN	NN	Number=Sing	6	nsubj	6:nsubj	Entity=2)
 5	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	cop	6:cop	_
-6	serious	serious	ADJ	JJ	Degree=Pos	8	advcl	8:advcl:if	_
+6	serious	serious	ADJ	JJ	Degree=Pos	8	advcl	8:advcl:if	Cxn=Condition-Realistic
 7	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	8	nsubj	8:nsubj	Discourse=adversative-antithesis:98->99:1|Entity=(102-person-giv:inact-cf1-1-ana)
 8	lose	lose	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	0	root	0:root	_
 9	15	15	NUM	CD	NumForm=Digit|NumType=Card	11	nummod	11:nummod	Entity=(122-abstract-new-cf5-3-sgl
@@ -17394,7 +17394,7 @@
 9	Senators	senator	NOUN	NNS	Number=Plur	12	nsubj	12:nsubj	Entity=(13-person-giv:inact-cf1-1-coref)
 10	do	do	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	12	aux	12:aux	_
 11	not	not	PART	RB	Polarity=Neg	12	advmod	12:advmod	_
-12	uphold	uphold	VERB	VB	VerbForm=Inf	7	advcl	7:advcl:if	_
+12	uphold	uphold	VERB	VB	VerbForm=Inf	7	advcl	7:advcl:if	Cxn=Condition-Reduced
 13	their	their	PRON	PRP$	Case=Gen|Number=Plur|Person=3|Poss=Yes|PronType=Prs	14	nmod:poss	14:nmod:poss	Entity=(2-abstract-giv:inact-cf2-2-coref(13-person-giv:act-cf1-1-ana)
 14	oaths	oath	NOUN	NNS	Number=Plur	12	obj	12:obj	Entity=2)
 15	to	to	ADP	IN	_	17	case	17:case	_
@@ -17423,7 +17423,7 @@
 13	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	16	nsubj	16:nsubj	Entity=(71-organization-giv:act-cf1*-1-ana-United_States_Senate)
 14	does	do	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	16	aux	16:aux	_
 15	not	not	PART	RB	Polarity=Neg	16	advmod	16:advmod	_
-16	hold	hold	VERB	VB	VerbForm=Inf	11	advcl	11:advcl:if	_
+16	hold	hold	VERB	VB	VerbForm=Inf	11	advcl	11:advcl:if	Cxn=Condition-Reduced
 17	this	this	DET	DT	Number=Sing|PronType=Dem	18	det	18:det	Entity=(7-person-giv:inact-cf2-2-coref-Donald_Trump
 18	President	President	PROPN	NNP	Number=Sing	16	obj	16:obj|19:nsubj:xsubj	Entity=7)
 19	accountable	accountable	ADJ	JJ	Degree=Pos	16	xcomp	16:xcomp	_
@@ -18916,7 +18916,7 @@
 6	among	among	ADP	IN	_	7	case	7:case	_
 7	us	we	PRON	PRP	Case=Acc|Number=Plur|Person=1|PronType=Prs	5	nmod	5:nmod:among	Entity=(9-person-giv:act-cf2*-1-ana-Americans)99)
 8	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	9	cop	9:cop	_
-9	capable	capable	ADJ	JJ	Degree=Pos	18	advcl	18:advcl:if	_
+9	capable	capable	ADJ	JJ	Degree=Pos	18	advcl	18:advcl:if	Cxn=Condition-Realistic
 10	of	of	SCONJ	IN	_	11	mark	11:mark	Discourse=elaboration-additional:69->68:0
 11	governing	govern	VERB	VBG	VerbForm=Ger	9	advcl	9:advcl:of	_
 12	himself	himself	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs|Reflex=Yes	11	obj	11:obj	Entity=(99-person-giv:act-cf1-1-ana)|SpaceAfter=No
@@ -19532,7 +19532,7 @@
 10	proposed	propose	VERB	VBN	Tense=Past|VerbForm=Part	11	amod	11:amod	_
 11	law	law	NOUN	NN	Number=Sing	8	obj	8:obj	Entity=42)41)
 12	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	13	cop	13:cop	Discourse=same-unit_m:18->16:1
-13	greater	great	ADJ	JJR	Degree=Cmp	24	advcl	24:advcl:if	_
+13	greater	great	ADJ	JJR	Degree=Cmp	24	advcl	24:advcl:if	Cxn=Condition-Realistic
 14	than	than	ADP	IN	_	15	case	15:case	_
 15	those	that	PRON	DT	Number=Plur|PronType=Dem	13	obl	13:obl:than|17:nsubj	Entity=(43-person-new-cf3-1-sgl
 16	who	who	PRON	WP	PronType=Rel	17	nsubj	15:ref	Discourse=elaboration-attribute:19->18:0
@@ -19584,7 +19584,7 @@
 28	number	number	NOUN	NN	Number=Sing	31	nsubj	31:nsubj	_
 29	of	of	ADP	IN	_	30	case	30:case	_
 30	people	person	NOUN	NNS	Number=Plur	28	nmod	28:nmod:of	Entity=48)
-31	think	think	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	20	advcl	20:advcl:if	_
+31	think	think	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	20	advcl	20:advcl:if	Cxn=Condition-Realistic
 32	that	that	SCONJ	IN	_	35	mark	35:mark	Discourse=adversative-concession:24->22:0
 33	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	35	nsubj	35:nsubj	Entity=(46-person-giv:act-cf1-1-ana)
 34	should	should	AUX	MD	VerbForm=Fin	35	aux	35:aux	_
@@ -20919,7 +20919,7 @@
 # text = If you live in or near a big city, it is easier to attract enough customers to operate a successful dry cleaning business or movie theater than if you live in a sparsely populated rural area.
 1	If	if	SCONJ	IN	_	3	mark	3:mark	Discourse=contingency-condition:30->31:1
 2	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	3	nsubj	3:nsubj	Entity=(63-person-acc:com-cf1-1-ana)
-3	live	live	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	13	advcl	13:advcl:if	_
+3	live	live	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	13	advcl	13:advcl:if	Cxn=Condition-Realistic
 4	in	in	ADP	IN	_	9	case	9:case	_
 5	or	or	CCONJ	CC	_	6	cc	6:cc	_
 6	near	near	ADP	IN	_	4	conj	4:conj:or|9:case	_
@@ -20947,7 +20947,7 @@
 28	than	than	SCONJ	IN	_	31	mark	31:mark	Discourse=adversative-antithesis:33->31:2
 29	if	if	SCONJ	IN	_	31	mark	31:mark	_
 30	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	31	nsubj	31:nsubj	Entity=(63-person-giv:act-cf1-1-ana)
-31	live	live	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	13	advcl	13:advcl:than_if	_
+31	live	live	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	13	advcl	13:advcl:than_if	Cxn=Condition-Realistic
 32	in	in	ADP	IN	_	37	case	37:case	_
 33	a	a	DET	DT	Definite=Ind|PronType=Art	37	det	37:det	Entity=(71-place-new-cf7-5-sgl
 34	sparsely	sparsely	ADV	RB	Degree=Pos	35	advmod	35:advmod	_
@@ -20967,7 +20967,7 @@
 4	,	,	PUNCT	,	_	1	punct	1:punct	_
 5	if	if	SCONJ	IN	_	7	mark	7:mark	Discourse=contingency-condition:35->37:1
 6	people	person	NOUN	NNS	Number=Plur	7	nsubj	7:nsubj	Entity=(73-person-new-cf1-1-coref)
-7	specialize	specialize	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	21	advcl	21:advcl:if	_
+7	specialize	specialize	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	21	advcl	21:advcl:if	Cxn=Condition-Realistic
 8	in	in	ADP	IN	_	10	case	10:case	_
 9	the	the	DET	DT	Definite=Def|PronType=Art	10	det	10:det	Entity=(74-abstract-new-cf4-2-sgl
 10	production	production	NOUN	NN	Number=Sing	7	obl	7:obl:in	_
@@ -20985,7 +20985,7 @@
 22	than	than	SCONJ	IN	_	25	mark	25:mark	Discourse=adversative-antithesis:38->37:0
 23	if	if	SCONJ	IN	_	25	mark	25:mark	_
 24	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	25	nsubj	25:nsubj	Entity=(73-person-giv:act-cf1-1-ana)
-25	produce	produce	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	21	advcl	21:advcl:than_if	_
+25	produce	produce	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	21	advcl	21:advcl:than_if	Cxn=Condition-Realistic
 26	a	a	DET	DT	Definite=Ind|PronType=Art	27	det	27:det	Entity=(76-abstract-new-cf3-2-sgl
 27	combination	combination	NOUN	NN	Number=Sing	25	obj	25:obj	_
 28	of	of	ADP	IN	_	29	case	29:case	_
@@ -21216,7 +21216,7 @@
 4	if	if	SCONJ	IN	_	7	mark	7:mark	Discourse=contingency-condition:67->68:0
 5	a	a	DET	DT	Definite=Ind|PronType=Art	6	det	6:det	Entity=(109-organization-new-cf2-2-sgl
 6	factory	factory	NOUN	NN	Number=Sing	7	nsubj	7:nsubj	Entity=109)
-7	produces	produce	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	19	advcl	19:advcl:if	_
+7	produces	produce	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	19	advcl	19:advcl:if	Cxn=Condition-Realistic
 8	only	only	ADV	RB	_	9	advmod	9:advmod	Entity=(110-object-new-cf3-3-coref
 9	100	100	NUM	CD	NumForm=Digit|NumType=Card	10	nummod	10:nummod	_
 10	cars	car	NOUN	NNS	Number=Plur	7	obj	7:obj	Entity=110)
@@ -21245,7 +21245,7 @@
 3	if	if	SCONJ	IN	_	6	mark	6:mark	Discourse=contingency-condition:70->71:1
 4	a	a	DET	DT	Definite=Ind|PronType=Art	5	det	5:det	Entity=(113-organization-new-cf1-2-coref
 5	factory	factory	NOUN	NN	Number=Sing	6	nsubj	6:nsubj	Entity=113)
-6	produces	produce	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	15	advcl	15:advcl:if	_
+6	produces	produce	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	15	advcl	15:advcl:if	Cxn=Condition-Realistic
 7	50,000	50000	NUM	CD	NumForm=Digit|NumType=Card	8	nummod	8:nummod	Entity=(114-object-new-cf4-2-sgl
 8	cars	car	NOUN	NNS	Number=Plur	6	obj	6:obj	Entity=114)
 9	each	each	DET	DT	PronType=Tot	10	det	10:det	Entity=(111-time-giv:act-cf2*-2-coref
@@ -21329,7 +21329,7 @@
 41	if	if	SCONJ	IN	_	44	mark	44:mark	_
 42	each	each	DET	DT	PronType=Tot	43	det	43:det	Entity=(128-person-new-cf2-2-coref
 43	person	person	NOUN	NN	Number=Sing	44	nsubj	44:nsubj|46:nsubj:xsubj	Entity=128)
-44	tried	try	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	39	advcl	39:advcl:than_if	_
+44	tried	try	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	39	advcl	39:advcl:than_if	Cxn=Condition-Realistic
 45	to	to	PART	TO	_	46	mark	46:mark	_
 46	produce	produce	VERB	VB	VerbForm=Inf	44	xcomp	44:xcomp	_
 47	all	all	DET	DT	PronType=Tot	46	obj	46:obj	Entity=(129-abstract-new-cf6-1-sgl
@@ -21857,7 +21857,7 @@
 13	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	16	nsubj	16:nsubj	Entity=(24-person-giv:act-cf1*-1-ana)|SpaceAfter=No
 14	're	be	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	16	aux	16:aux	_
 15	just	just	ADV	RB	_	16	advmod	16:advmod	_
-16	going	go	VERB	VBG	Tense=Pres|VerbForm=Part	11	advcl	11:advcl:if	_
+16	going	go	VERB	VBG	Tense=Pres|VerbForm=Part	11	advcl	11:advcl:if	Cxn=Condition-Realistic
 17	to	to	ADP	IN	_	18	case	18:case	_
 18	Portland	Portland	PROPN	NNP	Number=Sing	16	obl	16:obl:to	Entity=(8-place-giv:inact-cf3-1-coref-Portland%2C_Oregon)
 19	for	for	ADP	IN	_	21	case	21:case	_
@@ -21876,7 +21876,7 @@
 31	if	if	SCONJ	IN	_	34	mark	34:mark	Discourse=contingency-condition:45->43:1
 32	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	34	nsubj	34:nsubj	Entity=(24-person-giv:act-cf1*-1-ana)|SpaceAfter=No
 33	're	be	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	34	aux	34:aux	_
-34	going	go	VERB	VBG	Tense=Pres|VerbForm=Part	30	advcl	30:advcl:if	_
+34	going	go	VERB	VBG	Tense=Pres|VerbForm=Part	30	advcl	30:advcl:if	Cxn=Condition-Realistic
 35	out	out	ADV	RB	_	34	advmod	34:advmod	_
 36	to	to	ADP	IN	_	37	case	37:case	_
 37	Oregon	Oregon	PROPN	NNP	Number=Sing	35	obl	35:obl:to	Entity=(9-place-giv:inact-cf4-1-coref-Oregon)
@@ -22150,7 +22150,7 @@
 2	if	if	SCONJ	IN	_	5	mark	5:mark	Discourse=contingency-condition:69->73:0
 3	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	5	nsubj	5:nsubj	Entity=(24-person-giv:inact-cf1-1-ana)|SpaceAfter=No
 4	're	be	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	5	aux	5:aux	_
-5	looking	look	VERB	VBG	Tense=Pres|VerbForm=Part	30	advcl	30:advcl:if	_
+5	looking	look	VERB	VBG	Tense=Pres|VerbForm=Part	30	advcl	30:advcl:if	Cxn=Condition-Realistic
 6	for	for	ADP	IN	_	8	case	8:case	_
 7	a	a	DET	DT	Definite=Ind|PronType=Art	8	det	8:det	Entity=(67-object-new-cf4-2-coref
 8	book	book	NOUN	NN	Number=Sing	5	obl	5:obl:for	Entity=67)
@@ -22321,7 +22321,7 @@
 1	But	but	CCONJ	CC	_	14	cc	14:cc	Discourse=adversative-concession:87->83:3
 2	if	if	SCONJ	IN	_	4	mark	4:mark	Discourse=contingency-condition:88->90:1
 3	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	4	nsubj	4:nsubj	Entity=(24-person-giv:inact-cf1-1-ana)
-4	like	like	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	14	advcl	14:advcl:if	_
+4	like	like	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	14	advcl	14:advcl:if	Cxn=Condition-Realistic
 5	slugs	slug	NOUN	NNS	Number=Plur	4	obj	4:obj	Entity=(78-animal-new-cf2-1-sgl)|SpaceAfter=No
 6	,	,	PUNCT	,	_	4	punct	4:punct	_
 7	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	9	nsubj	9:nsubj	Discourse=organization-phatic:89->90:0|Entity=(24-person-giv:act-cf1-1-ana)|SpaceAfter=No|XML=<sic>
@@ -22443,7 +22443,7 @@
 4-5	don't	_	_	_	_	_	_	_	_
 4	do	do	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	6	aux	6:aux	_
 5	n't	not	PART	RB	Polarity=Neg	6	advmod	6:advmod	_
-6	want	want	VERB	VB	VerbForm=Inf	18	advcl	18:advcl:if	_
+6	want	want	VERB	VB	VerbForm=Inf	18	advcl	18:advcl:if	Cxn=Condition-Reduced
 7	to	to	PART	TO	_	8	mark	8:mark	_
 8	do	do	VERB	VB	VerbForm=Inf	6	xcomp	6:xcomp	_
 9	a	a	DET	DT	Definite=Ind|PronType=Art	10	det	10:det	Entity=(88-event-new-cf7-2,4-sgl
@@ -22684,7 +22684,7 @@
 3	's	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	cop	6:cop	_
 4	a	a	DET	DT	Definite=Ind|PronType=Art	6	det	6:det	Entity=(99-place-acc:com-cf3-3-coref
 5	clear	clear	ADJ	JJ	Degree=Pos	6	amod	6:amod	_
-6	day	day	NOUN	NN	Number=Sing	10	advcl	10:advcl:if	Entity=99)
+6	day	day	NOUN	NN	Number=Sing	10	advcl	10:advcl:if	Cxn=Condition-Realistic|Entity=99)
 7	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	10	nsubj	10:nsubj	Discourse=joint-list_m:123->110:2|Entity=(24-person-giv:act-cf1*-1-ana)
 8	can	can	AUX	MD	VerbForm=Fin	10	aux	10:aux	_
 9	actually	actually	ADV	RB	Degree=Pos	10	advmod	10:advmod	_
@@ -22869,7 +22869,7 @@
 19	me	I	PRON	PRP	Case=Acc|Number=Sing|Person=1|PronType=Prs	18	iobj	18:iobj	Entity=(3-person-giv:act-cf1*-1-ana)
 20	if	if	SCONJ	IN	_	22	mark	22:mark	Discourse=elaboration-attribute:146->144:0
 21	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	22	nsubj	22:nsubj	Entity=(3-person-giv:act-cf1*-1-ana)
-22	did	do	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	18	advcl	18:advcl:if	_
+22	did	do	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	18	advcl	18:advcl:if	Cxn=Condition-Realistic
 23	bird	bird	NOUN	NN	Number=Sing	24	compound	24:compound	Entity=(108-event-giv:act-cf2-2-coref(109-animal-giv:act-cf3-1-coref)
 24	watching	watching	NOUN	NN	Number=Sing	22	obj	22:obj	Entity=108)
 25	like	like	INTJ	UH	_	22	discourse	22:discourse	_
@@ -23699,7 +23699,7 @@
 17	so	so	ADV	RB	_	24	advmod	24:advmod	Discourse=adversative-concession:84->83:2
 18	if	if	SCONJ	IN	_	20	mark	20:mark	Discourse=contingency-condition:85->86:0
 19	anybody	anybody	PRON	NN	Number=Sing|PronType=Ind	20	nsubj	20:nsubj	Entity=(64-person-new-cf4-1-coref)
-20	knows	know	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	24	advcl	24:advcl:if	_
+20	knows	know	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	24	advcl	24:advcl:if	Cxn=Condition-Realistic
 21	what	what	PRON	WP	PronType=Rel	20	obj	20:obj	_
 22	this	this	PRON	DT	Number=Sing|PronType=Dem	23	nsubj	23:nsubj	Entity=(63-object-giv:act-cf2-1-ana)
 23	says	say	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	21	acl:relcl	21:acl:relcl	_
@@ -23769,7 +23769,7 @@
 1	So	so	ADV	RB	_	6	advmod	6:advmod	Discourse=adversative-concession:92->91:0
 2	if	if	SCONJ	IN	_	4	mark	4:mark	Discourse=contingency-condition:93->94:0
 3	anybody	anybody	PRON	NN	Number=Sing|PronType=Ind	4	nsubj	4:nsubj	Entity=(64-person-giv:inact-cf3-1-coref)
-4	speaks	speak	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	advcl	6:advcl:if	_
+4	speaks	speak	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	advcl	6:advcl:if	Cxn=Condition-Realistic
 5	Dutch	Dutch	PROPN	NNP	Number=Sing	4	obj	4:obj	Entity=(68-abstract-new-cf4-1-sgl-Dutch_language)
 6	tell	tell	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Cxn=Ditransitive|Discourse=same-unit_m:94->92:0
 7	me	I	PRON	PRP	Case=Acc|Number=Sing|Person=1|PronType=Prs	6	iobj	6:iobj	Entity=(4-person-giv:act-cf1*-1-ana)
@@ -24154,7 +24154,7 @@
 10	and	and	CCONJ	CC	_	16	cc	16:cc	Discourse=causal-result:130->129:0
 11	if	if	SCONJ	IN	_	13	mark	13:mark	Discourse=contingency-condition:131->132:0
 12	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	13	nsubj	13:nsubj	Entity=(5-person-giv:act-cf1*-1-ana)
-13	do	do	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	16	advcl	16:advcl:if	_
+13	do	do	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	16	advcl	16:advcl:if	Cxn=Condition-Realistic
 14-15	I'll	_	_	_	_	_	_	_	_
 14	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	16	nsubj	16:nsubj|17:nsubj:xsubj	Discourse=same-unit_m:132->130:0|Entity=(4-person-giv:act-cf2-1-ana)
 15	'll	will	AUX	MD	VerbForm=Fin	16	aux	16:aux	_
@@ -25894,7 +25894,7 @@
 7	dominant	dominant	ADJ	JJ	Degree=Pos	11	amod	11:amod	_
 8	if	if	SCONJ	IN	_	10	mark	10:mark	_
 9	not	not	PART	RB	Polarity=Neg	10	advmod	10:advmod	_
-10	entire	entire	ADJ	JJ	Degree=Pos	7	advcl	7:advcl:if	_
+10	entire	entire	ADJ	JJ	Degree=Pos	7	advcl	7:advcl:if	Cxn=Condition-Reduced
 11	population	population	NOUN	NN	Number=Sing	5	xcomp	5:xcomp	_
 12	of	of	ADP	IN	_	13	case	13:case	_
 13	Coron	Coron	PROPN	NNP	Number=Sing	11	nmod	11:nmod:of	Entity=(1-place-giv:inact-cf2-1-coref-Coron%2C_Palawan)44)|SpaceAfter=No
@@ -26648,7 +26648,7 @@
 7-8	you’ve	_	_	_	_	_	_	_	_
 7	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	9	nsubj	9:nsubj	Entity=(9-person-giv:inact-cf1-1-ana)
 8	’ve	have	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	9	aux	9:aux	_
-9	got	get	VERB	VBN	Tense=Past|VerbForm=Part	1	advcl	1:advcl:if	_
+9	got	get	VERB	VBN	Tense=Past|VerbForm=Part	1	advcl	1:advcl:if	Cxn=Condition-Realistic
 10	an	a	DET	DT	Definite=Ind|PronType=Art	11	det	11:det	Entity=(41-person-new-cf2-2-sgl
 11	audience	audience	NOUN	NN	Number=Sing	9	obj	9:obj	_
 12	full	full	ADJ	JJ	Degree=Pos	11	amod	11:amod	_
@@ -27106,7 +27106,7 @@
 3-4	don’t	_	_	_	_	_	_	_	_
 3	do	do	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	5	aux	5:aux	_
 4	n’t	not	PART	RB	Polarity=Neg	5	advmod	5:advmod	_
-5	lay	lie	VERB	VB	VerbForm=Inf	16	advcl	16:advcl:if	_
+5	lay	lie	VERB	VB	VerbForm=Inf	16	advcl	16:advcl:if	Cxn=Condition-Reduced
 6	a	a	DET	DT	Definite=Ind|PronType=Art	8	det	8:det	Entity=(86-abstract-new-cf5-3-sgl
 7	good	good	ADJ	JJ	Degree=Pos	8	amod	8:amod	_
 8	foundation	foundation	NOUN	NN	Number=Sing	5	obj	5:obj	Entity=86)
@@ -27269,7 +27269,7 @@
 # text = If you want to make the audience laugh, your punchline needs to be surprising.
 1	If	if	SCONJ	IN	_	3	mark	3:mark	Discourse=contingency-condition:88->89:0
 2	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	3	nsubj	3:nsubj|5:nsubj:xsubj|8:nsubj:xsubj	Entity=(9-person-giv:inact-cf1-1-ana)
-3	want	want	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	12	advcl	12:advcl:if	_
+3	want	want	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	12	advcl	12:advcl:if	Cxn=Condition-Realistic
 4	to	to	PART	TO	_	5	mark	5:mark	_
 5	make	make	VERB	VB	VerbForm=Inf	3	xcomp	3:xcomp	_
 6	the	the	DET	DT	Definite=Def|PronType=Art	7	det	7:det	Entity=(26-person-giv:inact-cf3-2-coref
@@ -27483,7 +27483,7 @@
 10	audience	audience	NOUN	NN	Number=Sing	13	nsubj	13:nsubj	Entity=26)
 11	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	13	cop	13:cop	_
 12	your	your	PRON	PRP$	Case=Gen|Number=Sing|Person=2|Poss=Yes|PronType=Prs	13	nmod:poss	13:nmod:poss	Entity=(106-person-new-cf5-2-sgl(9-person-giv:act-cf2-1-ana)
-13	friend(s)	friend	NOUN	NNS	Number=Plur	4	advcl	4:advcl:if	Entity=106)|SpaceAfter=No
+13	friend(s)	friend	NOUN	NNS	Number=Plur	4	advcl	4:advcl:if	Cxn=Condition-Realistic|Entity=106)|SpaceAfter=No
 14	.	.	PUNCT	.	_	4	punct	4:punct	_
 15	[	[	PUNCT	-LRB-	_	16	punct	16:punct	Discourse=explanation-evidence:108->104:1|SpaceAfter=No|XML=<ref>
 16	6	6	NUM	CD	NumForm=Digit|NumType=Card	4	dep	4:dep	Entity=(107-abstract-new-cf6-1-sgl)|SpaceAfter=No
@@ -27564,7 +27564,7 @@
 42	even	even	ADV	RB	_	45	advmod	45:advmod	Discourse=contingency-condition:116->115:0
 43	if	if	SCONJ	IN	_	45	mark	45:mark	_
 44	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	45	nsubj	45:nsubj|46:nsubj:xsubj|48:nsubj:xsubj	Entity=(9-person-giv:act-cf1*-1-ana)
-45	get	get	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	37	advcl	37:advcl:if|53:csubj	_
+45	get	get	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	37	advcl	37:advcl:if|53:csubj	Cxn=Condition-Realistic
 46	nervous	nervous	ADJ	JJ	Degree=Pos	45	xcomp	45:xcomp	_
 47	or	or	CCONJ	CC	_	48	cc	48:cc	_
 48	sidetracked	sidetrack	VERB	VBN	Tense=Past|VerbForm=Part	46	conj	45:xcomp|46:conj:or	SpaceAfter=No
@@ -27713,7 +27713,7 @@
 # text = If you hear a lot of awkward pauses or “ah”s or “um”s, your joke isn’t ready and you need to practice more. [8]
 1	If	if	SCONJ	IN	_	3	mark	3:mark	Discourse=contingency-condition:130->131:1
 2	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	3	nsubj	3:nsubj	Entity=(9-person-giv:act-cf1*-1-ana)
-3	hear	hear	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	18	advcl	18:advcl:if	_
+3	hear	hear	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	18	advcl	18:advcl:if	Cxn=Condition-Realistic
 4	a	a	DET	DT	Definite=Ind|PronType=Art	5	det	5:det	_
 5	lot	lot	NOUN	NN	Number=Sing	3	obj	3:obj	_
 6	of	of	ADP	IN	_	8	case	8:case	_
@@ -28238,7 +28238,7 @@
 3	washing	wash	VERB	VBG	VerbForm=Ger	4	amod	4:amod	_
 4	machine	machine	NOUN	NN	Number=Sing	6	nsubj	6:nsubj	Entity=45)
 5	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	cop	6:cop	_
-6	worth	worth	ADJ	JJ	Degree=Pos	12	advcl	12:advcl:if	_
+6	worth	worth	ADJ	JJ	Degree=Pos	12	advcl	12:advcl:if	Cxn=Condition-Realistic
 7	its	its	PRON	PRP$	Case=Gen|Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs	8	nmod:poss	8:nmod:poss	Entity=(45-object-giv:act-cf2-1-ana)
 8	salt	salt	NOUN	NN	Number=Sing	6	obj	6:obj	SpaceAfter=No
 9	,	,	PUNCT	,	_	6	punct	6:punct	_
@@ -28436,7 +28436,7 @@
 13	but	but	CCONJ	CC	_	30	cc	30:cc	Discourse=contingency-condition:54->55:0
 14	if	if	SCONJ	IN	_	16	mark	16:mark	_
 15	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	16	nsubj	16:nsubj	Entity=(3-person-giv:act-cf1-1-ana)
-16	move	move	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	30	advcl	30:advcl:if	_
+16	move	move	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	30	advcl	30:advcl:if	Cxn=Condition-Realistic
 17	the	the	DET	DT	Definite=Def|PronType=Art	18	det	18:det	Entity=(65-object-giv:act-cf2*-2-coref
 18	adjusters	adjuster	NOUN	NNS	Number=Plur	16	obj	16:obj	Entity=65)
 19	up	up	ADV	RB	Degree=Pos	16	advmod	16:advmod	_
@@ -28512,7 +28512,7 @@
 28	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	31	nsubj	31:nsubj	Entity=(1-object-giv:inact-cf2-1-ana)
 29	are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	31	cop	31:cop	_
 30	work	work	NOUN	NN	Number=Sing	31	compound	31:compound	Entity=(68-object-new-cf6-2-sgl(69-event-new-cf7-1-sgl)
-31	clothes	clothes	NOUN	NNS	Number=Plur	23	advcl	23:advcl:if	Entity=68)|SpaceAfter=No
+31	clothes	clothes	NOUN	NNS	Number=Plur	23	advcl	23:advcl:if	Cxn=Condition-Realistic|Entity=68)|SpaceAfter=No
 32	)	)	PUNCT	-RRB-	_	21	punct	21:punct	SpaceAfter=No
 33	.	.	PUNCT	.	_	3	punct	3:punct	_
 
@@ -28583,7 +28583,7 @@
 # text = If you wash your overalls alone or in a light load, use about half the detergent called for and less water.
 1	If	if	SCONJ	IN	_	3	mark	3:mark	Discourse=contingency-condition:67->68:0
 2	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	3	nsubj	3:nsubj	Entity=(3-person-giv:inact-cf1-1-ana)
-3	wash	wash	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	13	advcl	13:advcl:if	_
+3	wash	wash	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	13	advcl	13:advcl:if	Cxn=Condition-Realistic
 4	your	your	PRON	PRP$	Case=Gen|Number=Sing|Person=2|Poss=Yes|PronType=Prs	5	nmod:poss	5:nmod:poss	Entity=(1-object-giv:inact-cf2-2-coref(3-person-giv:act-cf1-1-ana)
 5	overalls	overall	NOUN	NNS	Number=Plur	3	obj	3:obj	Entity=1)
 6	alone	alone	ADV	RB	Degree=Pos	3	advmod	3:advmod	_
