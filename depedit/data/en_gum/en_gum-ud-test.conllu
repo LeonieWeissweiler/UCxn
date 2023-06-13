@@ -10467,7 +10467,7 @@
 4-5	didn’t	_	_	_	_	_	_	_	_
 4	did	do	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	6	aux	6:aux	_
 5	n’t	not	PART	RB	Polarity=Neg	6	advmod	6:advmod	_
-6	see	see	VERB	VB	VerbForm=Inf	41	advcl	41:advcl:if	Cxn=Condition-Reduced
+6	see	see	VERB	VB	VerbForm=Inf	41	advcl	41:advcl:if	Cxn=Condition-Realistic
 7	it	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	6	obj	6:obj	Entity=(50-abstract-giv:act-cf1*-1-ana)
 8	as	as	ADP	IN	_	9	case	9:case	_
 9	weird	weird	ADJ	JJ	Degree=Pos	6	obl	6:obl:as	SpaceAfter=No
@@ -12113,7 +12113,7 @@
 2	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	5	nsubj	5:nsubj	Entity=(3-person-giv:inact-cf1-1-ana)
 3	do	do	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	5	aux	5:aux	_
 4	not	not	PART	RB	Polarity=Neg	5	advmod	5:advmod	_
-5	receive	receive	VERB	VB	VerbForm=Inf	12	advcl	12:advcl:if	Cxn=Condition-Reduced
+5	receive	receive	VERB	VB	VerbForm=Inf	12	advcl	12:advcl:if	Cxn=Condition-Realistic
 6	the	the	DET	DT	Definite=Def|PronType=Art	8	det	8:det	Bridge=4<69|Entity=(69-abstract-acc:inf-cf3-3-sgl
 7	Republican	Republican	ADJ	JJ	Degree=Pos	8	amod	8:amod	_
 8	nomination	nomination	NOUN	NN	Number=Sing	5	obj	5:obj	Entity=69)|SpaceAfter=No
@@ -19635,7 +19635,7 @@
 3	atoms	atom	NOUN	NNS	Number=Plur	6	nsubj:pass	6:nsubj:pass|8:nsubj:pass	Entity=(101-object-giv:inact-cf2-1-coref)
 4	are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	6	aux:pass	6:aux:pass|8:aux:pass	_
 5	neither	neither	CCONJ	CC	_	6	cc:preconj	6:cc:preconj	_
-6	created	create	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	30	advcl	30:advcl:if	Cxn=Condition-Reduced
+6	created	create	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	30	advcl	30:advcl:if	Cxn=Condition-Realistic
 7	nor	nor	CCONJ	CC	_	8	cc	8:cc	_
 8	destroyed	destroy	VERB	VBN	Tense=Past|VerbForm=Part	6	conj	6:conj:nor|30:advcl:if	_
 9	during	during	ADP	IN	_	12	case	12:case	_
@@ -23530,7 +23530,7 @@
 2	if	if	SCONJ	IN	_	5	mark	5:mark	Discourse=contingency-condition:100->102:0
 3	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	5	nsubj	5:nsubj	Entity=(1-person-giv:act-cf1*-1-ana)
 4	do	do	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	5	aux	5:aux|11:aux	_
-5	go	go	VERB	VB	VerbForm=Inf	17	advcl	17:advcl:if	Cxn=Condition-Reduced
+5	go	go	VERB	VB	VerbForm=Inf	17	advcl	17:advcl:if	Cxn=Condition-Realistic
 6	to	to	ADP	IN	_	7	case	7:case	_
 7	FGCU	FGCU	PROPN	NNP	Abbr=Yes|Number=Sing	5	obl	5:obl:to	Entity=(75-organization-new-cf5-1-coref-Florida_Gulf_Coast_University)
 8	and	and	CCONJ	CC	_	11	cc	11:cc	Discourse=joint-list_m:101->100:0
@@ -28169,7 +28169,7 @@
 3	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	6	nsubj	6:nsubj	Entity=(3-person-giv:inact-cf1-1-ana)
 4	do	do	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	6	aux	6:aux	_
 5	not	not	PART	RB	Polarity=Neg	6	advmod	6:advmod	_
-6	have	have	VERB	VB	VerbForm=Inf	12	advcl	12:advcl:if	Cxn=Condition-Reduced
+6	have	have	VERB	VB	VerbForm=Inf	12	advcl	12:advcl:if	Cxn=Condition-Realistic
 7	a	a	DET	DT	Definite=Ind|PronType=Art	8	det	8:det	Entity=(118-animal-new-cf3-2-sgl
 8	cat	cat	NOUN	NN	Number=Sing	6	obj	6:obj	Entity=118)|SpaceAfter=No
 9	,	,	PUNCT	,	_	6	punct	6:punct	_
@@ -28397,7 +28397,7 @@
 13	if	if	SCONJ	IN	_	16	mark	16:mark	Discourse=contingency-condition:125->124:0
 14	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	16	nsubj	16:nsubj	Entity=(3-person-giv:act-cf1*-1-ana)
 15	can	can	AUX	MD	VerbForm=Fin	16	aux	16:aux	_
-16	attract	attract	VERB	VB	VerbForm=Inf	10	advcl	10:advcl:if	Cxn=Condition-Reduced
+16	attract	attract	VERB	VB	VerbForm=Inf	10	advcl	10:advcl:if	Cxn=Condition-Realistic
 17	a	a	DET	DT	Definite=Ind|PronType=Art	20	det	20:det	Entity=(140-animal-new-cf6-4-sgl
 18	wild	wild	ADJ	JJ	Degree=Pos	20	amod	20:amod	_
 19	mouse	mouse	NOUN	NN	Number=Sing	20	compound	20:compound	_
