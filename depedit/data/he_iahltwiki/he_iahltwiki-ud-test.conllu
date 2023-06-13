@@ -123,7 +123,7 @@
 43	כליה	כליה	NOUN	NOUN	Gender=Fem|Number=Sing	42	compound	_	SpaceAfter=No
 44	,	,	PUNCT	PUNCT	_	46	punct	_	_
 45	אם	אם	SCONJ	SCONJ	_	46	mark	_	_
-46	ניתן	נתן	VERB	VERB	Gender=Masc|HebBinyan=NIFAL|Number=Sing|Person=3|Tense=Pres|VerbForm=Part|Voice=Pass	41	advcl	_	SpaceAfter=No
+46	ניתן	נתן	VERB	VERB	Gender=Masc|HebBinyan=NIFAL|Number=Sing|Person=3|Tense=Pres|VerbForm=Part|Voice=Pass	41	advcl	_	Cxn=Condition-Realistic|SpaceAfter=No
 47	.	.	PUNCT	PUNCT	_	6	punct	_	_
 
 # newpar
@@ -1328,7 +1328,7 @@
 # sent_id = iahltwiki_dialysis-43
 # text = אם מדובר בזיהום על ידי פסאודומונס או נבגים אחרים יש צורך בהחלפת הקתטר.
 1	אם	אם	SCONJ	SCONJ	_	2	mark	_	_
-2	מדובר	דובר	VERB	VERB	Gender=Masc|HebBinyan=PUAL|Number=Sing|Person=3|Tense=Pres|VerbForm=Part|Voice=Pass	11	advcl	_	_
+2	מדובר	דובר	VERB	VERB	Gender=Masc|HebBinyan=PUAL|Number=Sing|Person=3|Tense=Pres|VerbForm=Part|Voice=Pass	11	advcl	_	Cxn=Condition-Realistic
 3-4	בזיהום	_	_	_	_	_	_	_	_
 3	ב	ב	ADP	ADP	_	4	case	_	_
 4	זיהום	זיהום	NOUN	NOUN	Gender=Masc|Number=Sing	2	obl	_	_
@@ -9956,7 +9956,7 @@
 19	אז	אז	ADV	ADV	_	18	advmod	_	SpaceAfter=No
 20	,	,	PUNCT	PUNCT	_	22	punct	_	_
 21	אם	אם	SCONJ	SCONJ	_	22	mark	_	_
-22	תימשך	נמשך	VERB	VERB	Gender=Fem|HebBinyan=NIFAL|Number=Sing|Person=3|Tense=Fut|Voice=Act	18	advcl	_	_
+22	תימשך	נמשך	VERB	VERB	Gender=Fem|HebBinyan=NIFAL|Number=Sing|Person=3|Tense=Fut|Voice=Act	18	advcl	_	Cxn=Condition-Realistic
 23-24	התנהגותה	_	_	_	_	_	_	_	_
 23	התנהגות	התנהגות	NOUN	NOUN	Gender=Fem|Number=Sing	22	nsubj	_	_
 24	ה	הוא	PRON	PRON	Case=Gen|Definite=Def|Gender=Fem|Number=Sing|Person=3|Poss=Yes|PronType=Prs	23	nmod:poss	_	_
@@ -10976,7 +10976,7 @@
 23	להיות	היה	VERB	VERB	HebBinyan=PAAL|Polarity=Pos|VerbForm=Inf	14	acl:relcl	_	_
 24	אילו	אילו	SCONJ	SCONJ	_	26	mark	_	_
 25	היה	היה	AUX	AUX	Gender=Masc|HebBinyan=PAAL|Number=Sing|Person=3|Tense=Past	26	aux	_	_
-26	מתחדש	התחדש	VERB	VERB	Gender=Masc|HebBinyan=HITPAEL|Number=Sing|Person=3|Voice=Mid	23	advcl	_	_
+26	מתחדש	התחדש	VERB	VERB	Gender=Masc|HebBinyan=HITPAEL|Number=Sing|Person=3|Voice=Mid	23	advcl	_	Cxn=Condition-Hypothetical
 27	איסור	איסור	NOUN	NOUN	Gender=Masc|Number=Sing	26	nsubj	_	_
 28	על	על	ADP	ADP	_	29	case	_	_
 29	אלו	זה	PRON	PRON	Gender=Fem,Masc|Number=Plur|Person=3|PronType=Dem	27	nmod	_	_
@@ -11579,7 +11579,7 @@
 25	היא	הוא	PRON	PRON	Gender=Fem|Number=Sing|Person=3|Polarity=Pos|PronType=Prs	27	cop	_	_
 26-27	במידה	_	_	_	_	_	_	_	_
 26	ב	ב	ADP	ADP	_	27	case	_	_
-27	מידה	מידה	NOUN	NOUN	Gender=Fem|Number=Sing	16	advcl	_	_
+27	מידה	מידה	NOUN	NOUN	Gender=Fem|Number=Sing	16	advcl	_	Cxn=Condition-Realistic
 28-29	שאינה	_	_	_	_	_	_	_	_
 28	ש	ש	SCONJ	SCONJ	_	30	mark	_	_
 29	אינה	אינו	AUX	AUX	Gender=Fem|Number=Sing|Polarity=Neg	30	aux	_	_

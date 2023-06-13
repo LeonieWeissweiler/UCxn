@@ -1602,7 +1602,7 @@
 # sent_id = 5785
 # text = אם נשיג תוצאה טובה ביוון יהיה לנו זמן לעבוד על המהירות.
 1	אם	אם	SCONJ	SCONJ	_	2	mark	_	_
-2	נשיג	השיג	VERB	VERB	Gender=Fem,Masc|HebBinyan=HIFIL|Number=Plur|Person=1|Tense=Fut|Voice=Act	7	advcl	_	_
+2	נשיג	השיג	VERB	VERB	Gender=Fem,Masc|HebBinyan=HIFIL|Number=Plur|Person=1|Tense=Fut|Voice=Act	7	advcl	_	Cxn=Condition-Realistic
 3	תוצאה	תוצאה	NOUN	NOUN	Gender=Fem|Number=Sing	2	obj	_	_
 4	טובה	טוב	ADJ	ADJ	Gender=Fem|Number=Sing	3	amod	_	_
 5-6	ביוון	_	_	_	_	_	_	_	_
@@ -5474,7 +5474,7 @@
 7	עמודי	עמוד	NOUN	NOUN	Definite=Cons|Gender=Masc|Number=Plur	10	obl	_	_
 8	סיכומים	סיכום	NOUN	NOUN	Gender=Masc|Number=Plur	7	compound:smixut	_	_
 9	לא	לא	ADV	ADV	Polarity=Neg	10	advmod	_	_
-10	חסכו	חסך	VERB	VERB	Gender=Fem,Masc|HebBinyan=PAAL|Number=Plur|Person=3|Tense=Past|Voice=Act	35	advcl	_	_
+10	חסכו	חסך	VERB	VERB	Gender=Fem,Masc|HebBinyan=PAAL|Number=Plur|Person=3|Tense=Past|Voice=Act	35	advcl	_	Cxn=Condition-Realistic
 11	באי	_	NOUN	NOUN	Definite=Cons	13	nmod	_	SpaceAfter=No
 12	-	-	PUNCT	PUNCT	_	13	punct	_	SpaceAfter=No
 13	כוח	כוח	NOUN	NOUN	Definite=Cons|Gender=Masc|Number=Sing	10	nsubj	_	_
@@ -7294,7 +7294,7 @@
 22	ה	ה	DET	DET	PronType=Art	23	det	_	_
 23	פרק	פרק	NOUN	NOUN	Gender=Masc|Number=Sing	20	obl	_	_
 24	אם	אם	SCONJ	SCONJ	_	25	mark	_	_
-25	תצליח	הצליח	VERB	VERB	Gender=Fem|HebBinyan=HIFIL|Number=Sing|Person=3|Tense=Fut|Voice=Act	19	advcl	_	_
+25	תצליח	הצליח	VERB	VERB	Gender=Fem|HebBinyan=HIFIL|Number=Sing|Person=3|Tense=Fut|Voice=Act	19	advcl	_	Cxn=Condition-Realistic
 26	ליטא	ליטא	PROPN	PROPN	_	25	nsubj	_	_
 27	להתנתק	התנתק	VERB	VERB	HebBinyan=HITPAEL|VerbForm=Inf	25	xcomp	_	_
 28-29	מברית	_	_	_	_	_	_	_	SpaceAfter=No
@@ -7311,7 +7311,7 @@
 1	אם	אם	SCONJ	SCONJ	_	4	mark	_	_
 2	ליטא	ליטא	PROPN	PROPN	_	4	nsubj	_	_
 3	תהיה	_	AUX	AUX	Gender=Fem|Number=Sing|Person=3|Polarity=Pos|Tense=Fut|VerbType=Cop	4	cop	_	_
-4	עצמאית	עצמאי	ADJ	ADJ	Gender=Fem|Number=Sing	7	advcl	_	SpaceAfter=No
+4	עצמאית	עצמאי	ADJ	ADJ	Gender=Fem|Number=Sing	7	advcl	_	Cxn=Condition-Realistic|SpaceAfter=No
 5	,	,	PUNCT	PUNCT	_	7	punct	_	_
 6	לא	לא	ADV	ADV	Polarity=Neg	7	advmod	_	_
 7	יהיה	_	VERB	VERB	Gender=Masc|HebExistential=Yes|Number=Sing|Person=3|Polarity=Pos|Tense=Fut	0	root	_	_
@@ -7660,7 +7660,7 @@
 # text = אם אכן תוקם רפובליקה אוטונומית גרמנית שתהפוך מאוחר יותר לריבונית, יהיה העולם עד לדוגמה מעניינת של היסטוריה החוזרת על עצמה.
 1	אם	אם	SCONJ	SCONJ	_	3	mark	_	_
 2	אכן	אכן	ADV	ADV	_	3	advmod	_	_
-3	תוקם	הוקם	VERB	VERB	Gender=Fem|HebBinyan=HUFAL|Number=Sing|Person=3|Tense=Fut|Voice=Pass	17	advcl	_	_
+3	תוקם	הוקם	VERB	VERB	Gender=Fem|HebBinyan=HUFAL|Number=Sing|Person=3|Tense=Fut|Voice=Pass	17	advcl	_	Cxn=Condition-Realistic
 4	רפובליקה	רפובליקה	NOUN	NOUN	Gender=Fem|Number=Sing	3	nsubj	_	_
 5	אוטונומית	אוטונומי	ADJ	ADJ	Gender=Fem|Number=Sing	4	amod	_	_
 6	גרמנית	גרמני	ADJ	ADJ	Gender=Fem|Number=Sing	4	amod	_	_
@@ -7824,7 +7824,7 @@
 1	"	"	PUNCT	PUNCT	_	14	punct	_	SpaceAfter=No
 2	אם	אם	SCONJ	SCONJ	_	4	mark	_	_
 3	לא	לא	ADV	ADV	Polarity=Neg	4	advmod	_	_
-4	תימצא	נמצא	VERB	VERB	Gender=Fem|HebBinyan=NIFAL|Number=Sing|Person=3|Tense=Fut|Voice=Mid	14	advcl	_	_
+4	תימצא	נמצא	VERB	VERB	Gender=Fem|HebBinyan=NIFAL|Number=Sing|Person=3|Tense=Fut|Voice=Mid	14	advcl	_	Cxn=Condition-Realistic
 5	בקרוב	בקרוב	ADV	ADV	_	4	advmod	_	_
 6	תרופה	תרופה	NOUN	NOUN	Gender=Fem|Number=Sing	4	nsubj	_	_
 7-8	לתיקון	_	_	_	_	_	_	_	_
