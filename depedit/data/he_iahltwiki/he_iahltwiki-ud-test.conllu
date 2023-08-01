@@ -471,7 +471,7 @@
 4-5	המלאכותית	_	_	_	_	_	_	_	_
 4	ה	ה	DET	DET	Definite=Def|PronType=Art	5	det	_	_
 5	מלאכותית	מלאכותי	ADJ	ADJ	Gender=Fem|Number=Sing	3	amod	_	_
-6	ישנה	יש	VERB	VERB	Gender=Fem|Number=Sing|Person=3|Polarity=Pos|Tense=Pres	0	root	_	_
+6	ישנה	יש	VERB	VERB	Gender=Fem|Number=Sing|Person=3|Polarity=Pos|Tense=Pres	0	root	_	Cxn=Existential-Positive
 7	ממברנה	ממברנה	NOUN	NOUN	Gender=Fem|Number=Sing	6	nsubj	_	_
 8	חדירה	חדיר	ADJ	ADJ	Gender=Fem|Number=Sing	7	amod	_	_
 9-10	למחצה	_	_	_	_	_	_	_	_
@@ -501,7 +501,7 @@
 27-28	השני	_	_	_	_	_	_	_	_
 27	ה	ה	DET	DET	Definite=Def|PronType=Art	28	det	_	_
 28	שני	שני	ADJ	ADJ	Gender=Masc|Number=Sing|NumType=Ord	25	amod	_	_
-29	ישנו	יש	VERB	VERB	Gender=Masc|Number=Sing|Person=3|Polarity=Pos|Tense=Pres	17	conj	_	_
+29	ישנו	יש	VERB	VERB	Gender=Masc|Number=Sing|Person=3|Polarity=Pos|Tense=Pres	17	conj	_	Cxn=Existential-Positive
 30	נוזל	נוזל	NOUN	NOUN	Definite=Cons|Gender=Masc|Number=Sing	29	nsubj	_	_
 31	דיאליזה	דיאליזה	NOUN	NOUN	Gender=Fem|Number=Sing	30	compound	_	SpaceAfter=No
 32	.	.	PUNCT	PUNCT	_	6	punct	_	_
@@ -922,7 +922,7 @@
 1	על	על	ADP	ADP	_	2	case	_	_
 2	תהליך	תהליך	NOUN	NOUN	Gender=Masc|Number=Sing	4	obl	_	_
 3	זה	זה	PRON	PRON	Gender=Masc|Number=Sing|Person=3|PronType=Dem	2	det	_	_
-4	יש	יש	VERB	VERB	_	0	root	_	_
+4	יש	יש	VERB	VERB	_	0	root	_	Cxn=Existential-Positive
 5	צורך	צורך	NOUN	NOUN	Gender=Masc|Number=Sing	4	nsubj	_	_
 6	לחזור	חזר	VERB	VERB	HebBinyan=PAAL|VerbForm=Inf|Voice=Act	5	acl	_	_
 7	מספר	מספר	DET	DET	_	8	det	_	_
@@ -1338,7 +1338,7 @@
 8	או	או	CCONJ	CCONJ	_	9	cc	_	_
 9	נבגים	נבג	NOUN	NOUN	Gender=Masc|Number=Plur	7	conj	_	_
 10	אחרים	אחר	ADJ	ADJ	Gender=Masc|Number=Plur	9	amod	_	_
-11	יש	יש	VERB	VERB	_	0	root	_	_
+11	יש	יש	VERB	VERB	_	0	root	_	Cxn=Existential-Positive
 12	צורך	צורך	NOUN	NOUN	Gender=Masc|Number=Sing	11	nsubj	_	_
 13-14	בהחלפת	_	_	_	_	_	_	_	_
 13	ב	ב	ADP	ADP	_	14	case	_	_
@@ -1617,7 +1617,7 @@
 # sent_id = iahltwiki_dialysis-57
 # text = כיום קיימות יחידות דיאליזה במרבית בתי החולים הכלליים בישראל.
 1	כיום	כיום	ADV	ADV	_	2	advmod	_	_
-2	קיימות	קיים	ADJ	ADJ	Gender=Fem|Number=Plur	0	root	_	_
+2	קיימות	קיים	ADJ	ADJ	Gender=Fem|Number=Plur	0	root	_	Cxn=Existential-Verbal
 3	יחידות	יחידה	NOUN	NOUN	Definite=Cons|Gender=Fem|Number=Plur	2	nsubj	_	_
 4	דיאליזה	דיאליזה	NOUN	NOUN	Gender=Fem|Number=Sing	3	compound	_	_
 5-6	במרבית	_	_	_	_	_	_	_	_
@@ -1778,7 +1778,7 @@
 
 # sent_id = iahltwiki_lifta-3
 # text = יש סברה שמקור השם הוא בשיבוש השם "מרנפתח", שמו של מלך מצרי שערך בשנת 1220 לפנה"ס מסע כיבוש בכנען.
-1	יש	יש	VERB	VERB	Polarity=Pos	0	root	_	_
+1	יש	יש	VERB	VERB	Polarity=Pos	0	root	_	Cxn=Existential-Positive
 2	סברה	סברה	NOUN	NOUN	Gender=Fem|Number=Sing	1	nsubj	_	_
 3-4	שמקור	_	_	_	_	_	_	_	_
 3	ש	ש	SCONJ	SCONJ	_	9	mark	_	_
@@ -4757,7 +4757,7 @@
 
 # sent_id = iahltwiki_unrwa-71
 # text = ישנה ביקורת נרחבת על אמינות הרישום, טכניקות איסוף הנתונים, וההגדרות הנוגעות לפליטים הפלסטינים על ידי אונר"א.
-1	ישנה	יש	VERB	VERB	Gender=Fem|Number=Sing|Person=3|Polarity=Pos	0	root	_	_
+1	ישנה	יש	VERB	VERB	Gender=Fem|Number=Sing|Person=3|Polarity=Pos	0	root	_	Cxn=Existential-Positive
 2	ביקורת	ביקורת	NOUN	NOUN	Gender=Fem|Number=Sing	1	nsubj	_	_
 3	נרחבת	נרחב	ADJ	ADJ	Gender=Fem|Number=Sing	2	amod	_	_
 4	על	על	ADP	ADP	_	5	case	_	_
@@ -5225,7 +5225,7 @@
 2	מכיוון	מכיוון	SCONJ	SCONJ	_	4	mark	_	_
 3-4	שישנה	_	_	_	_	_	_	_	_
 3	ש	ש	SCONJ	SCONJ	_	2	fixed	_	_
-4	ישנה	יש	VERB	VERB	Gender=Fem|Number=Sing|Person=3|Polarity=Pos	39	advcl	_	_
+4	ישנה	יש	VERB	VERB	Gender=Fem|Number=Sing|Person=3|Polarity=Pos	39	advcl	_	Cxn=Existential-Positive
 5	אוכלוסייה	אוכלוסייה	NOUN	NOUN	Gender=Fem|Number=Sing	4	nsubj	_	_
 6	נרחבת	נרחב	ADJ	ADJ	Gender=Fem|Number=Sing	5	amod	_	_
 7	של	של	ADP	ADP	Case=Gen	8	case	_	_
@@ -5608,7 +5608,7 @@
 16	שנים	שנה	NOUN	NOUN	Gender=Fem|Number=Plur	12	nmod	_	_
 17	,	,	PUNCT	PUNCT	_	19	punct	_	_
 18	אבל	אבל	CCONJ	CCONJ	_	19	cc	_	_
-19	אין	אין	VERB	VERB	Polarity=Neg	7	conj	_	_
+19	אין	אין	VERB	VERB	Polarity=Neg	7	conj	_	Cxn=Existential-Negative
 20	מידע	מידע	NOUN	NOUN	Gender=Masc|Number=Sing	19	nsubj	_	_
 21-22	ורישום	_	_	_	_	_	_	_	_
 21	ו	ו	CCONJ	CCONJ	_	22	cc	_	_
@@ -5959,7 +5959,7 @@
 21	כי	כי	SCONJ	SCONJ	_	24	mark	_	SpaceAfter=No
 22	,	,	PUNCT	PUNCT	_	21	punct	_	_
 23	"	"	PUNCT	PUNCT	_	24	punct	_	SpaceAfter=No
-24	אין	אין	VERB	VERB	Polarity=Neg	17	ccomp	_	_
+24	אין	אין	VERB	VERB	Polarity=Neg	17	ccomp	_	Cxn=Existential-Negative
 25	גם	גם	ADV	ADV	_	24	advmod	_	_
 26	שום	שום	DET	DET	Definite=Cons	27	det	_	_
 27	הצדקה	הצדקה	NOUN	NOUN	Gender=Fem|Number=Sing	24	nsubj	_	_
@@ -5995,7 +5995,7 @@
 51	,	,	PUNCT	PUNCT	_	53	punct	_	_
 52-53	וישנם	_	_	_	_	_	_	_	_
 52	ו	ו	CCONJ	CCONJ	_	53	cc	_	_
-53	ישנם	יש	VERB	VERB	Gender=Masc|Number=Plur|Person=3|Polarity=Pos	24	conj	_	_
+53	ישנם	יש	VERB	VERB	Gender=Masc|Number=Plur|Person=3|Polarity=Pos	24	conj	_	Cxn=Existential-Positive
 54	רבים	רב	ADJ	ADJ	Gender=Masc|Number=Plur	53	nsubj	_	_
 55-56	כאלה	_	_	_	_	_	_	_	SpaceAfter=No
 55	כ	כ	ADP	ADP	Definite=Def|PronType=Art	56	case	_	_
@@ -11515,7 +11515,7 @@
 10	צד	צד	NOUN	NOUN	Definite=Cons|Gender=Masc|Number=Sing	13	obl	_	_
 11	זכויות	זכות	NOUN	NOUN	Definite=Cons|Gender=Fem|Number=Plur	10	compound	_	_
 12	אדם	אדם	NOUN	NOUN	Gender=Masc|Number=Sing	11	compound	_	_
-13	קיימות	קיים	ADJ	ADJ	Gender=Fem|Number=Plur	6	acl	_	_
+13	קיימות	קיים	ADJ	ADJ	Gender=Fem|Number=Plur	6	acl	_	Cxn=Existential-Verbal
 14	גם	גם	ADV	ADV	_	15	advmod	_	_
 15	חובות	חוב	NOUN	NOUN	Definite=Cons|Gender=Fem|Number=Plur	13	nsubj	_	_
 16	אדם	אדם	NOUN	NOUN	Gender=Masc|Number=Sing	15	compound	_	SpaceAfter=No
@@ -11707,7 +11707,7 @@
 12	קבע	קבע	VERB	VERB	Gender=Masc|Number=Sing|Person=3|Tense=Past	1	parataxis	_	_
 13-14	שאין	_	_	_	_	_	_	_	_
 13	ש	ש	SCONJ	SCONJ	_	14	mark	_	_
-14	אין	אין	VERB	VERB	_	12	ccomp	_	_
+14	אין	אין	VERB	VERB	_	12	ccomp	_	Cxn=Existential-Negative
 15	התאמה	התאמה	NOUN	NOUN	Gender=Fem|Number=Sing	14	nsubj	_	_
 16	בין	בין	ADP	ADP	_	17	case	_	_
 17	נושא	נושא	NOUN	NOUN	Definite=Cons|Gender=Masc|Number=Sing	15	nmod	_	_
@@ -11730,7 +11730,7 @@
 
 # sent_id = iahltwiki_psak-din-hendelman-40
 # text = אין אמצעי אחר להגשמת המטרה, שפגיעתו פחותה: השופט רוזן קבע כי נראה שניתן להשיג את המטרה החקיקתית על ידי בחירת שם או כינוי ראוי ליועצי-מס שרשאים לייצג נישומים בפני רשויות המס.
-1	אין	אין	VERB	VERB	_	0	root	_	_
+1	אין	אין	VERB	VERB	_	0	root	_	Cxn=Existential-Negative
 2	אמצעי	אמצע	NOUN	NOUN	Gender=Masc|Number=Sing	1	nsubj	_	_
 3	אחר	אחר	ADJ	ADJ	Gender=Masc|Number=Sing	2	amod	_	_
 4-5	להגשמת	_	_	_	_	_	_	_	_
@@ -13418,7 +13418,7 @@
 15	"	"	PUNCT	PUNCT	_	17	punct	_	SpaceAfter=No
 16-17	באין	_	_	_	_	_	_	_	_
 16	ב	ב	SCONJ	SCONJ	_	17	mark	_	_
-17	אין	אין	VERB	VERB	_	9	conj	_	_
+17	אין	אין	VERB	VERB	_	9	conj	_	Cxn=Existential-Negative
 18	מולדת	מולדת	NOUN	NOUN	Gender=Fem|Number=Sing	17	nsubj	_	SpaceAfter=No
 19	"	"	PUNCT	PUNCT	_	17	punct	_	_
 20	(	(	PUNCT	PUNCT	_	21	punct	_	SpaceAfter=No

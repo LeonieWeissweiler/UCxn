@@ -17,7 +17,7 @@
 8-9	בהם	_	_	_	_	_	_	_	_
 8	ב	ב	ADP	ADP	_	9	case	_	_
 9	הם	הוא	PRON	PRON	Gender=Masc|Number=Plur|Person=3|PronType=Prs	10	obl	_	_
-10	קיימות	קיים	ADJ	ADJ	Gender=Fem|Number=Plur	7	acl:relcl	_	_
+10	קיימות	קיים	ADJ	ADJ	Gender=Fem|Number=Plur	7	acl:relcl	_	Cxn=Existential-Verbal
 11	רמות	רמה	NOUN	NOUN	Gender=Fem|Number=Plur	10	nsubj	_	_
 12	נמוכות	נמוך	ADJ	ADJ	Gender=Fem|Number=Plur	11	amod	_	_
 13-14	בדם	_	_	_	_	_	_	_	_
@@ -276,7 +276,7 @@
 
 # sent_id = iahltwiki_fresh-frozen-plasma-12
 # text = קיימת גם פלזמה מיובשת, שהיא פלזמה קפואה שיובשה.
-1	קיימת	קיים	ADJ	ADJ	Gender=Fem|Number=Sing	0	root	_	_
+1	קיימת	קיים	ADJ	ADJ	Gender=Fem|Number=Sing	0	root	_	Cxn=Existential-Verbal
 2	גם	גם	ADV	ADV	_	1	advmod	_	_
 3	פלזמה	פלזמה	NOUN	NOUN	Gender=Fem|Number=Sing	1	nsubj	_	_
 4	מיובשת	מיובש	ADJ	ADJ	Gender=Fem|Number=Sing	3	amod	_	SpaceAfter=No
@@ -322,7 +322,7 @@
 
 # sent_id = iahltwiki_fresh-frozen-plasma-14
 # text = ישנם מספר מוצרי דם דומים כגון פלזמה מדם טבורי, פלזמה ללא סרום, פלזמה ללא מומסים.
-1	ישנם	יש	VERB	VERB	Gender=Masc|Number=Plur|Person=3|Polarity=Pos	0	root	_	_
+1	ישנם	יש	VERB	VERB	Gender=Masc|Number=Plur|Person=3|Polarity=Pos	0	root	_	Cxn=Existential-Positive
 2	מספר	מספר	DET	DET	_	3	det	_	_
 3	מוצרי	מוצר	NOUN	NOUN	Definite=Cons|Gender=Masc|Number=Plur	1	nsubj	_	_
 4	דם	דם	NOUN	NOUN	Gender=Masc|Number=Sing	3	compound	_	_
@@ -464,7 +464,7 @@
 # newpar
 # sent_id = iahltwiki_fresh-frozen-plasma-19
 # text = ישנם מעט אינדיקציות ספציפיות לשימוש בפלזמה קפואה.
-1	ישנם	יש	VERB	VERB	Gender=Fem|Number=Plur|Person=3|Polarity=Pos	0	root	_	CorrectForm=ישנן
+1	ישנם	יש	VERB	VERB	Gender=Fem|Number=Plur|Person=3|Polarity=Pos	0	root	_	CorrectForm=ישנן|Cxn=Existential-Positive
 2	מעט	מעט	DET	DET	_	3	det	_	_
 3	אינדיקציות	אינדיקציה	NOUN	NOUN	Gender=Fem|Number=Plur	1	nsubj	_	_
 4	ספציפיות	ספציפי	ADJ	ADJ	Gender=Fem|Number=Plur	3	amod	_	_
@@ -1489,7 +1489,7 @@
 4-5	ויעיל	_	_	_	_	_	_	_	_
 4	ו	ו	CCONJ	CCONJ	_	5	cc	_	_
 5	יעיל	יעיל	ADJ	ADJ	Gender=Masc|Number=Sing	3	conj	_	_
-6	קיים	קיים	ADJ	ADJ	Gender=Masc|Number=Sing	0	root	_	_
+6	קיים	קיים	ADJ	ADJ	Gender=Masc|Number=Sing	0	root	_	Cxn=Existential-Verbal
 7-8	לעיתים	_	_	_	_	_	_	_	_
 7	ל	ל	ADP	ADP	_	8	case	_	_
 8	עיתים	עת	NOUN	NOUN	Gender=Fem|Number=Plur	6	obl	_	_
@@ -2524,7 +2524,7 @@
 21-22	ואילך	_	_	_	_	_	_	_	_
 21	ו	ו	CCONJ	CCONJ	_	22	cc	_	_
 22	אילך	אילך	ADV	ADV	_	19	conj	_	_
-23	ישנן	יש	VERB	VERB	Gender=Fem|Number=Plur|Person=3|Polarity=Pos	11	advcl	_	_
+23	ישנן	יש	VERB	VERB	Gender=Fem|Number=Plur|Person=3|Polarity=Pos	11	advcl	_	Cxn=Existential-Positive
 24	עדויות	עדות	NOUN	NOUN	Gender=Fem|Number=Plur	23	nsubj	_	_
 25-26	לנוכחות	_	_	_	_	_	_	_	_
 25	ל	ל	ADP	ADP	_	26	case	_	_
@@ -5007,7 +5007,7 @@
 1	לפי	לפי	ADP	ADP	_	2	case	_	_
 2	סעיף	סעיף	NOUN	NOUN	Gender=Masc|Number=Sing	4	obl	_	_
 3	זה	זה	PRON	PRON	Gender=Masc|Number=Sing|Person=3|PronType=Dem	2	det	_	_
-4	קיימת	קיים	ADJ	ADJ	Gender=Fem|Number=Sing	0	root	_	_
+4	קיימת	קיים	ADJ	ADJ	Gender=Fem|Number=Sing	0	root	_	Cxn=Existential-Verbal
 5	הקלה	הקלה	NOUN	NOUN	Gender=Fem|Number=Sing	4	nsubj	_	_
 6	זו	זה	PRON	PRON	Gender=Fem|Number=Sing|Person=3|PronType=Dem	5	det	_	_
 7-8	במיסוי	_	_	_	_	_	_	_	_
@@ -5093,7 +5093,7 @@
 1-2	בישראל	_	_	_	_	_	_	_	_
 1	ב	ב	ADP	ADP	_	2	case	_	_
 2	ישראל	ישראל	PROPN	PROPN	_	3	obl	_	_
-3	קיימות	קיים	ADJ	ADJ	Gender=Fem|Number=Plur	0	root	_	_
+3	קיימות	קיים	ADJ	ADJ	Gender=Fem|Number=Plur	0	root	_	Cxn=Existential-Verbal
 4	שתי	שתיים	NUM	NUM	Gender=Fem|NumType=Card	5	nummod	_	_
 5	שיטות	שיטה	NOUN	NOUN	Gender=Fem|Number=Plur	3	nsubj	_	_
 6-7	לחישוב	_	_	_	_	_	_	_	_
@@ -5325,7 +5325,7 @@
 4	של	של	ADP	ADP	Case=Gen	5	case	_	_
 5	מניות	מנייה	NOUN	NOUN	Gender=Fem|Number=Plur	3	nmod:poss	_	SpaceAfter=No
 6	,	,	PUNCT	PUNCT	_	3	punct	_	_
-7	קיים	קיים	ADJ	ADJ	Gender=Masc|Number=Sing	0	root	_	_
+7	קיים	קיים	ADJ	ADJ	Gender=Masc|Number=Sing	0	root	_	Cxn=Existential-Verbal
 8	גם	גם	ADV	ADV	_	7	advmod	_	_
 9	מס	מס	NOUN	NOUN	Definite=Cons|Gender=Masc|Number=Sing	7	nsubj	_	_
 10	דיבידנדים	דיבידנדי	NOUN	NOUN	Gender=Masc|Number=Plur	9	compound	_	_
@@ -6407,7 +6407,7 @@
 38	,	,	PUNCT	PUNCT	_	40	punct	_	_
 39-40	שיש	_	_	_	_	_	_	_	_
 39	ש	ש	SCONJ	SCONJ	_	40	mark	_	_
-40	יש	יש	VERB	VERB	_	37	acl:relcl	_	_
+40	יש	יש	VERB	VERB	_	37	acl:relcl	_	Cxn=Existential-Positive
 41-42	ביניהן	_	_	_	_	_	_	_	_
 41	ביני	בין	ADP	ADP	_	42	case	_	_
 42	הן	הוא	PRON	PRON	Gender=Fem|Number=Plur|Person=3|PronType=Prs	40	obl	_	_
@@ -6999,7 +6999,7 @@
 4	כי	כי	SCONJ	SCONJ	_	7	mark	_	_
 5	פסקת	פסקה	NOUN	NOUN	Definite=Cons|Gender=Fem|Number=Sing	7	nsubj	_	_
 6	התגברות	התגברות	NOUN	NOUN	Gender=Fem|Number=Sing	5	compound	_	_
-7	קיימת	קיים	ADJ	ADJ	Gender=Fem|Number=Sing	3	acl	_	_
+7	קיימת	קיים	ADJ	ADJ	Gender=Fem|Number=Sing	3	acl	_	Cxn=Existential-Verbal
 8-9	בחוק	_	_	_	_	_	_	_	_
 8	ב	ב	ADP	ADP	_	9	case	_	_
 9	חוק	חוק	NOUN	NOUN	Definite=Cons|Gender=Masc|Number=Sing	7	obl	_	_
@@ -7060,7 +7060,7 @@
 
 # sent_id = iahltwiki_piskat-hitgabrut-18
 # text = אין כל צידוק ענייני להבחין בין הזכויות השונות מנקודת מבט זו.
-1	אין	אין	VERB	VERB	_	0	root	_	_
+1	אין	אין	VERB	VERB	_	0	root	_	Cxn=Existential-Negative
 2	כל	כול	DET	DET	_	3	det	_	_
 3	צידוק	צידוק	NOUN	NOUN	Gender=Masc|Number=Sing	1	nsubj	_	_
 4	ענייני	ענייני	ADJ	ADJ	Gender=Masc|Number=Sing	3	amod	_	_
@@ -7716,12 +7716,12 @@
 28	זו	זה	PRON	PRON	Gender=Fem|Number=Sing|Person=3|PronType=Dem	26	nmod	_	_
 29	:	:	PUNCT	PUNCT	_	31	punct	_	_
 30	"	"	PUNCT	PUNCT	_	31	punct	_	SpaceAfter=No
-31	אין	אין	VERB	VERB	_	5	ccomp	_	_
+31	אין	אין	VERB	VERB	_	5	ccomp	_	Cxn=Existential-Negative
 32	חוק	חוק	NOUN	NOUN	Gender=Masc|Number=Sing	31	nsubj	_	_
 33	עוקף	עוקף	ADJ	ADJ	Definite=Cons|Gender=Masc|Number=Sing	32	acl	_	_
 34	בג"ץ	בג"ץ	PROPN	PROPN	Abbr=Yes|Gender=Masc|Number=Sing	33	compound	_	SpaceAfter=No
 35	,	,	PUNCT	PUNCT	_	36	punct	_	_
-36	יש	יש	VERB	VERB	_	31	parataxis	_	_
+36	יש	יש	VERB	VERB	_	31	parataxis	_	Cxn=Existential-Positive
 37	פסיקה	פסיקה	NOUN	NOUN	Gender=Fem|Number=Sing	36	nsubj	_	_
 38	עוקפת	עוקף	ADJ	ADJ	Definite=Cons|Gender=Fem|Number=Sing	37	acl	_	_
 39	כנסת	כנסת	PROPN	PROPN	Gender=Fem|Number=Sing	38	compound	_	SpaceAfter=No
@@ -8022,7 +8022,7 @@
 20-21	בהצעה	_	_	_	_	_	_	_	_
 20	ב	ב	ADP	ADP	Definite=Def|PronType=Art	21	case	_	_
 21	הצעה	הצעה	NOUN	NOUN	Gender=Fem|Number=Sing	19	obl	_	_
-22	יש	יש	VERB	VERB	_	0	root	_	_
+22	יש	יש	VERB	VERB	_	0	root	_	Cxn=Existential-Positive
 23	מחלוקת	מחלוקת	NOUN	NOUN	Gender=Fem|Number=Sing	22	nsubj	_	_
 24	האם	האם	SCONJ	SCONJ	_	25	mark	_	_
 25	די	די	ADV	ADV	_	23	acl	_	_
@@ -8065,7 +8065,7 @@
 1	או	או	CCONJ	CCONJ	_	3	cc	_	_
 2-3	שיש	_	_	_	_	_	_	_	_
 2	ש	ש	SCONJ	SCONJ	_	3	mark	_	_
-3	יש	יש	VERB	VERB	_	0	root	_	_
+3	יש	יש	VERB	VERB	_	0	root	_	Cxn=Existential-Positive
 4	צורך	צורך	NOUN	NOUN	Gender=Masc|Number=Sing	3	nsubj	_	_
 5-6	ברוב	_	_	_	_	_	_	_	_
 5	ב	ב	ADP	ADP	_	6	case	_	_
@@ -8155,7 +8155,7 @@
 1	ב	ב	ADP	ADP	_	2	case	_	_
 2	מדינת	מדינה	NOUN	NOUN	Definite=Cons|Gender=Fem|Number=Sing	4	obl	_	_
 3	ישראל	ישראל	PROPN	PROPN	_	2	compound	_	_
-4	אין	אין	VERB	VERB	_	0	root	_	_
+4	אין	אין	VERB	VERB	_	0	root	_	Cxn=Existential-Negative
 5	חוקה	חוקה	NOUN	NOUN	Gender=Fem|Number=Sing	4	nsubj	_	_
 6	אלא	אלא	CCONJ	CCONJ	_	7	cc	_	_
 7	חוקי	חוק	NOUN	NOUN	Definite=Cons|Gender=Masc|Number=Plur	5	conj	_	_
@@ -9320,7 +9320,7 @@
 24	כך	כך	ADV	ADV	_	26	mark	_	_
 25-26	שאין	_	_	_	_	_	_	_	_
 25	ש	ש	SCONJ	SCONJ	_	24	fixed	_	_
-26	אין	אין	VERB	VERB	_	13	advcl	_	_
+26	אין	אין	VERB	VERB	_	13	advcl	_	Cxn=Existential-Negative
 27	צורך	צורך	NOUN	NOUN	Gender=Masc|Number=Sing	26	nsubj	_	_
 28	לאזן	איזן	VERB	VERB	HebBinyan=PIEL|VerbForm=Inf|Voice=Act	27	acl	_	_
 29	את	את	ADP	ADP	_	30	case	_	_

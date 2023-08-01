@@ -557,7 +557,7 @@
 # text = But there is no proof .
 1	But	but	CCONJ	CC	_	3	cc	3:cc	_
 2	there	there	PRON	EX	_	3	expl	3:expl	_
-3	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+3	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-There
 4	no	no	DET	DT	_	5	det	5:det	_
 5	proof	proof	NOUN	NN	Number=Sing	3	nsubj	3:nsubj	_
 6	.	.	PUNCT	.	_	3	punct	3:punct	_
@@ -2170,7 +2170,7 @@
 5	Lebanon	Lebanon	PROPN	NNP	Number=Sing	8	obl	8:obl:in	SpaceAfter=No
 6	,	,	PUNCT	,	_	8	punct	8:punct	_
 7	there	there	PRON	EX	_	8	expl	8:expl	_
-8	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+8	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-There
 9	serious	serious	ADJ	JJ	Degree=Pos	10	amod	10:amod	_
 10	debate	debate	NOUN	NN	Number=Sing	8	nsubj	8:nsubj	_
 11	within	within	ADP	IN	_	12	case	12:case	_
@@ -4257,7 +4257,7 @@
 1	So	so	ADV	RB	_	4	advmod	4:advmod	_
 2	now	now	ADV	RB	_	4	advmod	4:advmod	_
 3	there	there	PRON	EX	_	4	expl	4:expl	_
-4	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+4	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-There
 5	hundreds	hundred	NOUN	NNS	Number=Plur	4	nsubj	4:nsubj	_
 6	of	of	ADP	IN	_	10	case	10:case	_
 7	al	al	PROPN	NNP	Number=Sing	9	compound	9:compound	SpaceAfter=No
@@ -4269,7 +4269,7 @@
 13	where	where	ADV	WRB	PronType=Rel	16	advmod	12:ref	_
 14	there	there	PRON	EX	_	16	expl	16:expl	_
 15	had	have	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	16	aux	16:aux	_
-16	been	be	VERB	VBN	Tense=Past|VerbForm=Part	12	acl:relcl	12:acl:relcl	_
+16	been	be	VERB	VBN	Tense=Past|VerbForm=Part	12	acl:relcl	12:acl:relcl	Cxn=Existential-There
 17	none	none	NOUN	NN	Number=Sing	16	nsubj	16:nsubj	_
 18	before	before	ADV	RB	_	16	advmod	16:advmod	SpaceAfter=No
 19	.	.	PUNCT	.	_	4	punct	4:punct	_
@@ -4675,7 +4675,7 @@
 6	said	say	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	2	conj	2:conj:and	_
 7	that	that	SCONJ	IN	_	9	mark	9:mark	_
 8	there	there	PRON	EX	_	9	expl	9:expl	_
-9	was	be	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	6	ccomp	6:ccomp	_
+9	was	be	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	6	ccomp	6:ccomp	Cxn=Existential-There
 10	a	a	DET	DT	Definite=Ind|PronType=Art	15	det	15:det	_
 11	10	10	NUM	CD	NumForm=Digit|NumType=Card	14	nummod	14:nummod	_
 12	to	to	ADP	IN	_	13	case	13:case	_
@@ -4741,7 +4741,7 @@
 13	,	,	PUNCT	,	_	3	punct	3:punct	_
 14	saying	say	VERB	VBG	VerbForm=Ger	3	advcl	3:advcl	_
 15	there	there	PRON	EX	_	16	expl	16:expl	_
-16	were	be	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	14	ccomp	14:ccomp	_
+16	were	be	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	14	ccomp	14:ccomp	Cxn=Existential-There
 17	"	"	PUNCT	``	_	20	punct	20:punct	SpaceAfter=No
 18	no	no	DET	DT	_	20	det	20:det	_
 19	good	good	ADJ	JJ	Degree=Pos	20	amod	20:amod	_
@@ -6099,7 +6099,7 @@
 4	know	know	VERB	VB	VerbForm=Inf	0	root	0:root	_
 5	if	if	SCONJ	IN	_	7	mark	7:mark	_
 6	there	there	PRON	EX	_	7	expl	7:expl	_
-7	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	4	ccomp	4:ccomp	_
+7	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	4	ccomp	4:ccomp	Cxn=Existential-There
 8	anything	anything	PRON	NN	Number=Sing|PronType=Ind	7	nsubj	7:nsubj	_
 9	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	11	nsubj	11:nsubj	_
 10	can	can	AUX	MD	VerbForm=Fin	11	aux	11:aux	_
@@ -6317,7 +6317,7 @@
 # sent_id = email-enronsent21_01-0015
 # text = There are only two counterparties at this time who have overdue margin:
 1	There	there	PRON	EX	_	2	expl	2:expl	_
-2	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+2	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-There
 3	only	only	ADV	RB	_	5	advmod	5:advmod	_
 4	two	two	NUM	CD	NumForm=Word|NumType=Card	5	nummod	5:nummod	_
 5	counterparties	counterparty	NOUN	NNS	Number=Plur	2	nsubj	2:nsubj|10:nsubj	_
@@ -7074,7 +7074,7 @@
 1	In	in	ADP	IN	_	2	case	2:case	_
 2	addition	addition	NOUN	NN	Number=Sing	4	obl	4:obl:in	SpaceAfter=No
 3	,	,	PUNCT	,	_	4	punct	4:punct	_
-4	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+4	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-There
 5	there	there	PRON	EX	_	4	expl	4:expl	_
 6	someone	someone	PRON	NN	Number=Sing|PronType=Ind	4	nsubj	4:nsubj|9:nsubj	_
 7	who	who	PRON	WP	PronType=Rel	9	nsubj	6:ref	_
@@ -7104,7 +7104,7 @@
 6	assuming	assume	VERB	VBG	Tense=Pres|VerbForm=Part	0	root	0:root	_
 7	that	that	SCONJ	IN	_	9	mark	9:mark	_
 8	there	there	PRON	EX	_	9	expl	9:expl	_
-9	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	ccomp	6:ccomp	_
+9	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	ccomp	6:ccomp	Cxn=Existential-There
 10	no	no	DET	DT	_	11	det	11:det	_
 11	correlation	correlation	NOUN	NN	Number=Sing	9	nsubj	9:nsubj	_
 12	and	and	CCONJ	CC	_	17	cc	17:cc	_
@@ -7652,7 +7652,7 @@
 6	PX	px	NOUN	NN	Number=Sing	2	obl	2:obl:to	_
 7	that	that	SCONJ	IN	_	9	mark	9:mark	_
 8	there	there	PRON	EX	_	9	expl	9:expl	_
-9	was	be	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	2	ccomp	2:ccomp	_
+9	was	be	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	2	ccomp	2:ccomp	Cxn=Existential-There
 10	excess	excess	ADJ	JJ	Degree=Pos	11	amod	11:amod	_
 11	credit	credit	NOUN	NN	Number=Sing	9	nsubj	9:nsubj	SpaceAfter=No
 12	.	.	PUNCT	.	_	2	punct	2:punct	_
@@ -8033,7 +8033,7 @@
 7	even	even	ADV	RB	_	10	advmod	10:advmod	_
 8	though	though	SCONJ	IN	_	10	mark	10:mark	_
 9	there	there	PRON	EX	_	10	expl	10:expl	_
-10	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	3	advcl	3:advcl:though	_
+10	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	3	advcl	3:advcl:though	Cxn=Existential-There
 11	blanks	blank	NOUN	NNS	Number=Plur	10	nsubj	10:nsubj	SpaceAfter=No
 12	.	.	PUNCT	.	_	1	punct	1:punct	_
 
@@ -9918,7 +9918,7 @@
 2	addition	addition	NOUN	NN	Number=Sing	5	obl	5:obl:in	SpaceAfter=No
 3	,	,	PUNCT	,	_	5	punct	5:punct	_
 4	there	there	PRON	EX	_	5	expl	5:expl	_
-5	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+5	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-There
 6	a	a	DET	DT	Definite=Ind|PronType=Art	7	det	7:det	_
 7	reduction	reduction	NOUN	NN	Number=Sing	5	nsubj	5:nsubj	_
 8	of	of	ADP	IN	_	10	case	10:case	_
@@ -10005,7 +10005,7 @@
 2	me	I	PRON	PRP	Case=Acc|Number=Sing|Person=1|PronType=Prs	1	obj	1:obj	_
 3	if	if	SCONJ	IN	_	5	mark	5:mark	_
 4	there	there	PRON	EX	_	5	expl	5:expl	_
-5	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	1	advcl	1:advcl:if	Cxn=Condition-Realistic
+5	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	1	advcl	1:advcl:if	Cxn=Existential-There
 6	any	any	DET	DT	_	7	det	7:det	_
 7	questions	question	NOUN	NNS	Number=Plur	5	nsubj	5:nsubj	SpaceAfter=No
 8	.	.	PUNCT	.	_	1	punct	1:punct	_
@@ -10541,7 +10541,7 @@
 # text = there will be talent and opportunity a plenty on the market soon.
 1	there	there	PRON	EX	_	3	expl	3:expl	_
 2	will	will	AUX	MD	VerbForm=Fin	3	aux	3:aux	_
-3	be	be	VERB	VB	VerbForm=Inf	0	root	0:root	_
+3	be	be	VERB	VB	VerbForm=Inf	0	root	0:root	Cxn=Existential-There
 4	talent	talent	NOUN	NN	Number=Sing	3	nsubj	3:nsubj	_
 5	and	and	CCONJ	CC	_	6	cc	6:cc	_
 6	opportunity	opportunity	NOUN	NN	Number=Sing	4	conj	3:nsubj|4:conj:and	_
@@ -12565,7 +12565,7 @@
 # sent_id = email-enronsent21_02-0006
 # newpar id = email-enronsent21_02-p0004
 # text = Are there any new developments in the trader world?
-1	Are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+1	Are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-There
 2	there	there	PRON	EX	_	1	expl	1:expl	_
 3	any	any	DET	DT	_	5	det	5:det	_
 4	new	new	ADJ	JJ	Degree=Pos	5	amod	5:amod	_
@@ -12597,7 +12597,7 @@
 17	know	know	VERB	VB	VerbForm=Inf	15	xcomp	15:xcomp	_
 18	if	if	SCONJ	IN	_	20	mark	20:mark	_
 19	there	there	PRON	EX	_	20	expl	20:expl	_
-20	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	17	ccomp	17:ccomp	_
+20	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	17	ccomp	17:ccomp	Cxn=Existential-There
 21	any	any	DET	DT	_	22	det	22:det	_
 22	changes	change	NOUN	NNS	Number=Plur	20	nsubj	20:nsubj	_
 23	to	to	ADP	IN	_	24	case	24:case	_
@@ -12844,7 +12844,7 @@
 # sent_id = email-enronsent21_02-0027
 # text = There are deals in the Aruba book so I'm not sure why you aren't picking those up.
 1	There	there	PRON	EX	_	2	expl	2:expl	_
-2	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+2	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-There
 3	deals	deal	NOUN	NNS	Number=Plur	2	nsubj	2:nsubj	_
 4	in	in	ADP	IN	_	7	case	7:case	_
 5	the	the	DET	DT	Definite=Def|PronType=Art	7	det	7:det	_
@@ -14571,7 +14571,7 @@
 1	"	"	PUNCT	``	_	4	punct	4:punct	SpaceAfter=No
 2	...	...	PUNCT	,	_	4	punct	4:punct	SpaceAfter=No
 3	there	there	PRON	EX	_	4	expl	4:expl	_
-4	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+4	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-There
 5	no	no	DET	DT	_	6	det	6:det	_
 6	companion	companion	NOUN	NN	Number=Sing	4	nsubj	4:nsubj	_
 7	quite	quite	ADV	RB	_	9	advmod	9:advmod	_
@@ -16767,7 +16767,7 @@
 7	,	,	PUNCT	,	_	9	punct	9:punct	_
 8	"	"	PUNCT	``	_	9	punct	9:punct	SpaceAfter=No
 9-10	isn't	_	_	_	_	_	_	_	_
-9	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	5	parataxis	5:parataxis	_
+9	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	5	parataxis	5:parataxis	Cxn=Existential-There
 10	n't	not	PART	RB	_	9	advmod	9:advmod	_
 11	there	there	PRON	EX	_	9	expl	9:expl	_
 12	any	anyone	PRON	GW	Number=Sing|PronType=Ind|Typo=Yes	9	nsubj	9:nsubj|17:nsubj	_
@@ -18772,7 +18772,7 @@
 2	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	3	nsubj	3:nsubj	_
 3	think	think	VERB	VB	VerbForm=Inf	0	root	0:root	_
 4	there	there	PRON	EX	_	5	expl	5:expl	_
-5	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	3	ccomp	3:ccomp	_
+5	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	3	ccomp	3:ccomp	Cxn=Existential-There
 6	any	any	DET	DT	_	7	det	7:det	_
 7	koreans	Korean	PROPN	NNPS	Number=Plur	5	nsubj	5:nsubj	_
 8	in	in	ADP	IN	_	9	case	9:case	_
@@ -18785,7 +18785,7 @@
 1	Heck	heck	INTJ	UH	_	4	discourse	4:discourse	_
 2	there	there	PRON	EX	_	4	expl	4:expl	_
 3	must	must	AUX	MD	VerbForm=Fin	4	aux	4:aux	_
-4	be	be	VERB	VB	VerbForm=Inf	0	root	0:root	_
+4	be	be	VERB	VB	VerbForm=Inf	0	root	0:root	Cxn=Existential-There
 5	at	at	ADP	IN	_	6	case	6:case	_
 6	least	least	ADJ	JJS	Degree=Sup	7	nmod	7:nmod:at	_
 7	1	1	NUM	CD	NumForm=Digit|NumType=Card	8	nummod	8:nummod	_
@@ -18998,7 +18998,7 @@
 3	or	or	CCONJ	CC	_	4	cc	4:cc	_
 4	may	may	AUX	MD	VerbForm=Fin	2	conj	2:conj:or	_
 5	not	not	PART	RB	_	4	advmod	4:advmod	_
-6	be	be	VERB	VB	VerbForm=Inf	0	root	0:root	_
+6	be	be	VERB	VB	VerbForm=Inf	0	root	0:root	Cxn=Existential-There
 7	snow	snow	NOUN	NN	Number=Sing	6	nsubj	2:nsubj|6:nsubj	SpaceAfter=No
 8	,	,	PUNCT	,	_	6	punct	6:punct	_
 9	depending	depend	VERB	VBG	VerbForm=Ger	13	case	13:case	_
@@ -19019,7 +19019,7 @@
 7	there	there	PRON	EX	_	10	expl	10:expl	_
 8	will	will	AUX	MD	VerbForm=Fin	10	aux	10:aux	_
 9	likely	likely	ADV	RB	_	10	advmod	10:advmod	_
-10	be	be	AUX	VB	VerbForm=Inf	0	root	0:root	_
+10	be	be	AUX	VB	VerbForm=Inf	0	root	0:root	Cxn=Existential-There
 11	man	man	NOUN	NN	Number=Sing	13	obl:npmod	13:obl:npmod	SpaceAfter=No
 12	-	-	PUNCT	HYPH	_	13	punct	13:punct	SpaceAfter=No
 13	made	make	VERB	VBN	Tense=Past|VerbForm=Part	14	amod	14:amod	_
@@ -19476,7 +19476,7 @@
 22	music	music	NOUN	NN	Number=Sing	21	obj	21:obj	_
 23	and	and	CCONJ	CC	_	25	cc	25:cc	_
 24	there	there	PRON	EX	_	25	expl	25:expl	_
-25	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	21	conj	11:acl:relcl|21:conj:and	_
+25	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	21	conj	11:acl:relcl|21:conj:and	Cxn=Existential-There
 26	a	a	DET	DT	Definite=Ind|PronType=Art	28	det	28:det	_
 27	dance	dance	NOUN	NN	Number=Sing	28	compound	28:compound	_
 28	floor	floor	NOUN	NN	Number=Sing	25	nsubj	25:nsubj	SpaceAfter=No
@@ -19545,7 +19545,7 @@
 16	painting	painting	NOUN	NN	Number=Sing	19	nsubj	19:nsubj	SpaceAfter=No
 17	/	/	SYM	,	_	18	cc	18:cc	SpaceAfter=No
 18	scupltures	sculpture	NOUN	NNS	Number=Plur|Typo=Yes	16	conj	16:conj|19:nsubj	CorrectForm=sculptures
-19	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+19	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-There
 20	their	there	PRON	EX	Typo=Yes	19	expl	19:expl	CorrectForm=there
 21	and	and	CCONJ	CC	_	22	cc	22:cc	_
 22	who	who	PRON	WP	PronType=Int	19	conj	19:conj:and	_
@@ -20414,7 +20414,7 @@
 3	thought	think	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	0	root	0:root	_
 4-5	theres	_	_	_	_	_	_	_	_
 4	there	there	PRON	EX	_	5	expl	5:expl	_
-5	s	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	3	ccomp	3:ccomp	_
+5	s	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	3	ccomp	3:ccomp	Cxn=Existential-There
 6	no	no	DET	DT	_	8	det	8:det	_
 7	custom	custom	NOUN	NN	Number=Sing	8	compound	8:compound	_
 8	charges	charge	NOUN	NNS	Number=Plur	5	nsubj	5:nsubj	_
@@ -20458,7 +20458,7 @@
 1	Well	well	INTJ	UH	_	3	discourse	3:discourse	_
 2-3	theres	_	_	_	_	_	_	_	_
 2	there	there	PRON	EX	_	3	expl	3:expl	_
-3	s	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+3	s	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-There
 4-5	Mc.Donalds	_	_	_	_	_	_	_	SpaceAfter=No
 4	Mc.Donald	McDonald	PROPN	NNP	Number=Sing|Typo=Yes	3	nsubj	3:nsubj	CorrectForm=McDonald
 5	s	's	PART	POS	Typo=Yes	4	case	4:case	CorrectForm='s
@@ -21057,7 +21057,7 @@
 # sent_id = answers-20111107155815AA6LXXJ_ans-0003
 # text = There is so much to do onboard.
 1	There	there	PRON	EX	_	2	expl	2:expl	_
-2	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+2	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-There
 3	so	so	ADV	RB	_	4	advmod	4:advmod	_
 4	much	much	ADJ	JJ	Degree=Pos	2	nsubj	2:nsubj	_
 5	to	to	PART	TO	_	6	mark	6:mark	_
@@ -21987,7 +21987,7 @@
 # newpar id = answers-20111104115933AA30CRJ_ans-p0004
 # text = There are plenty of cheap restaurants.
 1	There	there	PRON	EX	_	2	expl	2:expl	_
-2	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+2	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-There
 3	plenty	plenty	NOUN	NN	Number=Sing	2	nsubj	2:nsubj	_
 4	of	of	ADP	IN	_	6	case	6:case	_
 5	cheap	cheap	ADJ	JJ	Degree=Pos	6	amod	6:amod	_
@@ -22499,7 +22499,7 @@
 5	said	say	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	8	advcl	8:advcl:as	SpaceAfter=No
 6	,	,	PUNCT	,	_	8	punct	8:punct	_
 7	there	there	PRON	EX	_	8	expl	8:expl	_
-8	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+8	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-There
 9	only	only	ADV	RB	_	10	advmod	10:advmod	_
 10	16	16	NUM	CD	NumForm=Digit|NumType=Card	8	nsubj	8:nsubj	_
 11	in	in	ADP	IN	_	14	case	14:case	_
@@ -22696,7 +22696,7 @@
 1	And	and	CCONJ	CC	_	3	cc	3:cc	_
 2-3	there's	_	_	_	_	_	_	_	_
 2	there	there	PRON	EX	_	3	expl	3:expl	_
-3	's	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+3	's	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-There
 4	nothing	nothing	PRON	NN	Number=Sing|PronType=Neg	3	nsubj	3:nsubj	_
 5	distinctly	distinctly	ADV	RB	_	6	advmod	6:advmod	_
 6	Irish	Irish	ADJ	JJ	Degree=Pos	4	amod	4:amod	_
@@ -22949,7 +22949,7 @@
 4	...	...	PUNCT	,	_	2	punct	2:punct	_
 5-6	there's	_	_	_	_	_	_	_	_
 5	there	there	PRON	EX	_	6	expl	6:expl	_
-6	's	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	2	parataxis	2:parataxis	_
+6	's	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	2	parataxis	2:parataxis	Cxn=Existential-There
 7	no	no	DET	DT	_	9	det	9:det	_
 8	such	such	ADJ	JJ	Degree=Pos	9	amod	9:amod	_
 9	thing	thing	NOUN	NN	Number=Sing	6	nsubj	6:nsubj	_
@@ -23212,7 +23212,7 @@
 # sent_id = answers-20111106015552AAj6rCu_ans-0001
 # newpar id = answers-20111106015552AAj6rCu_ans-p0001
 # text = is there any good places to get an ice-cream sundae from in Invercargill New Zealand?
-1	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+1	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-There
 2	there	there	PRON	EX	_	1	expl	1:expl	_
 3	any	any	DET	DT	_	5	det	5:det	_
 4	good	good	ADJ	JJ	Degree=Pos	5	amod	5:amod	_
@@ -23248,7 +23248,7 @@
 12	know	know	VERB	VB	VerbForm=Inf	10	xcomp	10:xcomp	_
 13	if	if	SCONJ	IN	_	15	mark	15:mark	_
 14	there	there	PRON	EX	_	15	expl	15:expl	_
-15	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	12	ccomp	12:ccomp	_
+15	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	12	ccomp	12:ccomp	Cxn=Existential-There
 16	any	any	DET	DT	_	18	det	18:det	_
 17	good	good	ADJ	JJ	Degree=Pos	18	amod	18:amod	_
 18	places	place	NOUN	NNS	Number=Plur	15	nsubj	15:nsubj	_
@@ -23489,7 +23489,7 @@
 # sent_id = answers-20111106103415AAqdokn_ans-0010
 # text = There are currently 5 locations:
 1	There	there	PRON	EX	_	2	expl	2:expl	_
-2	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+2	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-There
 3	currently	currently	ADV	RB	_	2	advmod	2:advmod	_
 4	5	5	NUM	CD	NumForm=Digit|NumType=Card	5	nummod	5:nummod	_
 5	locations	location	NOUN	NNS	Number=Plur	2	nsubj	2:nsubj	SpaceAfter=No
@@ -23770,7 +23770,7 @@
 # newpar id = answers-20111107200249AAIyCy5_ans-p0001
 # text = why are there two statues of David?
 1	why	why	ADV	WRB	PronType=Int	2	advmod	2:advmod	_
-2	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+2	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-There
 3	there	there	PRON	EX	_	2	expl	2:expl	_
 4	two	two	NUM	CD	NumForm=Word|NumType=Card	5	nummod	5:nummod	_
 5	statues	statue	NOUN	NNS	Number=Plur	2	nsubj	2:nsubj	_
@@ -23793,7 +23793,7 @@
 10	notice	notice	VERB	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	2	conj	2:conj:and	_
 11	that	that	SCONJ	IN	_	13	mark	13:mark	_
 12	there	there	PRON	EX	_	13	expl	13:expl	_
-13	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	10	ccomp	10:ccomp	_
+13	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	10	ccomp	10:ccomp	Cxn=Existential-There
 14	two	two	NUM	CD	NumForm=Word|NumType=Card	15	nummod	15:nummod	_
 15	statues	statue	NOUN	NNS	Number=Plur	13	nsubj	13:nsubj	_
 16	of	of	ADP	IN	_	17	case	17:case	_
@@ -23839,7 +23839,7 @@
 6	confused	confused	ADJ	JJ	Degree=Pos	0	root	0:root	_
 7	,	,	PUNCT	,	_	6	punct	6:punct	_
 8	why	why	ADV	WRB	PronType=Int	9	advmod	9:advmod	_
-9	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	parataxis	6:parataxis	_
+9	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	parataxis	6:parataxis	Cxn=Existential-There
 10	there	there	PRON	EX	_	9	expl	9:expl	_
 11	two	two	NUM	CD	NumForm=Word|NumType=Card	12	nummod	12:nummod	_
 12	statues	statue	NOUN	NNS	Number=Plur	9	nsubj	9:nsubj	_
@@ -24759,7 +24759,7 @@
 12	if	if	SCONJ	IN	_	14	mark	14:mark	_
 13-14	there's	_	_	_	_	_	_	_	_
 13	there	there	PRON	EX	_	14	expl	14:expl	_
-14	's	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	11	ccomp	11:ccomp	_
+14	's	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	11	ccomp	11:ccomp	Cxn=Existential-There
 15	a	a	DET	DT	Definite=Ind|PronType=Art	16	det	16:det	_
 16	place	place	NOUN	NN	Number=Sing	14	nsubj	14:nsubj	_
 17	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	19	nsubj	19:nsubj	_
@@ -26933,7 +26933,7 @@
 # newpar id = reviews-210153-p0002
 # text = There is no lower rating for Noonan's Liquor, owners and employees.
 1	There	there	PRON	EX	_	2	expl	2:expl	_
-2	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+2	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-There
 3	no	no	DET	DT	_	5	det	5:det	_
 4	lower	low	ADJ	JJR	Degree=Cmp	5	amod	5:amod	_
 5	rating	rating	NOUN	NN	Number=Sing	2	nsubj	2:nsubj	_
@@ -27609,7 +27609,7 @@
 11	time	time	NOUN	NN	Number=Sing	8	obl	8:obl:at	_
 12	when	when	ADV	WRB	PronType=Int	14	advmod	14:advmod	_
 13	there	there	PRON	EX	_	14	expl	14:expl	_
-14	was	be	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	8	advcl	8:advcl:when	_
+14	was	be	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	8	advcl	8:advcl:when	Cxn=Existential-There
 15	very	very	ADV	RB	_	16	advmod	16:advmod	_
 16	few	few	ADJ	JJ	Degree=Pos	17	amod	17:amod	_
 17	clients	client	NOUN	NNS	Number=Plur	14	nsubj	14:nsubj	_
@@ -28892,7 +28892,7 @@
 2	there	there	ADV	RB	PronType=Dem	1	advmod	1:advmod	_
 3	and	and	CCONJ	CC	_	5	cc	5:cc	_
 4	there	there	PRON	EX	_	5	expl	5:expl	_
-5	was	be	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	1	conj	1:conj:and	_
+5	was	be	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	1	conj	1:conj:and	Cxn=Existential-There
 6	nothing	nothing	PRON	NN	Number=Sing|PronType=Neg	5	nsubj	5:nsubj	SpaceAfter=No
 7	.	.	PUNCT	.	_	1	punct	1:punct	_
 
@@ -30809,7 +30809,7 @@
 24	initials	initial	NOUN	NNS	Number=Plur	22	obj	22:obj	_
 25	KKK	KKK	PROPN	NNP	Number=Sing	24	appos	24:appos	SpaceAfter=No
 26	....	....	PUNCT	,	_	6	punct	6:punct	SpaceAfter=No
-27	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	parataxis	6:parataxis	_
+27	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	parataxis	6:parataxis	Cxn=Existential-There
 28	there	there	PRON	EX	_	27	expl	27:expl	_
 29	something	something	PRON	NN	Number=Sing|PronType=Ind	27	nsubj	27:nsubj	_
 30	behind	behind	ADP	IN	_	32	case	32:case	_
@@ -31202,7 +31202,7 @@
 14	so	so	SCONJ	IN	_	17	mark	17:mark	_
 15	that	that	SCONJ	IN	_	14	fixed	14:fixed	_
 16	there	there	PRON	EX	_	17	expl	17:expl	_
-17	were	be	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	2	advcl	2:advcl:so_that	_
+17	were	be	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	2	advcl	2:advcl:so_that	Cxn=Existential-There
 18	no	no	DET	DT	_	19	det	19:det	_
 19	surprises	surprise	NOUN	NNS	Number=Plur	17	nsubj	17:nsubj	SpaceAfter=No
 20	.	.	PUNCT	.	_	2	punct	2:punct	_
@@ -31600,7 +31600,7 @@
 3	showed	show	VERB	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	6	advcl	6:advcl:after	_
 4	up	up	ADP	RP	_	3	compound:prt	3:compound:prt	_
 5	there	there	PRON	EX	_	6	expl	6:expl	_
-6	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	_
+6	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	Cxn=Existential-There
 7	a	a	DET	DT	Definite=Ind|PronType=Art	9	det	9:det	_
 8	little	little	ADJ	JJ	Degree=Pos	9	amod	9:amod	_
 9	trouble	trouble	NOUN	NN	Number=Sing	6	nsubj	6:nsubj	_
@@ -32409,7 +32409,7 @@
 # text = There must be a better mexican place in Rockland.
 1	There	there	PRON	EX	_	3	expl	3:expl	_
 2	must	must	AUX	MD	VerbForm=Fin	3	aux	3:aux	_
-3	be	be	VERB	VB	VerbForm=Inf	0	root	0:root	_
+3	be	be	VERB	VB	VerbForm=Inf	0	root	0:root	Cxn=Existential-There
 4	a	a	DET	DT	Definite=Ind|PronType=Art	7	det	7:det	_
 5	better	good	ADJ	JJR	Degree=Cmp	7	amod	7:amod	_
 6	mexican	Mexican	ADJ	JJ	Degree=Pos	7	amod	7:amod	_
@@ -32500,7 +32500,7 @@
 # text = there might be bigger and more well known bagel places in the area but Family Bagels are nice people, small shop and incredibly friendly.
 1	there	there	PRON	EX	_	3	expl	3:expl	_
 2	might	might	AUX	MD	VerbForm=Fin	3	aux	3:aux	_
-3	be	be	VERB	VB	VerbForm=Inf	0	root	0:root	_
+3	be	be	VERB	VB	VerbForm=Inf	0	root	0:root	Cxn=Existential-There
 4	bigger	big	ADJ	JJR	Degree=Cmp	10	amod	10:amod	_
 5	and	and	CCONJ	CC	_	8	cc	8:cc	_
 6	more	more	ADV	RBR	Degree=Cmp	8	advmod	8:advmod	_

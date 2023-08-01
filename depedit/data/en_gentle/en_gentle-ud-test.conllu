@@ -4788,7 +4788,7 @@
 4	sorry	sorry	ADJ	JJ	Degree=Pos	5	discourse	5:discourse	_
 5	what	what	PRON	WP	PronType=Int	6	reparandum	6:reparandum	_
 6	how	how	ADV	WRB	PronType=Int	7	advmod	7:advmod	_
-7	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+7	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-There
 8	there	there	PRON	EX	PronType=Dem	7	expl	7:expl	_
 9	a	a	DET	DT	Definite=Ind|PronType=Art	10	det	10:det	Entity=(81-event-new-cf1-2-coref
 10	penalty	penalty	NOUN	NN	Number=Sing	7	nsubj	7:nsubj	Entity=81)
@@ -5319,7 +5319,7 @@
 7	,	,	PUNCT	,	_	9	punct	9:punct	_
 8-9	there's	_	_	_	_	_	_	_	_
 8	there	there	PRON	EX	PronType=Dem	9	expl	9:expl	Discourse=restatement-partial:9->3:2
-9	's	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	1	parataxis	1:parataxis	_
+9	's	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	1	parataxis	1:parataxis	Cxn=Existential-There
 10	your	your	PRON	PRP$	Case=Gen|Number=Sing|Person=2|Poss=Yes|PronType=Prs	12	nmod:poss	12:nmod:poss	Entity=(18-person-new-cf1-3-coref(10-person-giv:inact-cf2-1-ana)
 11	top	top	ADJ	JJ	Degree=Pos	12	amod	12:amod	_
 12	ten	ten	NUM	CD	NumForm=Word|NumType=Card	9	nsubj	9:nsubj	Entity=18)
@@ -7634,7 +7634,7 @@
 31	114	114	NUM	CD	NumForm=Digit|NumType=Card	30	nmod	30:nmod	Entity=68)|SpaceAfter=No
 32	]	]	PUNCT	-RRB-	_	30	punct	30:punct	XML=</hi>
 33	must	must	AUX	MD	Number=Sing|Person=3|VerbForm=Fin	34	aux	34:aux	Discourse=same-unit_m:55->53:1
-34	exist	exist	VERB	VB	VerbForm=Inf	24	acl	24:acl:that	_
+34	exist	exist	VERB	VB	VerbForm=Inf	24	acl	24:acl:that	Cxn=Existential-Exist
 35	at	at	ADP	IN	_	37	case	37:case	_
 36	review	review	NOUN	NN	Number=Sing	37	compound	37:compound	Entity=(69-time-new-cf9-2-sgl(66-event-giv:act-cf3-1-coref)
 37	stages	stage	NOUN	NNS	Number=Plur	34	obl	34:obl:at	Entity=69)|SpaceAfter=No
@@ -13286,7 +13286,7 @@
 # transition = zero
 # text = There is mild pallor noted.
 1	There	there	PRON	EX	PronType=Dem	2	expl	2:expl	Discourse=joint-list_m:44->39:0
-2	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+2	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-There
 3	mild	mild	ADJ	JJ	Degree=Pos	4	amod	4:amod	Entity=(79-abstract-new-cf1-2-sgl
 4	pallor	pallor	NOUN	NN	Number=Sing	2	nsubj	2:nsubj	Entity=79)
 5	noted	note	VERB	VBN	Tense=Past|VerbForm=Part	4	acl	4:acl	Discourse=elaboration-attribute:45->44:0|SpaceAfter=No
@@ -13298,7 +13298,7 @@
 # transition = null
 # text = There is no icterus, adenopathy or petechiae noted.
 1	There	there	PRON	EX	PronType=Dem	2	expl	2:expl	Discourse=joint-list_m:46->39:0
-2	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+2	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-There
 3	no	no	DET	DT	Polarity=Neg|PronType=Art	4	det	4:det	_
 4	icterus	icterus	NOUN	NN	Number=Sing	2	nsubj	2:nsubj	Entity=(80-abstract-new-cf2-1-sgl)|SpaceAfter=No
 5	,	,	PUNCT	,	_	6	punct	6:punct	_
@@ -16092,7 +16092,7 @@
 1	Is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	4	reparandum	4:reparandum	Discourse=organization-phatic:160->161:0
 2	there	there	PRON	EX	PronType=Dem	1	expl	1:expl	_
 3	—	—	PUNCT	:	_	1	punct	1:punct	_
-4	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Discourse=topic-question:161->166:1|XML=<hi rend:::"italic"></hi>
+4	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-There|Discourse=topic-question:161->166:1|XML=<hi rend:::"italic"></hi>
 5	there	there	PRON	EX	PronType=Dem	4	expl	4:expl	_
 6	balm	balm	NOUN	NN	Number=Sing	4	nsubj	4:nsubj	Entity=(118-substance-new-cf1-1-sgl)
 7	in	in	ADP	IN	_	8	case	8:case	_
@@ -16826,7 +16826,7 @@
 14	,	,	PUNCT	,	_	17	punct	17:punct	_
 15	as	as	SCONJ	IN	_	17	mark	17:mark	Discourse=explanation-evidence:8->7:0
 16	there	there	PRON	EX	PronType=Dem	17	expl	17:expl	_
-17	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	7	advcl	7:advcl:as	_
+17	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	7	advcl	7:advcl:as	Cxn=Existential-There
 18	no	no	ADV	RB	Degree=Pos|Polarity=Neg	19	advmod	19:advmod	Entity=(22-abstract-new-cf4-5-sgl
 19	more	more	ADV	RBR	Degree=Cmp	21	advmod	21:advmod	_
 20	than	than	ADP	IN	_	19	fixed	19:fixed	_
@@ -17234,7 +17234,7 @@
 # text = Suppose there exists no path between y1 and y3 in H1,3.
 1	Suppose	suppose	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=attribution-positive:46->47:0
 2	there	there	PRON	EX	PronType=Dem	3	expl	3:expl	Discourse=contingency-condition:47->48:0
-3	exists	exist	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	1	ccomp	1:ccomp	_
+3	exists	exist	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	1	ccomp	1:ccomp	Cxn=Existential-There
 4	no	no	DET	DT	Polarity=Neg|PronType=Art	5	det	5:det	Entity=(62-abstract-new-cf4-8-sgl
 5	path	path	NOUN	NN	Number=Sing	3	nsubj	3:nsubj	XML=<ref target:::"https://proofwiki.org/wiki/Definition:Path"></ref>
 6	between	between	ADP	IN	_	7	case	7:case	_
@@ -17321,7 +17321,7 @@
 # text = Suppose there exists a path between y1 and y3 in H1,3.
 1	Suppose	suppose	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=attribution-positive:53->54:0
 2	there	there	PRON	EX	PronType=Dem	3	expl	3:expl	Discourse=context-background:54->63:1
-3	exists	exist	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	1	ccomp	1:ccomp	_
+3	exists	exist	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	1	ccomp	1:ccomp	Cxn=Existential-There
 4	a	a	DET	DT	Definite=Ind|PronType=Art	5	det	5:det	Entity=(66-abstract-new-cf4-8-coref
 5	path	path	NOUN	NN	Number=Sing	3	nsubj	3:nsubj	XML=<ref target:::"https://proofwiki.org/wiki/Definition:Path"></ref>
 6	between	between	ADP	IN	_	7	case	7:case	_
@@ -17519,7 +17519,7 @@
 7	vertices	vertice	NOUN	NNS	Number=Plur	5	conj	4:obj|5:conj:and	Entity=(85-abstract-new-cf5-4-sgl
 8	that	that	PRON	WDT	PronType=Rel	10	nsubj	5:ref	Discourse=elaboration-attribute:72->71:0
 9	might	might	AUX	MD	VerbForm=Fin	10	aux	10:aux	_
-10	exist	exist	VERB	VB	VerbForm=Inf	5	acl:relcl	5:acl:relcl	Entity=85)|SpaceAfter=No
+10	exist	exist	VERB	VB	VerbForm=Inf	5	acl:relcl	5:acl:relcl	Cxn=Existential-Exist|Entity=85)|SpaceAfter=No
 11	,	,	PUNCT	,	_	20	punct	20:punct	_
 12	as	as	SCONJ	IN	_	20	mark	20:mark	Discourse=explanation-evidence:73->71:1
 13	this	this	PRON	DT	Number=Sing|PronType=Dem	20	nsubj	20:nsubj	Entity=(76-abstract-giv:inact-cf1-1-ana)
@@ -19428,7 +19428,7 @@
 # text = Thus there is a strictly increasing mapping from T to U.
 1	Thus	thus	ADV	RB	_	3	advmod	3:advmod	Discourse=explanation-evidence:89->91:0
 2	there	there	PRON	EX	PronType=Dem	3	expl	3:expl	_
-3	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+3	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-There
 4	a	a	DET	DT	Definite=Ind|PronType=Art	7	det	7:det	Entity=(76-abstract-giv:act-cf1*-4-coref
 5	strictly	strictly	ADV	RB	Degree=Pos	6	advmod	6:advmod	XML=<ref target:::"https://proofwiki.org/wiki/Definition:Strictly_Increasing_Mapping">
 6	increasing	increase	VERB	VBG	VerbForm=Ger	7	amod	7:amod	_
@@ -19553,7 +19553,7 @@
 # text = Thus there is an order isomorphism from T to Ix in S.
 1	Thus	thus	ADV	RB	_	3	advmod	3:advmod	Discourse=joint-list_m:102->91:1
 2	there	there	PRON	EX	PronType=Dem	3	expl	3:expl	_
-3	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+3	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-There
 4	an	a	DET	DT	Definite=Ind|PronType=Art	6	det	6:det	Entity=(93-abstract-new-cf5-9-sgl
 5	order	order	NOUN	NN	Number=Sing	6	compound	6:compound	Entity=(83-abstract-giv:inact-cf4-1-coref)
 6	isomorphism	isomorphism	NOUN	NN	Number=Sing	3	nsubj	3:nsubj	_
@@ -19631,7 +19631,7 @@
 # text = Thus there is an order isomorphism from T to all of S.
 1	Thus	thus	ADV	RB	_	3	advmod	3:advmod	Discourse=joint-list_m:109->91:1
 2	there	there	PRON	EX	PronType=Dem	3	expl	3:expl	_
-3	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+3	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-There
 4	an	a	DET	DT	Definite=Ind|PronType=Art	6	det	6:det	Entity=(98-abstract-new-cf4-3-sgl
 5	order	order	NOUN	NN	Number=Sing	6	compound	6:compound	Entity=(83-abstract-giv:inact-cf3-1-coref)
 6	isomorphism	isomorphism	NOUN	NN	Number=Sing	3	nsubj	3:nsubj	_
@@ -19703,7 +19703,7 @@
 # text = Thus there is an order isomorphism from an initial segment of T to all of S.
 1	Thus	thus	ADV	RB	_	3	advmod	3:advmod	Discourse=joint-list_m:116->59:4
 2	there	there	PRON	EX	PronType=Dem	3	expl	3:expl	_
-3	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+3	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-There
 4	an	a	DET	DT	Definite=Ind|PronType=Art	6	det	6:det	Entity=(101-abstract-new-cf4-3-sgl
 5	order	order	NOUN	NN	Number=Sing	6	compound	6:compound	Entity=(83-abstract-giv:inact-cf3-1-coref)
 6	isomorphism	isomorphism	NOUN	NN	Number=Sing	3	nsubj	3:nsubj	_
@@ -25873,7 +25873,7 @@
 4	,	,	PUNCT	,	_	7	punct	7:punct	_
 5	"	''	PUNCT	``	_	7	punct	7:punct	Discourse=explanation-evidence:56->65:2|SpaceAfter=No
 6	There	there	PRON	EX	PronType=Dem	7	expl	7:expl	_
-7	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	3	ccomp	3:ccomp	_
+7	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	3	ccomp	3:ccomp	Cxn=Existential-There
 8	six	six	NUM	CD	NumForm=Word|NumType=Card	9	nummod	9:nummod	Entity=(69-abstract-new-cf3-2-sgl
 9	things	thing	NOUN	NNS	Number=Plur	7	nsubj	7:nsubj	_
 10	the	the	DET	DT	Definite=Def|PronType=Art	11	det	11:det	Discourse=elaboration-attribute:57->56:0|Entity=(70-person-new-cf1-2-coref-God
@@ -26009,7 +26009,7 @@
 # transition = continue
 # text = There are 3 churches within 1 block of your practice, and many others who must take a stand.
 1	There	there	PRON	EX	PronType=Dem	2	expl	2:expl	Discourse=explanation-motivation:72->70:1
-2	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+2	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-There
 3	3	3	NUM	CD	NumForm=Digit|NumType=Card	4	nummod	4:nummod	Entity=(89-place-new-cf4-5-sgl
 4	churches	church	NOUN	NNS	Number=Plur	2	nsubj	2:nsubj	_
 5	within	within	ADP	IN	_	7	case	7:case	_
@@ -26291,7 +26291,7 @@
 # transition = establishment
 # text = There are a bunch of them right around the corner from my motherfucking cell.
 1	There	there	PRON	EX	PronType=Dem	2	expl	2:expl	Discourse=elaboration-additional:9->8:0
-2	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+2	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-There
 3	a	a	DET	DT	Definite=Ind|PronType=Art	4	det	4:det	Entity=(8-person-giv:act-cf2-2-coref
 4	bunch	bunch	NOUN	NN	Number=Sing	2	nsubj	2:nsubj	_
 5	of	of	ADP	IN	_	6	case	6:case	_

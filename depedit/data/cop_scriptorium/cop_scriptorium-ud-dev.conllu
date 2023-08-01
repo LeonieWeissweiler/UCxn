@@ -156,7 +156,7 @@
 50	ⲟⲩⲁ	ⲟⲩⲁ	NUM	NUM	NumType=Card	48	nmod	_	Entity=(person|Orig=ⲟ̣ⲩⲁ`
 51-53	ⲉⲙⲛϭⲟⲙ	_	_	_	_	_	_	_	_
 51	ⲉ	ⲉⲣⲉ	SCONJ	CCIRC	_	52	mark	_	_
-52	ⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	50	acl:relcl	_	Orig=ⲙ︤ⲛ︥
+52	ⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	50	acl:relcl	_	Cxn=Existential-Negative|Orig=ⲙ︤ⲛ︥
 53	ϭⲟⲙ	ϭⲟⲙ	NOUN	N	_	52	nsubj	_	_
 54-55	ⲙⲙⲟϥ	_	_	_	_	_	_	_	_
 54	ⲙⲙⲟ	ⲛ	ADP	PREP	_	55	case	_	Orig=ⲙ̣̄ⲙⲟ
@@ -6560,7 +6560,7 @@
 6	ⲇⲉ	ⲇⲉ	PART	PTC	Foreign=Yes	8	advmod	_	OrigLang=grc
 7-12	ⲛⲉⲩⲛⲁⲣⲁⲩϭⲓⲥⲧⲃⲁ	_	_	_	_	_	_	_	_
 7	ⲛⲉ	ⲛⲉⲣⲉ	AUX	CPRET	_	8	aux	_	_
-8	ⲩⲛ	ⲟⲩⲛ	VERB	EXIST	_	0	root	_	_
+8	ⲩⲛ	ⲟⲩⲛ	VERB	EXIST	_	0	root	_	Cxn=Existential-Positive
 9	ⲁⲣⲁ	ⲁⲣⲁ	PART	PTC	Foreign=Yes	8	advmod	_	OrigLang=grc
 10	ⲩ	ⲟⲩ	DET	ART	Definite=Ind|Number=Sing|PronType=Art	14	det	_	Entity=(person
 11	ϭⲓⲥ	ϭⲓⲥ	NUM	NUM	NumType=Card	12	compound	_	_
@@ -7639,7 +7639,7 @@
 # text_en = There is nothing from outside of the man, that going into him can defile him; but the things which proceed out of the man are those that defile the man.
 # text = ⲙⲙⲛⲗⲁⲁⲩ ⲉϥⲙⲡⲃⲟⲗ ⲙⲡⲣⲱⲙⲉ ⲉϥⲛⲁⲃⲱⲕ ⲉϩⲟⲩⲛ ⲉⲣⲟϥ ⲉϥⲛⲁϣϫⲁϩⲙⲉϥ ⲁⲗⲗⲁ ⲛⲉⲧⲛⲏⲩ ⲉⲃⲟⲗ ⲙⲡⲣⲱⲙⲉ ⲛⲧⲟⲟⲩ ⲛⲉⲧϫⲱϩⲙ ⲙⲡⲣⲱⲙⲉ .
 1-2	ⲙⲙⲛⲗⲁⲁⲩ	_	_	_	_	_	_	_	_
-1	ⲙⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	0	root	_	_
+1	ⲙⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	0	root	_	Cxn=Existential-Negative
 2	ⲗⲁⲁⲩ	ⲗⲁⲁⲩ	NOUN	N	_	1	nsubj	_	Entity=(object
 3-7	ⲉϥⲙⲡⲃⲟⲗ	_	_	_	_	_	_	_	_
 3	ⲉ	ⲉⲣⲉ	SCONJ	CCIRC	_	7	mark	_	_
@@ -9016,7 +9016,7 @@
 15	ⲭⲗⲟⲏ	ⲭⲗⲟⲏ	PROPN	NPROP	Foreign=Yes	14	nmod	_	Entity=(person)person)|OrigLang=grc
 16-19	ϫⲉⲟⲩⲛϩⲉⲛϯⲧⲱⲛ	_	_	_	_	_	_	_	_
 16	ϫⲉ	ϫⲉ	SCONJ	CONJ	_	17	mark	_	_
-17	ⲟⲩⲛ	ⲟⲩⲛ	VERB	EXIST	Foreign=Yes	3	ccomp	_	OrigLang=grc
+17	ⲟⲩⲛ	ⲟⲩⲛ	VERB	EXIST	Foreign=Yes	3	ccomp	_	Cxn=Existential-Positive|OrigLang=grc
 18	ϩⲉⲛ	ⲟⲩ	DET	ART	Definite=Ind|Number=Sing|PronType=Art	19	det	_	Entity=(event
 19	ϯⲧⲱⲛ	ϯⲧⲱⲛ	NOUN	N	_	17	nsubj	_	Entity=event)|MSeg=ϯ-ⲧⲱⲛ
 20-21	ⲛϩⲏⲧⲧⲏⲩⲧⲛ	_	_	_	_	_	_	_	_
@@ -9591,7 +9591,7 @@
 8	ⲥⲛⲏⲩ	ⲥⲟⲛ	NOUN	N	_	2	vocative	_	Entity=person)
 9-11	ϫⲉⲙⲛϩⲁϩ	_	_	_	_	_	_	_	_
 9	ϫⲉ	ϫⲉ	SCONJ	CONJ	_	10	mark	_	_
-10	ⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	2	ccomp	_	_
+10	ⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	2	ccomp	_	Cxn=Existential-Negative
 11	ϩⲁϩ	ϩⲁϩ	NOUN	N	_	10	nsubj	_	Entity=(person
 12-13	ⲛⲥⲟⲫⲟⲥ	_	_	_	_	_	_	_	_
 12	ⲛ	ⲛ	ADP	PREP	_	13	case	_	_
@@ -9604,14 +9604,14 @@
 17	ⲥⲁⲣⲝ	ⲥⲁⲣⲝ	NOUN	N	Foreign=Yes	13	nmod	_	Entity=(object)|OrigLang=grc
 18	.	.	PUNCT	PUNCT	_	11	punct	_	_
 19-20	ⲙⲛϩⲁϩ	_	_	_	_	_	_	_	_
-19	ⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	11	parataxis	_	_
+19	ⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	11	parataxis	_	Cxn=Existential-Negative
 20	ϩⲁϩ	ϩⲁϩ	NOUN	N	_	19	nsubj	_	Entity=(person
 21-22	ⲛⲇⲩⲛⲁⲧⲟⲥ	_	_	_	_	_	_	_	_
 21	ⲛ	ⲛ	ADP	PREP	_	22	case	_	_
 22	ⲇⲩⲛⲁⲧⲟⲥ	ⲇⲩⲛⲁⲧⲟⲥ	NOUN	N	Foreign=Yes	20	nmod	_	Entity=person)|OrigLang=grc
 23	.	.	PUNCT	PUNCT	_	19	punct	_	_
 24-25	ⲙⲛϩⲁϩ	_	_	_	_	_	_	_	_
-24	ⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	19	parataxis	_	_
+24	ⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	19	parataxis	_	Cxn=Existential-Negative
 25	ϩⲁϩ	ϩⲁϩ	NOUN	N	_	24	nsubj	_	Entity=(person
 26-27	ⲛⲉⲩⲅⲉⲛⲏⲥ	_	_	_	_	_	_	_	_
 26	ⲛ	ⲛ	ADP	PREP	_	27	case	_	_
@@ -10462,7 +10462,7 @@
 25	.	.	PUNCT	PUNCT	_	20	punct	_	_
 26	ⲁⲩⲱ	ⲁⲩⲱ	CCONJ	CONJ	_	27	cc	_	_
 27-28	ⲙⲛϭⲟⲙ	_	_	_	_	_	_	_	_
-27	ⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	20	conj	_	_
+27	ⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	20	conj	_	Cxn=Existential-Negative
 28	ϭⲟⲙ	ϭⲟⲙ	NOUN	N	_	27	nsubj	_	Entity=(abstract)
 29-30	ⲙⲙⲟϥ	_	_	_	_	_	_	_	_
 29	ⲙⲙⲟ	ⲛ	ADP	PREP	_	30	case	_	_
@@ -11105,7 +11105,7 @@
 13	ⲉⲃⲟⲗ	ⲉⲃⲟⲗ	ADV	ADV	_	15	mark	_	_
 14-16	ϫⲉⲟⲩⲛϩⲁϩ	_	_	_	_	_	_	_	_
 14	ϫⲉ	ϫⲉ	CCONJ	CONJ	_	13	fixed	_	_
-15	ⲟⲩⲛ	ⲟⲩⲛ	VERB	EXIST	_	4	advcl	_	Orig=ⲟⲩⲛ̄
+15	ⲟⲩⲛ	ⲟⲩⲛ	VERB	EXIST	_	4	advcl	_	Cxn=Existential-Positive|Orig=ⲟⲩⲛ̄
 16	ϩⲁϩ	ϩⲁϩ	NOUN	N	_	15	nsubj	_	Entity=(person|Orig=ϩⲁϩ⳿
 17-21	ⲉⲩϩⲁⲧⲛⲛⲉⲩⲉⲣⲏⲩ	_	_	_	_	_	_	_	_
 17	ⲉ	ⲉⲣⲉ	SCONJ	CCIRC	_	21	mark	_	_
@@ -11142,7 +11142,7 @@
 # text_en = ...
 # text = ⲟⲩⲛϩⲁϩ ⲇⲉ ⲟⲛ ⲉⲩϩⲁⲧⲛⲛⲉⲩⲉⲣⲏⲩ ⲁⲛ ϩⲙⲡⲥⲱⲙⲁ · ⲉⲩϩⲁⲧⲛⲛⲉⲩⲉⲣⲏⲩ ⲛⲛⲁⲩ ⲛⲓⲙ ϩⲛⲧⲁⲅⲁⲡⲏ ⲙⲡⲉⲭⲣⲓⲥⲧⲟⲥ ⲙⲛⲧⲁⲅⲁⲡⲏ ⲙⲡⲉⲡⲛⲉⲩⲙⲁ ⲁⲩⲱ ⲡⲟⲩⲱϣ ⲛⲓⲏⲥⲟⲩⲥ :
 1-2	ⲟⲩⲛϩⲁϩ	_	_	_	_	_	_	_	_
-1	ⲟⲩⲛ	ⲟⲩⲛ	VERB	EXIST	_	0	root	_	Orig=ⲟⲩⲛ̄
+1	ⲟⲩⲛ	ⲟⲩⲛ	VERB	EXIST	_	0	root	_	Cxn=Existential-Positive|Orig=ⲟⲩⲛ̄
 2	ϩⲁϩ	ϩⲁϩ	NOUN	N	_	1	nsubj	_	Entity=(person
 3	ⲇⲉ	ⲇⲉ	PART	PTC	Foreign=Yes	1	advmod	_	OrigLang=grc
 4	ⲟⲛ	ⲟⲛ	ADV	ADV	_	1	advmod	_	_
@@ -12038,7 +12038,7 @@
 15	ⲙⲁ	ⲙⲁ	NOUN	N	_	11	conj	_	Orig=ⲙⲁ̂
 16-18	ⲉⲙⲛⲭⲣⲏⲙⲁ	_	_	_	_	_	_	_	_
 16	ⲉ	ⲉⲣⲉ	SCONJ	CCIRC	_	17	mark	_	_
-17	ⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	11	acl:relcl	_	Orig=ⲙ︤ⲛ︥
+17	ⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	11	acl:relcl	_	Cxn=Existential-Negative|Orig=ⲙ︤ⲛ︥
 18	ⲭⲣⲏⲙⲁ	ⲭⲣⲏⲙⲁ	NOUN	N	Foreign=Yes	17	nsubj	_	Entity=(object)|OrigLang=grc
 19-20	ⲛϩⲏⲧϥ	_	_	_	_	_	_	_	_
 19	ⲛϩⲏⲧ	ϩⲛ	ADP	PREP	_	20	case	_	Orig=ⲛ̄ϩⲏⲧ︤
@@ -13562,7 +13562,7 @@
 24	ⲣⲣⲟ	ⲣⲣⲟ	NOUN	N	_	21	nsubj	_	Orig=ⲣ̄ⲣⲟ
 25-28	ⲉⲧⲉⲙⲛⲕⲉⲟⲩⲁ	_	_	_	_	_	_	_	_
 25	ⲉⲧⲉ	ⲉⲧⲉⲣⲉ	SCONJ	CREL	_	26	mark	_	_
-26	ⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	24	acl:relcl	_	Orig=ⲙⲛ̄
+26	ⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	24	acl:relcl	_	Cxn=Existential-Negative|Orig=ⲙⲛ̄
 27	ⲕⲉ	ⲕⲉ	DET	ART	PronType=Art	28	det	_	Entity=(person
 28	ⲟⲩⲁ	ⲟⲩⲁ	NUM	NUM	NumType=Card	26	nsubj	_	Entity=person)
 29-30	ⲛⲃⲗⲗⲁϥ	_	_	_	_	_	_	_	_

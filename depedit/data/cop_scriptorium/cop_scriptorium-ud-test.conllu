@@ -2006,7 +2006,7 @@
 20-23	ⲡⲉⲧⲉⲟⲩⲛϭⲟⲙ	_	_	_	_	_	_	_	_
 20	ⲡ	ⲡ	DET	ART	Definite=Def|Gender=Masc|Number=Sing|PronType=Art	29	dislocated	_	Entity=(abstract
 21	ⲉⲧⲉ	ⲉⲧⲉⲣⲉ	SCONJ	CREL	_	22	mark	_	_
-22	ⲟⲩⲛ	ⲟⲩⲛ	VERB	EXIST	_	20	acl:relcl	_	Orig=ⲟⲩⲛ̇
+22	ⲟⲩⲛ	ⲟⲩⲛ	VERB	EXIST	_	20	acl:relcl	_	Cxn=Existential-Positive|Orig=ⲟⲩⲛ̇
 23	ϭⲟⲙ	ϭⲟⲙ	NOUN	N	_	22	nsubj	_	_
 24-25	ⲙⲙⲟⲕ	_	_	_	_	_	_	_	_
 24	ⲙⲙⲟ	ⲛ	ADP	PREP	_	25	case	_	Orig=ⲙ̇ⲙⲟ
@@ -2190,7 +2190,7 @@
 14	ⲛ	ⲛ	ADP	PREP	_	15	case	_	Orig=ⲛ̇
 15	ⲛ	ⲡ	DET	ART	Definite=Def|Number=Plur|PronType=Art	6	obl	_	Entity=(person
 16	ⲉⲧⲉ	ⲉⲧⲉⲣⲉ	SCONJ	CREL	_	17	mark	_	_
-17	ⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	15	acl:relcl	_	Orig=ⲙⲛ̇
+17	ⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	15	acl:relcl	_	Cxn=Existential-Negative|Orig=ⲙⲛ̇
 18	ϭⲟⲙ	ϭⲟⲙ	NOUN	N	_	17	nsubj	_	_
 19-20	ⲙⲙⲟⲟⲩ	_	_	_	_	_	_	_	_
 19	ⲙⲙⲟ	ⲛ	ADP	PREP	_	20	case	_	Orig=ⲙ̇ⲙⲟ
@@ -2417,7 +2417,7 @@
 # text = ⲛⲉⲟⲩⲛⲟⲩⲁ ⲇⲉ ⲛⲧⲉⲛⲉⲧⲟⲩⲁⲁⲃ ⲉϣⲁⲩⲙⲟⲩⲧⲉ ⲉⲣⲟϥ ϫⲉⲫⲓⲗⲁⲅⲣⲓⲟⲥ · ⲉϥⲟⲩⲏϩ ϩⲛⲧϩⲓⲉⲣⲟⲩⲥⲁⲗⲏⲙ · ⲉϥⲣϩⲱⲃ ϩⲛⲟⲩϩⲓⲥⲉ · ϣⲁⲛⲧⲉϥϫⲡⲟ ⲛⲁϥ ⲙⲡⲉϥⲟⲉⲓⲕ ⲙⲙⲓⲛⲙⲙⲟϥ .
 1-3	ⲛⲉⲟⲩⲛⲟⲩⲁ	_	_	_	_	_	_	_	_
 1	ⲛⲉ	ⲛⲉⲣⲉ	AUX	CPRET	_	2	aux	_	Orig=Ⲛⲉ̇
-2	ⲟⲩⲛ	ⲟⲩⲛ	VERB	EXIST	_	0	root	_	Orig=ⲟⲩⲛ̇
+2	ⲟⲩⲛ	ⲟⲩⲛ	VERB	EXIST	_	0	root	_	Cxn=Existential-Positive|Orig=ⲟⲩⲛ̇
 3	ⲟⲩⲁ	ⲟⲩⲁ	NOUN	N	_	2	nsubj	_	Entity=(person
 4	ⲇⲉ	ⲇⲉ	PART	PTC	Foreign=Yes	2	advmod	_	OrigLang=grc
 5-8	ⲛⲧⲉⲛⲉⲧⲟⲩⲁⲁⲃ	_	_	_	_	_	_	_	_
@@ -2516,7 +2516,7 @@
 30	ⲃⲁⲗⲗⲁⲧⲓⲟⲛ	ⲃⲁⲗⲗⲁⲧⲓⲟⲛ	NOUN	N	Foreign=Yes	27	obj	_	Orig=ⲃⲁⲗⲗⲁⲧⲓ̇ⲟⲛ|OrigLang=grc
 31-33	ⲉⲩⲛⲙⲏⲧ	_	_	_	_	_	_	_	_
 31	ⲉ	ⲉⲣⲉ	SCONJ	CCIRC	_	32	mark	_	Orig=ⲉ̇
-32	ⲩⲛ	ⲟⲩⲛ	VERB	EXIST	_	30	acl:relcl	_	Orig=ⲩⲛ̇
+32	ⲩⲛ	ⲟⲩⲛ	VERB	EXIST	_	30	acl:relcl	_	Cxn=Existential-Positive|Orig=ⲩⲛ̇
 33	ⲙⲏⲧ	ⲙⲏⲧ	NUM	NUM	NumType=Card	35	compound	_	Entity=(object
 34-35	ⲛϣⲉ	_	_	_	_	_	_	_	_
 34	ⲛ	ⲛ	ADP	PREP	_	35	case	_	Orig=ⲛ̇
@@ -3676,7 +3676,7 @@
 4	ⲩⲛⲟⲩ	ⲩⲛⲟⲩ	NOUN	N	_	6	obl	_	_
 5-8	ⲛⲉⲩⲛⲟⲩⲣⲱⲙⲉ	_	_	_	_	_	_	_	_
 5	ⲛⲉ	ⲛⲉⲣⲉ	AUX	CPRET	_	6	aux	_	_
-6	ⲩⲛ	ⲟⲩⲛ	VERB	EXIST	_	0	root	_	_
+6	ⲩⲛ	ⲟⲩⲛ	VERB	EXIST	_	0	root	_	Cxn=Existential-Positive
 7	ⲟⲩ	ⲟⲩ	DET	ART	Definite=Ind|Number=Sing|PronType=Art	8	det	_	Entity=(person
 8	ⲣⲱⲙⲉ	ⲣⲱⲙⲉ	NOUN	N	_	6	nsubj	_	Entity=person)
 9-11	ϩⲛⲧⲥⲩⲛⲁⲅⲱⲅⲏ	_	_	_	_	_	_	_	_
@@ -5402,7 +5402,7 @@
 5	ϫⲉ	ϫⲉ	SCONJ	CONJ	_	7	mark	_	_
 6	ⲙⲏ	ⲙⲏ	CCONJ	CONJ	_	7	advmod	_	_
 7-8	ⲟⲩⲛϭⲟⲙ	_	_	_	_	_	_	_	_
-7	ⲟⲩⲛ	ⲟⲩⲛ	VERB	EXIST	Foreign=Yes	1	ccomp	_	OrigLang=grc
+7	ⲟⲩⲛ	ⲟⲩⲛ	VERB	EXIST	Foreign=Yes	1	ccomp	_	Cxn=Existential-Positive|OrigLang=grc
 8	ϭⲟⲙ	ϭⲟⲙ	NOUN	N	_	7	nsubj	_	_
 9-12	ⲉⲧⲣⲉⲩⲛⲏⲥⲧⲉⲩⲉ	_	_	_	_	_	_	_	_
 9	ⲉ	ⲉ	PART	PREP	_	10	mark	_	_
@@ -5855,7 +5855,7 @@
 9	ⲥⲩⲛⲁⲅⲱⲅⲏ	ⲥⲩⲛⲁⲅⲱⲅⲏ	NOUN	N	Foreign=Yes	4	obl	_	Entity=organization)|OrigLang=grc
 10-13	ⲛⲉⲩⲛⲟⲩⲣⲱⲙⲉ	_	_	_	_	_	_	_	_
 10	ⲛⲉ	ⲛⲉⲣⲉ	AUX	CPRET	_	11	aux	_	_
-11	ⲩⲛ	ⲟⲩⲛ	VERB	EXIST	_	4	parataxis	_	_
+11	ⲩⲛ	ⲟⲩⲛ	VERB	EXIST	_	4	parataxis	_	Cxn=Existential-Positive
 12	ⲟⲩ	ⲟⲩ	DET	ART	Definite=Ind|Number=Sing|PronType=Art	13	det	_	Entity=(person
 13	ⲣⲱⲙⲉ	ⲣⲱⲙⲉ	NOUN	N	_	11	nsubj	_	Entity=person)
 14	ⲇⲉ	ⲇⲉ	PART	PTC	Foreign=Yes	11	advmod	_	OrigLang=grc
@@ -7330,7 +7330,7 @@
 12	ⲙⲁ	ⲙⲁ	NOUN	N	_	10	appos	_	_
 13-15	ⲉⲧⲉⲙⲙⲛϩⲁϩ	_	_	_	_	_	_	_	_
 13	ⲉⲧⲉ	ⲉⲧⲉ	SCONJ	CCIRC	_	14	mark	_	_
-14	ⲙⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	12	acl:relcl	_	_
+14	ⲙⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	12	acl:relcl	_	Cxn=Existential-Negative
 15	ϩⲁϩ	ϩⲁϩ	NOUN	N	_	14	nsubj	_	Entity=(substance
 16-17	ⲛⲕⲁϩ	_	_	_	_	_	_	_	_
 16	ⲛ	ⲛ	ADP	PREP	_	17	case	_	_
@@ -7351,7 +7351,7 @@
 28	ⲉⲧⲃⲉ	ⲉⲧⲃⲉ	PART	PREP	_	30	mark	_	_
 29-31	ϫⲉⲙⲛϩⲁϩ	_	_	_	_	_	_	_	_
 29	ϫⲉ	ϫⲉ	CCONJ	CONJ	_	28	fixed	_	_
-30	ⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	26	advcl	_	_
+30	ⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	26	advcl	_	Cxn=Existential-Negative
 31	ϩⲁϩ	ϩⲁϩ	NOUN	N	_	30	nsubj	_	Entity=(substance
 32-33	ⲛⲕⲁϩ	_	_	_	_	_	_	_	_
 32	ⲛ	ⲛ	ADP	PREP	_	33	case	_	_
@@ -7791,7 +7791,7 @@
 # text_en = They have no root in themselves, but are short-lived. When oppression or persecution arises because of the word, immediately they stumble.
 # text = ⲙⲙⲛⲛⲟⲩⲛⲉ ⲇⲉ ϩⲣⲁⲓ ⲛϩⲏⲧⲟⲩ ⲁⲗⲗⲁ ϩⲉⲛⲡⲣⲟⲥⲟⲩⲟⲉⲓϣ ⲛⲉ ⲉⲣϣⲁⲛⲟⲩⲑⲗⲓⲯⲓⲥ ⲇⲉ ϣⲱⲡⲉ ⲏ ⲟⲩⲇⲓⲱⲅⲙⲟⲥ ⲉⲧⲃⲉ ⲡϣⲁϫⲉ ⲛⲧⲉⲩⲛⲟⲩ ϣⲁⲩⲥⲕⲁⲛⲇⲁⲗⲓⲍⲉ .
 1-2	ⲙⲙⲛⲛⲟⲩⲛⲉ	_	_	_	_	_	_	_	_
-1	ⲙⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	0	root	_	_
+1	ⲙⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	0	root	_	Cxn=Existential-Negative
 2	ⲛⲟⲩⲛⲉ	ⲛⲟⲩⲛⲉ	NOUN	N	_	1	nsubj	_	Entity=(plant)
 3	ⲇⲉ	ⲇⲉ	PART	PTC	Foreign=Yes	1	advmod	_	OrigLang=grc
 4	ϩⲣⲁⲓ	ϩⲣⲁⲓ	ADV	ADV	_	1	advmod	_	_
@@ -8014,7 +8014,7 @@
 # text_en = For there is nothing hidden, except that it should be made known; neither was anything made secret, but that it should come to light.
 # text = ⲙⲙⲛⲡⲉⲧϩⲟⲃⲥ ⲅⲁⲣ ⲉⲛⲥⲉⲛⲁϭⲟⲗⲡϥ ⲁⲛ ⲉⲃⲟⲗ . ⲟⲩⲇⲉ ⲙⲙⲛⲡⲉⲧϩⲏⲡ ⲉⲛϥⲛⲁⲟⲩⲱⲛϩ ⲁⲛ ⲉⲃⲟⲗ .
 1-4	ⲙⲙⲛⲡⲉⲧϩⲟⲃⲥ	_	_	_	_	_	_	_	_
-1	ⲙⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	0	root	_	_
+1	ⲙⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	0	root	_	Cxn=Existential-Negative
 2	ⲡ	ⲡ	DET	ART	Definite=Def|Gender=Masc|Number=Sing|PronType=Art	1	nsubj	_	Entity=(abstract
 3	ⲉⲧ	ⲉⲧⲉⲣⲉ	SCONJ	CREL	_	4	mark	_	_
 4	ϩⲟⲃⲥ	ϩⲱⲃⲥ	VERB	V	VerbForm=Fin	2	acl:relcl	_	Entity=abstract)
@@ -8031,7 +8031,7 @@
 14	.	.	PUNCT	PUNCT	_	1	punct	_	_
 15	ⲟⲩⲇⲉ	ⲟⲩⲇⲉ	CCONJ	CONJ	Foreign=Yes|Polarity=Neg	16	advmod	_	OrigLang=grc
 16-19	ⲙⲙⲛⲡⲉⲧϩⲏⲡ	_	_	_	_	_	_	_	_
-16	ⲙⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	1	parataxis	_	_
+16	ⲙⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	1	parataxis	_	Cxn=Existential-Negative
 17	ⲡ	ⲡ	DET	ART	Definite=Def|Gender=Masc|Number=Sing|PronType=Art	16	nsubj	_	Entity=(abstract
 18	ⲉⲧ	ⲉⲧⲉⲣⲉ	SCONJ	CREL	_	19	mark	_	_
 19	ϩⲏⲡ	ϩⲱⲡ	VERB	VSTAT	VerbForm=Fin	17	acl:relcl	_	Entity=abstract)
@@ -8903,7 +8903,7 @@
 6	ϩⲟⲡⲟⲩ	ϩⲟⲡⲟⲩ	ADV	ADV	Foreign=Yes	8	mark	_	OrigLang=grc
 7	ⲅⲁⲣ	ⲅⲁⲣ	PART	PTC	Foreign=Yes	8	advmod	_	OrigLang=grc
 8-9	ⲟⲩⲛⲕⲱϩ	_	_	_	_	_	_	_	_
-8	ⲟⲩⲛ	ⲟⲩⲛ	VERB	EXIST	Foreign=Yes	18	advcl	_	OrigLang=grc
+8	ⲟⲩⲛ	ⲟⲩⲛ	VERB	EXIST	Foreign=Yes	18	advcl	_	Cxn=Existential-Positive|OrigLang=grc
 9	ⲕⲱϩ	ⲕⲱϩ	NOUN	N	_	8	nsubj	_	Entity=(abstract)
 10-11	ϩⲓϯⲧⲱⲛ	_	_	_	_	_	_	_	_
 10	ϩⲓ	ϩⲓ	ADP	PREP	_	11	cc	_	_
@@ -9216,7 +9216,7 @@
 # text_en = For no one can lay any other foundation than that which has been laid, which is Jesus Christ.
 # text = ⲙⲛϭⲟⲙ ⲅⲁⲣ ⲛⲗⲁⲁⲩ ⲉⲕⲁⲕⲉⲥⲛⲧⲉ ⲉϩⲣⲁⲓ ⲡⲁⲣⲁⲧⲉⲧⲕⲏ ⲉϩⲣⲁⲓ ⲉⲧⲉⲡⲁⲓ ⲡⲉ ⲓⲏⲥⲟⲩⲥ ⲡⲉⲭⲣⲓⲥⲧⲟⲥ .
 1-2	ⲙⲛϭⲟⲙ	_	_	_	_	_	_	_	_
-1	ⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	0	root	_	_
+1	ⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	0	root	_	Cxn=Existential-Negative
 2	ϭⲟⲙ	ϭⲟⲙ	NOUN	N	_	1	nsubj	_	Entity=(abstract)
 3	ⲅⲁⲣ	ⲅⲁⲣ	PART	PTC	Foreign=Yes	1	advmod	_	OrigLang=grc
 4-5	ⲛⲗⲁⲁⲩ	_	_	_	_	_	_	_	_
@@ -10974,7 +10974,7 @@
 12	,	,	PUNCT	PUNCT	_	14	punct	_	_
 13-15	ⲉⲧⲉⲙⲛⲛⲉϩ	_	_	_	_	_	_	_	_
 13	ⲉⲧⲉ	ⲉⲧⲉⲣⲉ	SCONJ	CREL	_	14	mark	_	_
-14	ⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	6	acl:relcl	_	Orig=ⲙ︤ⲛ︥
+14	ⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	6	acl:relcl	_	Cxn=Existential-Negative|Orig=ⲙ︤ⲛ︥
 15	ⲛⲉϩ	ⲛⲉϩ	NOUN	N	_	14	nsubj	_	Entity=(substance)|Orig=ⲛⲉϩ⳿
 16-18	ϩⲛⲛⲉⲩⲁⲅⲅⲓⲟⲛ	_	_	_	_	_	_	_	_
 16	ϩⲛ	ϩⲛ	ADP	PREP	_	18	case	_	Orig=ϩ︤ⲛ︥
@@ -13132,7 +13132,7 @@
 12	ⲉⲓⲱⲧ	ⲉⲓⲱⲧ	NOUN	N	_	10	nmod	_	Entity=person)
 13	ⲁⲣⲁ	ⲁⲣⲁ	PART	PTC	Foreign=Yes	14	advmod	_	OrigLang=grc
 14-15	ⲟⲩⲛⲥⲟⲛ	_	_	_	_	_	_	_	_
-14	ⲟⲩⲛ	ⲟⲩⲛ	VERB	EXIST	_	4	ccomp	_	Orig=ⲟⲩⲛ̅
+14	ⲟⲩⲛ	ⲟⲩⲛ	VERB	EXIST	_	4	ccomp	_	Cxn=Existential-Positive|Orig=ⲟⲩⲛ̅
 15	ⲥⲟⲛ	ⲥⲟⲛ	NOUN	N	_	14	nsubj	_	Entity=(person)
 16-18	ⲙⲡⲉⲕϩⲟⲩⲛ	_	_	_	_	_	_	_	_
 16	ⲙ	ⲛ	ADP	PREP	_	18	case	_	Orig=ⲙ̅
@@ -13151,7 +13151,7 @@
 4	ⲓ	ⲁⲛⲟⲕ	PRON	PPERO	Definite=Def|Number=Sing|Person=1|PronType=Prs	1	obl	_	_
 5-7	ϫⲉⲟⲩⲛⲟⲩⲟⲛ	_	_	_	_	_	_	_	_
 5	ϫⲉ	ϫⲉ	SCONJ	CONJ	_	6	mark	_	_
-6	ⲟⲩⲛ	ⲟⲩⲛ	VERB	EXIST	_	1	ccomp	_	Orig=ⲟⲩⲛ̅
+6	ⲟⲩⲛ	ⲟⲩⲛ	VERB	EXIST	_	1	ccomp	_	Cxn=Existential-Positive|Orig=ⲟⲩⲛ̅
 7	ⲟⲩⲟⲛ	ⲟⲩⲟⲛ	NOUN	N	_	6	nsubj	_	Entity=(person)
 
 # sent_id = life_cyrus-life_cyrus_01_s0023
@@ -13762,7 +13762,7 @@
 10	ϫⲉ	ϫⲉ	SCONJ	CONJ	_	12	mark	_	_
 11	ⲁⲣⲁ	ⲁⲣⲁ	PART	PTC	Foreign=Yes	12	advmod	_	OrigLang=grc
 12-13	ⲟⲩⲛⲥⲟⲛ	_	_	_	_	_	_	_	_
-12	ⲟⲩⲛ	ⲟⲩⲛ	VERB	EXIST	_	7	parataxis	_	Orig=ⲟⲩⲛ̅
+12	ⲟⲩⲛ	ⲟⲩⲛ	VERB	EXIST	_	7	parataxis	_	Cxn=Existential-Positive|Orig=ⲟⲩⲛ̅
 13	ⲥⲟⲛ	ⲥⲟⲛ	NOUN	N	_	12	nsubj	_	Entity=(person)
 14-16	ⲙⲡⲉⲕⲥⲁ	_	_	_	_	_	_	_	_
 14	ⲙ	ⲛ	ADP	PREP	_	16	case	_	Orig=ⲙ̅
@@ -13784,7 +13784,7 @@
 5	ϫⲉ	ϫⲉ	SCONJ	CONJ	_	7	mark	_	_
 6	ⲥⲉ	ⲥⲉ	PART	PTC	_	7	advmod	_	_
 7-8	ⲟⲩⲛⲟⲩⲁ	_	_	_	_	_	_	_	_
-7	ⲟⲩⲛ	ⲟⲩⲛ	VERB	EXIST	_	1	ccomp	_	Orig=ⲟⲩⲛ̅
+7	ⲟⲩⲛ	ⲟⲩⲛ	VERB	EXIST	_	1	ccomp	_	Cxn=Existential-Positive|Orig=ⲟⲩⲛ̅
 8	ⲟⲩⲁ	ⲟⲩⲁ	NUM	NUM	NumType=Card	7	nsubj	_	Entity=(person
 9	ⲙⲙⲁⲩ	ⲙⲙⲁⲩ	ADV	ADV	_	7	advmod	_	Orig=ⲙ̅ⲙⲁⲩ
 10	·	·	PUNCT	PUNCT	_	9	punct	_	_
@@ -13890,7 +13890,7 @@
 # text = ⲉⲡⲉⲓ ⲙⲛϭⲟⲙ ⲛⲣⲙⲛⲥⲁⲣⲝ ⲉⲛⲁⲩ ⲉⲡⲁϩⲟ · ⲉⲓⲙⲏⲧⲓ ⲡⲉⲡⲣⲉⲥⲃⲩⲧⲉⲣⲟⲥ ⲛⲧⲉⲕⲕⲗⲏⲥⲓⲁ · ⲛϣⲓⲏⲧ ·
 1	ⲉⲡⲉⲓ	ⲉⲡⲉⲓ	SCONJ	CONJ	Foreign=Yes	2	mark	_	OrigLang=grc
 2-3	ⲙⲛϭⲟⲙ	_	_	_	_	_	_	_	_
-2	ⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	0	root	_	Orig=ⲙⲛ̅
+2	ⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	0	root	_	Cxn=Existential-Negative|Orig=ⲙⲛ̅
 3	ϭⲟⲙ	ϭⲟⲙ	NOUN	N	_	2	nsubj	_	_
 4-5	ⲛⲣⲙⲛⲥⲁⲣⲝ	_	_	_	_	_	_	_	_
 4	ⲛ	ⲛ	ADP	PREP	_	5	case	_	Orig=ⲛ̅
@@ -15153,7 +15153,7 @@
 # text = ⲙⲙⲟⲛ ⲙⲛϣϭⲟⲙ ⲛⲣⲙⲛⲥⲁⲣⲝ ⲉⲛⲁⲩ ⲉⲡⲁϩⲟ ⲉⲓⲙⲏⲧⲓ ⲁⲡⲁ ⲡⲁⲙⲃⲱ · ⲡⲉⲡⲣⲉⲥⲃⲩⲧⲉⲣⲟⲥ ⲛⲧⲉⲕⲕⲗⲏⲥⲓⲁ ⲛϣⲓⲏⲧ ⁛—
 1	ⲙⲙⲟⲛ	ⲙⲙⲟⲛ	PART	PTC	Polarity=Neg	2	discourse	_	Orig=ⲙ̅ⲙⲟⲛ
 2-3	ⲙⲛϣϭⲟⲙ	_	_	_	_	_	_	_	_
-2	ⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	0	root	_	Orig=ⲙⲛ̅
+2	ⲙⲛ	ⲙⲛ	VERB	EXIST	Polarity=Neg	0	root	_	Cxn=Existential-Negative|Orig=ⲙⲛ̅
 3	ϣϭⲟⲙ	ϣϭⲟⲙ	NOUN	N	_	2	nsubj	_	_
 4-5	ⲛⲣⲙⲛⲥⲁⲣⲝ	_	_	_	_	_	_	_	_
 4	ⲛ	ⲛ	ADP	PREP	_	5	case	_	Orig=ⲛ̅

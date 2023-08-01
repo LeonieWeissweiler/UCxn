@@ -5967,7 +5967,7 @@
 6	תולדה	תולדה	NOUN	NOUN	Gender=Fem|Number=Sing	0	root	_	_
 7-8	שיש	_	_	_	_	_	_	_	_
 7	ש	ש	SCONJ	SCONJ	_	8	mark	_	_
-8	יש	יש	VERB	VERB	HebExistential=Yes	6	acl:relcl	_	_
+8	יש	יש	VERB	VERB	HebExistential=Yes	6	acl:relcl	_	Cxn=Existential-Positive
 9-10	בה	_	_	_	_	_	_	_	_
 9	ב_	ב	ADP	ADP	_	10	case	_	_
 10	_היא	הוא	PRON	PRON	Gender=Fem|Number=Sing|Person=3|PronType=Prs	8	obl	_	_
@@ -6108,7 +6108,7 @@
 8	ב	ב	ADP	ADP	_	9	case	_	_
 9	1945	1945	NUM	NUM	_	3	nmod	_	_
 10	,	,	PUNCT	PUNCT	_	11	punct	_	_
-11	קיימת	קיים	ADJ	ADJ	Gender=Fem|Number=Sing	0	root	_	_
+11	קיימת	קיים	ADJ	ADJ	Gender=Fem|Number=Sing	0	root	_	Cxn=Existential-Verbal
 12	מדינה	מדינה	NOUN	NOUN	Gender=Fem|Number=Sing	11	nsubj	_	_
 13	בלטית	_	ADJ	ADJ	_	12	amod	_	_
 14	רביעית	רביעית	NUM	NUM	Gender=Fem|Number=Sing	12	amod	_	SpaceAfter=No
@@ -6429,7 +6429,7 @@
 1	עד	עד	ADP	ADP	_	2	case	_	_
 2	1941	1941	NUM	NUM	_	4	obl	_	_
 3	היתה	_	AUX	AUX	Gender=Fem|Number=Sing|Person=3|Polarity=Pos|Tense=Past|VerbType=Cop	4	cop	_	_
-4	קיימת	קיים	ADJ	ADJ	Gender=Fem|Number=Sing	0	root	_	_
+4	קיימת	קיים	ADJ	ADJ	Gender=Fem|Number=Sing	0	root	_	Cxn=Existential-Verbal
 5	לאורך	לאורך	ADP	ADP	_	7	case	_	_
 6-7	הוולגה	_	_	_	_	_	_	_	_
 6	ה	ה	DET	DET	PronType=Art	7	det	_	_
@@ -8067,7 +8067,7 @@
 26	,	,	PUNCT	PUNCT	_	12	punct	_	_
 27-28	ויש	_	_	_	_	_	_	_	_
 27	ו	ו	CCONJ	CCONJ	_	28	cc	_	_
-28	יש	יש	VERB	VERB	HebExistential=Yes	12	conj	_	_
+28	יש	יש	VERB	VERB	HebExistential=Yes	12	conj	_	Cxn=Existential-Positive
 29	גם	גם	ADV	ADV	_	32	advmod	_	_
 30-32	כאלה	_	_	_	_	_	_	_	_
 30	כ	כ	ADP	ADP	_	32	case	_	_
@@ -8340,7 +8340,7 @@
 6	,	,	PUNCT	PUNCT	_	5	punct	_	_
 7-8	ויש	_	_	_	_	_	_	_	_
 7	ו	ו	CCONJ	CCONJ	_	8	cc	_	_
-8	יש	יש	VERB	VERB	HebExistential=Yes	5	conj	_	_
+8	יש	יש	VERB	VERB	HebExistential=Yes	5	conj	_	Cxn=Existential-Positive
 9	משפטנים	משפטן	NOUN	NOUN	Gender=Masc|Number=Plur	8	nsubj	_	_
 10-11	הטוענים	_	_	_	_	_	_	_	SpaceAfter=No
 10	ה	ה	SCONJ	SCONJ	_	11	mark	_	_
@@ -10429,7 +10429,7 @@
 3	ייתכן	ייתכן	ADV	ADV	_	0	root	_	Modal=Yes
 4-5	שקיים	_	_	_	_	_	_	_	_
 4	ש	ש	SCONJ	SCONJ	_	5	mark	_	_
-5	קיים	קיים	ADJ	ADJ	Gender=Masc|Number=Sing	3	ccomp	_	_
+5	קיים	קיים	ADJ	ADJ	Gender=Masc|Number=Sing	3	ccomp	_	Cxn=Existential-Verbal
 6	מספר	מספר	NOUN	NOUN	Gender=Masc|Number=Sing	5	nsubj	_	_
 7	ראשוני	ראשוני	ADJ	ADJ	Gender=Masc|Number=Sing	6	amod	_	_
 8	גדול	גדול	ADJ	ADJ	Gender=Masc|Number=Sing	6	amod	_	_
@@ -11809,7 +11809,7 @@
 
 # sent_id = 6074
 # text = אין בו אף שמץ של תחכום, עידון ואיפוק.
-1	אין	אין	VERB	VERB	HebExistential=Yes	0	root	_	_
+1	אין	אין	VERB	VERB	HebExistential=Yes	0	root	_	Cxn=Existential-Negative
 2-3	בו	_	_	_	_	_	_	_	_
 2	ב_	ב	ADP	ADP	_	3	case	_	_
 3	_הוא	הוא	PRON	PRON	Gender=Masc|Number=Sing|Person=3|PronType=Prs	1	obl	_	_
@@ -13208,7 +13208,7 @@
 
 # sent_id = 6111
 # text = אין שום דבר מתוחכם או מורכב במרקים הללו, אבל משום שהם עשירים, מלאים בירקות ומתובלים בצורה מושלמת, הם תמיד מהנים.
-1	אין	אין	VERB	VERB	HebExistential=Yes	0	root	_	_
+1	אין	אין	VERB	VERB	HebExistential=Yes	0	root	_	Cxn=Existential-Negative
 2	שום	שום	DET	DET	Definite=Cons	3	det	_	_
 3	דבר	דבר	NOUN	NOUN	Gender=Masc|Number=Sing	1	nsubj	_	_
 4	מתוחכם	מתוחכם	ADJ	ADJ	Gender=Masc|Number=Sing	3	amod	_	_
@@ -15404,7 +15404,7 @@
 6	מקסימה	מקסים	ADJ	ADJ	Gender=Fem|Number=Sing	5	amod	_	SpaceAfter=No
 7	,	,	PUNCT	PUNCT	_	3	punct	_	_
 8	אך	אך	CCONJ	CCONJ	_	9	cc	_	_
-9	יש	יש	VERB	VERB	HebExistential=Yes	3	conj	_	_
+9	יש	יש	VERB	VERB	HebExistential=Yes	3	conj	_	Cxn=Existential-Positive
 10-12	כאלה	_	_	_	_	_	_	_	_
 10	כ	כ	ADP	ADP	_	12	case	_	_
 11	ה_	ה	DET	DET	PronType=Art	12	det	_	_

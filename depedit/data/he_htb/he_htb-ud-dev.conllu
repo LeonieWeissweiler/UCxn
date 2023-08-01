@@ -3005,7 +3005,7 @@
 4	,	,	PUNCT	PUNCT	_	1	punct	_	_
 5-6	שיש	_	_	_	_	_	_	_	_
 5	ש	ש	SCONJ	SCONJ	_	6	mark	_	_
-6	יש	יש	VERB	VERB	HebExistential=Yes	1	ccomp	_	_
+6	יש	יש	VERB	VERB	HebExistential=Yes	1	ccomp	_	Cxn=Existential-Positive
 7-8	בה	_	_	_	_	_	_	_	_
 7	ב_	ב	ADP	ADP	_	8	case	_	_
 8	_היא	הוא	PRON	PRON	Gender=Fem|Number=Sing|Person=3|PronType=Prs	6	obl	_	_
@@ -3817,7 +3817,7 @@
 1	ב	ב	ADP	ADP	_	3	case	_	_
 2	העדר	העדר	NOUN	NOUN	Gender=Masc|Number=Sing	1	fixed	_	_
 3	קומוניזם	קומוניזם	NOUN	NOUN	Gender=Masc|Number=Sing	4	obl	_	_
-4	יש	יש	VERB	VERB	HebExistential=Yes	0	root	_	_
+4	יש	יש	VERB	VERB	HebExistential=Yes	0	root	_	Cxn=Existential-Positive
 5	פרגמטיזם	פרגמטיזם	NOUN	NOUN	_	4	nsubj	_	_
 6-7	ואל	_	_	_	_	_	_	_	_
 6	ו	ו	CCONJ	CCONJ	_	11	cc	_	_
@@ -4076,7 +4076,7 @@
 7	,	,	PUNCT	PUNCT	_	3	punct	_	_
 8-9	ואין	_	_	_	_	_	_	_	_
 8	ו	ו	CCONJ	CCONJ	_	9	cc	_	_
-9	אין	אין	VERB	VERB	HebExistential=Yes	3	conj	_	_
+9	אין	אין	VERB	VERB	HebExistential=Yes	3	conj	_	Cxn=Existential-Negative
 10	ספק	ספק	NOUN	NOUN	Gender=Masc|Number=Sing	9	nsubj	_	_
 11-12	שיימנע	_	_	_	_	_	_	_	_
 11	ש	ש	SCONJ	SCONJ	_	12	mark	_	_
@@ -5030,7 +5030,7 @@
 6	ב	ב	ADP	ADP	_	9	case	_	_
 7	דרך	דרך	NOUN	NOUN	Definite=Cons|Gender=Fem|Number=Sing	6	fixed	_	_
 8	כלל	כלל	NOUN	NOUN	Gender=Masc|Number=Sing	6	fixed	_	_
-9	יש	יש	VERB	VERB	HebExistential=Yes	3	parataxis	_	_
+9	יש	יש	VERB	VERB	HebExistential=Yes	3	parataxis	_	Cxn=Existential-Positive
 10-11	בו	_	_	_	_	_	_	_	_
 10	ב_	ב	ADP	ADP	_	11	case	_	_
 11	_הוא	הוא	PRON	PRON	Gender=Masc|Number=Sing|Person=3|PronType=Prs	9	obl	_	_
@@ -5589,7 +5589,7 @@
 # text = וישנם גם הזוכים המיוחדים במובן היותר שנוי במחלוקת של המלה.
 1-2	וישנם	_	_	_	_	_	_	_	_
 1	ו	ו	CCONJ	CCONJ	_	2	cc	_	_
-2	ישנם	יש	VERB	VERB	HebExistential=Yes	0	root	_	_
+2	ישנם	יש	VERB	VERB	HebExistential=Yes	0	root	_	Cxn=Existential-Positive
 3	גם	גם	ADV	ADV	_	5	advmod	_	_
 4-5	הזוכים	_	_	_	_	_	_	_	_
 4	ה	ה	DET	DET	PronType=Art	5	det	_	_
@@ -6994,7 +6994,7 @@
 
 # sent_id = 208
 # text = יש אנשים המתקשים להבטיח בפרצוף פוקר שהם יציעו פתרון לבעיה חברתית מרכזית.
-1	יש	יש	VERB	VERB	HebExistential=Yes	0	root	_	_
+1	יש	יש	VERB	VERB	HebExistential=Yes	0	root	_	Cxn=Existential-Positive
 2	אנשים	איש	NOUN	NOUN	Gender=Masc|Number=Plur	1	nsubj	_	_
 3-4	המתקשים	_	_	_	_	_	_	_	_
 3	ה	ה	SCONJ	SCONJ	_	4	mark	_	_
@@ -7392,7 +7392,7 @@
 2	סבורים	סבר	VERB	VERB	Gender=Masc|HebBinyan=PAAL|Number=Plur|Person=1,2,3|VerbForm=Part|Voice=Act	0	root	_	_
 3-4	שיש	_	_	_	_	_	_	_	_
 3	ש	ש	SCONJ	SCONJ	_	4	mark	_	_
-4	יש	יש	VERB	VERB	HebExistential=Yes	2	ccomp	_	_
+4	יש	יש	VERB	VERB	HebExistential=Yes	2	ccomp	_	Cxn=Existential-Positive
 5	אירוניה	אירוניה	NOUN	NOUN	Gender=Fem|Number=Sing	4	nsubj	_	_
 6-7	בכך	_	_	_	_	_	_	_	_
 6	ב	ב	ADP	ADP	_	7	case	_	_
@@ -7761,7 +7761,7 @@
 43-44	ה80	_	_	_	_	_	_	_	_
 43	ה	ה	DET	DET	PronType=Art	44	det	_	_
 44	80	80	NUM	NUM	_	42	compound:smixut	_	_
-45	אין	אין	VERB	VERB	HebExistential=Yes	11	acl:relcl	_	_
+45	אין	אין	VERB	VERB	HebExistential=Yes	11	acl:relcl	_	Cxn=Existential-Negative
 46	צורך	צורך	NOUN	NOUN	Gender=Masc|Number=Sing	45	nsubj	_	_
 47-49	להציגם	_	_	_	_	_	_	_	_
 47	להציגם	הציג	VERB	VERB	HebBinyan=HIFIL|VerbForm=Inf|Voice=Act	46	acl	_	_
@@ -8182,7 +8182,7 @@
 # text = ואין ספק שחלק נכבד מבין 50 אלף הצקים שעליהם חותמת הקרן נמסר לקבוצות כמו "פראפראז", כדי "לשרטט את מסלול המורשת השחורה באיסט סייד התחתית של ניו-יורק".
 1-2	ואין	_	_	_	_	_	_	_	_
 1	ו	ו	CCONJ	CCONJ	_	2	cc	_	_
-2	אין	אין	VERB	VERB	HebExistential=Yes	0	root	_	_
+2	אין	אין	VERB	VERB	HebExistential=Yes	0	root	_	Cxn=Existential-Negative
 3	ספק	ספק	NOUN	NOUN	Gender=Masc|Number=Sing	2	nsubj	_	_
 4-5	שחלק	_	_	_	_	_	_	_	_
 4	ש	ש	SCONJ	SCONJ	_	18	mark	_	_
@@ -9227,7 +9227,7 @@
 
 # sent_id = 268
 # text = יש סימוכין לדעה שכיום אלו הן שתי הבעיות הדוחקות ביותר של העולם.
-1	יש	יש	VERB	VERB	HebExistential=Yes	0	root	_	_
+1	יש	יש	VERB	VERB	HebExistential=Yes	0	root	_	Cxn=Existential-Positive
 2	סימוכין	סימוכין	NOUN	NOUN	Gender=Masc|Number=Plur	1	nsubj	_	_
 3-5	לדעה	_	_	_	_	_	_	_	_
 3	ל	ל	ADP	ADP	_	5	case	_	_
@@ -10934,7 +10934,7 @@
 
 # sent_id = 321
 # text = יש לא מעט רפובליקאים הנוטים להסכים אתם.
-1	יש	יש	VERB	VERB	HebExistential=Yes	0	root	_	_
+1	יש	יש	VERB	VERB	HebExistential=Yes	0	root	_	Cxn=Existential-Positive
 2	לא	לא	ADV	ADV	Polarity=Neg	4	advmod	_	_
 3	מעט	מעט	DET	DET	Definite=Cons	4	det	_	_
 4	רפובליקאים	רפובליקאים	NOUN	NOUN	_	1	nsubj	_	_
@@ -12549,7 +12549,7 @@
 10-11	אחריהם	_	_	_	_	_	_	_	_
 10	אחרי_	אחרי	ADP	ADP	_	11	case	_	_
 11	_הם	הוא	PRON	PRON	Gender=Masc|Number=Plur|Person=3|PronType=Prs	12	obl	_	_
-12	יש	יש	VERB	VERB	HebExistential=Yes	4	conj	_	_
+12	יש	יש	VERB	VERB	HebExistential=Yes	4	conj	_	Cxn=Existential-Positive
 13	שבעה	שבעה	NUM	NUM	Gender=Masc|Number=Sing	14	nummod	_	_
 14	סנאטורים	סנטור	NOUN	NOUN	Gender=Masc|Number=Plur	12	nsubj	_	SpaceAfter=No
 15	.	.	PUNCT	PUNCT	_	4	punct	_	_
@@ -13417,7 +13417,7 @@
 7	,	,	PUNCT	PUNCT	_	8	punct	_	_
 8	נקבע	נקבע	VERB	VERB	Gender=Masc|HebBinyan=NIFAL|Number=Sing|Person=3|Tense=Past|Voice=Mid	0	root	_	_
 9	כי	כי	SCONJ	SCONJ	_	10	mark	_	_
-10	יש	יש	VERB	VERB	HebExistential=Yes	8	ccomp	_	_
+10	יש	יש	VERB	VERB	HebExistential=Yes	8	ccomp	_	Cxn=Existential-Positive
 11	מקום	מקום	NOUN	NOUN	Gender=Masc|Number=Sing	10	nsubj	_	_
 12	להגיש	הגיש	VERB	VERB	HebBinyan=HIFIL|VerbForm=Inf|Voice=Act	11	acl	_	_
 13-14	נגדו	_	_	_	_	_	_	_	_
@@ -13742,7 +13742,7 @@
 
 # sent_id = 416
 # text = אין פלא שפרשת בוסקה הזכירה גם את פרשיות פאפון וטובייה.
-1	אין	אין	VERB	VERB	HebExistential=Yes	0	root	_	_
+1	אין	אין	VERB	VERB	HebExistential=Yes	0	root	_	Cxn=Existential-Negative
 2	פלא	פלא	NOUN	NOUN	Gender=Masc|Number=Sing	1	nsubj	_	_
 3-4	שפרשת	_	_	_	_	_	_	_	_
 3	ש	ש	SCONJ	SCONJ	_	6	mark	_	_
@@ -14745,7 +14745,7 @@
 4-5	הזה	_	_	_	_	_	_	_	_
 4	ה	ה	DET	DET	PronType=Art	5	det	_	_
 5	זה	זה	PRON	PRON	Gender=Masc|Number=Sing|Person=3|PronType=Dem	3	det	_	_
-6	אין	אין	VERB	VERB	HebExistential=Yes	0	root	_	_
+6	אין	אין	VERB	VERB	HebExistential=Yes	0	root	_	Cxn=Existential-Negative
 7	כפרה	כפרה	NOUN	NOUN	Gender=Fem|Number=Sing	6	nsubj	_	SpaceAfter=No
 8	"	"	PUNCT	PUNCT	_	6	punct	_	SpaceAfter=No
 9	.	.	PUNCT	PUNCT	_	6	punct	_	_
