@@ -8524,7 +8524,7 @@
 24-26	ⲉⲩϯ	_	_	_	_	_	_	_	_
 24	ⲉ	ⲉⲣⲉ	SCONJ	CCIRC	_	26	mark	_	_
 25	ⲩ	ⲛⲧⲟⲟⲩ	PRON	PPERS	Definite=Def|Number=Plur|Person=3|PronType=Prs	26	nsubj	_	_
-26	ϯ	ϯ	VERB	V	VerbForm=Fin	4	parataxis	_	_
+26	ϯ	ϯ	VERB	V	VerbForm=Fin	4	parataxis	_	Cxn=Comparative-Correlative
 27-29	ⲙⲡⲉϥⲥⲟⲉⲓⲧ	_	_	_	_	_	_	_	_
 27	ⲙ	ⲛ	ADP	PREP	_	29	case	_	_
 28	ⲡⲉϥ	ⲡⲉϥ	DET	PPOS	Definite=Def|Gender=Masc|Gender[psor]=Masc|Number=Sing|Number[psor]=Sing|Person=3|Poss=Yes|PronType=Prs	29	det	_	Entity=(abstract
