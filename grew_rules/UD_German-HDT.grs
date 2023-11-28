@@ -101,7 +101,7 @@ package german_cxn {
 
   rule Cond1 { 
     pattern { 
-      "so"|"wenn"|"falls"|"sofern"|"soweit"|"So"|"Wenn"|"Falls"|"Sofern"|"Soweit", upos=SCONJ, !Cxn];
+      X [form="so"|"wenn"|"falls"|"sofern"|"soweit"|"So"|"Wenn"|"Falls"|"Sofern"|"Soweit", upos=SCONJ, !Cxn];
     }
     without{
       A[lemma="auch"|"selbst"|"Auch"|"Selbst"];
