@@ -41,7 +41,7 @@ package swedish_cxn {
     commands { V.Cxn=Interrogative }
   }
 
-  rule r1c { % Indirect polar interrogatives
+  rule r1d { % Indirect polar interrogatives
     pattern { 
       V -["ccomp"|"xcomp"]-> P;
       P [!Cxn];
