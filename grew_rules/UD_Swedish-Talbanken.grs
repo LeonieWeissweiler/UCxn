@@ -1,0 +1,129 @@
+strat main { 
+  Seq(
+    Onf(swedish_cxn),
+  )
+}
+
+
+package swedish_cxn {
+  rule r1a { % Direct polar interrogatives (main verb)
+    pattern { 
+      R-[root]->V;
+      V[upos="VERB"|"AUX", !Cxn];
+      V-[punct]->P; 
+      P[lemma="?"];
+    }
+    without { V->X; X << V }
+    commands { V.Cxn=Interrogative }
+  }
+
+  rule r1b { % Direct polar interrogatives (copula)
+    pattern { 
+      R-[root]->N;
+      N[!Cxn];
+      N-[cop]-> C;
+      N-[punct]->P; 
+      P[lemma="?"];
+    }
+    without { N->X; X << C }
+    commands { N.Cxn=Interrogative }
+  }
+
+  rule r1c { % Direct wh-interrogatives
+    pattern {
+      R-[root]->V;
+      V[!Cxn];
+      V-[punct]-> P;
+      P [lemma="?"];
+      V -> Q;
+      Q [lemma = "vem"|"vad"|"vilken"|"var"|"när"|"hur"|"varför"]
+    }
+    commands { V.Cxn=Interrogative }
+  }
+
+  rule r1c { % Indirect polar interrogatives
+    pattern { 
+      V -["ccomp"|"xcomp"]-> P;
+      P [!Cxn];
+      P -["mark"]-> M;
+      M[lemma="om"|"huruvida"]
+    }
+    commands {P.Cxn=Interrogative}
+  }
+
+  rule r1e { % Indirect wh-interrogatives
+    pattern {
+      V-["ccomp"|"xcomp"]->P;
+      P[!Cxn];
+      P -> W;
+      W[lemma = "vem"|"vad"|"vilken"|"var"|"när"|"hur"|"varför"]
+    }
+    without { V -["mark"]-> M }
+    commands {P.Cxn=Interrogative}
+  }
+
+  rule r2 {
+    pattern { 
+      V [lemma="finnas"|"existera",  !Cxn];
+      V -[re".subj"]-> S;
+    }
+    commands { V.Cxn=Existential }
+  }
+
+  rule r3a { % Conditionals with 'om'
+    pattern { 
+      H -["advcl"|"advmod"]-> P;
+      P[!Cxn];
+      P-[mark]->M;
+      M[lemma="om"|"ifall"];
+    }
+    commands {P.Cxn=Conditional}
+  }
+
+  rule r3b { % Conditionals with inversion (main verb)
+    pattern { 
+      H -[advcl]-> P; 
+      P [!Cxn];
+      P -[nsubj]-> S;
+      P << S
+    }
+    without { P -[mark]-> M }
+    commands {P.Cxn=Conditional}
+  }
+
+  rule r3c { % Conditionals with inversion (copula)
+    pattern { 
+      H -[advcl]-> P; 
+      P [!Cxn];
+      P -[nsubj]-> S;
+      P -[cop]-> C;
+      C << S
+    }
+    without { P -[mark]-> M }
+    commands {P.Cxn=Conditional}
+  }
+
+  rule r4 { % Resultative (only with “göra” [make])
+    pattern { 
+      V[upos="VERB", lemma = "göra", !Cxn,];
+      X [upos="ADJ"];
+      V -[xcomp]-> X;
+      V -[obj|iobj|nsubj:pass]-> O;
+    }
+    commands { V.Cxn=Resultative }
+  }
+
+  rule r5 { % NPN 
+    pattern { 
+      N1[upos=NOUN, !Cxn]; 
+      P[upos=ADP]; 
+      N2[upos=NOUN];
+      N1 -> N2;
+      N1 < P; P < N2 ;
+      N1.lemma = N2.lemma;
+    }            
+    without { X-[fixed]->N1 }
+    without { N1-[case]->X; X << N1 }
+    commands {N1.Cxn=NPN}
+  }
+}
