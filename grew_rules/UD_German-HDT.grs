@@ -1,0 +1,167 @@
+strat main { 
+  Seq(
+    Onf(german_cxn),
+  )
+}
+
+
+package german_cxn {
+  rule NPN { 
+    pattern {
+      N1[upos=NOUN, !Cxn];
+      N2[upos=NOUN];
+      N1.form = N2.form;
+      P[upos=ADP];
+      N1 < P;
+      P < N2;
+    }
+    without{
+      A[upos=ADP];
+      A < N1;
+    }
+    commands {N1.Cxn=NPN}
+  }
+
+  rule Ex1 { 
+    pattern { 
+      E[lemma="es"];
+      G[lemma="geben", !Cxn];
+      G-[nsubj]->E;
+    }
+    commands {G.Cxn=Existential}
+  }
+
+  rule Ex2 { 
+    pattern { 
+      D[lemma="da",upos=ADV, !Cxn];
+      I[lemma="sein",upos=AUX];
+      D-[cop]->I;
+    }
+    commands {D.Cxn=Existential}
+  }
+
+  rule IntDir { 
+    pattern { 
+      F[lemma="?", upos=PUNCT];
+      W[PronType="Int,Rel"|"Int", !Cxn];
+      W << F;
+    } 
+    commands {W.Cxn=Interrogative}
+  }
+
+  rule IntDirPol { 
+    pattern { 
+      F[lemma="?", upos=PUNCT];
+      H[!Cxn];
+      H-[punct]->F;
+    } 
+    without {
+      W[PronType="Int,Rel"];
+    }
+    without {
+      WI[PronType="Int"];
+    }
+    commands {H.Cxn=Interrogative}
+  }
+
+  rule IntOb { 
+    pattern{
+      O[lemma=ob, !Cxn];
+      X[upos=CCONJ|PUNCT];
+      X < O;
+    }
+    commands {O.Cxn=Interrogative}
+  }
+
+  rule IntIndWh { 
+    pattern{
+      O[PronType="Int"|"Int,Rel", !Cxn];
+      X[upos=CCONJ|PUNCT];
+      X < O;
+    }
+    without{
+      F[lemma="?"];
+    }
+    commands {O.Cxn=Interrogative}
+  }
+
+  rule IntIndPrep { 
+    pattern{
+      O[PronType="Int"|"Int,Rel", !Cxn];
+      X[upos=CCONJ|PUNCT];
+      A[upos=ADP];
+      X < A;
+      A < O;
+    }
+    without{
+      F[lemma="?"];
+    }
+    commands {O.Cxn=Interrogative}
+  }
+
+  rule Cond1 { 
+    pattern { 
+      "so"|"wenn"|"falls"|"sofern"|"soweit"|"So"|"Wenn"|"Falls"|"Sofern"|"Soweit", upos=SCONJ, !Cxn];
+    }
+    without{
+      A[lemma="auch"|"selbst"|"Auch"|"Selbst"];
+      X-[advmod]->A;
+    }
+    commands {X.Cxn=Conditional}
+  }
+
+  rule Cond2 { 
+    pattern { 
+      X[form="Angenommen"|"Vorausgesetzt"|"Unterstellt", !Cxn];
+      Y1[form<>"dass"|"daß"];
+      Y2[form<>"dass"|"daß"];
+      X < Y1;
+      Y1 < Y2;
+    }
+    commands {X.Cxn=Conditional}
+  }
+
+  rule Cond3 { 
+    pattern { 
+      X[form="angenommen"|"vorausgesetzt"|"unterstellt", !Cxn];
+      Y1[form<>"dass"|"daß"];
+      Y2[form<>"dass"|"daß"];
+      A[upos=ADV];
+      A < X;
+      X < Y1;
+      Y1 < Y2;
+      root[form="__0__"];
+      root<A;
+    }
+    commands {X.Cxn=Conditional}
+  }
+
+  rule Cond4 { 
+    pattern { 
+      V1[upos=VERB|AUX,Mood<>Imp, !Cxn];
+      root[form="__0__"];
+      root<V1;
+      P[upos=PUNCT];
+      V1 << P;
+      V2[upos=VERB|AUX];
+      P < V2;
+    }
+    commands {V1.Cxn=Conditional}
+  }
+
+  rule Cond5 { 
+    pattern { 
+      V1[upos=VERB|AUX,Mood<>Imp, !Cxn];
+      root[form="__0__"];
+      root<V1;
+      P[upos=PUNCT];
+      V1 << P;
+      A[lemma="so"|"dann"];
+      V2[upos=VERB|AUX];
+      P < A;
+      A < V2;
+    }
+    commands {V1.Cxn=Conditional}
+  }
+}
+
