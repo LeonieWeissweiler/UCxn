@@ -70,7 +70,7 @@ package npn {
     }
 }
 
-package condtionals {
+package conditionals {
 
   rule ConditionRealisticConjunction { 
     pattern {
