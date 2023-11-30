@@ -182,7 +182,7 @@ package existentials {
 
     rule ex1_bis { %exist lemma existentials
         pattern { 
-            E [lemma="exist", Cxn<>".*Exisential.*"];
+            E [lemma="exist", Cxn<>re".*Existential.*"];
             E -[re".subj"]-> X;
         }
         commands {E.Cxn=E.Cxn + "," + "Existential"}
@@ -195,7 +195,7 @@ package existentials {
             E -> Y;
             Y [xpos="EX", !Cxn];
         }
-        commands = {Y.Cxn=Existential}
+        commands {Y.Cxn=Existential}
     }
 
     rule ex2_bis { %existential there
@@ -203,7 +203,7 @@ package existentials {
             E [lemma="be"|"exist"|"stretch"];
             E -[re".subj"]-> X;
             E -> Y;
-            Y [xpos="EX", Cxn<>".*Exisential.*"];
+            Y [xpos="EX", Cxn<>re".*Existential.*"];
         }
         commands {Y.Cxn=Y.Cxn + "," + "Existential"}
     }
@@ -223,7 +223,7 @@ package existentials {
             E [lemma="be"];
             E -[re".subj"]-> X;
             E -> Y;
-            Y [lemma="here", Cxn<>".*Exisential.*"];
+            Y [lemma="here", Cxn<>re".*Existential.*"];
         }
         commands {Y.Cxn=Y.Cxn + "," + "Existential"}
     }
@@ -252,7 +252,7 @@ package conditionals {
         pattern { 
             X -[advcl]-> Y;
             Y -[mark]-> I;
-            I [lemma="if", Cxn<>".*Conditional.*"]
+            I [lemma="if", Cxn<>re".*Conditional.*"]
         }
         without { Y-[re".subj.*"]-> Z}
         without { Y -[cop]-> Z2}
@@ -282,7 +282,7 @@ package conditionals {
         pattern { 
             X -[advcl]-> Y;
             Y -[mark]-> I;
-            I [form="if", Cxn<>".*Conditional.*"];
+            I [form="if", Cxn<>re".*Conditional.*"];
             M [lemma="could"|"would"|"might"];
             M [xpos="MD"];
             H [lemma="have"];
@@ -317,7 +317,7 @@ package conditionals {
                 X -[aux]->H;
                 X -> M;
                 Y -[re".subj.*"]-> S;
-                H2 [lemma = "have", Cxn<>".*Conditional.*"];
+                H2 [lemma = "have", Cxn<>re".*Conditional.*"];
                 Y -> H2;
                 H2 << S
             }
@@ -343,7 +343,7 @@ package conditionals {
         pattern { 
                 X -[advcl]-> Y;
                 Y -[mark]-> I;
-                I [lemma="if", Cxn<>".*Conditional.*"];
+                I [lemma="if", Cxn<>re".*Conditional.*"];
                 M [lemma="could"|"would"|"might"];
                 M [xpos="MD"];
                 X -> M;
@@ -368,7 +368,7 @@ package conditionals {
         pattern { 
             X -[advcl]-> Y;
             Y -[mark]-> M;
-            M [form="if", Cxn<>".*Conditional.*"];
+            M [form="if", Cxn<>re".*Conditional.*"];
             X [lemma="what"];
         }
         commands {M.Cxn=M.Cxn + "," + "Conditional"}
@@ -380,7 +380,7 @@ package conditionals {
             Y -[mark]-> M;
             M [form="if", !Cxn];
         }
-        global { s_type <> "wh"}
+        global { s_type <>"wh"}
         commands {M.Cxn=Conditional}
     }
 
@@ -388,9 +388,9 @@ package conditionals {
         pattern { 
             X -[advcl]-> Y;
             Y -[mark]-> M;
-            M [form="if", Cxn<>".*Conditional.*"];
+            M [form="if", Cxn<>re".*Conditional.*"];
         }
-        global { s_type <> "wh"}
+        global { s_type <>"wh"}
         commands {M.Cxn=M.Cxn + "," + "Conditional"}
     }
 }
@@ -421,7 +421,7 @@ package npn {
 
     rule npn_bis {
         pattern {
-            N [ xpos = re"N.*", Cxn<>".*NPN.*"];
+            N [ xpos = re"N.*", Cxn<>re".*NPN.*"];
             N2 [xpos = re"N.*" ];
             N.lemma = N2.lemma;
             N -> N2;
