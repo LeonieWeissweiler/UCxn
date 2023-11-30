@@ -1,11 +1,15 @@
 strat main { 
   Seq(
-    Onf(swedish_cxn),
+    Onf(interrogatives),
+    Onf(existentials),
+    Onf(conditionals),
+    Onf(resultatives),
+    Onf(npn)
   )
 }
 
-
-package swedish_cxn {
+package interrogatives {
+  
   rule r1a { % Direct polar interrogatives (main verb)
     pattern { 
       R-[root]->V;
@@ -61,6 +65,9 @@ package swedish_cxn {
     without { V -["mark"]-> M }
     commands {P.Cxn=Interrogative}
   }
+}
+
+package existentials {
 
   rule r2 {
     pattern { 
@@ -70,6 +77,17 @@ package swedish_cxn {
     commands { V.Cxn=Existential }
   }
 
+  rule r2_bis {
+    pattern { 
+      V [lemma="finnas"|"existera", Cxn<>re".*Existential.*"];
+      V -[re".subj"]-> S;
+    }
+    commands { V.Cxn= V.Cxn + "," + "Existential" }
+  }
+}
+
+package conditionals {
+
   rule r3a { % Conditionals with 'om'
     pattern { 
       H -["advcl"|"advmod"]-> P;
@@ -78,6 +96,16 @@ package swedish_cxn {
       M[lemma="om"|"ifall"];
     }
     commands {P.Cxn=Conditional}
+  }
+
+  rule r3a_bis { % Conditionals with 'om'
+    pattern { 
+      H -["advcl"|"advmod"]-> P;
+      P[Cxn<>re".*Conditional.*"];
+      P-[mark]->M;
+      M[lemma="om"|"ifall"];
+    }
+    commands {P.Cxn= P.Cxn + ",Conditional"}
   }
 
   rule r3b { % Conditionals with inversion (main verb)
@@ -91,6 +119,17 @@ package swedish_cxn {
     commands {P.Cxn=Conditional}
   }
 
+  rule r3b_bis { % Conditionals with inversion (main verb)
+    pattern { 
+      H -[advcl]-> P; 
+      P [Cxn<>re".*Conditional.*"];
+      P -[nsubj]-> S;
+      P << S
+    }
+    without { P -[mark]-> M }
+    commands {P.Cxn= P.Cxn + "," + "Conditional"}
+  } 
+
   rule r3c { % Conditionals with inversion (copula)
     pattern { 
       H -[advcl]-> P; 
@@ -103,6 +142,22 @@ package swedish_cxn {
     commands {P.Cxn=Conditional}
   }
 
+  rule r3c_bis { % Conditionals with inversion (copula)
+    pattern { 
+      H -[advcl]-> P; 
+      P [Cxn<>re".*Conditional.*"];
+      P -[nsubj]-> S;
+      P -[cop]-> C;
+      C << S
+    }
+    without { P -[mark]-> M }
+    commands {P.Cxn= P.Cxn + "," + "Conditional"}
+  }
+  
+}
+
+package resultatives {
+
   rule r4 { % Resultative (only with “göra” [make])
     pattern { 
       V[upos="VERB", lemma = "göra", !Cxn,];
@@ -112,6 +167,20 @@ package swedish_cxn {
     }
     commands { V.Cxn=Resultative }
   }
+
+  rule r4_bis { % Resultative (only with “göra” [make])
+    pattern { 
+      V[upos="VERB", lemma = "göra", Cxn<>re".*Resultative.*"];
+      X [upos="ADJ"];
+      V -[xcomp]-> X;
+      V -[obj|iobj|nsubj:pass]-> O;
+    }
+    commands { V.Cxn=V.Cxn + "," + "Resultative" }
+  }
+
+}
+
+package npn {
 
   rule r5 { % NPN 
     pattern { 
@@ -126,4 +195,19 @@ package swedish_cxn {
     without { N1-[case]->X; X << N1 }
     commands {N1.Cxn=NPN}
   }
+
+  rule r5_bis { % NPN 
+    pattern { 
+      N1[upos=NOUN, Cxn<>re".*NPN.*"]; 
+      P[upos=ADP]; 
+      N2[upos=NOUN];
+      N1 -> N2;
+      N1 < P; P < N2 ;
+      N1.lemma = N2.lemma;
+    }            
+    without { X-[fixed]->N1 }
+    without { N1-[case]->X; X << N1 }
+    commands {N1.Cxn = N1.Cxn + "," + NPN}
+  }
+
 }
