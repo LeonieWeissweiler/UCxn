@@ -24,81 +24,81 @@ package coptic_cxn {
     commands {N.Cxn=NPN}
     }
 
-    rule ConditionRealisticConjunction { 
-      pattern {
-      CONJ [ lemma = re"ⲉϣϫⲉ\|ⲉϣⲱⲡⲉ" ];
+  rule ConditionRealisticConjunction { 
+    pattern {
+    CONJ [ lemma = re"ⲉϣϫⲉ\|ⲉϣⲱⲡⲉ" ];
+    MAIN -[advcl]-> ADVCL;
+    ADVCL -> CONJ;
+    ADVCL[!Cxn];
+    }
+    commands {ADVCL.Cxn=Condition-Realistic}
+  }
+
+  rule ConditionRealisticAux { 
+    pattern {
+    MAIN -[advcl]-> ADVCL;
+    CONJ [ xpos=re"ACOND.*"];
+    ADVCL -> CONJ;
+    ADVCL[!Cxn];
+    }
+    without {
+      AUX [xpos=FUT];
+      PRET [xpos=CPRET];
+      MAIN -> AUX;
+      MAIN -> PRET;
+    }
+    commands {ADVCL.Cxn=Condition-Realistic}
+  }
+
+  rule ConditionUnrealistic { 
+    pattern {
       MAIN -[advcl]-> ADVCL;
-      ADVCL -> CONJ;
+      AUX [xpos=FUT];
+      MAIN -> AUX; 
+      PRET [xpos=CPRET];
+      MAIN -> PRET;
       ADVCL[!Cxn];
-      }
-      commands {ADVCL.Cxn=Condition-Realistic}
     }
+    commands {ADVCL.Cxn=Condition-Unrealistic}
+  }
 
-    rule ConditionRealisticAux { 
-      pattern {
-      MAIN -[advcl]-> ADVCL;
-      CONJ [ xpos=re"ACOND.*"];
-      ADVCL -> CONJ;
-      ADVCL[!Cxn];
-      }
-      without {
-        AUX [xpos=FUT];
-        PRET [xpos=CPRET];
-        MAIN -> AUX;
-        MAIN -> PRET;
-      }
-      commands {ADVCL.Cxn=Condition-Realistic}
+  rule ExistentialPositive { 
+    pattern {
+      EXIST [lemma="ⲟⲩⲛ",xpos=EXIST];
+      EXIST -[nsubj]-> SBJ;
+      EXIST[!Cxn];
     }
+    commands {EXIST.Cxn=Existential-Positive}
+  }
 
-    rule ConditionUnrealistic { 
-      pattern {
-        MAIN -[advcl]-> ADVCL;
-        AUX [xpos=FUT];
-        MAIN -> AUX; 
-        PRET [xpos=CPRET];
-        MAIN -> PRET;
-        ADVCL[!Cxn];
-      }
-      commands {ADVCL.Cxn=Condition-Unrealistic}
+  rule ExistentialNegative { 
+    pattern {
+      EXIST [lemma="ⲙⲛ",xpos=EXIST];
+      EXIST -[nsubj]-> SBJ;
+      EXIST[!Cxn];
     }
+    commands {EXIST.Cxn=Existential-Negative}
+  }
 
-    rule ExistentialPositive { 
-      pattern {
-        EXIST [lemma="ⲟⲩⲛ",xpos=EXIST];
-        EXIST -[nsubj]-> SBJ;
-        EXIST[!Cxn];
-      }
-      commands {EXIST.Cxn=Existential-Positive}
-    }
-
-    rule ExistentialNegative { 
-      pattern {
-        EXIST [lemma="ⲙⲛ",xpos=EXIST];
-        EXIST -[nsubj]-> SBJ;
-        EXIST[!Cxn];
-      }
-      commands {EXIST.Cxn=Existential-Negative}
-    }
-
-    rule InterrogativeWh { 
-      pattern {
-        PAR -[re"root\|ccomp"]-> GOV; 
-        PINT[xpos="PINT"]; 
-        GOV -> PINT;
-        GOV[!Cxn]
-      }	
-      commands {GOV.Cxn=Interrogative-Wh}
-    }
+  rule InterrogativeWh { 
+    pattern {
+      PAR -[re"root\|ccomp"]-> GOV; 
+      PINT[xpos="PINT"]; 
+      GOV -> PINT;
+      GOV[!Cxn]
+    }	
+    commands {GOV.Cxn=Interrogative-Wh}
+  }
 
 
-    rule InterrogativePolar { 
-      global { text_en = re".*\?" }
-      pattern{
-          ROOT -["root"]-> TOK; 
-          TOK[!Cxn,xpos<>PINT];
-      }
-      without {PINT[xpos="PINT"]}
-      without {WHADV[lemma="ⲡⲱⲥ"]}
-      commands {TOK.Cxn=Interrogative-Polar}
+  rule InterrogativePolar { 
+    global { text_en = re".*\?" }
+    pattern{
+        ROOT -["root"]-> TOK; 
+        TOK[!Cxn,xpos<>PINT];
     }
+    without {PINT[xpos="PINT"]}
+    without {WHADV[lemma="ⲡⲱⲥ"]}
+    commands {TOK.Cxn=Interrogative-Polar}
+  }
 }
