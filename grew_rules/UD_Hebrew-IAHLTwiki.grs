@@ -137,7 +137,7 @@ package conditionals {
             COND -[mark]-> IF
         } 
         without { KI [lemma="כי"]; IF < KI }
-        commands { IF.Cxn=IF.Cxn }
+        commands { IF.Cxn= "Conditional" }
     }
 
     rule r2a_bis { % Realistic conditional

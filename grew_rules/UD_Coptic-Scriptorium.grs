@@ -143,7 +143,7 @@ package conditionals {
       MAIN -> AUX; 
       PRET [xpos=CPRET];
       MAIN -> PRET;
-      ADVCL[Cxn<>".*Conditional-Unrealistic.*"];
+      ADVCL[Cxn<>re".*Conditional-Unrealistic.*"];
     }
     commands {ADVCL.Cxn=ADVCL.Cxn + "," + "Conditional-Unrealistic"}
   }
