@@ -1,37 +1,95 @@
 strat main { 
   Seq(
-    Onf(coptic_cxn),
+    Onf(interrogatives),
+    Onf(existentials),
+    Onf(conditionals),
+    Onf(npn)
   )
 }
 
+package interrogatives {
 
-package coptic_cxn {
-  rule NPN { 
+  rule InterrogativeWh { 
     pattern {
-      N [ xpos = re"N.*" ];
-      N2 [xpos = re"N.*" ];
-      N.lemma = N2.lemma;
-      N -> N2;
-      N2 -[case]-> P;
-      N < P;
-      P < N2;
-      N[!Cxn];
+      PAR -[re"root\|ccomp"]-> GOV; 
+      PINT[xpos="PINT"]; 
+      GOV -> PINT;
+      GOV[!Cxn]
+    }	
+    commands {GOV.Cxn=Interrogative-Wh}
+  }
+
+  rule InterrogativePolar { 
+    global { text_en = re".*\?" }
+    pattern{
+        ROOT -["root"]-> TOK; 
+        TOK[!Cxn,xpos<>PINT];
     }
-    without {
-      N -[case]-> P2;
-      P2 << N
+    without {PINT[xpos="PINT"]}
+    without {WHADV[lemma="ⲡⲱⲥ"]}
+    commands {TOK.Cxn=Interrogative-Polar}
+  }
+}
+
+package npn {
+
+    rule NPN { 
+      pattern {
+        N [ xpos = re"N.*" ];
+        N2 [xpos = re"N.*" ];
+        N.lemma = N2.lemma;
+        N -> N2;
+        N2 -[case]-> P;
+        N < P;
+        P < N2;
+        N[!Cxn];
+      }
+      without {
+        N -[case]-> P2;
+        P2 << N
+      }
+      commands {N.Cxn=NPN}
     }
-    commands {N.Cxn=NPN}
+
+    rule NPN_bis { 
+      pattern {
+        N [xpos = re"N.*" ];
+        N2 [xpos = re"N.*" ];
+        N.lemma = N2.lemma;
+        N -> N2;
+        N2 -[case]-> P;
+        N < P;
+        P < N2;
+        N[Cxn<>re".*NPN.*"];
+      }
+      without {
+        N -[case]-> P2;
+        P2 << N
+      }
+      commands {N.Cxn=N.Cxn + "," + "NPN"}
     }
+}
+
+package condtionals {
 
   rule ConditionRealisticConjunction { 
     pattern {
-    CONJ [ lemma = re"ⲉϣϫⲉ\|ⲉϣⲱⲡⲉ" ];
-    MAIN -[advcl]-> ADVCL;
-    ADVCL -> CONJ;
-    ADVCL[!Cxn];
+      CONJ [ lemma = re"ⲉϣϫⲉ\|ⲉϣⲱⲡⲉ" ];
+      MAIN -[advcl]-> ADVCL;
+      ADVCL -> CONJ;
+      ADVCL[!Cxn];
     }
-    commands {ADVCL.Cxn=Condition-Realistic}
+    commands {ADVCL.Cxn=Conditional-Realistic}
+  }
+
+  rule ConditionRealisticConjunction_bis { 
+    pattern {
+      CONJ [ lemma = re"ⲉϣϫⲉ\|ⲉϣⲱⲡⲉ" ];
+      MAIN -[advcl]-> ADVCL;
+      ADVCL -> CONJ;
+      ADVCL[Cxn<>re".*Conditional-Realistic.*"];
+    }
+    commands {ADVCL.Cxn = ADVCL.Cxn + "," + "Conditional-Realistic"}
   }
 
   rule ConditionRealisticAux { 
@@ -47,7 +105,23 @@ package coptic_cxn {
       MAIN -> AUX;
       MAIN -> PRET;
     }
-    commands {ADVCL.Cxn=Condition-Realistic}
+    commands {ADVCL.Cxn=Conditional-Realistic}
+  }
+
+  rule ConditionRealisticAux_bis { 
+    pattern {
+    MAIN -[advcl]-> ADVCL;
+    CONJ [ xpos=re"ACOND.*"];
+    ADVCL -> CONJ;
+    ADVCL[Cxn<>re".*Conditional-Realistic.*"];
+    }
+    without {
+      AUX [xpos=FUT];
+      PRET [xpos=CPRET];
+      MAIN -> AUX;
+      MAIN -> PRET;
+    }
+    commands {ADVCL.Cxn= ADVCL.Cxn + "," + "Conditional-Realistic"}
   }
 
   rule ConditionUnrealistic { 
@@ -59,8 +133,23 @@ package coptic_cxn {
       MAIN -> PRET;
       ADVCL[!Cxn];
     }
-    commands {ADVCL.Cxn=Condition-Unrealistic}
+    commands {ADVCL.Cxn=Conditional-Unrealistic}
   }
+
+  rule ConditionUnrealistic_bis { 
+    pattern {
+      MAIN -[advcl]-> ADVCL;
+      AUX [xpos=FUT];
+      MAIN -> AUX; 
+      PRET [xpos=CPRET];
+      MAIN -> PRET;
+      ADVCL[Cxn<>".*Conditional-Unrealistic.*"];
+    }
+    commands {ADVCL.Cxn=ADVCL.Cxn + "," + "Conditional-Unrealistic"}
+  }
+}
+
+package existentials {
 
   rule ExistentialPositive { 
     pattern {
@@ -69,6 +158,15 @@ package coptic_cxn {
       EXIST[!Cxn];
     }
     commands {EXIST.Cxn=Existential-Positive}
+  }
+
+  rule ExistentialPositive_bis { 
+    pattern {
+      EXIST [lemma="ⲟⲩⲛ",xpos=EXIST];
+      EXIST -[nsubj]-> SBJ;
+      EXIST[Cxn<>re".*Existential-Positive.*"];
+    }
+    commands {EXIST.Cxn=EXIST.Cxn + "," + "Existential-Positive"}
   }
 
   rule ExistentialNegative { 
@@ -80,25 +178,12 @@ package coptic_cxn {
     commands {EXIST.Cxn=Existential-Negative}
   }
 
-  rule InterrogativeWh { 
+  rule ExistentialNegative_bis { 
     pattern {
-      PAR -[re"root\|ccomp"]-> GOV; 
-      PINT[xpos="PINT"]; 
-      GOV -> PINT;
-      GOV[!Cxn]
-    }	
-    commands {GOV.Cxn=Interrogative-Wh}
-  }
-
-
-  rule InterrogativePolar { 
-    global { text_en = re".*\?" }
-    pattern{
-        ROOT -["root"]-> TOK; 
-        TOK[!Cxn,xpos<>PINT];
+      EXIST [lemma="ⲙⲛ",xpos=EXIST];
+      EXIST -[nsubj]-> SBJ;
+      EXIST[Cxn<>re".*Existential-Negative.*"];
     }
-    without {PINT[xpos="PINT"]}
-    without {WHADV[lemma="ⲡⲱⲥ"]}
-    commands {TOK.Cxn=Interrogative-Polar}
+    commands {EXIST.Cxn=EXIST.Cxn + "," + "Existential-Negative"}
   }
 }
