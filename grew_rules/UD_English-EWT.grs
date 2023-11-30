@@ -1,0 +1,410 @@
+strat main { 
+  Seq(
+    Onf(interrogatives),
+    Onf(existentials),
+    Onf(conditionals),
+    %Onf(resultatives),
+    Onf(npn)
+  )
+}
+
+package interrogatives {
+
+    rule int1 { %direct WH question
+        pattern {
+            R-[root]->V;
+            V-[punct]-> Q;
+            Q.lemma = re".*[?].*";
+            V -> W;
+            W [lemma = "who"|"what"|"when"|"how"|"why"|"which"|"whose"|"whom"|"where", !Cxn]
+        }
+        commands {W.Cxn=Interrogative}
+    }
+
+    rule int2 {%direct WH, whose question
+        pattern {
+            R-[root]->V;
+            V-[punct]-> Q;
+            Q.lemma = re".*[?].*";
+            V -> N;
+            N [xpos="NN"];
+            N -> W;
+            W [PronType=Int, !Cxn];
+        }
+        commands {W.Cxn=Interrogative}
+    }
+
+    rule int3 { %no QM no inversion
+        pattern {
+            R-[root]->V;
+            V -> W;
+            W [lemma = "who"|"what"|"when"|"how"|"why"|"which"|"whose"|"whom"|"where", !Cxn];
+            W << V
+            }
+            without { V-[nsubj]->W }
+            without { V-[punct]-> Q;
+            Q.lemma = re".*[?].*";
+            }
+            without {
+            V-[det:predet]->W; % exclamative e.g. "what a"
+        }
+        without { V[upos=NOUN]; V-[det]->W } % exlamative e.g. "what stunning views"
+        without { V[upos=ADJ]; V-[advmod]->W } % exclamative e.g. "how rare!"
+        without { V-[nsubj:outer]->S; S << W }
+        without { W-[acl:relcl]->X }
+        without { V-[cop|aux|aux:pass]->* }
+        commands {W.Cxn=Interrogative}
+    }
+
+    rule int4 { %no QM subject aux inversion
+        pattern {
+            R-[root]->V;
+            V -> W;
+            W [lemma = "who"|"what"|"when"|"how"|"why"|"which"|"whose"|"whom"|"where", !Cxn];
+            V-[cop|aux|aux:pass]->A;
+            W << A
+        }
+        without { V-[nsubj]->W }
+        without { V-[punct]-> Q;
+            Q.lemma = re".*[?].*";
+        }
+        without {
+            V-[det:predet]->W; % exclamative e.g. "what a"
+        }
+        without { V[upos=NOUN]; V-[det]->W } % exlamative e.g. "what stunning views"
+        without { V[upos=ADJ]; V-[advmod]->W } % exclamative e.g. "how rare!"
+        without { V-[nsubj:outer]->S; S << W }
+        without { W-[acl:relcl]->X }
+        commands {W.Cxn=Interrogative}
+    }
+
+    rule int5 { %no QM wh-subject
+        pattern {
+            R-[root]->V;
+            V -> W;
+            W [PronType=Int, !Cxn];
+        }
+        with { V-[nsubj]->W }
+        without { 
+            V-[punct]-> Q;
+            Q.lemma = re".*[?].*";
+        }
+        without {
+            V-[det:predet]->W; % exclamative e.g. "what a"
+        }
+        without { V[upos=NOUN]; V-[det]->W } % exlamative e.g. "what stunning views"
+        without { V[upos=ADJ]; V-[advmod]->W } % exclamative e.g. "how rare!"
+        without { V-[nsubj:outer]->S; S << W }
+        without { W-[acl:relcl]->X }
+        commands {W.Cxn=Interrogative}
+    }
+
+    rule int8 {% direct YN no metadata
+        pattern {
+            R -[root]-> V; 
+            V -[nsubj]-> N1;
+            V -[aux]-> A;
+            V [!Cxn];
+            A << N1;
+            V -[punct]-> Q;
+            Q [form="?"];
+        }
+
+        without { 
+            V -> W;
+            W [lemma = "who"|"what"|"when"|"why"|"whom"|"which"|"whose"|"how"|"where"]
+        }
+        commands {V.Cxn=Interrogative}
+    }
+
+    rule int9 {%indirect YN
+        pattern {
+            V.xpos = re"V.*";
+            V -[ccomp]-> X;
+            V [!Cxn];
+            X -[mark]-> Y;
+            Y [lemma = "if"];
+            V << Y
+        }
+        commands {V.Cxn=Interrogative}
+    }
+
+    rule int10 {%indirect wh
+        pattern {
+            V.xpos = re"V.*";
+            V -[ccomp]-> X;
+            V [!Cxn];
+            X -> Y;
+            Y [PronType=Int];
+            V << Y;
+        }
+        commands {V.Cxn=Interrogative}
+    }
+
+}
+
+package existentials {
+
+    rule ex1 { %exist lemma existentials
+        pattern { 
+            E [lemma="exist", !Cxn];
+            E -[re".subj"]-> X;
+        }
+        commands {E.Cxn=Existential}
+    }
+
+    rule ex1_bis { %exist lemma existentials
+        pattern { 
+            E [lemma="exist", Cxn<>".*Exisential.*"];
+            E -[re".subj"]-> X;
+        }
+        commands {E.Cxn=E.Cxn + "," + "Existential"}
+    }
+
+    rule ex2 { %existential there
+        pattern { 
+            E [lemma="be"|"exist"|"stretch"];
+            E -[re".subj"]-> X;
+            E -> Y;
+            Y [xpos="EX", !Cxn];
+        }
+        commands = {Y.Cxn=Existential}
+    }
+
+    rule ex2_bis { %existential there
+        pattern { 
+            E [lemma="be"|"exist"|"stretch"];
+            E -[re".subj"]-> X;
+            E -> Y;
+            Y [xpos="EX", Cxn<>".*Exisential.*"];
+        }
+        commands {Y.Cxn=Y.Cxn + "," + "Existential"}
+    }
+
+    rule ex3 { %existential here
+        pattern { 
+            E [lemma="be"];
+            E -[re".subj"]-> X;
+            E -> Y;
+            Y [lemma="here", !Cxn];
+        }
+        commands {Y.Cxn=Existential}
+    }
+
+    rule ex3_bis { %existential here
+        pattern {
+            E [lemma="be"];
+            E -[re".subj"]-> X;
+            E -> Y;
+            Y [lemma="here", Cxn<>".*Exisential.*"];
+        }
+        commands {Y.Cxn=Y.Cxn + "," + "Existential"}
+    }
+
+}
+
+package conditionals {
+
+    rule cond1 { %reduced conditional
+        pattern { 
+            X -[advcl]-> Y;
+            Y -[mark]-> I;
+            I [lemma="if", !Cxn]
+        }
+        without { Y-[re".subj.*"]-> Z}
+        without { Y -[cop]-> Z2}
+        without { Y [xpos="VBZ"|"VBD"|"VBP"]}
+        without { 
+            Y [xpos="VBN"|"VBG"];
+            Y -[aux]-> Z3
+        }
+        commands {I.Cxn=Conditional}
+    }
+
+    rule cond1_bis { %reduced conditional
+        pattern { 
+            X -[advcl]-> Y;
+            Y -[mark]-> I;
+            I [lemma="if", Cxn<>".*Conditional.*"]
+        }
+        without { Y-[re".subj.*"]-> Z}
+        without { Y -[cop]-> Z2}
+        without { Y [xpos="VBZ"|"VBD"|"VBP"]}
+        without { 
+            Y [xpos="VBN"|"VBG"];
+            Y -[aux]-> Z3
+        }
+        commands {I.Cxn=I.Cxn + "," + "Conditional"}
+    }
+
+    rule cond2 { %unrealistic modal conditional
+        pattern { 
+            X -[advcl]-> Y;
+            Y -[mark]-> I;
+            I [form="if", !Cxn];
+            M [lemma="could"|"would"|"might"];
+            M [xpos="MD"];
+            H [lemma="have"];
+            X -[aux]->H;
+            X -> M;
+        }
+        commands {I.Cxn=Conditional}
+    }
+
+    rule cond2_bis { %unrealistic modal conditional
+        pattern { 
+            X -[advcl]-> Y;
+            Y -[mark]-> I;
+            I [form="if", Cxn<>".*Conditional.*"];
+            M [lemma="could"|"would"|"might"];
+            M [xpos="MD"];
+            H [lemma="have"];
+            X -[aux]->H;
+            X -> M;
+        }
+        commands {I.Cxn=I.Cxn + "," + "Conditional"}
+    }
+
+    rule cond3 { %unrealistic inverted conditional
+        pattern { 
+                X -[advcl]-> Y;
+                M [lemma="could"|"would"|"might"];
+                M [xpos="MD"];
+                H [lemma="have"];
+                X -[aux]->H;
+                X -> M;
+                Y -[re".subj.*"]-> S;
+                H2 [lemma = "have", !Cxn];
+                Y -> H2;
+                H2 << S
+            }
+        commands {H2.Cxn=Conditional}
+    }
+
+    rule cond3_bis { %unrealistic inverted conditional
+        pattern { 
+                X -[advcl]-> Y;
+                M [lemma="could"|"would"|"might"];
+                M [xpos="MD"];
+                H [lemma="have"];
+                X -[aux]->H;
+                X -> M;
+                Y -[re".subj.*"]-> S;
+                H2 [lemma = "have", Cxn<>".*Conditional.*"];
+                Y -> H2;
+                H2 << S
+            }
+        commands {H.Cxn=H.Cxn + "," + "Conditional"}
+    }
+
+    rule cond4 { %hypothetical modal conditional
+        pattern { 
+                X -[advcl]-> Y;
+                Y -[mark]-> I;
+                I [lemma="if", !Cxn];
+                M [lemma="could"|"would"|"might"];
+                M [xpos="MD"];
+                X -> M;
+                Y -[cop|aux]-> Z;
+                Z [xpos = "VBD"]
+            }
+        without { X-[aux]-> H}
+        commands {I.Cxn=Conditional}
+    }
+
+    rule cond4_bis { %hypothetical modal conditional
+        pattern { 
+                X -[advcl]-> Y;
+                Y -[mark]-> I;
+                I [lemma="if", Cxn<>".*Conditional.*"];
+                M [lemma="could"|"would"|"might"];
+                M [xpos="MD"];
+                X -> M;
+                Y -[cop|aux]-> Z;
+                Z [xpos = "VBD"]
+            }
+        without { X-[aux]-> H}
+        commands {I.Cxn=I.Cxn + "," + "Conditional"}
+    }
+
+    rule cond5 { %what-if conditional
+        pattern { 
+            X -[advcl]-> Y;
+            Y -[mark]-> M;
+            M [form="if", !Cxn];
+            X [lemma="what"];
+        }
+        commands {M.Cxn=Conditional}
+    }
+
+    rule cond5_bis { %what-if conditional
+        pattern { 
+            X -[advcl]-> Y;
+            Y -[mark]-> M;
+            M [form="if", Cxn<>".*Conditional.*"];
+            X [lemma="what"];
+        }
+        commands {M.Cxn=M.Cxn + "," + "Conditional"}
+    }
+
+    rule cond6 { %realistic conditional
+        pattern { 
+            X -[advcl]-> Y;
+            Y -[mark]-> M;
+            M [form="if", !Cxn];
+        }
+        commands {M.Cxn=Conditional}
+    }
+
+    rule cond6_bis { %realistic conditional
+        pattern { 
+            X -[advcl]-> Y;
+            Y -[mark]-> M;
+            M [form="if", Cxn<>".*Conditional.*"];
+        }
+        commands {M.Cxn=M.Cxn + "," + "Conditional"}
+    }
+}
+
+package resultatives {
+
+}
+
+package npn {
+
+    rule npn {
+        pattern {
+            N [ xpos = re"N.*", !Cxn];
+            N2 [xpos = re"N.*" ];
+            N.lemma = N2.lemma;
+            N -> N2;
+            N2 -[case]-> P;
+            N < P;
+            P < N2;
+        }
+        without {
+            N -[case]-> P2;
+			P2 < N;
+            P2 [lemma="from"]
+        }
+    commands {N.Cxn=NPN}
+    }
+
+    rule npn_bis {
+        pattern {
+            N [ xpos = re"N.*", Cxn<>".*NPN.*"];
+            N2 [xpos = re"N.*" ];
+            N.lemma = N2.lemma;
+            N -> N2;
+            N2 -[case]-> P;
+            N < P;
+            P < N2;
+        }
+        without {
+            N -[case]-> P2;
+			P2 < N;
+            P2 [lemma="from"]
+        }
+        commands {N.Cxn=N.Cxn + "," + "NPN"}
+    }
+}
