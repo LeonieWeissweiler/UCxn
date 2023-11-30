@@ -1,103 +1,125 @@
-strat main { 
-  Seq(
-    Onf(chinese_cxn),
-  )
-}
-
-
-package chinese_cxn {
-  % RESULTATIVE
-  rule r1 {
-    pattern { 
-      V -[compound:vv]-> RES;
-    }
-    commands { V.Cxn=Resultative }
+  strat main { 
+    Seq(
+      Onf(interrogatives),
+      %Onf(existentials),
+      Onf(conditionals),
+      Onf(resultatives)
+    )
   }
 
+  package interrogatives {
 
-  % INTERROGATIVE
-  rule r2a { % yes/no questions with 吗 (ma) particle
-    pattern { 
-      V->QP;
-	    QP[form="嗎"];
+    rule r2a { % yes/no questions with 吗 (ma) particle
+      pattern { 
+        V->QP;
+        V[!Cxn];
+        QP[form="嗎"];
+      }
+      commands { V.Cxn=Interrogative }
     }
-    commands { V.Cxn=Interrogative }
+
+    rule r2b { % yes/no questions with positive/negative/positive structure
+      pattern { 
+        NEG[form="不"|"有"]; 
+          M1->M2; 
+          M1[!Cxn];
+          M1-[1=conj]->M2; 
+          M2-[advmod]->NEG;     
+          M2->NEG; 
+          M1.form = M2.form; 
+          M2>>M1; 
+          M2>>NEG
+      }
+      without {
+          M2->INTER; INTER<<M2; INTER>>M1;
+          % This is for removing such cases :  我是不小心，而不是故意的。
+          % but keeping such cases : 中国菜好吃不好吃 
+          }
+      commands { M1.Cxn=Interrogative }
+    }
+
+    rule r2c { % Content questions with questions words (什么 ， 谁 …) (upos = PRON for excluding wh-indefinite)
+      pattern { 
+        WH [upos=PRON, lemma="怎麼"|"什麼"|"誰"|"為什麼"|"哪兒"|"哪裡"|"哪裏"|"幾"|"多少"|"哪", !Cxn];
+      }
+      with {
+          M[lemma="？"];
+      }
+      commands { WH.Cxn=Interrogative }
+    }
+
+    rule r2d { % Matching based on the question mark only AND removing all other strategies
+      pattern {
+        V->PUNCT;
+        V[!Cxn];
+        PUNCT[lemma="？"];
+      }
+      without {
+        MA[form="嗎"]
+      }
+      without { 
+        WH [upos=PRON, lemma="怎麼"|"什麼"|"誰"|"為什麼"|"哪兒"|"哪裡"|"哪裏"|"幾"|"多少"|"哪"]; 
+      }
+      without { 
+        M[form="還是"];
+      }
+      commands {V.Cxn=Interrogative}
+    }
+
   }
 
-
-  rule r2b { % yes/no questions with positive/negative/positive structure
-    pattern { 
-      NEG[form="不"|"有"]; 
-        M1->M2; 
-        M1-[1=conj]->M2; 
-        M2-[advmod]->NEG;     
-        M2->NEG; 
-        M1.form = M2.form; 
-        M2>>M1; 
-        M2>>NEG
+  package resultatives {
+    rule r1 {
+      pattern { 
+        V -[compound:vv]-> RES; V[!Cxn]
+      }
+      commands { V.Cxn=Resultative }
     }
-    without {
-        M2->INTER; INTER<<M2; INTER>>M1;
-        % This is for removing such cases :  我是不小心，而不是故意的。
-        % but keeping such cases : 中国菜好吃不好吃 
-        }
-    commands { M1.Cxn=Interrogative }
+
+    rule r1_bis {
+      pattern { 
+        V -[compound:vv]-> RES; V[Cxn<>re".*Resultative.*"];
+      }
+      commands { V.Cxn=V.Cxn + "," + "Resultative" }
+    }
+
   }
 
-  rule r2c { % Content questions with questions words (什么 ， 谁 …) (upos = PRON for excluding wh-indefinite)
-    pattern { 
-      WH [upos=PRON, lemma="怎麼"|"什麼"|"誰"|"為什麼"|"哪兒"|"哪裡"|"哪裏"|"幾"|"多少"|"哪"]; 
+  package conditionals {
+    rule r4 { 
+      pattern {
+          P [lemma="如果"|"假如"|"假設"|"假使"|"倘若"|"倘使", !Cxn];
+      }
+      commands {P.Cxn=Conditional}
     }
-    with {
-        M[lemma="？"];
+
+    rule r4_bis { 
+      pattern {
+          P [lemma="如果"|"假如"|"假設"|"假使"|"倘若"|"倘使", Cxn<>re".*Conditional.*"];
+      }
+      commands { P.Cxn=P.Cxn + "," + "Conditional" }
     }
-    commands { WH.Cxn=Interrogative }
   }
 
-  rule r2d { % Matching based on the question mark only AND removing all other strategies
-    pattern {
-      V->PUNCT;
-      PUNCT[lemma="？"];
-    }
-    without {
-      MA[form="嗎"]
-    }
-    without { 
-      WH [upos=PRON, lemma="怎麼"|"什麼"|"誰"|"為什麼"|"哪兒"|"哪裡"|"哪裏"|"幾"|"多少"|"哪"]; 
-    }
-    without { 
-      M[form="還是"];
-    }
-    commands {V.Cxn=Interrogative}
-  }
-
-  % Comparatives
-  rule r3 {
-    pattern {
-        Bi [lemma="比"];
-    }
-    commands { Bi.Cxn=Existential }
-  }
-
-
-  % Conditionals
-  rule r4 { 
-    pattern {
-        P [lemma="如果"|"假如"|"假設"|"假使"|"倘若"|"倘使"];
-    }
-    commands {P.Cxn=Conditional}
-  }
-
-
-  % Existential
-  % we still get around 50% false positive, so we comment it at the moment
-  %rule r5 { 
-  %  pattern { 
-  %    YOU [form="有"]; YOU-[obj]-> OBJ ;
+  %package comparatives {
+  %  rule r3 {
+  %    pattern {
+  %        Bi [lemma="比"];
+  %    }
+  %    commands { Bi.Cxn=Comparative }
   %  }
-  %  without {
-  %    YOU-[nsubj]->SUBJ;
-  %  } 
-  %  commands {YOU.Cxn=Existential}
   %}
-}
+
+  %package existentials {
+    % Existential
+    % we still get around 50% false positive, so we comment it at the moment
+    %rule r5 { 
+    %  pattern { 
+    %    YOU [form="有"]; YOU-[obj]-> OBJ ;
+    %  }
+    %  without {
+    %    YOU-[nsubj]->SUBJ;
+    %  } 
+    %  commands {YOU.Cxn=Existential}
+    %}
+  %}
