@@ -1,4 +1,4 @@
-    strat main { 
+strat main { 
     Seq(
         Onf(interrogatives),
         Onf(existentials),
