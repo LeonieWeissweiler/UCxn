@@ -1,0 +1,171 @@
+strat main { 
+  Seq(
+    Onf(conditionals),
+    Onf(existentials),
+    Onf(interrogatives),
+    Onf(npn)
+  )
+}
+
+package conditionals {
+    rule cond1 {
+        pattern {
+            V1-[advcl]->H;
+            H-[mark]->S; H[!Cxn];
+            S[lemma=si, upos=SCONJ]
+        }
+        commands {
+            H.Cxn = Conditional
+        }
+    }
+}
+
+package existentials {
+
+    rule exist1 {
+        pattern { 
+            N1[lemma="y"]; N2 [lemma="avoir", !Cxn]; 
+            N2-[expl:comp]->N1;
+            N2 -[obj]->N3;
+            N3[upos=NOUN]
+        }
+        commands {N2.Cxn = "Existential"}
+    }
+    
+    rule exist1_bis {
+        pattern { 
+            N1[lemma="y"]; H [lemma="avoir", Cxn<>re".*Existential.*"]; 
+            H-[expl:comp]->N1;
+            H -[obj]->N3;
+            N3[upos=NOUN]
+        }
+        commands {H.Cxn = H.Cxn + "," + "Existential"}
+    }
+
+}
+
+package interrogatives {
+
+    rule int_polar {
+        pattern { 
+            H[!Cxn]; P[lemma="?"];
+            H->P; 
+        }
+        without { H[PronType=Int]}
+        without { X[PronType=Int]} 
+        without { H-[conj]->Y; Y-[cc]->O;O[lemma=ou]}
+        commands {H.Cxn = "Interrogative"}
+    }
+
+    rule int_polar_bis {
+        pattern { 
+            H[Cxn<>re".*Interrogative.*"]; P[lemma="?"];
+            H->P; 
+        }
+        without { H[PronType=Int]}
+        without { X[PronType=Int]} 
+        without { H-[conj]->Y; Y-[cc]->O;O[lemma=ou]}
+        commands {H.Cxn = H.Cxn + "," + "Interrogative"}
+    }
+
+    rule int_choice {
+        pattern { 
+            H[!Cxn]; P[lemma="?"];
+            H->P
+        }
+        without { H[PronType=Int]}
+        without { X[PronType=Int]} 
+        with { H-[conj]->Y; Y-[cc]->O;O[lemma=ou]}
+        commands {H.Cxn = "Interrogative"}
+    }
+
+    rule int_choice_bis {
+        pattern { 
+            H[Cxn<>re".*Interrogative.*"]; P[lemma="?"];
+            H->P
+        }
+        without { H[PronType=Int]}
+        without { X[PronType=Int]} 
+        with { H-[conj]->Y; Y-[cc]->O;O[lemma=ou]}
+        commands {H.Cxn = H.Cxn + "," + "Interrogative"}
+
+    }
+
+    rule int_wh {
+        pattern { 
+            H[!Cxn]; P[lemma="?"];
+            H->P; 
+        }
+        with { X[PronType=Int]}
+        commands {H.Cxn = "Interrogative"}
+    }
+
+    rule int_wh_bis {
+        pattern { 
+            H[Cxn<>re".*Interrogative.*"]; P[lemma="?"];
+            H->P; 
+        }
+        with { X[PronType=Int]}
+        commands {H.Cxn = H.Cxn + "," + "Interrogative"}
+    }
+
+    rule int_ind_wh {
+        pattern {
+            H[!Cxn];
+            H->P; P[PronType=Int];
+        }
+        without { PUNCT[lemma="?"] }
+        commands {H.Cxn = "Interrogative"}
+    }
+
+    rule int_ind_wh_bis {
+        pattern {
+            H[Cxn<>re".*Interrogative.*"];
+            H->P; P[PronType=Int];
+        }
+        without { PUNCT[lemma="?"] }
+        commands {H.Cxn = H.Cxn + "," + "Interrogative"}
+    }
+
+    rule int_ind_polar {
+        pattern {
+            V1-[ccomp]->H; H-[mark]-> S; S[lemma=si]; H[!Cxn]
+        }
+        without { PUNCT[lemma="?"] }
+        commands {H.Cxn = "Interrogative"}
+    }
+
+    rule int_ind_polar_bis {
+        pattern {
+            V1-[ccomp]->H; H-[mark]-> S; S[lemma=si]; 
+            H[Cxn<>re".*Interrogative.*"]
+        }
+        without { PUNCT[lemma="?"] }
+        commands {H.Cxn = H.Cxn + "," + "Interrogative"}
+    }
+
+}
+
+package npn {
+
+    rule npn {
+        pattern { N1[upos=NOUN, !Cxn]; P[upos=ADP]; N2[upos=NOUN]; 			
+            N1 < P; P < N2 ;
+            N1.lemma = N2.lemma;
+        }
+        without { N1 -[case]-> X; X << N1 } % To avoid examples like 'de mains en mains' ou 'de jour en jour'
+        without { X-[fixed]->N1 } % To exclude 'de temps en temps'
+        commands {N1.Cxn = "NPN"}
+    }
+
+    rule npn_bis {
+        pattern { N1[upos=NOUN, Cxn<>re".*NPN.*"]; P[upos=ADP]; N2[upos=NOUN]; 			
+            N1 < P; P < N2 ;
+            N1.lemma = N2.lemma;
+        }
+        without { N1 -[case]-> X; X << N1 } % To avoid examples like 'de mains en mains' ou 'de jour en jour'
+        without { X-[fixed]->N1 } % To exclude 'de temps en temps'
+        commands {N1.Cxn = N1.Cxn + "," + "NPN"}
+    }
+
+}

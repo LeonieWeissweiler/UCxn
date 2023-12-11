@@ -1,0 +1,180 @@
+strat main { 
+  Seq(
+    Onf(conditionals),
+    Onf(existentials),
+    Onf(interrogatives),
+    Onf(npn)
+  )
+}
+
+package conditionals {
+    rule cond1 {
+        pattern { 
+            C[lemma=si]; H[!Cxn];
+            e:H-[mark]->C;
+            a:X-[advcl|advmod]->H
+        }
+        commands {
+            H.Cxn = Conditional
+        }
+    }
+}
+
+package existentials {
+
+    rule exist1 {
+        pattern { 
+            N1[lemma="haber", !Cxn]; 
+            e:N1-[obj]->N2;
+            N2[upos=NOUN];
+            N2-[det]->N3; N3[upos=DET, Definite=Ind]
+        }
+        commands {N1.Cxn = Existential}
+    }
+
+    rule exist1_bis {
+        pattern { 
+            N1[lemma="haber", Cxn<>re".*Existential.*"]; 
+            e:N1-[obj]->N2;
+            N2[upos=NOUN];
+            N2-[det]->N3; N3[upos=DET, Definite=Ind]
+        }
+        commands {N1.Cxn = N1.Cxn + "," + "Existential"}
+    }
+    
+    rule exist2 {
+        pattern { 
+            N1[lemma="haber"]; 
+            e:N1-[obj]->N2;
+            N2[upos=NOUN];
+            N2-[det]->N3; N3[PronType=Ind]
+        }
+        commands {N1.Cxn = Existential}
+    }
+
+    rule exist2_bis {
+        pattern { 
+            N1[lemma="haber", Cxn<>re".*Existential.*"]; 
+            e:N1-[obj]->N2;
+            N2[upos=NOUN];
+            N2-[det]->N3; N3[PronType=Ind]
+        }
+        commands {N1.Cxn = N1.Cxn + "," + "Existential"}
+    }
+}
+
+package interrogatives {
+
+    rule int_polar {
+        pattern { 
+            C[upos<>INTJ|PUNCT, !Cxn]; C->P;
+            P[lemma="?"]; C << P
+        }
+        without { C[PronType=Int|"Int,Rel"]}
+        without { X[PronType=Int|"Int,Rel"]}
+        without { C[upos=PRON|ADV, lemma="cómo"]} 
+        without { X[upos=PRON|ADV, lemma="cómo"]} % 'cómo' is wrongly annotated
+        without { C-[conj]->Y; Y-[cc]->O; O[lemma=o]} % avoid choice questions.
+        commands {C.Cxn = Interrogative}
+    }
+
+    rule int_polar_bis {
+        pattern { 
+            C[upos<>INTJ|PUNCT, Cxn<>re".*Interrogative.*"]; C->P;
+            P[lemma="?"]; C << P
+        }
+        without { C[PronType=Int|"Int,Rel"]}
+        without { X[PronType=Int|"Int,Rel"]}
+        without { C[upos=PRON|ADV, lemma="cómo"]} 
+        without { X[upos=PRON|ADV, lemma="cómo"]} % 'cómo' is wrongly annotated
+        without { C-[conj]->Y; Y-[cc]->O; O[lemma=o]} % avoid choice questions.
+        commands {C.Cxn = C.Cxn + "," + "Interrogative"}
+    }
+
+    rule int_choice {
+        pattern { 
+            C->P; C[upos<>PUNCT|INTJ, !Cxn]; P[lemma="?"];
+            C-[conj]->Y; Y-[cc]->O; O[lemma=o]
+        }
+        without { C[PronType=Int|"Int,Rel"]}
+        without { X[PronType=Int|"Int,Rel"]} 
+        without { Y[PronType=Int|"Int,Rel"]} 
+        without { X[upos=PRON|ADV, lemma="cómo"]} % 'cómo' is wrongly annotated
+        commands {C.Cxn = "Interrogative"}  
+    }
+
+    rule int_choice_bis {
+        pattern { 
+            C->P; C[upos<>PUNCT|INTJ, Cxn<>re".*Interrogative.*"]; P[lemma="?"];
+            C-[conj]->Y; Y-[cc]->O; O[lemma=o]
+        }
+        without { C[PronType=Int|"Int,Rel"]}
+        without { X[PronType=Int|"Int,Rel"]} 
+        without { Y[PronType=Int|"Int,Rel"]} 
+        without { X[upos=PRON|ADV, lemma="cómo"]} % 'cómo' is wrongly annotated
+        commands {C.Cxn = C.Cxn + "," + "Interrogative"}
+    }
+
+    rule int_wh {
+        pattern { 
+            H[!Cxn]; P[lemma="?"]; 
+            H->P; 
+        }
+        without { cond1[upos=PUNCT] }
+        with { X[PronType=Int|"Int,Rel"]}
+        commands {H.Cxn = "Interrogative"}
+    }
+
+    rule int_wh_bis {
+        pattern { 
+            H[Cxn<>re".*Interrogative.*"]; P[lemma="?"]; 
+            H->P; 
+        }
+        without { cond1[upos=PUNCT] }
+        with { X[PronType=Int|"Int,Rel"]}
+        commands {H.Cxn = H.Cxn + "," + "Interrogative"}
+    }
+
+    rule int_embedded {
+        pattern {
+            H[Cxn<>re".*Interrogative.*"]; P[PronType=Int];
+            H->P
+        }
+        without { PUNCT[lemma="?"] }
+        commands {H.Cxn = "Interrogative"}
+    }
+
+    rule int_embedded_bis {
+        pattern {
+            H[!Cxn]; P[PronType=Int];
+            H->P
+        }
+        without { PUNCT[lemma="?"] }
+        commands {H.Cxn = H.Cxn + "," + "Interrogative"}
+    }
+
+}
+
+package npn {
+    rule npn {
+        pattern { 
+            N1[upos=NOUN, !Cxn]; P[upos=ADP]; N2[upos=NOUN];
+            N1 < P; P < N2 ;
+            N1.lemma = N2.lemma;
+        }
+        without {N1-[case]->X; X << N1}
+        without {A[upos=ADP]; A->N1}
+        commands {N1.Cxn = NPN}
+    }
+
+    rule npn_bis {
+        pattern { 
+            N1[upos=NOUN, Cxn<>re".*NPN.*"]; P[upos=ADP]; N2[upos=NOUN];
+            N1 < P; P < N2 ;
+            N1.lemma = N2.lemma;
+        }
+        without {N1-[case]->X; X << N1}
+        without {A[upos=ADP]; A->N1}
+        commands {N1.Cxn = N1.Cxn + "," + "NPN"}
+    }
+}
