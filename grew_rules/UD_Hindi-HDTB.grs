@@ -13,10 +13,10 @@ package conditionals {
     rule conditional-realistic { % Conditionals - realistic type, without inversion, with explicit protasis marker
         pattern { 
             N [form="अगर"|"यदि"];
-                T [form="तो"];
+            T [form="तो"];
             V2 -[mark]-> T;
             V2[!Cxn];
-                }
+        }
         without { V1 [upos="VERB", Mood="Sub"] }
         commands { V2.Cxn=Conditional }
     }
