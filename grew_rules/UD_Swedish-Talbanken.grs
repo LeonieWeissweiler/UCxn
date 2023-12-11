@@ -1,70 +1,48 @@
 strat main { 
   Seq(
-    Onf(interrogatives),
-    Onf(existentials),
     Onf(conditionals),
-    Onf(resultatives),
-    Onf(npn)
+    Onf(existentials),
+    Onf(interrogatives),
+    Onf(npn),
+    Onf(resultatives)
   )
 }
 
-package interrogatives {
+package conditionals {
+
+  rule r3a { % Conditionals with 'om'
+    pattern { 
+      H -["advcl"|"advmod"]-> P;
+      H[!Cxn];
+      P-[mark]->M;
+      M[lemma="om"|"ifall"];
+    }
+    commands {H.Cxn=Condition-Marker}
+  }
+
+  rule r3b { % Conditionals with inversion (main verb)
+    pattern { 
+      H -[advcl]-> P; 
+      H [!Cxn];
+      P -[nsubj]-> S;
+      P << S
+    }
+    without { P -[mark]-> M }
+    commands {H.Cxn=Condition-Inversion}
+  }
+
+  rule r3c { % Conditionals with inversion (copula)
+    pattern { 
+      H -[advcl]-> P; 
+      H [!Cxn];
+      P -[nsubj]-> S;
+      P -[cop]-> C;
+      C << S
+    }
+    without { P -[mark]-> M }
+    commands {H.Cxn=Condition-Inversion}
+  }
   
-  rule r1a { % Direct polar interrogatives (main verb)
-    pattern { 
-      R-[root]->V;
-      V[upos="VERB"|"AUX", !Cxn];
-      V-[punct]->P; 
-      P[lemma="?"];
-    }
-    without { V->X; X << V }
-    commands { V.Cxn=Interrogative }
-  }
-
-  rule r1b { % Direct polar interrogatives (copula)
-    pattern { 
-      R-[root]->N;
-      N[!Cxn];
-      N-[cop]-> C;
-      N-[punct]->P; 
-      P[lemma="?"];
-    }
-    without { N->X; X << C }
-    commands { N.Cxn=Interrogative }
-  }
-
-  rule r1c { % Direct wh-interrogatives
-    pattern {
-      R-[root]->V;
-      V[!Cxn];
-      V-[punct]-> P;
-      P [lemma="?"];
-      V -> Q;
-      Q [lemma = "vem"|"vad"|"vilken"|"var"|"när"|"hur"|"varför"]
-    }
-    commands { V.Cxn=Interrogative }
-  }
-
-  rule r1d { % Indirect polar interrogatives
-    pattern { 
-      V -["ccomp"|"xcomp"]-> P;
-      P [!Cxn];
-      P -["mark"]-> M;
-      M[lemma="om"|"huruvida"]
-    }
-    commands {P.Cxn=Interrogative}
-  }
-
-  rule r1e { % Indirect wh-interrogatives
-    pattern {
-      V-["ccomp"|"xcomp"]->P;
-      P[!Cxn];
-      P -> W;
-      W[lemma = "vem"|"vad"|"vilken"|"var"|"när"|"hur"|"varför"]
-    }
-    without { V -["mark"]-> M }
-    commands {P.Cxn=Interrogative}
-  }
 }
 
 package existentials {
@@ -86,96 +64,118 @@ package existentials {
   }
 }
 
-package conditionals {
-
-  rule r3a { % Conditionals with 'om'
-    pattern { 
-      H -["advcl"|"advmod"]-> P;
-      P[!Cxn];
-      P-[mark]->M;
-      M[lemma="om"|"ifall"];
-    }
-    commands {P.Cxn=Conditional}
-  }
-
-  rule r3a_bis { % Conditionals with 'om'
-    pattern { 
-      H -["advcl"|"advmod"]-> P;
-      P[Cxn<>re".*Conditional.*"];
-      P-[mark]->M;
-      M[lemma="om"|"ifall"];
-    }
-    commands {P.Cxn= P.Cxn + ",Conditional"}
-  }
-
-  rule r3b { % Conditionals with inversion (main verb)
-    pattern { 
-      H -[advcl]-> P; 
-      P [!Cxn];
-      P -[nsubj]-> S;
-      P << S
-    }
-    without { P -[mark]-> M }
-    commands {P.Cxn=Conditional}
-  }
-
-  rule r3b_bis { % Conditionals with inversion (main verb)
-    pattern { 
-      H -[advcl]-> P; 
-      P [Cxn<>re".*Conditional.*"];
-      P -[nsubj]-> S;
-      P << S
-    }
-    without { P -[mark]-> M }
-    commands {P.Cxn= P.Cxn + "," + "Conditional"}
-  } 
-
-  rule r3c { % Conditionals with inversion (copula)
-    pattern { 
-      H -[advcl]-> P; 
-      P [!Cxn];
-      P -[nsubj]-> S;
-      P -[cop]-> C;
-      C << S
-    }
-    without { P -[mark]-> M }
-    commands {P.Cxn=Conditional}
-  }
-
-  rule r3c_bis { % Conditionals with inversion (copula)
-    pattern { 
-      H -[advcl]-> P; 
-      P [Cxn<>re".*Conditional.*"];
-      P -[nsubj]-> S;
-      P -[cop]-> C;
-      C << S
-    }
-    without { P -[mark]-> M }
-    commands {P.Cxn= P.Cxn + "," + "Conditional"}
-  }
+package interrogatives {
   
-}
-
-package resultatives {
-
-  rule r4 { % Resultative (only with “göra” [make])
+  rule r1a { % Direct polar interrogatives (main verb)
     pattern { 
-      V[upos="VERB", lemma = "göra", !Cxn,];
-      X [upos="ADJ"];
-      V -[xcomp]-> X;
-      V -[obj|iobj|nsubj:pass]-> O;
+      R-[root]->V;
+      V[upos="VERB"|"AUX", !Cxn];
+      V-[punct]->P; 
+      P[lemma="?"];
     }
-    commands { V.Cxn=Resultative }
+    without { V->X; X << V }
+    commands { V.Cxn=Interrogative-DirectPolar }
   }
 
-  rule r4_bis { % Resultative (only with “göra” [make])
+  rule r1a_bis { % Direct polar interrogatives (main verb)
     pattern { 
-      V[upos="VERB", lemma = "göra", Cxn<>re".*Resultative.*"];
-      X [upos="ADJ"];
-      V -[xcomp]-> X;
-      V -[obj|iobj|nsubj:pass]-> O;
+      R-[root]->V;
+      V[upos="VERB"|"AUX", Cxn<>re".*Interrogative-DirectPolar.*"];
+      V-[punct]->P; 
+      P[lemma="?"];
     }
-    commands { V.Cxn=V.Cxn + "," + "Resultative" }
+    without { V->X; X << V }
+    commands { V.Cxn= V.Cxn + "," + "Interrogative-DirectPolar" }
+  }
+
+  rule r1b { % Direct polar interrogatives (copula)
+    pattern { 
+      R-[root]->N;
+      N[!Cxn];
+      N-[cop]-> C;
+      N-[punct]->P; 
+      P[lemma="?"];
+    }
+    without { N->X; X << C }
+    commands { N.Cxn=Interrogative-DirectPolar }
+  }
+
+  rule r1b_bis { % Direct polar interrogatives (copula)
+    pattern { 
+      R-[root]->N;
+      N[Cxn<>re".*Interrogative-DirectPolar.*"];
+      N-[cop]-> C;
+      N-[punct]->P; 
+      P[lemma="?"];
+    }
+    without { N->X; X << C }
+    commands { N.Cxn= N.Cxn + "," + "Interrogative-DirectPolar" }
+  }
+
+  rule r1c { % Direct wh-interrogatives
+    pattern {
+      R-[root]->V;
+      V[!Cxn];
+      V-[punct]-> P;
+      P [lemma="?"];
+      V -> Q;
+      Q [lemma = "vem"|"vad"|"vilken"|"var"|"när"|"hur"|"varför"]
+    }
+    commands { V.Cxn=Interrogative-DirectInformation }
+  }
+
+  rule r1c_bis { % Direct wh-interrogatives
+    pattern {
+      R-[root]->V;
+      V[Cxn<>re".*Interrogative-DirectInformation.*"];
+      V-[punct]-> P;
+      P [lemma="?"];
+      V -> Q;
+      Q [lemma = "vem"|"vad"|"vilken"|"var"|"när"|"hur"|"varför"]
+    }
+    commands { V.Cxn= V.Cxn + "," + Interrogative-DirectInformation }
+  }
+
+  rule r1d { % Indirect polar interrogatives
+    pattern { 
+      V -["ccomp"|"xcomp"]-> P;
+      P [!Cxn];
+      P -["mark"]-> M;
+      M[lemma="om"|"huruvida"]
+    }
+    commands {P.Cxn=Interrogative-IndirectPolar}
+  }
+
+  rule r1d_bis { % Indirect polar interrogatives
+    pattern { 
+      V -["ccomp"|"xcomp"]-> P;
+      P [Cxn<>re".*Interrogative-IndirectPolar.*"];
+      P -["mark"]-> M;
+      M[lemma="om"|"huruvida"]
+    }
+    commands {P.Cxn=P.Cxn + "," + "Interrogative-IndirectPolar"}
+  }
+
+  rule r1e { % Indirect wh-interrogatives
+    pattern {
+      V-["ccomp"|"xcomp"]->P;
+      P[!Cxn];
+      P -> W;
+      W[lemma = "vem"|"vad"|"vilken"|"var"|"när"|"hur"|"varför"]
+    }
+    without { V -["mark"]-> M }
+    commands {P.Cxn=Interrogative-IndirectInformation}
+  }
+
+  rule r1e { % Indirect wh-interrogatives
+    pattern {
+      V-["ccomp"|"xcomp"]->P;
+      P[Cxn<>".*Interrogative-IndirectInformation.*"];
+      P -> W;
+      W[lemma = "vem"|"vad"|"vilken"|"var"|"när"|"hur"|"varför"]
+    }
+    without { V -["mark"]-> M }
+    commands {P.Cxn= PCxn + "," + "Interrogative-IndirectInformation"}
   }
 
 }
@@ -208,6 +208,30 @@ package npn {
     without { X-[fixed]->N1 }
     without { N1-[case]->X; X << N1 }
     commands {N1.Cxn = N1.Cxn + "," + NPN}
+  }
+
+}
+
+package resultatives {
+
+  rule r4 { % Resultative (only with “göra” [make])
+    pattern { 
+      V[upos="VERB", lemma = "göra", !Cxn,];
+      X [upos="ADJ"];
+      V -[xcomp]-> X;
+      V -[obj|iobj|nsubj:pass]-> O;
+    }
+    commands { V.Cxn=Resultative }
+  }
+
+  rule r4_bis { % Resultative (only with “göra” [make])
+    pattern { 
+      V[upos="VERB", lemma = "göra", Cxn<>re".*Resultative.*"];
+      X [upos="ADJ"];
+      V -[xcomp]-> X;
+      V -[obj|iobj|nsubj:pass]-> O;
+    }
+    commands { V.Cxn=V.Cxn + "," + "Resultative" }
   }
 
 }
