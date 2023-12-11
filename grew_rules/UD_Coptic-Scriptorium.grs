@@ -143,7 +143,7 @@ package interrogatives {
       PAR -[re"root\|ccomp"]-> GOV; 
       PINT[xpos="PINT"]; 
       GOV -> PINT;
-      GOV[Cxn<>".*Interrogative-Wh.*"]
+      GOV[Cxn<>re".*Interrogative-Wh.*"]
     }	
     commands {GOV.Cxn=GOV.Cxn + "," + "Interrogative-Wh"}
   }
@@ -159,11 +159,11 @@ package interrogatives {
     commands {TOK.Cxn=Interrogative-Polar}
   }
 
-  rule InterrogativePolar { 
+  rule InterrogativePolar_bis { 
     global { text_en = re".*\?" }
     pattern{
         ROOT -["root"]-> TOK; 
-        TOK[Cxn<>".*Interrogative-Polar.*",xpos<>PINT];
+        TOK[Cxn<>re".*Interrogative-Polar.*",xpos<>PINT];
     }
     without {PINT[xpos="PINT"]}
     without {WHADV[lemma="ⲡⲱⲥ"]}

@@ -44,7 +44,7 @@ package existentials {
     
     rule exist2 {
         pattern { 
-            N1[lemma="haber"]; 
+            N1[lemma="haber", !Cxn]; 
             e:N1-[obj]->N2;
             N2[upos=NOUN];
             N2-[det]->N3; N3[PronType=Ind]
@@ -137,8 +137,9 @@ package interrogatives {
 
     rule int_embedded {
         pattern {
-            H[Cxn<>re".*Interrogative.*"]; P[PronType=Int];
-            H->P
+            P[PronType=Int];
+            H->P;
+            H[!Cxn];
         }
         without { PUNCT[lemma="?"] }
         commands {H.Cxn = "Interrogative"}
@@ -146,8 +147,9 @@ package interrogatives {
 
     rule int_embedded_bis {
         pattern {
-            H[!Cxn]; P[PronType=Int];
-            H->P
+            P[PronType=Int];
+            H->P;
+            H[Cxn<>re".*Interrogative.*"];
         }
         without { PUNCT[lemma="?"] }
         commands {H.Cxn = H.Cxn + "," + "Interrogative"}

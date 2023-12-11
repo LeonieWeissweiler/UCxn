@@ -126,9 +126,10 @@ package existentials {
 
     rule ex2_bis { %existential there
         pattern { 
-            E [lemma="be"|"exist"|"stretch", Cxn<>re".*Existential.*"];
+            E [lemma="be"|"exist"|"stretch"];
             E -[re".subj"]-> X;
             E -> Y;
+            Y[Cxn<>re".*Existential.*"];
             Y [xpos="EX"];
         }
         commands {E.Cxn=Y.Cxn + "," + "Existential"}
