@@ -1,10 +1,20 @@
 strat main { 
   Seq(
-    Onf(interrogatives),
-    %Onf(existentials),
     Onf(conditionals),
+    Onf(interrogatives),
     Onf(resultatives)
-  )
+    )
+}
+
+package conditionals {
+
+  rule r4 { 
+    pattern {
+        P [lemma="如果"|"假如"|"假設"|"假使"|"倘若"|"倘使", !Cxn];
+    }
+    commands {P.Cxn=Condition}
+  }
+
 }
 
 package interrogatives {
@@ -16,6 +26,15 @@ package interrogatives {
       QP[form="嗎"];
     }
     commands { V.Cxn=Interrogative }
+  }
+
+  rule r2a_bis { % yes/no questions with 吗 (ma) particle
+    pattern { 
+      V->QP;
+      V[Cxn<>re".*Interrogative.*"];
+      QP[form="嗎"];
+    }
+    commands { V.Cxn=V.Cxn + "," + Interrogative }
   }
 
   rule r2b { % yes/no questions with positive/negative/positive structure
@@ -38,6 +57,27 @@ package interrogatives {
     commands { M1.Cxn=Interrogative }
   }
 
+  rule r2b_bis { % yes/no questions with positive/negative/positive structure
+    pattern { 
+      NEG[form="不"|"有"]; 
+        M1->M2; 
+        M1[Cxn<>re".*Interrogative.*"];
+        M1-[1=conj]->M2; 
+        M2-[advmod]->NEG;     
+        M2->NEG; 
+        M1.form = M2.form; 
+        M2>>M1; 
+        M2>>NEG
+    }
+    without {
+        M2->INTER; INTER<<M2; INTER>>M1;
+        % This is for removing such cases :  我是不小心，而不是故意的。
+        % but keeping such cases : 中国菜好吃不好吃 
+        }
+    commands { M1.Cxn=M1.Cxn + "," + Interrogative }
+
+  }
+
   rule r2c { % Content questions with questions words (什么 ， 谁 …) (upos = PRON for excluding wh-indefinite)
     pattern { 
       WH [upos=PRON, lemma="怎麼"|"什麼"|"誰"|"為什麼"|"哪兒"|"哪裡"|"哪裏"|"幾"|"多少"|"哪", !Cxn];
@@ -46,6 +86,16 @@ package interrogatives {
         M[lemma="？"];
     }
     commands { WH.Cxn=Interrogative }
+  }
+
+  rule r2c_bis { % Content questions with questions words (什么 ， 谁 …) (upos = PRON for excluding wh-indefinite)
+    pattern { 
+      WH [upos=PRON, lemma="怎麼"|"什麼"|"誰"|"為什麼"|"哪兒"|"哪裡"|"哪裏"|"幾"|"多少"|"哪", Cxn<>re".*Interrogative.*"];
+    }
+    with {
+        M[lemma="？"];
+    }
+    commands { WH.Cxn=WH.Cxn + "," + Interrogative }
   }
 
   rule r2d { % Matching based on the question mark only AND removing all other strategies
@@ -66,9 +116,28 @@ package interrogatives {
     commands {V.Cxn=Interrogative}
   }
 
+  rule r2d_bis { % Matching based on the question mark only AND removing all other strategies
+    pattern {
+      V->PUNCT;
+      V[Cxn<>re".*Interrogative.*"];
+      PUNCT[lemma="？"];
+    }
+    without {
+      MA[form="嗎"]
+    }
+    without { 
+      WH [upos=PRON, lemma="怎麼"|"什麼"|"誰"|"為什麼"|"哪兒"|"哪裡"|"哪裏"|"幾"|"多少"|"哪"]; 
+    }
+    without { 
+      M[form="還是"];
+    }
+    commands { V.Cxn=V.Cxn + "," + Interrogative }
+  }
+
 }
 
 package resultatives {
+
   rule r1 {
     pattern { 
       V -[compound:vv]-> RES; V[!Cxn]
@@ -83,22 +152,6 @@ package resultatives {
     commands { V.Cxn=V.Cxn + "," + "Resultative" }
   }
 
-}
-
-package conditionals {
-  rule r4 { 
-    pattern {
-        P [lemma="如果"|"假如"|"假設"|"假使"|"倘若"|"倘使", !Cxn];
-    }
-    commands {P.Cxn=Conditional}
-  }
-
-  rule r4_bis { 
-    pattern {
-        P [lemma="如果"|"假如"|"假設"|"假使"|"倘若"|"倘使", Cxn<>re".*Conditional.*"];
-    }
-    commands { P.Cxn=P.Cxn + "," + "Conditional" }
-  }
 }
 
 %package comparatives {

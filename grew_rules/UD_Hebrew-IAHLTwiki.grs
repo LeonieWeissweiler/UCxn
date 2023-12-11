@@ -1,51 +1,60 @@
 strat main { 
   Seq(
-    Onf(interrogatives),
+    Onf(conditionals),
     Onf(existentials),
-    Onf(conditionals)
-    %Onf(resultatives),
-    %Onf(npn)
-  )
+    Onf(interrogatives)
+    )
 }
 
-package interrogatives {
+package conditionals {
 
-    rule r1a { %  Main clause interrogatives (question mark)
-        pattern { 
-            Q [form="?", !Cxn] 
-        }
-        commands { Q.Cxn=Interrogative }
-        }
-
-%    rule r1b { % Direct polar interrogatives (Q y/n particle)
-%        pattern { 
-%            H [form="האם"];
-%        }
-%        without { Q [form="?", !Cxn] }
-%        commands { Q.Cxn=Interrogative }
-%    }
-
-    rule r1c { % Embedded wh-question
+    rule r2a { % Realistic conditional
         pattern {
-            WH [upos=ADV,lemma=re"מי\|מה\|למה\|מדוע\|איפה\|היכן\|איה\|לאן\|מאין\|מתי\|איך\|כיצד\|כמה\|איזה", !Cxn]; 
-            V [upos=VERB|ADJ]; 
-            V -> WH
-        }  
-        without {X [lemma="?"]} 
-        without {WH -[acl:relcl|acl]-> CL} 
-        without {V -[nsubj]-> WH}
-        commands { WH.Cxn=Interrogative }
+            IF [lemma=re"אם\|אילו\|לו", !Cxn]; 
+            MAIN -[advcl]-> COND; 
+            COND -[mark]-> IF
+        } 
+        without { KI [lemma="כי"]; IF < KI }
+        commands { IF.Cxn= "Conditional" }
     }
 
-    rule r1d { % Embedded subject question
-        pattern { 
-            MI [lemma=re"מי\|מה", upos=ADV, !Cxn]; 
-            V -[nsubj]-> MI 
+    rule r2b { % Unrealistic conditional
+        pattern {
+            IF [lemma=re"אילו\|לו", !Cxn];
+            HAYA [lemma="היה"] ; 
+            MAIN -> HAYA ;MAIN -[advcl]-> COND; 
+            COND -[mark]-> IF
         } 
-        without {MI -[acl:relcl]-> RC} 
-        without {X [form="?"]}
-        commands { MI.Cxn=Interrogative }
+        without { KI [lemma="כי"]; IF < KI }
+        commands { IF.Cxn=Conditional }
     }
+
+    rule r2c { % Conditional MWE
+        pattern { 
+            B [lemma="ב", !Cxn]; 
+            M [lemma="מידה"]; 
+            W [lemma="ו"]; 
+            B<M; 
+            M<W; 
+            COND -[mark]-> B; 
+            MAIN -[advcl]-> COND;
+        }
+        commands { B.Cxn=Conditional }
+    }
+
+    rule r2d { % Conditional MWE
+        pattern { 
+            B [lemma="ב", !Cxn]; 
+            M [lemma="תנאי"]; 
+            W [lemma="ש"]; 
+            B<M; 
+            M<W; 
+            COND -[mark]-> B; 
+            MAIN -[advcl]-> COND 
+        }
+        commands { B.Cxn=Conditional }
+    }
+
 }
 
 package existentials {
@@ -128,100 +137,71 @@ package existentials {
     }
 }
 
-package conditionals {
+package interrogatives {
 
-    rule r2a { % Realistic conditional
-        pattern {
-            IF [lemma=re"אם\|אילו\|לו", !Cxn]; 
-            MAIN -[advcl]-> COND; 
-            COND -[mark]-> IF
-        } 
-        without { KI [lemma="כי"]; IF < KI }
-        commands { IF.Cxn= "Conditional" }
-    }
-
-    rule r2a_bis { % Realistic conditional
-        pattern {
-            IF [lemma=re"אם\|אילו\|לו", Cxn<>re".*Conditional.*"]; 
-            MAIN -[advcl]-> COND; 
-            COND -[mark]-> IF
-        } 
-        without { KI [lemma="כי"]; IF < KI }
-        commands { IF.Cxn=IF.Cxn + "," + "Conditional" }
-    }
-
-    rule r2b { % Unrealistic conditional
-        pattern {
-            IF [lemma=re"אילו\|לו", !Cxn];
-            HAYA [lemma="היה"] ; 
-            MAIN -> HAYA ;MAIN -[advcl]-> COND; 
-            COND -[mark]-> IF
-        } 
-        without { KI [lemma="כי"]; IF < KI }
-        commands { IF.Cxn=Conditional }
-    }
-
-    rule r2b_bis { % Unrealistic conditional
-        pattern {
-            IF [lemma=re"אילו\|לו", Cxn<>re".*Conditional.*"];
-            HAYA [lemma="היה"] ; 
-            MAIN -> HAYA ;MAIN -[advcl]-> COND; 
-            COND -[mark]-> IF
-        } 
-        without { KI [lemma="כי"]; IF < KI }
-        commands { IF.Cxn=IF.Cxn + "," + "Conditional" }
-    }
-
-    rule r2c { % Conditional MWE
+    rule r1a { %  Main clause interrogatives (question mark)
         pattern { 
-            B [lemma="ב", !Cxn]; 
-            M [lemma="מידה"]; 
-            W [lemma="ו"]; 
-            B<M; 
-            M<W; 
-            COND -[mark]-> B; 
-            MAIN -[advcl]-> COND;
+            Q [form="?", !Cxn] 
         }
-        commands { B.Cxn=Conditional }
-    }
+        commands { Q.Cxn=Interrogative }
+        }
 
-    rule r2c_bis { % Conditional MWE
+    rule r1a_bis { %  Main clause interrogatives (question mark)
         pattern { 
-            B [lemma="ב", Cxn<>re".*Conditional.*"]; 
-            M [lemma="מידה"]; 
-            W [lemma="ו"]; 
-            B<M; 
-            M<W; 
-            COND -[mark]-> B; 
-            MAIN -[advcl]-> COND 
+            Q [form="?", Cxn<>re".*Interrogative.*"] 
         }
-        commands { B.Cxn=B.Cxn + "," + "Conditional" }
+        commands { Q.Cxn=Q.Cxn + "," + Interrogative }
+        }
+
+%    rule r1b { % Direct polar interrogatives (Q y/n particle)
+%        pattern { 
+%            H [form="האם"];
+%        }
+%        without { Q [form="?", !Cxn] }
+%        commands { Q.Cxn=Interrogative }
+%    }
+
+    rule r1c { % Embedded wh-question
+        pattern {
+            WH [upos=ADV,lemma=re"מי\|מה\|למה\|מדוע\|איפה\|היכן\|איה\|לאן\|מאין\|מתי\|איך\|כיצד\|כמה\|איזה", !Cxn]; 
+            V [upos=VERB|ADJ]; 
+            V -> WH
+        }  
+        without {X [lemma="?"]} 
+        without {WH -[acl:relcl|acl]-> CL} 
+        without {V -[nsubj]-> WH}
+        commands { WH.Cxn=Interrogative }
     }
 
-    rule r2d { % Conditional MWE
+    rule r1c_bis { % Embedded wh-question
+        pattern {
+            WH [upos=ADV,lemma=re"מי\|מה\|למה\|מדוע\|איפה\|היכן\|איה\|לאן\|מאין\|מתי\|איך\|כיצד\|כמה\|איזה", Cxn<>re".*Interrogative.*"]; 
+            V [upos=VERB|ADJ]; 
+            V -> WH
+        }  
+        without {X [lemma="?"]} 
+        without {WH -[acl:relcl|acl]-> CL} 
+        without {V -[nsubj]-> WH}
+        commands { WH.Cxn=WH.Cxn + "," + Interrogative }
+    }
+
+    rule r1d { % Embedded subject question
         pattern { 
-            B [lemma="ב", !Cxn]; 
-            M [lemma="תנאי"]; 
-            W [lemma="ש"]; 
-            B<M; 
-            M<W; 
-            COND -[mark]-> B; 
-            MAIN -[advcl]-> COND 
-        }
-        commands { B.Cxn=Conditional }
+            MI [lemma=re"מי\|מה", upos=ADV, !Cxn]; 
+            V -[nsubj]-> MI 
+        } 
+        without {MI -[acl:relcl]-> RC} 
+        without {X [form="?"]}
+        commands { MI.Cxn=Interrogative }
     }
 
-    rule r2d_bis { % Conditional MWE
+    rule r1d_bis { % Embedded subject question
         pattern { 
-            B [lemma="ב", Cxn<>re".*Conditional.*"]; 
-            M [lemma="תנאי"]; 
-            W [lemma="ש"]; 
-            B<M; 
-            M<W; 
-            COND -[mark]-> B; 
-            MAIN -[advcl]-> COND 
-        }
-        commands { B.Cxn=B.Cxn + "," + "Conditional" }
+            MI [lemma=re"מי\|מה", upos=ADV, Cxn<>re".*Interrogative.*"]; 
+            V -[nsubj]-> MI 
+        } 
+        without {MI -[acl:relcl]-> RC} 
+        without {X [form="?"]}
+        commands { MI.Cxn=MI.Cxn + "," + Interrogative }
     }
-
 }

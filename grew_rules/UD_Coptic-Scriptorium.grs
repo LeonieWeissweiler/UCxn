@@ -1,73 +1,10 @@
 strat main { 
   Seq(
-    Onf(interrogatives),
-    Onf(existentials),
     Onf(conditionals),
+    Onf(existentials),
+    Onf(interrogatives),
     Onf(npn)
-  )
-}
-
-package interrogatives {
-
-  rule InterrogativeWh { 
-    pattern {
-      PAR -[re"root\|ccomp"]-> GOV; 
-      PINT[xpos="PINT"]; 
-      GOV -> PINT;
-      GOV[!Cxn]
-    }	
-    commands {GOV.Cxn=Interrogative-Wh}
-  }
-
-  rule InterrogativePolar { 
-    global { text_en = re".*\?" }
-    pattern{
-        ROOT -["root"]-> TOK; 
-        TOK[!Cxn,xpos<>PINT];
-    }
-    without {PINT[xpos="PINT"]}
-    without {WHADV[lemma="ⲡⲱⲥ"]}
-    commands {TOK.Cxn=Interrogative-Polar}
-  }
-}
-
-package npn {
-
-    rule NPN { 
-      pattern {
-        N [ xpos = re"N.*" ];
-        N2 [xpos = re"N.*" ];
-        N.lemma = N2.lemma;
-        N -> N2;
-        N2 -[case]-> P;
-        N < P;
-        P < N2;
-        N[!Cxn];
-      }
-      without {
-        N -[case]-> P2;
-        P2 << N
-      }
-      commands {N.Cxn=NPN}
-    }
-
-    rule NPN_bis { 
-      pattern {
-        N [xpos = re"N.*" ];
-        N2 [xpos = re"N.*" ];
-        N.lemma = N2.lemma;
-        N -> N2;
-        N2 -[case]-> P;
-        N < P;
-        P < N2;
-        N[Cxn<>re".*NPN.*"];
-      }
-      without {
-        N -[case]-> P2;
-        P2 << N
-      }
-      commands {N.Cxn=N.Cxn + "," + "NPN"}
-    }
+    )
 }
 
 package conditionals {
@@ -186,4 +123,90 @@ package existentials {
     }
     commands {EXIST.Cxn=EXIST.Cxn + "," + "Existential-Negative"}
   }
+}
+
+
+package interrogatives {
+
+  rule InterrogativeWh { 
+    pattern {
+      PAR -[re"root\|ccomp"]-> GOV; 
+      PINT[xpos="PINT"]; 
+      GOV -> PINT;
+      GOV[!Cxn]
+    }	
+    commands {GOV.Cxn=Interrogative-Wh}
+  }
+
+  rule InterrogativeWh_bis { 
+    pattern {
+      PAR -[re"root\|ccomp"]-> GOV; 
+      PINT[xpos="PINT"]; 
+      GOV -> PINT;
+      GOV[Cxn<>".*Interrogative-Wh.*"]
+    }	
+    commands {GOV.Cxn=GOV.Cxn + "," + "Interrogative-Wh"}
+  }
+
+  rule InterrogativePolar { 
+    global { text_en = re".*\?" }
+    pattern{
+        ROOT -["root"]-> TOK; 
+        TOK[!Cxn,xpos<>PINT];
+    }
+    without {PINT[xpos="PINT"]}
+    without {WHADV[lemma="ⲡⲱⲥ"]}
+    commands {TOK.Cxn=Interrogative-Polar}
+  }
+
+  rule InterrogativePolar { 
+    global { text_en = re".*\?" }
+    pattern{
+        ROOT -["root"]-> TOK; 
+        TOK[Cxn<>".*Interrogative-Polar.*",xpos<>PINT];
+    }
+    without {PINT[xpos="PINT"]}
+    without {WHADV[lemma="ⲡⲱⲥ"]}
+    commands {TOK.Cxn=TOK.Cxn + "," + "Interrogative-Polar"}
+  }
+
+}
+
+package npn {
+
+    rule NPN { 
+      pattern {
+        N [ xpos = re"N.*" ];
+        N2 [xpos = re"N.*" ];
+        N.lemma = N2.lemma;
+        N -> N2;
+        N2 -[case]-> P;
+        N < P;
+        P < N2;
+        N[!Cxn];
+      }
+      without {
+        N -[case]-> P2;
+        P2 << N
+      }
+      commands {N.Cxn=NPN}
+    }
+
+    rule NPN_bis { 
+      pattern {
+        N [xpos = re"N.*" ];
+        N2 [xpos = re"N.*" ];
+        N.lemma = N2.lemma;
+        N -> N2;
+        N2 -[case]-> P;
+        N < P;
+        P < N2;
+        N[Cxn<>re".*NPN.*"];
+      }
+      without {
+        N -[case]-> P2;
+        P2 << N
+      }
+      commands {N.Cxn=N.Cxn + "," + "NPN"}
+    }
 }
