@@ -15,7 +15,7 @@ package conditionals {
             a:X-[advcl|advmod]->H
         }
         commands {
-            H.Cxn = Conditional
+            H.Cxn = Condition
         }
     }
 }

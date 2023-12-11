@@ -15,7 +15,7 @@ package conditionals {
             S[lemma=si, upos=SCONJ]
         }
         commands {
-            H.Cxn = Conditional
+            H.Cxn = Condition
         }
     }
 }
