@@ -234,7 +234,7 @@ package conditionals {
     commands {V1.Cxn=Conditional}
   }
 
-  rule Cond4 { 
+  rule Cond4_bis { 
     pattern { 
       V1[upos=VERB|AUX,Mood<>Imp, Cxn<>re".*Conditional.*"];
       root[form="__0__"];
@@ -262,7 +262,7 @@ package conditionals {
     commands {V1.Cxn=Conditional}
   }
 
-  rule Cond5 { 
+  rule Cond5_bis { 
     pattern { 
       V1[upos=VERB|AUX,Mood<>Imp, Cxn<>re".*Conditional.*"];
       root[form="__0__"];

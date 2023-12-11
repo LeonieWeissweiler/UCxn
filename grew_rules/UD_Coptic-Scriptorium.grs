@@ -70,7 +70,7 @@ package npn {
     }
 }
 
-package condtionals {
+package conditionals {
 
   rule ConditionRealisticConjunction { 
     pattern {
@@ -143,7 +143,7 @@ package condtionals {
       MAIN -> AUX; 
       PRET [xpos=CPRET];
       MAIN -> PRET;
-      ADVCL[Cxn<>".*Conditional-Unrealistic.*"];
+      ADVCL[Cxn<>re".*Conditional-Unrealistic.*"];
     }
     commands {ADVCL.Cxn=ADVCL.Cxn + "," + "Conditional-Unrealistic"}
   }

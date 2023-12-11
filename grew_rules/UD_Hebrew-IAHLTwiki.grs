@@ -17,13 +17,13 @@ package interrogatives {
         commands { Q.Cxn=Interrogative }
         }
 
-    rule r1b { % Direct polar interrogatives (Q y/n particle)
-        pattern { 
-            H [form="האם"];
-        }
-        without { Q [form="?", !Cxn] }
-        commands { Q.Cxn=Interrogative }
-    }
+%    rule r1b { % Direct polar interrogatives (Q y/n particle)
+%        pattern { 
+%            H [form="האם"];
+%        }
+%        without { Q [form="?", !Cxn] }
+%        commands { Q.Cxn=Interrogative }
+%    }
 
     rule r1c { % Embedded wh-question
         pattern {
@@ -66,7 +66,7 @@ package existentials {
         } 
         without {THERE-[obl]->N}
         without {LE[lemma="ל"]; N -[case]->LE}
-        commands { THERE.Cxn= THERE.Cxn + "," + "Existential }
+        commands { THERE.Cxn= THERE.Cxn + "," + "Existential" }
     }
 
     rule r3b { % Past/future tense existential
@@ -86,7 +86,7 @@ package existentials {
         } 
         without {THERE-[obl]->N}
         without {LE[lemma="ל"]; N -[case]->LE}
-        commands { THERE.Cxn= THERE.Cxn + "," + "Existential }
+        commands { THERE.Cxn= THERE.Cxn + "," + "Existential" }
     }
 
     rule r3d { % Negative existence
@@ -106,7 +106,7 @@ package existentials {
             } 
             without {THERE-[obl]->N}
             without {LE[lemma="ל"]; N -[case]->LE}
-            commands { THERE.Cxn= THERE.Cxn + "," + "Existential }
+            commands { THERE.Cxn= THERE.Cxn + "," + "Existential" }
         }
 
     rule r3e { % Verbal "exist"
@@ -124,7 +124,7 @@ package existentials {
             THERE -[nsubj]->SUBJ 
         } 
         without {THERE [HebBinyan="PIEL"]}
-        commands { THERE.Cxn= THERE.Cxn + "," + "Existential }
+        commands { THERE.Cxn= THERE.Cxn + "," + "Existential" }
     }
 }
 
@@ -137,7 +137,7 @@ package conditionals {
             COND -[mark]-> IF
         } 
         without { KI [lemma="כי"]; IF < KI }
-        commands { IF.Cxn=IF.Cxn }
+        commands { IF.Cxn= "Conditional" }
     }
 
     rule r2a_bis { % Realistic conditional

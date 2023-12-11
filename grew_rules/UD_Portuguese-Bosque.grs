@@ -133,16 +133,16 @@ package interrogatives {
         commands { X.Cxn=Interrogative }
     }
 
-    %% alternative interrogative
-    rule AlternativeInterrogativeRule {
-        pattern {
-            OU [lemma="ou"];
-            IN [lemma="?"];
-            Y-[cc]->OU;
-            X-[conj]->Y;
-            X->IN;
-        }
-    }
+%    %% alternative interrogative
+%    rule AlternativeInterrogativeRule {
+%        pattern {
+%            OU [lemma="ou"];
+%            IN [lemma="?"];
+%            Y-[cc]->OU;
+%            X-[conj]->Y;
+%            X->IN;
+%        }
+%    }
 
     %% embedded interrogative
     rule EmbeddedInterrogativeRule {
@@ -223,7 +223,7 @@ package conditionals {
             CL1-[mark]->SE;
             CL2-[advcl]->CL1;
         }
-        commands { CL1.Cxn=CL1 + "," + "Conditional }
+        commands { CL1.Cxn=CL1 + "," + "Conditional" }
     }
 
 }
