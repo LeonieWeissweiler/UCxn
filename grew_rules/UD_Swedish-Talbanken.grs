@@ -167,10 +167,10 @@ package interrogatives {
     commands {P.Cxn=Interrogative-IndirectInformation}
   }
 
-  rule r1e { % Indirect wh-interrogatives
+  rule r1e_bis { % Indirect wh-interrogatives
     pattern {
       V-["ccomp"|"xcomp"]->P;
-      P[Cxn<>".*Interrogative-IndirectInformation.*"];
+      P[Cxn<>re".*Interrogative-IndirectInformation.*"];
       P -> W;
       W[lemma = "vem"|"vad"|"vilken"|"var"|"när"|"hur"|"varför"]
     }

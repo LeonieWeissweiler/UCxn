@@ -327,7 +327,7 @@ package resultatives {
             V1 [upos="VERB", Vib="0"];
             V2 [upos="VERB", lemma="भगा"|"गिरा"|"बिखर"];
             V2 -["advcl"]-> V1;
-            V2[Cxn<>".*Resultative.*"];
+            V2[Cxn<>re".*Resultative.*"];
         }
         commands { V2.Cxn=V2.Cxn + "," + "Resultative" }
     }
