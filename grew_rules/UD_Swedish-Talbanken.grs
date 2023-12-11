@@ -175,7 +175,7 @@ package interrogatives {
       W[lemma = "vem"|"vad"|"vilken"|"var"|"när"|"hur"|"varför"]
     }
     without { V -["mark"]-> M }
-    commands {P.Cxn= PCxn + "," + "Interrogative-IndirectInformation"}
+    commands {P.Cxn= P.Cxn + "," + "Interrogative-IndirectInformation"}
   }
 
 }
