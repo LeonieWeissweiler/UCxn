@@ -22,7 +22,7 @@ package conditionals {
         without{
             Y [xpos="VBN"|"VBG"];
             Y -[aux]-> Z3;}
-        commands {Y.Cxn=Condition}
+        commands {Y.Cxn=Condition-Reduced}
     }
 
     rule cond2 { %unrealistic modal conditional
@@ -37,7 +37,7 @@ package conditionals {
             X -[aux]->H;
             X -> M;
         }
-        commands {Y.Cxn=Condition}
+        commands {Y.Cxn=Condition-Irrealis-Modal}
     }
 
     rule cond3 { %unrealistic inverted conditional
@@ -54,7 +54,7 @@ package conditionals {
             Y -> H2;
             H2 << S;
         }
-        commands {Y.Cxn=Condition}
+        commands {Y.Cxn=Condition-Irrealis-Inverted}
     }
 
     rule cond4 { %hypothetical modal conditional
@@ -70,7 +70,7 @@ package conditionals {
             Z [xpos = "VBD"];
         }
         without { X-[aux]-> H;}
-        commands {Y.Cxn=Condition}
+        commands {Y.Cxn=Condition-Hypothetical-Modal}
     }
 
     rule cond5 { %what-if conditional
@@ -81,7 +81,7 @@ package conditionals {
             M [form="if"];
             X [lemma="what"];
         }
-        commands {Y.Cxn=Condition}
+        commands {Y.Cxn=Condition-WhatIf}
     }
 
     rule cond6 { %realistic conditional
@@ -91,7 +91,7 @@ package conditionals {
             Y [!Cxn];
             M [form="if"];
         }
-        commands {Y.Cxn=Condition}
+        commands {Y.Cxn=Condition-Realis}
     }
 
 }
@@ -103,7 +103,7 @@ package existentials {
             E [lemma="exist", !Cxn];
             E -[re".subj"]-> X;
         }
-        commands {E.Cxn=Existential}
+        commands {E.Cxn=Existential-Exist}
     }
 
     rule ex1_bis { %exist lemma existentials
@@ -111,7 +111,7 @@ package existentials {
             E [lemma="exist", Cxn<>re".*Existential.*"];
             E -[re".subj"]-> X;
         }
-        commands {E.Cxn=E.Cxn + "," + "Existential"}
+        commands {E.Cxn=E.Cxn + "," + "Existential-Exist"}
     }
 
     rule ex2 { %existential there
@@ -121,7 +121,7 @@ package existentials {
             E -> Y;
             Y [xpos="EX"];
         }
-        commands {E.Cxn=Existential}
+        commands {E.Cxn=Existential-There}
     }
 
     rule ex2_bis { %existential there
@@ -132,7 +132,7 @@ package existentials {
             Y[Cxn<>re".*Existential.*"];
             Y [xpos="EX"];
         }
-        commands {E.Cxn=Y.Cxn + "," + "Existential"}
+        commands {E.Cxn=Y.Cxn + "," + "Existential-There"}
     }
 
     rule ex3 { %existential here
@@ -142,7 +142,7 @@ package existentials {
             E -> Y;
             Y [lemma="here"];
         }
-        commands {E.Cxn=Existential}
+        commands {E.Cxn=Existential-Here}
     }
 
     rule ex3_bis { %existential here
@@ -152,7 +152,7 @@ package existentials {
             E -> Y;
             Y [lemma="here"];
         }
-        commands {E.Cxn=E.Cxn + "," + "Existential"}
+        commands {E.Cxn=E.Cxn + "," + "Existential-Here"}
     }
 
 }
@@ -168,7 +168,7 @@ package interrogatives {
             V -> W;
             W [lemma = "who"|"what"|"when"|"how"|"why"|"which"|"whose"|"whom"|"where"]
         }
-        commands {V.Cxn=Interrogative}
+        commands {V.Cxn=Interrogative-Wh-Direct}
     }
 
     rule int1_bis { %direct WH question
@@ -180,7 +180,7 @@ package interrogatives {
             V -> W;
             W [lemma = "who"|"what"|"when"|"how"|"why"|"which"|"whose"|"whom"|"where"]
         }
-        commands {V.Cxn=V.Cxn + "," + "Interrogative"}
+        commands {V.Cxn=V.Cxn + "," + "Interrogative-Wh-Direct"}
     }   
 
     rule int2 {%direct WH, whose question
@@ -194,7 +194,7 @@ package interrogatives {
             N -> W;
             W [PronType=Int];
         }
-        commands {V.Cxn=Interrogative}
+        commands {V.Cxn=Interrogative-Wh-Direct}
     }
 
     rule int2_bis {%direct WH, whose question
@@ -208,7 +208,7 @@ package interrogatives {
             N -> W;
             W [PronType=Int];
         }
-        commands {V.Cxn=V.Cxn + "," + "Interrogative"}
+        commands {V.Cxn=V.Cxn + "," + "Interrogative-Wh-Direct"}
     }
 
     rule int3 { %no QM no inversion
@@ -232,7 +232,7 @@ package interrogatives {
         without { V-[nsubj:outer]->S; S << W }
         without { W-[acl:relcl]->X }
         without { V-[cop|aux|aux:pass]->* }
-        commands { V.Cxn=Interrogative }
+        commands { V.Cxn=Interrogative-Wh-Direct }
     }
 
     rule int3_bis { %no QM no inversion
@@ -256,7 +256,7 @@ package interrogatives {
         without { V-[nsubj:outer]->S; S << W }
         without { W-[acl:relcl]->X }
         without { V-[cop|aux|aux:pass]->* }
-        commands {V.Cxn=V.Cxn + "," + "Interrogative"}
+        commands {V.Cxn=V.Cxn + "," + "Interrogative-Wh-Direct"}
     }
 
     rule int4 { %no QM subject aux inversion
@@ -280,7 +280,7 @@ package interrogatives {
         without { V[upos=ADJ]; V-[advmod]->W } % exclamative e.g. "how rare!"
         without { V-[nsubj:outer]->S; S << W }
         without { W-[acl:relcl]->X }
-        commands {V.Cxn=Interrogative}
+        commands {V.Cxn=Interrogative-Wh-Direct}
     }
 
     rule int4_bis { %no QM subject aux inversion
@@ -304,7 +304,7 @@ package interrogatives {
         without { V[upos=ADJ]; V-[advmod]->W } % exclamative e.g. "how rare!"
         without { V-[nsubj:outer]->S; S << W }
         without { W-[acl:relcl]->X }
-        commands {V.Cxn=V.Cxn + "," + "Interrogative"}
+        commands {V.Cxn=V.Cxn + "," + "Interrogative-Wh-Direct"}
     }    
 
     rule int5 { %no QM wh-subject
@@ -326,7 +326,7 @@ package interrogatives {
         without { V[upos=ADJ]; V-[advmod]->W } % exclamative e.g. "how rare!"
         without { V-[nsubj:outer]->S; S << W }
         without { W-[acl:relcl]->X }
-        commands {V.Cxn=Interrogative}
+        commands {V.Cxn=Interrogative-Wh-Direct}
     }
 
     rule int5_bis { %no QM wh-subject
@@ -348,7 +348,7 @@ package interrogatives {
         without { V[upos=ADJ]; V-[advmod]->W } % exclamative e.g. "how rare!"
         without { V-[nsubj:outer]->S; S << W }
         without { W-[acl:relcl]->X }
-        commands {V.Cxn=V.Cxn + "," + "Interrogative"}
+        commands {V.Cxn=V.Cxn + "," + "Interrogative-Wh-Direct"}
     }
 
     rule int8 {% direct YN no metadata
@@ -365,7 +365,7 @@ package interrogatives {
             V -> W;
             W [lemma = "who"|"what"|"when"|"why"|"whom"|"which"|"whose"|"how"|"where"];
         }
-        commands {V.Cxn=Interrogative}
+        commands {V.Cxn=Interrogative-Polar-Direct}
         }
 
     rule int8_bis {% direct YN no metadata
@@ -382,7 +382,7 @@ package interrogatives {
             V -> W;
             W [lemma = "who"|"what"|"when"|"why"|"whom"|"which"|"whose"|"how"|"where"];
         }
-        commands {V.Cxn=V.Cxn + "," + "Interrogative"}
+        commands {V.Cxn=V.Cxn + "," + "Interrogative-Polar-Direct"}
         }
 
     rule int9 {%indirect YN
@@ -394,7 +394,7 @@ package interrogatives {
             Y [lemma = "if"];
             V << Y;
         }
-        commands {V.Cxn=Interrogative}
+        commands {V.Cxn=Interrogative-Polar-Indirect}
     }
 
     rule int9_bis {%indirect YN
@@ -406,7 +406,7 @@ package interrogatives {
             Y [lemma = "if"];
             V << Y;
         }
-        commands {V.Cxn=V.Cxn + "," + "Interrogative"}
+        commands {V.Cxn=V.Cxn + "," + "Interrogative-Polar-Indirect"}
     }   
 
     rule int10 {%indirect wh
@@ -418,7 +418,7 @@ package interrogatives {
             Y [PronType=Int];
             V << Y;
         }
-        commands {V.Cxn=Interrogative}
+        commands {V.Cxn=Interrogative-Wh-Indirect}
     }
 
     rule int10_bis {%indirect wh
@@ -430,7 +430,7 @@ package interrogatives {
             Y [PronType=Int];
             V << Y;
         }
-        commands {V.Cxn=V.Cxn + "," + "Interrogative"}
+        commands {V.Cxn=V.Cxn + "," + "Interrogative-Wh-Indirect"}
     }    
 
 }
