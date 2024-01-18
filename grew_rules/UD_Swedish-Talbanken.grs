@@ -12,12 +12,15 @@ package conditionals {
 
   rule r3a { % Conditionals with 'om'
     pattern { 
-      H -["advcl"|"advmod"]-> P;
-      H[!Cxn];
+      _anchor_ -["advcl"|"advmod"]-> P;
       P-[mark]->M;
       M[lemma="om"|"ifall"];
     }
-    commands {H.Cxn=Condition-Marker}
+    commands {
+      _anchor_.Cxn="Conditional-Marker";
+      P.CxnElt="Conditional-Marker.Protasis";
+      _anchor_.CxnElt="Conditional-Marker.Apodosis";
+    }
   }
 
   rule r3b { % Conditionals with inversion (main verb)
