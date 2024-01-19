@@ -18,32 +18,38 @@ package conditionals {
     }
     commands {
       _anchor_.Cxn="Conditional-Marker";
-      P.CxnElt="Conditional-Marker.Protasis";
-      _anchor_.CxnElt="Conditional-Marker.Apodosis";
+      P.CxnElt="Protasis";
+      _anchor_.CxnElt="Apodosis";
     }
   }
 
   rule r3b { % Conditionals with inversion (main verb)
     pattern { 
-      H -[advcl]-> P; 
-      H [!Cxn];
+      _anchor_ -[advcl]-> P; 
       P -[nsubj]-> S;
       P << S
     }
     without { P -[mark]-> M }
-    commands {H.Cxn=Condition-Inversion}
+    commands {
+      _anchor_.Cxn="Conditional-Marker";
+      P.CxnElt="Protasis";
+      _anchor_.CxnElt="Apodosis";
+    }
   }
 
   rule r3c { % Conditionals with inversion (copula)
     pattern { 
-      H -[advcl]-> P; 
-      H [!Cxn];
+      _anchor_ -[advcl]-> P; 
       P -[nsubj]-> S;
       P -[cop]-> C;
       C << S
     }
     without { P -[mark]-> M }
-    commands {H.Cxn=Condition-Inversion}
+    commands {
+      _anchor_.Cxn="Conditional-Marker";
+      P.CxnElt="Protasis";
+      _anchor_.CxnElt="Apodosis";
+    }
   }
   
 }
@@ -52,19 +58,14 @@ package existentials {
 
   rule r2 {
     pattern { 
-      V [lemma="finnas"|"existera",  !Cxn];
-      V -[re".subj"]-> S;
+      _anchor_ [lemma="finnas"|"existera"];
+      _anchor_ -[re".subj"]-> S;
     }
-    commands { V.Cxn=Existential }
+    commands { 
+      _anchor_.Cxn="Existential-ExistPred";
+    }
   }
 
-  rule r2_bis {
-    pattern { 
-      V [lemma="finnas"|"existera", Cxn<>re".*Existential.*"];
-      V -[re".subj"]-> S;
-    }
-    commands { V.Cxn= V.Cxn + "," + "Existential" }
-  }
 }
 
 package interrogatives {
