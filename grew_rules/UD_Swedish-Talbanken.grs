@@ -62,7 +62,8 @@ package existentials {
       _anchor_ -[re".subj"]-> S;
     }
     commands { 
-      _anchor_.Cxn="Existential-ExistPred";
+      _anchor_.Cxn="Existential-ExistPred"
+      S.CxnElt="Pivot";
     }
   }
 
@@ -72,114 +73,71 @@ package interrogatives {
   
   rule r1a { % Direct polar interrogatives (main verb)
     pattern { 
-      R-[root]->V;
-      V[upos="VERB"|"AUX", !Cxn];
-      V-[punct]->P; 
+      R-[root]->_anchor_;
+      _anchor_[upos="VERB"|"AUX"];
+      _anchor_-[punct]->P; 
       P[lemma="?"];
     }
-    without { V->X; X << V }
-    commands { V.Cxn=Interrogative-DirectPolar }
-  }
-
-  rule r1a_bis { % Direct polar interrogatives (main verb)
-    pattern { 
-      R-[root]->V;
-      V[upos="VERB"|"AUX", Cxn<>re".*Interrogative-DirectPolar.*"];
-      V-[punct]->P; 
-      P[lemma="?"];
+    without { _anchor_->X; X << _anchor_ }
+    commands { 
+      _anchor_.Cxn="Interrogative-Polar-Direct"
+      _anchor_.CxnElt="Clause";
     }
-    without { V->X; X << V }
-    commands { V.Cxn= V.Cxn + "," + "Interrogative-DirectPolar" }
   }
 
   rule r1b { % Direct polar interrogatives (copula)
     pattern { 
-      R-[root]->N;
-      N[!Cxn];
-      N-[cop]-> C;
-      N-[punct]->P; 
+      R-[root]->_anchor_;
+      _anchor_-[cop]-> C;
+      _anchor_-[punct]->P; 
       P[lemma="?"];
     }
-    without { N->X; X << C }
-    commands { N.Cxn=Interrogative-DirectPolar }
-  }
-
-  rule r1b_bis { % Direct polar interrogatives (copula)
-    pattern { 
-      R-[root]->N;
-      N[Cxn<>re".*Interrogative-DirectPolar.*"];
-      N-[cop]-> C;
-      N-[punct]->P; 
-      P[lemma="?"];
-    }
-    without { N->X; X << C }
-    commands { N.Cxn= N.Cxn + "," + "Interrogative-DirectPolar" }
+    without { _anchor_->X; X << C }
+    commands { 
+      _anchor_.Cxn="Interrogative-Polar-Direct"
+      _anchor_.CxnElt="Clause";
+    }  
   }
 
   rule r1c { % Direct wh-interrogatives
     pattern {
-      R-[root]->V;
-      V[!Cxn];
-      V-[punct]-> P;
+      R-[root]->_anchor_;
+      _anchor_-[punct]-> P;
       P [lemma="?"];
-      V -> Q;
+      _anchor_ -> Q;
       Q [lemma = "vem"|"vad"|"vilken"|"var"|"när"|"hur"|"varför"]
     }
-    commands { V.Cxn=Interrogative-DirectInformation }
-  }
-
-  rule r1c_bis { % Direct wh-interrogatives
-    pattern {
-      R-[root]->V;
-      V[Cxn<>re".*Interrogative-DirectInformation.*"];
-      V-[punct]-> P;
-      P [lemma="?"];
-      V -> Q;
-      Q [lemma = "vem"|"vad"|"vilken"|"var"|"när"|"hur"|"varför"]
-    }
-    commands { V.Cxn= V.Cxn + "," + Interrogative-DirectInformation }
+    commands { 
+      _anchor_.Cxn="Interrogative-WHInfo-Direct"
+      _anchor_.CxnElt="Clause";
+      Q.CxnElt="WHWord";
+    }  
   }
 
   rule r1d { % Indirect polar interrogatives
     pattern { 
-      V -["ccomp"|"xcomp"]-> P;
-      P [!Cxn];
-      P -["mark"]-> M;
+      V -["ccomp"|"xcomp"]-> _anchor_;
+      _anchor_ -["mark"]-> M;
       M[lemma="om"|"huruvida"]
     }
-    commands {P.Cxn=Interrogative-IndirectPolar}
-  }
-
-  rule r1d_bis { % Indirect polar interrogatives
-    pattern { 
-      V -["ccomp"|"xcomp"]-> P;
-      P [Cxn<>re".*Interrogative-IndirectPolar.*"];
-      P -["mark"]-> M;
-      M[lemma="om"|"huruvida"]
-    }
-    commands {P.Cxn=P.Cxn + "," + "Interrogative-IndirectPolar"}
+    commands { 
+      _anchor_.Cxn="Interrogative-Polar-Indirect"
+      _anchor_.CxnElt="Clause";
+    }  
   }
 
   rule r1e { % Indirect wh-interrogatives
     pattern {
-      V-["ccomp"|"xcomp"]->P;
-      P[!Cxn];
-      P -> W;
-      W[lemma = "vem"|"vad"|"vilken"|"var"|"när"|"hur"|"varför"]
+      V-["ccomp"|"xcomp"]->_anchor_;
+      _anchor_ -> Q;
+      Q[lemma = "vem"|"vad"|"vilken"|"var"|"när"|"hur"|"varför"]
     }
-    without { V -["mark"]-> M }
-    commands {P.Cxn=Interrogative-IndirectInformation}
-  }
-
-  rule r1e_bis { % Indirect wh-interrogatives
-    pattern {
-      V-["ccomp"|"xcomp"]->P;
-      P[Cxn<>re".*Interrogative-IndirectInformation.*"];
-      P -> W;
-      W[lemma = "vem"|"vad"|"vilken"|"var"|"när"|"hur"|"varför"]
-    }
-    without { V -["mark"]-> M }
-    commands {P.Cxn= P.Cxn + "," + "Interrogative-IndirectInformation"}
+    without { _anchor_ -["mark"]-> M }
+    commands { 
+      _anchor_.Cxn="Interrogative-WHInfo-Indirect"
+      _anchor_.CxnElt="Clause";
+      Q.CxnElt="WHWord";
+    }  
   }
 
 }
@@ -188,30 +146,21 @@ package npn {
 
   rule r5 { % NPN 
     pattern { 
-      N1[upos=NOUN, !Cxn]; 
+      _anchor_[upos=NOUN]; 
       P[upos=ADP]; 
       N2[upos=NOUN];
-      N1 -> N2;
-      N1 < P; P < N2 ;
-      N1.lemma = N2.lemma;
+      _anchor_ -> N2;
+      _anchor_ < P; P < N2 ;
+      _anchor_.lemma = N2.lemma;
     }            
-    without { X-[fixed]->N1 }
-    without { N1-[case]->X; X << N1 }
-    commands {N1.Cxn=NPN}
-  }
-
-  rule r5_bis { % NPN 
-    pattern { 
-      N1[upos=NOUN, Cxn<>re".*NPN.*"]; 
-      P[upos=ADP]; 
-      N2[upos=NOUN];
-      N1 -> N2;
-      N1 < P; P < N2 ;
-      N1.lemma = N2.lemma;
-    }            
-    without { X-[fixed]->N1 }
-    without { N1-[case]->X; X << N1 }
-    commands {N1.Cxn = N1.Cxn + "," + NPN}
+    without { X-[fixed]->_anchor_ }
+    without { _anchor_-[case]->X; X << _anchor_ }
+    commands { 
+      _anchor_.Cxn="NPN"
+      _anchor_.CxnElt="N1";
+      P.CxnElt="P";  
+      N2.CxnElt="N2";  
+    }
   }
 
 }
@@ -220,22 +169,16 @@ package resultatives {
 
   rule r4 { % Resultative (only with “göra” [make])
     pattern { 
-      V[upos="VERB", lemma = "göra", !Cxn,];
+      _anchor_[upos="VERB", lemma = "göra"];
       X [upos="ADJ"];
-      V -[xcomp]-> X;
-      V -[obj|iobj|nsubj:pass]-> O;
+      _anchor_ -[xcomp]-> X;
+      _anchor_ -[obj|iobj|nsubj:pass]-> O;
     }
-    commands { V.Cxn=Resultative }
-  }
-
-  rule r4_bis { % Resultative (only with “göra” [make])
-    pattern { 
-      V[upos="VERB", lemma = "göra", Cxn<>re".*Resultative.*"];
-      X [upos="ADJ"];
-      V -[xcomp]-> X;
-      V -[obj|iobj|nsubj:pass]-> O;
+    commands { 
+      _anchor_.Cxn="Resultative"
+      _anchor_.CxnElt="Event";
+      X.CxnElt="ResultState";  
     }
-    commands { V.Cxn=V.Cxn + "," + "Resultative" }
   }
 
 }
