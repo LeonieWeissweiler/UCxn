@@ -27,7 +27,7 @@ package conditionals {
     pattern { 
       _anchor_ -[advcl]-> P; 
       P -[nsubj]-> S;
-      P << S
+      P << S;
     }
     without { P -[mark]-> M }
     commands {
@@ -42,7 +42,7 @@ package conditionals {
       _anchor_ -[advcl]-> P; 
       P -[nsubj]-> S;
       P -[cop]-> C;
-      C << S
+      C << S;
     }
     without { P -[mark]-> M }
     commands {
@@ -62,7 +62,7 @@ package existentials {
       _anchor_ -[re".subj"]-> S;
     }
     commands { 
-      _anchor_.Cxn="Existential-ExistPred"
+      _anchor_.Cxn="Existential-ExistPred";
       S.CxnElt="Pivot";
     }
   }
@@ -80,7 +80,7 @@ package interrogatives {
     }
     without { _anchor_->X; X << _anchor_ }
     commands { 
-      _anchor_.Cxn="Interrogative-Polar-Direct"
+      _anchor_.Cxn="Interrogative-Polar-Direct";
       _anchor_.CxnElt="Clause";
     }
   }
@@ -94,7 +94,7 @@ package interrogatives {
     }
     without { _anchor_->X; X << C }
     commands { 
-      _anchor_.Cxn="Interrogative-Polar-Direct"
+      _anchor_.Cxn="Interrogative-Polar-Direct";
       _anchor_.CxnElt="Clause";
     }  
   }
@@ -105,10 +105,10 @@ package interrogatives {
       _anchor_-[punct]-> P;
       P [lemma="?"];
       _anchor_ -> Q;
-      Q [lemma = "vem"|"vad"|"vilken"|"var"|"när"|"hur"|"varför"]
+      Q [lemma = "vem"|"vad"|"vilken"|"var"|"när"|"hur"|"varför"];
     }
     commands { 
-      _anchor_.Cxn="Interrogative-WHInfo-Direct"
+      _anchor_.Cxn="Interrogative-WHInfo-Direct";
       _anchor_.CxnElt="Clause";
       Q.CxnElt="WHWord";
     }  
@@ -118,10 +118,10 @@ package interrogatives {
     pattern { 
       V -["ccomp"|"xcomp"]-> _anchor_;
       _anchor_ -["mark"]-> M;
-      M[lemma="om"|"huruvida"]
+      M[lemma="om"|"huruvida"];
     }
     commands { 
-      _anchor_.Cxn="Interrogative-Polar-Indirect"
+      _anchor_.Cxn="Interrogative-Polar-Indirect";
       _anchor_.CxnElt="Clause";
     }  
   }
@@ -130,11 +130,11 @@ package interrogatives {
     pattern {
       V-["ccomp"|"xcomp"]->_anchor_;
       _anchor_ -> Q;
-      Q[lemma = "vem"|"vad"|"vilken"|"var"|"när"|"hur"|"varför"]
+      Q[lemma = "vem"|"vad"|"vilken"|"var"|"när"|"hur"|"varför"];
     }
     without { _anchor_ -["mark"]-> M }
     commands { 
-      _anchor_.Cxn="Interrogative-WHInfo-Indirect"
+      _anchor_.Cxn="Interrogative-WHInfo-Indirect";
       _anchor_.CxnElt="Clause";
       Q.CxnElt="WHWord";
     }  
@@ -156,7 +156,7 @@ package npn {
     without { X-[fixed]->_anchor_ }
     without { _anchor_-[case]->X; X << _anchor_ }
     commands { 
-      _anchor_.Cxn="NPN"
+      _anchor_.Cxn="NPN";
       _anchor_.CxnElt="N1";
       P.CxnElt="P";  
       N2.CxnElt="N2";  
@@ -175,7 +175,7 @@ package resultatives {
       _anchor_ -[obj|iobj|nsubj:pass]-> O;
     }
     commands { 
-      _anchor_.Cxn="Resultative"
+      _anchor_.Cxn="Resultative";
       _anchor_.CxnElt="Event";
       X.CxnElt="ResultState";  
     }
