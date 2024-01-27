@@ -31,7 +31,7 @@ package conditionals {
     }
     without { P -[mark]-> M }
     commands {
-      _anchor_.Cxn="Conditional-Marker";
+      _anchor_.Cxn="Conditional-Inverted";
       P.CxnElt="Protasis";
       _anchor_.CxnElt="Apodosis";
     }
@@ -46,7 +46,7 @@ package conditionals {
     }
     without { P -[mark]-> M }
     commands {
-      _anchor_.Cxn="Conditional-Marker";
+      _anchor_.Cxn="Conditional-Inverted";
       P.CxnElt="Protasis";
       _anchor_.CxnElt="Apodosis";
     }
