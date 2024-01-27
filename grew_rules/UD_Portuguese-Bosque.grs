@@ -4,454 +4,407 @@ strat main {
     Onf(existentials),
     Onf(interrogatives),
     Onf(npn)
-    )
+  )
 }
 
 package conditionals {
 
-    rule Conditional {
+    rule ConditionalNegativeEpistemicRule {
         pattern {
             SE[form="se"|"caso", upos=SCONJ];
-            CL1[!Cxn];
-            CL1-[mark]->SE;
-            CL2-[advcl]->CL1;
+            PRO[Mood=Sub, Tense=Imp];
+            PRO-[mark]->SE;
+            _anchor_-[advcl]->PRO;
         }
+        commands {
+            _anchor_.Cxn = "Conditional-NegativeEpistemic";
+            _anchor_.CxnElt = "Apodosis@p";
+            PRO.CxnElt = "Protasis@p";
+        }
+    }
 
-        commands { CL1.Cxn=Conditional }
+    rule ConditionalNegativeEpistemicWithAuxRule {
+        pattern {
+            SE[form="se"|"caso", upos=SCONJ];
+            AUX[Mood=Sub, Tense=Imp];
+            PRO-[mark]-> SE;
+            PRO-[cop|aux:pass|aux]-> AUX;
+            _anchor_-[advcl]-> PRO;
+        }
+        global { sent_id <> "CF27-4" }
+        commands {
+            _anchor_.Cxn = "Conditional-NegativeEpistemic";
+            _anchor_.CxnElt = "Apodosis@p";
+            PRO.CxnElt = "Protasis@p";
+        }
+    }
+
+    rule ConditionalNeutralEpistemicRule {
+        pattern {
+            SE[form="se"|"caso", upos=SCONJ];
+            PRO[Mood=Sub, Tense<>Imp];
+            PRO-[mark]->SE;
+            _anchor_-[advcl]-> PRO;
+        }
+        commands {
+            _anchor_.Cxn = "Conditional-NeutralEpistemic";
+            _anchor_.CxnElt = "Apodosis@p";
+            PRO.CxnElt = "Protasis@p";
+        }
+    }
+
+    rule ConditionalNeutralEpistemicWithAuxRule {
+        pattern {
+            SE [form="se"|"caso", upos=SCONJ];
+            AUX [Mood=Sub, Tense<>Imp];
+            PRO-[mark]-> SE;
+            PRO-[cop|aux:pass|aux]-> AUX;
+            _anchor_-[advcl]-> PRO;
+        }
+        commands {
+            _anchor_.Cxn = "Conditional-NeutralEpistemic";
+            _anchor_.CxnElt = "Apodosis@p";
+            PRO.CxnElt = "Protasis@p";
+        }
+    }
+
+    rule ConditionalOtherRule {
+        pattern {
+            SE[form="se"|"caso", upos=SCONJ];
+            PRO[Mood<>Sub];
+            PRO-[mark]-> SE;
+            _anchor_-[advcl]-> PRO;
+        }
+        global { sent_id <> "CP309-2" } 
+        commands {
+            _anchor_.Cxn = "Conditional";
+            _anchor_.CxnElt = "Apodosis@p";
+            PRO.CxnElt = "Protasis@p";
+        }
+    }
+
+    rule ConditionalOtherWithAuxRule {
+        pattern {
+            SE[form="se"|"caso", upos=SCONJ];
+            AUX[Mood<>Sub];
+            PRO-[mark]-> SE;
+            PRO-[cop|aux:pass|aux]-> AUX;
+            _anchor_-[advcl]-> PRO;
+        }
+        commands {
+            _anchor_.Cxn = "Conditional";
+            _anchor_.CxnElt = "Apodosis@p";
+            PRO.CxnElt = "Protasis@p";
+        }
     }
 
 }
 
 package existentials {
 
-    %% Existential with verb 'ter' + locative
-    rule TerLocativeExistentialRule {
-        pattern { 
-            PRED[lemma="ter", Person=3, !Cxn];
-            EM[lemma="em"];
-            PRED-[obj]->PIV;
-            PRED-[obl]->COD;
-            COD-[case]->EM;
-            *-[root]->PRED;
-        }
-        without { PRED-[nsubj|csubj]->S }
-        commands { PRED.Cxn=Existential }
-    }
-
-    rule TerLocativeExistentialRule_bis {
-        pattern { 
-            PRED[lemma="ter", Person=3, Cxn<>re".*Existential.*"];
-            EM[lemma="em"];
-            PRED-[obj]->PIV;
-            PRED-[obl]->COD;
-            COD-[case]->EM;
-            *-[root]->PRED;
-        }
-        without { PRED-[nsubj|csubj]->S }
-        commands { PRED.Cxn=PRED.Cxn + "," + "Existential" }
-    }
-
-    %% Existential with verb 'haver' + locative
-    rule HaverLocativeExistentialRule {
-        pattern { 
-            PRED[lemma="haver", !Cxn];
-            PIV[upos=NOUN];
-            EM[lemma="em"];
-            PRED-[obj]->PIV;
-            PRED-[obl]->COD;
-            COD-[case]->EM;
-        }
-        without { PRED-[nsubj|csubj]->S }
-        global { sent_id <> "CP375-5" | "CP729-3" }
-        commands { PRED.Cxn=Existential }
-    }
-
-    rule HaverLocativeExistentialRule_bis {
-        pattern { 
-            PRED[lemma="haver", Cxn<>re".*Existential.*"];
-            PIV[upos=NOUN];
-            EM[lemma="em"];
-            PRED-[obj]->PIV;
-            PRED-[obl]->COD;
-            COD-[case]->EM;
-        }
-        without { PRED-[nsubj|csubj]->S }
-        global { sent_id <> "CP375-5" | "CP729-3" }
-        commands { PRED.Cxn=PRED.Cxn + "," + "Existential" }
-    }
-
-    %% Existential with verb 'ter'
-    rule TerExistentialRule {
-        pattern { 
-            PRED[lemma="ter", Person=3, !Cxn]; 
-            PRED-[obj]->PIV;
-            *-[root]->PRED;
-        }
-        without { PRED-[nsubj|csubj]->S }
-        global { sent_id = "CF151-36"|"CF151-50"|"CF227-5"|"CF429-3"|"CF542-3"|"CF865-3" }
-        commands { PRED.Cxn=Existential }
-    }
-
-    rule TerExistentialRule_bis {
-        pattern { 
-            PRED[lemma="ter", Person=3, Cxn<>re".*Existential.*"]; 
-            PRED-[obj]->PIV;
-            *-[root]->PRED;
-        }
-        without { PRED-[nsubj|csubj]->S }
-        global { sent_id = "CF151-36"|"CF151-50"|"CF227-5"|"CF429-3"|"CF542-3"|"CF865-3" }
-        commands { PRED.Cxn=PRED.Cxn + "," + "Existential" }
-    }
-
-    %% Existential with verb 'haver/existir'
-    rule HaverExistentialRule {
+    rule ExistentialRule {
         pattern {
-            PRED[lemma="haver"|"existir", !Cxn];
-            PRED-[obj]->PIV
+            _anchor_[lemma="haver"];
+            _anchor_-[obj]->PIV;
         }
-        commands { PRED.Cxn=Existential }
+        commands {
+            _anchor_.Cxn = "Existential";
+            PIV.CxnElt = "Pivot@f";
+        }
     }
 
-    rule HaverExistentialRule_bis {
-        pattern {
-            PRED[lemma="haver"|"existir", Cxn<>re".*Existential.*"];
-            PRED-[obj]->PIV
+    rule ExistentialHavePredRule {
+        pattern { 
+            _anchor_[lemma="ter", Person=3]; 
+            _anchor_-[obj]->PIV;
+            *-[root]->_anchor_;
         }
-        commands { PRED.Cxn=PRED.Cxn + "," + "Existential" }
+        without { _anchor_-[nsubj|csubj]->S }
+        global { sent_id = "CF151-36"|"CF151-50"|"CF227-5"|"CF429-3"|"CF542-3"|"CF865-3" }
+
+        commands {
+            _anchor_.Cxn = "Existential-HavePred";
+            PIV.CxnElt = "Pivot@f";
+        }
+    }
+
+    rule ExistentialExistPredRule {
+        pattern {
+            _anchor_[lemma="existir"];
+            _anchor_-[obj]->PIV;
+        }
+
+        commands {
+            _anchor_.Cxn = "Existential-ExistPred";
+            PIV.CxnElt = "Pivot@f";
+        }
     }
 
 }
 
 package interrogatives {
 
-    %% WH- interrogative (what, which, who, how_many_much)
-    rule WHPronominalInterrogativeRule {
+    rule InterrogativeWHInfoDirectRule1 {
+        pattern {
+            _anchor_[PronType=Int];
+            _anchor_-[nsubj]->PRED;
+            IN[lemma="?"];
+        }
+        comands {
+            _anchor_.Cxn = "Interrogative-WHInfo-Direct";
+            _anchor_.CxnElt = "WHWord";
+            PRED.CxnElt = "Clause@p";
+        }
+    }
+
+    rule InterrogativeWHInfoDirectRule2 {
         pattern {
             QU[PronType=Int];
             IN[lemma="?"];
-            V[!Cxn];
-            V-[punct]->IN;
+            _anchor_->QU;
         }
-
-        commands { V.Cxn=Interrogative }
+        without { QU-[nsubj]->S; }
+        global { sent_id <> "CP184-7" | "CP352-1" }
+        comands {
+            _anchor_.Cxn = "Interrogative-WHInfo-Direct";
+            _anchor_.CxnElt = "Clause@p";
+            QU.CxnElt = "WHWord";
+        }
     }
 
-    rule WHPronominalInterrogativeRule_bis {
+    rule InterrogativeWHInfoDirectRule3 {
         pattern {
-            QU[PronType=Int];
-            IN[lemma="?"];
-            V[Cxn<>re".*Interrogative.*"];
-            V-[punct]->IN;
-        }
-
-        commands { V.Cxn=V.Cxn + "," + Interrogative }
-    }
-
-    %% WH- interrogative (what, which, who, how_many_much)
-    rule WHPronominalInterrogativeRule2 {
-        pattern {
-            QU[PronType=Int, !Cxn];
-            IN[lemma="?"];
-            QU-[punct]->IN;
-        }
-
-        commands { QU.Cxn=Interrogative }
-    }
-
-    rule WHPronominalInterrogativeRule2_bis {
-        pattern {
-            QU[PronType=Int, Cxn<>re".*Interrogative.*"];
-            IN[lemma="?"];
-            QU-[punct]->IN;
-        }
-
-        commands { QU.Cxn=QU.Cxn + "," + Interrogative }
-    }
-
-
-    %% WH- interrogative (how, where)
-    rule WHAdverbialInterrogativeRule {
-        pattern {
-            QU[lemma="como"|"onde"|"quanto", upos=ADV, !PronType];
-            IN[lemma="?"];
-            V[!Cxn];
-            V-[advmod]-> QU;
-        }
-
-        commands { V.Cxn=Interrogative }
-    }
-
-    rule WHAdverbialInterrogativeRule_bis {
-        pattern {
-            QU[lemma="como"|"onde"|"quanto", upos=ADV, !PronType];
-            IN[lemma="?"];
-            V[Cxn<>re".*Interrogative.*"];
-            V-[advmod]-> QU;
-        }
-
-        commands { V.Cxn=V.Cxn + "," + Interrogative }
-    }
-    %% WH- interrogative (how, where)
-    rule WHAdverbialInterrogativeRule2 {
-        pattern {
-            QU[lemma="como"|"onde"|"quanto", upos=ADV, !PronType, !Cxn];
-            IN[lemma="?"];
-        }
-        without { V-[advmod]-> QU; }
-
-        commands { QU.Cxn=Interrogative }
-    }
-
-    rule WHAdverbialInterrogativeRule2_bis {
-        pattern {
-            QU[lemma="como"|"onde"|"quanto", upos=ADV, !PronType, Cxn<>re".*Interrogative.*"];
-            IN[lemma="?"];
-        }
-        without { V-[advmod]-> QU; }
-
-        commands { QU.Cxn=QU.Cxn + "," + Interrogative }
-    }
-
-    %% WH- interrogative (why)
-    rule ReasonInterrogativeRule {
-        pattern {
-            P[lemma="por", upos=ADP];
-            Q[PronType=Ind];
-            IN[lemma="?"];
-            V[!Cxn];
-            Q-[case]->P;
-            P<Q;
-            V-[obl]->Q;
-        }
-
-        commands { V.Cxn=Interrogative }
-    }
-
-    rule ReasonInterrogativeRule_bis {
-        pattern {
-            P[lemma="por", upos=ADP];
-            Q[PronType=Ind];
-            IN[lemma="?"];
-            V[Cxn<>re".*Interrogative.*"];
-            Q-[case]->P;
-            P<Q;
-            V-[obl]->Q;
-        }
-        commands { V.Cxn=V.Cxn + "," + Interrogative }
-    }
-
-    %% WH- interrogative (why)
-    rule ReasonInterrogativeRule2 {
-        pattern {
-            P[lemma="por", upos=ADP];
-            Q[PronType=Ind, !Cxn];
-            IN[lemma="?"];
-            Q-[case]->P;
-            P<Q;
-        }
-        without { V-[obl]->Q; }
-
-        commands { Q.Cxn=Interrogative }
-    }
-
-    rule ReasonInterrogativeRule2_bis {
-        pattern {
-            P[lemma="por", upos=ADP];
-            Q[PronType=Ind, Cxn<>re".*Interrogative.*"];
-            IN[lemma="?"];
-            Q-[case]->P;
-            P<Q;
-        }
-        without { V-[obl]->Q; }
-
-        commands { Q.Cxn=Q.Cxn + "," + Interrogative }
-    }
-
-    %% WH- interrogative (why)
-    rule ReasonInterrogativeRule3 {
-        pattern {
-            PQ[lemma="porque", upos=ADV];
-            IN[lemma="?"];
-            V[!Cxn];
-            V-[advmod]->PQ;
-        }
-
-        commands { V.Cxn=Interrogative }
-    }
-
-    rule ReasonInterrogativeRule3_bis {
-        pattern {
-            PQ[lemma="porque", upos=ADV];
-            IN[lemma="?"];
-            V[Cxn<>re".*Interrogative.*"];
-            V-[advmod]->PQ;
-        }
-
-        commands { V.Cxn=V.Cxn + "," + Interrogative }
-    }
-
-    %% Y/N interrogative
-    rule YesNoInterrogativeRule {
-        pattern {
+            _anchor_ [lemma="como"|"onde"|"quanto", upos=ADV, !PronType];
             IN [lemma="?"];
-            X[lemma<>"como"|"onde"|"quanto", !PronType, !Cxn];
-            X->IN;
+            _anchor_-[nsubj]->PRED;
         }
+        comands {
+            _anchor_.Cxn = "Interrogative-WHInfo-Direct";
+            _anchor_.CxnElt = "WHWord";
+            PRED.CxnElt = "Clause@p";
+        }
+    }
 
-        without {
-            I[upos=INTJ];
-        }
-        % exclude alternative questions
-        without {
-            OU [lemma="ou"];
-            Y-[cc]->OU;
-            X-[conj]->Y;
-            X->IN;
-        }
-        % exclude WH- questions
-        without { QU[PronType=Int] }
-        without {
+    rule InterrogativeWHInfoDirectRule4 {
+        pattern {
             QU [lemma="como"|"onde"|"quanto", upos=ADV, !PronType];
-            *-[root|parataxis|advmod]-> QU;
+            IN [lemma="?"];
+            _anchor_-[advmod]->QU;
         }
-        without { PQ [lemma=re"porqu.", upos=ADV]; }
-        without {
+        without { QU-[nsubj]->S; }
+        comands {
+            _anchor_.Cxn = "Interrogative-WHInfo-Direct";
+            _anchor_.CxnElt = "Clause@p";
+            QU.CxnElt = "WHWord";
+        }
+    }
+
+    rule InterrogativeWHInfoDirectRule5 {
+        pattern {
             P [lemma="por", upos=ADP];
             Q [PronType=Ind];
             Q -[case]-> P;
             P < Q;
+            IN [lemma="?"];
+            _anchor_-[obl]->Q;
         }
-
-        global { sent_id <> "CF151-17" | "CF151-24" }
-
-        commands { X.Cxn=Interrogative }
+        global { sent_id <> "CF856-4"; }
+        comands {
+            _anchor_.Cxn = "Interrogative-WHInfo-Direct";
+            _anchor_.CxnElt = "Clause@p";
+            Q.CxnElt = "WHWord@f";
+        }
     }
 
-    rule YesNoInterrogativeRule_bis {
+    rule InterrogativeWHInfoDirectRule6 {
+        pattern {
+            PQ [lemma="porque", upos=ADV];
+            IN [lemma="?"];
+            _anchor_-[advmod]->PQ;
+        }
+        global { sent_id <> "CP137-1"; }
+        comands {
+            _anchor_.Cxn = "Interrogative-WHInfo-Direct";
+            _anchor_.CxnElt = "Clause@p";
+            Q.CxnElt = "WHWord";
+        }
+    }
+
+    rule InterrogativeWHInfoDirectRule7 {
+        pattern {
+            QU [lemma="como"|"onde"|"quanto", upos=ADV, !PronType];
+            IN [lemma="?"];
+            _anchor_-[root]->QU;
+        }
+        without { QU-[nsubj]->S; }
+        comands {
+            _anchor_.Cxn = "Interrogative-WHInfo-Direct";
+            QU.CxnElt = "WHWord";
+        }
+    }
+
+    rule InterrogativeWHInfoIndirectRule1 {
+        pattern {
+            _anchor_ [PronType=Int];
+            _anchor_-[nsubj]->PRED;
+        }
+        without { IN [lemma="?"]; }
+        commands {
+            _anchor_.Cxn = "Interrogative-WHInfo-Indirect";
+            _anchor_.CxnElt = "WHWord";
+            PRED.CxnElt = "Clause@p";
+        }
+    }
+
+    rule InterrogativeWHInfoIndirectRule2 {
+        pattern {
+            QU [PronType=Int];
+            _anchor_->QU;
+        }
+        without { IN [lemma="?"]; }
+        without { QU-[nsubj]->S; }
+        commands {
+            _anchor_.Cxn = "Interrogative-WHInfo-Indirect";
+            _anchor_.CxnElt = "Clause@p";
+            QU.CxnElt = "WHWord";
+        }
+    }
+
+    rule InterrogativePolarDirectRule1 {
         pattern {
             IN [lemma="?"];
-            X[lemma<>"como"|"onde"|"quanto", !PronType, Cxn<>re".*Interrogative.*"];
-            X->IN;
+            _anchor_[upos<>INTJ|PRON];
+            _anchor_->IN;
         }
-
-        without {
-            I[upos=INTJ];
+        without { PRED[PronType=Int]; }
+        without { PRED[lemma="como"|"onde"|"quanto"|"qual"|"porque"]; }
+        without { WH[PronType=Int]; }
+        without { WH[lemma="como"|"onde"|"quanto"|"qual"|"porque"]; }
+        without { WH[lemma="que"]; PRED-[advmod|obl]->WH; }
+        without { PRED-[parataxis]->X; }
+        global { sent_id <> "CF78-1"|"CF141-2" }
+        comands {
+            _anchor_.Cxn = "Interrogative-Polar-Direct";
+            _anchor_.CxnElt = "Clause@p";
         }
-        % exclude alternative questions
-        without {
-            OU [lemma="ou"];
-            Y-[cc]->OU;
-            X-[conj]->Y;
-            X->IN;
-        }
-        % exclude WH- questions
-        without { QU[PronType=Int] }
-        without {
-            QU [lemma="como"|"onde"|"quanto", upos=ADV, !PronType];
-            *-[root|parataxis|advmod]-> QU;
-        }
-        without { PQ [lemma=re"porqu.", upos=ADV]; }
-        without {
-            P [lemma="por", upos=ADP];
-            Q [PronType=Ind];
-            Q -[case]-> P;
-            P < Q;
-        }
-
-        global { sent_id <> "CF151-17" | "CF151-24" }
-
-        commands { X.Cxn=X.Cxn + "," + Interrogative }
     }
 
-%    %% alternative interrogative
-%    rule AlternativeInterrogativeRule {
-%        pattern {
-%            OU [lemma="ou"];
-%            IN [lemma="?"];
-%            Y-[cc]->OU;
-%            X-[conj]->Y;
-%            X->IN;
-%        }
-%    }
-
-    %% embedded interrogative
-    rule EmbeddedInterrogativeRule {
+    rule InterrogativePolarDirectRule2 {
         pattern {
-            QU[PronType=Int];
-            V[!Cxn];
-            CD-[conj|det]->QU;
-            V->CD;
+            PAR[upos=NOUN|PROPN];
+            _anchor_[upos<>INTJ|PRON];
+            IN [lemma="?"];
+            PAR->IN;
+            PAR-[parataxis]->_anchor_;
         }
-        without { IN[lemma="?"]; }
-
-        commands { V.Cxn=Interrogative }
+        without { PRED[PronType=Int]; }
+        without { PRED[lemma="como"|"onde"|"quanto"|"qual"|"porque"]; }
+        without { WH[PronType=Int]; }
+        without { WH[lemma="como"|"onde"|"quanto"|"qual"|"porque"]; }
+        without { WH[lemma="que"]; PRED-[advmod|obl]->WH; }
+        global { sent_id <> "CF78-1"|"CF141-2" }
+        comands {
+            _anchor_.Cxn = "Interrogative-Polar-Direct";
+            _anchor_.CxnElt = "Clause@p";
+        }
     }
 
-    rule EmbeddedInterrogativeRule_bis {
+    rule InterrogativePolarIndirectRule {
         pattern {
-            QU[PronType=Int];
-            V[Cxn<>re".*Interrogative.*"];
-            CD-[conj|det]->QU;
-            V->CD;
+            SE [lemma="se", upos=SCONJ];
+            _anchor_-[mark]->SE;
+            PRED-[ccomp]->_anchor_;
         }
-        without { IN[lemma="?"]; }
-
-        commands { V.Cxn=V.Cxn + "," + Interrogative }
+        commands {
+            _anchor_.Cxn = "Interrogative-Polar-Indirect";
+            _anchor_.CxnElt = "Clause@p";
+        }
     }
 
-    %% embedded interrogative
-    rule EmbeddedInterrogativeRule2 {
+    rule InterrogativeAlternativeRule1 {
         pattern {
-            QU[PronType=Int];
-            V[!Cxn];
-            V-[obj|nsubj|nsubj:pass|obl|ccomp|acl]->QU;
+            OR [lemma="ou"];
+            IN [lemma="?"];
+            _anchor_->CH1;
+            CH1-[conj]->CH2;
+            CH2-[cc]->OR;
+            CH1->IN;
         }
-        without { IN[lemma="?"]; }
-
-        commands { V.Cxn=Interrogative }
+        without { CH1-[conj]->CH3; }
+        commands {
+            _anchor_.Cxn = "Interrogative-Alternative";
+            _anchor_.Cxn = "Clause";
+            CH1.CxnElt = "Choice1";
+            CH2.CxnElt = "Choice2";
+        }
     }
 
-    rule EmbeddedInterrogativeRule2_bis {
+    rule InterrogativeAlternativeRule2 {
         pattern {
-            QU[PronType=Int];
-            V[Cxn<>re".*Interrogative.*"];
-            V-[obj|nsubj|nsubj:pass|obl|ccomp|acl]->QU;
+            OR [lemma="ou"];
+            IN [lemma="?"];
+            _anchor_->CH1;
+            CH1-[conj]->CH2;
+            CH1-[conj]->CH3;
+            CH3-[cc]->OR;
+            CH1->IN;
+            CH1 << CH2;
+            CH2 << CH3;
         }
-        without { IN[lemma="?"]; }
-
-        commands { V.Cxn=V.Cxn + "," + Interrogative }
+        without { CH1-[conj]->CH4; }
+        commands {
+            _anchor_.Cxn = "Interrogative-Alternative";
+            _anchor_.Cxn = "Clause";
+            CH1.CxnElt = "Choice1";
+            CH2.CxnElt = "Choice2";
+            CH3.CxnElt = "Choice3";
+        }
     }
+
+    rule InterrogativeAlternativeRule3 {
+        pattern {
+            OR [lemma="ou"];
+            IN [lemma="?"];
+            _anchor_->CH1;
+            CH1-[conj]->CH2;
+            CH1-[conj]->CH3;
+            CH1-[conj]->CH4;
+            CH4-[cc]->OR;
+            CH1->IN;
+            CH1 << CH2;
+            CH2 << CH3;
+            CH3 << CH4;
+        }
+        commands {
+            _anchor_.Cxn = "Interrogative-Alternative";
+            _anchor_.Cxn = "Clause";
+            CH1.CxnElt = "Choice1";
+            CH2.CxnElt = "Choice2";
+            CH3.CxnElt = "Choice3";
+        }
+    }
+
 }
 
 package npn {
 
-    rule NPN {
+    rule NPNRule {
         pattern {
-            N1[upos=NOUN, !Cxn];
+            _anchor_[upos=NOUN];
             P[upos=ADP];
             N2[upos=NOUN];
-            N1 < P;
+            _anchor_ < P;
             P < N2;
-            N1.lemma = N2.lemma;
+            _anchor_.lemma = N2.lemma;
         }
-        without { N1-[case]->X; X << N1 }
-        without { X-[fixed]->N1 }
-
-        commands { N1.Cxn=NPN }
+        without { _anchor_-[case]->X; X << _anchor_ }
+        without { X-[fixed]->_anchor_ }
+        commands {
+            _anchor_.Cxn = "NPN";
+            _anchor_.CxnElt = "N1";
+            P.CxnElt = "P";
+            N2.CxnElt = "N2";
+        }
     }
 
-    rule NPN_bis {
-        pattern {
-            N1[upos=NOUN, Cxn<>re".*NPN.*"];
-            P[upos=ADP];
-            N2[upos=NOUN];
-            N1 < P;
-            P < N2;
-            N1.lemma = N2.lemma;
-        }
-        without { N1-[case]->X; X << N1 }
-        without { X-[fixed]->N1 }
-
-        commands { N1.Cxn=N1.Cxn + "," + "NPN" }
-    }
 }
