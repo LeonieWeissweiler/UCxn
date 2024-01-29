@@ -226,7 +226,7 @@ package interrogatives {
         commands {
             _anchor_.Cxn = "Interrogative-WHInfo-Direct";
             _anchor_.CxnElt = "Clause@p";
-            Q.CxnElt = "WHWord";
+            PQ.CxnElt = "WHWord";
         }
     }
 
