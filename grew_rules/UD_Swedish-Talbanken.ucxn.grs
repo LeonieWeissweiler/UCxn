@@ -1,0 +1,184 @@
+strat main { 
+  Seq(
+    Onf(conditionals),
+    Onf(existentials),
+    Onf(interrogatives),
+    Onf(npn),
+    Onf(resultatives)
+  )
+}
+
+package conditionals {
+
+  rule r3a { % Conditionals with 'om'
+    pattern { 
+      _anchor_ -["advcl"|"advmod"]-> P;
+      P-[mark]->M;
+      M[lemma="om"|"ifall"];
+    }
+    commands {
+      _anchor_.Cxn="Conditional-Marker";
+      P.CxnElt="Protasis";
+      _anchor_.CxnElt="Apodosis";
+    }
+  }
+
+  rule r3b { % Conditionals with inversion (main verb)
+    pattern { 
+      _anchor_ -[advcl]-> P; 
+      P -[nsubj]-> S;
+      P << S;
+    }
+    without { P -[mark]-> M }
+    commands {
+      _anchor_.Cxn="Conditional-Inverted";
+      P.CxnElt="Protasis";
+      _anchor_.CxnElt="Apodosis";
+    }
+  }
+
+  rule r3c { % Conditionals with inversion (copula)
+    pattern { 
+      _anchor_ -[advcl]-> P; 
+      P -[nsubj]-> S;
+      P -[cop]-> C;
+      C << S;
+    }
+    without { P -[mark]-> M }
+    commands {
+      _anchor_.Cxn="Conditional-Inverted";
+      P.CxnElt="Protasis";
+      _anchor_.CxnElt="Apodosis";
+    }
+  }
+  
+}
+
+package existentials {
+
+  rule r2 {
+    pattern { 
+      _anchor_ [lemma="finnas"|"existera"];
+      _anchor_ -[re".subj"]-> S;
+    }
+    commands { 
+      _anchor_.Cxn="Existential-ExistPred";
+      S.CxnElt="Pivot";
+    }
+  }
+
+}
+
+package interrogatives {
+  
+  rule r1a { % Direct polar interrogatives (main verb)
+    pattern { 
+      R-[root]->_anchor_;
+      _anchor_[upos="VERB"|"AUX"];
+      _anchor_-[punct]->P; 
+      P[lemma="?"];
+    }
+    without { _anchor_->X; X << _anchor_ }
+    commands { 
+      _anchor_.Cxn="Interrogative-Polar-Direct";
+      _anchor_.CxnElt="Clause";
+    }
+  }
+
+  rule r1b { % Direct polar interrogatives (copula)
+    pattern { 
+      R-[root]->_anchor_;
+      _anchor_-[cop]-> C;
+      _anchor_-[punct]->P; 
+      P[lemma="?"];
+    }
+    without { _anchor_->X; X << C }
+    commands { 
+      _anchor_.Cxn="Interrogative-Polar-Direct";
+      _anchor_.CxnElt="Clause";
+    }  
+  }
+
+  rule r1c { % Direct wh-interrogatives
+    pattern {
+      R-[root]->_anchor_;
+      _anchor_-[punct]-> P;
+      P [lemma="?"];
+      _anchor_ -> Q;
+      Q [lemma = "vem"|"vad"|"vilken"|"var"|"när"|"hur"|"varför"];
+    }
+    commands { 
+      _anchor_.Cxn="Interrogative-WHInfo-Direct";
+      _anchor_.CxnElt="Clause";
+      Q.CxnElt="WHWord";
+    }  
+  }
+
+  rule r1d { % Indirect polar interrogatives
+    pattern { 
+      V -["ccomp"|"xcomp"]-> _anchor_;
+      _anchor_ -["mark"]-> M;
+      M[lemma="om"|"huruvida"];
+    }
+    commands { 
+      _anchor_.Cxn="Interrogative-Polar-Indirect";
+      _anchor_.CxnElt="Clause";
+    }  
+  }
+
+  rule r1e { % Indirect wh-interrogatives
+    pattern {
+      V-["ccomp"|"xcomp"]->_anchor_;
+      _anchor_ -> Q;
+      Q[lemma = "vem"|"vad"|"vilken"|"var"|"när"|"hur"|"varför"];
+    }
+    without { _anchor_ -["mark"]-> M }
+    commands { 
+      _anchor_.Cxn="Interrogative-WHInfo-Indirect";
+      _anchor_.CxnElt="Clause";
+      Q.CxnElt="WHWord";
+    }  
+  }
+
+}
+
+package npn {
+
+  rule r5 { % NPN 
+    pattern { 
+      _anchor_[upos=NOUN]; 
+      P[upos=ADP]; 
+      N2[upos=NOUN];
+      _anchor_ -> N2;
+      _anchor_ < P; P < N2 ;
+      _anchor_.lemma = N2.lemma;
+    }            
+    without { X-[fixed]->_anchor_ }
+    without { _anchor_-[case]->X; X << _anchor_ }
+    commands { 
+      _anchor_.Cxn="NPN";
+      _anchor_.CxnElt="N1";
+      P.CxnElt="P";  
+      N2.CxnElt="N2";  
+    }
+  }
+
+}
+
+package resultatives {
+
+  rule r4 { % Resultative (only with “göra” [make])
+    pattern { 
+      _anchor_[upos="VERB", lemma = "göra"];
+      X [upos="ADJ"];
+      _anchor_ -[xcomp]-> X;
+      _anchor_ -[obj|iobj|nsubj:pass]-> O;
+    }
+    commands { 
+      _anchor_.Cxn="Resultative";
+      _anchor_.CxnElt="Event";
+      X.CxnElt="ResultState";  
+    }
+  }
+
+}
