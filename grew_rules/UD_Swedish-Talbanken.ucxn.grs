@@ -51,7 +51,6 @@ package conditionals {
       _anchor_.CxnElt="Apodosis";
     }
   }
-  
 }
 
 package existentials {
