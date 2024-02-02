@@ -115,15 +115,17 @@ if __name__ == "__main__":
                         if 'Cxn' in draft[sent_id][anchor_id]:
                             if cxn_name in draft[sent_id][anchor_id]['Cxn']:
                                 n_cxns = re.split(r"[;#]",draft[sent_id][anchor_id]['Cxn']).count(cxn_name)
-                                cxn_value = f'{cxn_name}#{n_cxns+1}'
+                                cxn_value = f'{cxn_name.split("#")[0]}#{n_cxns+1}'
+
                             else:
-                                cxn_value = cxn_name
+                                cxn_value = f'{cxn_name}#1'
 
                             cxn_rule.request.append('without',f'_anchor_[Cxn=re".*{cxn_value}.*"]')
                             cxn_rule.commands[0] = f'_anchor_.Cxn=_anchor_.Cxn + ";" + "{cxn_value}"'
 
                         else:
-                            cxn_value = cxn_name
+                            cxn_value = f'{cxn_name}#1'
+                            cxn_rule.commands[0] = f'_anchor_.Cxn="{cxn_value}"'
                             cxn_rule.request.append('without',f'_anchor_[Cxn]')
 
                         #CxnElts
