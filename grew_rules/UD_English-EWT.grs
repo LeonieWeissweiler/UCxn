@@ -11,25 +11,25 @@ package conditionals {
 
     rule cond1 { %reduced conditional
         pattern { 
-            X -[advcl]-> Y;
-            Y [!Cxn];
-            Y -[mark]-> I;
+            _anchor_ -[advcl]-> P;
+            P -[mark]-> I;
             I [lemma="if"];
             }
-        without { Y-[re".subj.*"]-> Z;}
-        without {Y -[cop]-> Z2;}
-        without {Y [xpos="VBZ"|"VBD"|"VBP"];}
+        without { P-[re".subj.*"]-> Z;}
+        without {P -[cop]-> Z2;}
+        without {P [xpos="VBZ"|"VBD"|"VBP"];}
         without{
-            Y [xpos="VBN"|"VBG"];
-            Y -[aux]-> Z3;}
-        commands {Y.Cxn=Condition-Reduced}
+            P [xpos="VBN"|"VBG"];
+            P -[aux]-> Z3;}
+        commands {_anchor_.Cxn="Conditional-Reduced";
+		  _anchor_.CxnElt="Apodosis";
+                  P.CxnElt="Protasis";}
     }
 
     rule cond2 { %unrealistic modal conditional
         pattern { 
-            X -[advcl]-> Y;
-            Y -[mark]-> I;
-            Y [!Cxn];
+            _anchor_ -[advcl]-> P;
+            P -[mark]-> I;
             I [form="if"];
             M [lemma="could"|"would"|"might"];
             M [xpos="MD"];
@@ -37,61 +37,68 @@ package conditionals {
             X -[aux]->H;
             X -> M;
         }
-        commands {Y.Cxn=Condition-Irrealis-Modal}
+        commands {_anchor_.Cxn="Conditional-NegativeEpistemic";
+                  _anchor_.CxnElt="Apodosis";
+                  P.CxnElt="Protasis";}
     }
 
     rule cond3 { %unrealistic inverted conditional
         pattern { 
-            X -[advcl]-> Y;
+            _anchor_ -[advcl]-> P;
             M [lemma="could"|"would"|"might"];
             M [xpos="MD"];
             H [lemma="have"];
-            X -[aux]->H;
-            X -> M;
-            Y -[re".subj.*"]-> S;
+            _anchor_ -[aux]->H;
+            _anchor_ -> M;
+            P -[re".subj.*"]-> S;
             H2 [lemma = "have"];
-            Y [!Cxn];
-            Y -> H2;
+            P -> H2;
             H2 << S;
         }
-        commands {Y.Cxn=Condition-Irrealis-Inverted}
+        commands {_anchor_.Cxn="Conditional-SubjVerbInversion";
+                  _anchor_.CxnElt="Apodosis";
+		  P.CxnElt="Protasis";}
     }
 
     rule cond4 { %hypothetical modal conditional
         pattern { 
-            X -[advcl]-> Y;
-            Y [!Cxn];
-            Y -[mark]-> I;
+            _anchor_ -[advcl]-> P;
+            P -[mark]-> I;
             I [lemma="if"];
             M [lemma="could"|"would"|"might"];
             M [xpos="MD"];
-            X -> M;
-            Y -[cop|aux]-> Z;
+            _anchor_ -> M;
+            P -[cop|aux]-> Z;
             Z [xpos = "VBD"];
         }
-        without { X-[aux]-> H;}
-        commands {Y.Cxn=Condition-Hypothetical-Modal}
+        without { _anchor_ -[aux]-> H;}
+        commands {_anchor_.Cxn="Conditional-NeutralEpistemic";
+                  _anchor_.CxnElt="Apodosis";
+                  P.CxnElt="Protasis";}
     }
 
     rule cond5 { %what-if conditional
         pattern { 
-            X -[advcl]-> Y;
-            Y [!Cxn];
+            _anchor_ -[advcl]-> Y;
             Y -[mark]-> M;
             M [form="if"];
-            X [lemma="what"];
+            _anchor_ [lemma="what"];
         }
-        commands {Y.Cxn=Condition-WhatIf}
+        commands {_anchor_.Cxn="Conditional-Interrogative";
+                  _anchor_.CxnElt="Apodosis";
+                  P.CxnElt="Protasis";}
     }
 
     rule cond6 { %realistic conditional
         pattern { 
-            X -[advcl]-> Y;
-            Y -[mark]-> M;
-            Y [!Cxn];
+            _anchor_ -[advcl]-> P;
+            P -[mark]-> M;
             M [form="if"];
         }
-        commands {Y.Cxn=Condition-Realis}
+        global { s_type <> "wh"}
+        commands {_anchor_.Cxn="Conditional-Generic";
+                  _anchor_.CxnElt="Apodosis";
+                  P.CxnElt="Protasis";}
     }
 
 }
@@ -100,59 +107,65 @@ package existentials {
 
     rule ex1 { %exist lemma existentials
         pattern { 
-            E [lemma="exist", !Cxn];
-            E -[re".subj"]-> X;
+            _anchor_ [lemma="exist", !Cxn];
+            _anchor_ -[re".subj"]-> P;
         }
-        commands {E.Cxn=Existential-Exist}
+        commands {_anchor_.Cxn="Existential-ExistPred";
+                  P.CxnElt="Pivot";}
     }
 
     rule ex1_bis { %exist lemma existentials
         pattern { 
-            E [lemma="exist", Cxn<>re".*Existential-Exist.*"];
-            E -[re".subj"]-> X;
+            _anchor_ [lemma="exist", Cxn<>re".*Existential-Exist.*"];
+            _anchor_ -[re".subj"]-> X;
         }
-        commands {E.Cxn=E.Cxn + "," + "Existential-Exist"}
+        commands {_anchor_.Cxn=_anchor_.Cxn + "," + "Existential-              		  ExistPred";
+                  X.CxnElt="Pivot";}
     }
 
     rule ex2 { %existential there
         pattern { 
-            E [lemma="be"|"exist"|"stretch", !Cxn];
-            E -[re".subj"]-> X;
-            E -> Y;
+            _anchor_ [lemma="be"|"exist"|"stretch", !Cxn];
+            _anchor_ -[re".subj"]-> P;
+            _anchor_ -> Y;
             Y [xpos="EX"];
         }
-        commands {E.Cxn=Existential-There}
+        commands {_anchor_.Cxn="Existential-ThereExpl";
+                  P.CxnElt="Pivot";}
     }
 
     rule ex2_bis { %existential there
         pattern { 
-            E [lemma="be"|"exist"|"stretch"];
-            E -[re".subj"]-> X;
-            E -> Y;
-            Y[Cxn<>re".*Existential-There.*"];
+            _anchor_ [lemma="be"|"exist"|"stretch", Cxn<>re".*Existential-		     There.*"];
+            _anchor_ -[re".subj"]-> X;
+            _anchor_ -> Y;
             Y [xpos="EX"];
         }
-        commands {E.Cxn=Y.Cxn + "," + "Existential-There"}
+        commands {_anchor_.Cxn=_anchor_.Cxn + "," + "Existential-			  ThereExpl";
+                  X.CxnElt="Pivot";}
     }
 
     rule ex3 { %existential here
         pattern { 
-            E [lemma="be", !Cxn];
-            E -[re".subj"]-> X;
-            E -> Y;
+            _anchor_ [lemma="be", !Cxn];
+            _anchor_ -[re".subj"]-> P;
+            _anchor_ -> Y;
             Y [lemma="here"];
         }
-        commands {E.Cxn=Existential-Here}
+        commands {_anchor_.Cxn="Existential-CopPred-HereExpl";
+                  P.CxnElt="Pivot";}
     }
 
     rule ex3_bis { %existential here
         pattern {
-            E [lemma="be", Cxn<>re".*Existential-Here.*"];
-            E -[re".subj"]-> X;
-            E -> Y;
+            _anchor_ [lemma="be", Cxn<>re".*Existential-CopPred-Here.*"];
+            _anchor_ -[re".subj"]-> X;
+            _anchor_ -> Y;
             Y [lemma="here"];
         }
-        commands {E.Cxn=E.Cxn + "," + "Existential-Here"}
+        commands {_anchor_.Cxn=_anchor_.Cxn + "," + "Existential-CopPred-HereExpl";
+                  X.CxnElt="Pivot";
+                  }
     }
 
 }
@@ -161,277 +174,310 @@ package interrogatives {
 
     rule int1 { %direct WH question
         pattern {
-            R-[root]->V;
-            V [!Cxn];
-            V-[punct]-> Q;
+            R-[root]->_anchor_;
+            _anchor_-[punct]-> Q;
             Q.lemma = re".*[?].*";
-            V -> W;
+            _anchor_ -> W;
             W [lemma = "who"|"what"|"when"|"how"|"why"|"which"|"whose"|"whom"|"where"]
         }
-        commands {V.Cxn=Interrogative-Wh-Direct}
+        commands {_anchor_.Cxn="Interrogative-WHInfo-Direct";
+                  _anchor_.CxnElt="Clause";
+                  W.CxnElt="WHWord";}
     }
 
     rule int1_bis { %direct WH question
         pattern {
-            R-[root]->V;
-            V [Cxn<>re".*Interrogative-Wh-Direct.*"];
-            V-[punct]-> Q;
+            R-[root]->_anchor_;
+            _anchor_ [Cxn<>re".*Interrogative-WHInfo-Direct.*"];
+            _anchor_-[punct]-> Q;
             Q.lemma = re".*[?].*";
-            V -> W;
+            _anchor_ -> W;
             W [lemma = "who"|"what"|"when"|"how"|"why"|"which"|"whose"|"whom"|"where"]
         }
-        commands {V.Cxn=V.Cxn + "," + "Interrogative-Wh-Direct"}
-    }   
+        commands {_anchor_.Cxn=_anchor_.Cxn + "," + "Interrogative-WHInfo-Direct";
+                  _anchor_.CxnElt="Clause";
+                  W.CxnElt="WHWord";
+                  }
+    }    
 
     rule int2 {%direct WH, whose question
         pattern {
-            R-[root]->V;
-            V [!Cxn];
-            V-[punct]-> Q;
+            R-[root]->_anchor_;
+            _anchor_-[punct]-> Q;
             Q.lemma = re".*[?].*";
-            V -> N;
+            _anchor_ -> N;
             N [xpos="NN"];
             N -> W;
             W [PronType=Int];
         }
-        commands {V.Cxn=Interrogative-Wh-Direct}
+        commands {_anchor_.Cxn="Interrogative-WHInfo-Direct";
+                  _anchor_.CxnElt="Clause";
+                  W.CxnElt="WHWord";
+                 }
     }
 
     rule int2_bis {%direct WH, whose question
         pattern {
-            R-[root]->V;
-            V [Cxn<>re".*Interrogative-Wh-Direct.*"];
-            V-[punct]-> Q;
+            R-[root]->_anchor_;
+            _anchor_ [Cxn<>re".*Interrogative-WHInfo-Direct.*"];
+            _anchor_-[punct]-> Q;
             Q.lemma = re".*[?].*";
-            V -> N;
+            _anchor_ -> N;
             N [xpos="NN"];
             N -> W;
             W [PronType=Int];
         }
-        commands {V.Cxn=V.Cxn + "," + "Interrogative-Wh-Direct"}
+        commands {_anchor_.Cxn=_anchor_.Cxn + "," + "Interrogative-WHInfo-Direct";
+                  _anchor_.CxnElt="Clause";
+                  W.CxnElt="WHWord";
+                 }
     }
 
     rule int3 { %no QM no inversion
         pattern {
-            R-[root]->V;
-            V [!Cxn];
-            V -> W;
+            R-[root]->_anchor_;
+            _anchor_ -> W;
             W [lemma = "who"|"what"|"when"|"how"|"why"|"which"|"whose"|"whom"|"where"];
-            W << V
+            W << _anchor_
         }
-        without { V-[nsubj]->W }
+        without { _anchor_-[nsubj]->W }
         without { 
-            V-[punct]-> Q;
+            _anchor_-[punct]-> Q;
             Q.lemma = re".*[?].*";
         }
         without {
-            V-[det:predet]->W; % exclamative e.g. "what a"
+            _anchor_-[det:predet]->W; % exclamative e.g. "what a"
         }
-        without { V[upos=NOUN]; V-[det]->W } % exlamative e.g. "what stunning views"
-        without { V[upos=ADJ]; V-[advmod]->W } % exclamative e.g. "how rare!"
-        without { V-[nsubj:outer]->S; S << W }
+        without { _anchor_[upos=NOUN]; _anchor_-[det]->W } % exlamative e.g. "what stunning views"
+        without { _anchor_[upos=ADJ]; _anchor_-[advmod]->W } % exclamative e.g. "how rare!"
+        without { _anchor_-[nsubj:outer]->S; S << W }
         without { W-[acl:relcl]->X }
-        without { V-[cop|aux|aux:pass]->* }
-        commands { V.Cxn=Interrogative-Wh-Direct }
+        without { _anchor_-[cop|aux|aux:pass]->* }
+        commands { _anchor_.Cxn="Interrogative-WHInfo-Direct";
+                  _anchor_.CxnElt="Clause";
+                  W.CxnElt="WHWord";
+                 }
     }
 
     rule int3_bis { %no QM no inversion
         pattern {
-            R-[root]->V;
-            V [Cxn<>re".*Interrogative-Wh-Direct.*"];
-            V -> W;
+            R-[root]->_anchor_;
+            _anchor_ [Cxn<>re".*Interrogative-WHInfo-Direct.*"];
+            _anchor_ -> W;
             W [lemma = "who"|"what"|"when"|"how"|"why"|"which"|"whose"|"whom"|"where"];
-            W << V
+            W << _anchor_
         }
-        without { V-[nsubj]->W }
+        without { _anchor_-[nsubj]->W }
         without { 
-            V-[punct]-> Q;
+            _anchor_-[punct]-> Q;
             Q.lemma = re".*[?].*";
         }
         without {
-            V-[det:predet]->W; % exclamative e.g. "what a"
+            _anchor_-[det:predet]->W; % exclamative e.g. "what a"
         }
-        without { V[upos=NOUN]; V-[det]->W } % exlamative e.g. "what stunning views"
-        without { V[upos=ADJ]; V-[advmod]->W } % exclamative e.g. "how rare!"
-        without { V-[nsubj:outer]->S; S << W }
+        without { _anchor_[upos=NOUN]; _anchor_-[det]->W } % exlamative e.g. "what stunning views"
+        without { _anchor_[upos=ADJ]; _anchor_-[advmod]->W } % exclamative e.g. "how rare!"
+        without { _anchor_-[nsubj:outer]->S; S << W }
         without { W-[acl:relcl]->X }
-        without { V-[cop|aux|aux:pass]->* }
-        commands {V.Cxn=V.Cxn + "," + "Interrogative-Wh-Direct"}
+        without { _anchor_-[cop|aux|aux:pass]->* }
+        commands {_anchor_.Cxn=_anchor_.Cxn + "," + "Interrogative-WHInfo-Direct";
+                  _anchor_.CxnElt="Clause";
+                  W.CxnElt="WHWord";
+                 }
     }
 
     rule int4 { %no QM subject aux inversion
         pattern {
-            R-[root]->V;
-            V [!Cxn];
-            V -> W;
-            W [lemma = "who"|"what"|"when"|"how"|"why"|"which"|"whose"|"whom"|"where"];
-            V-[cop|aux|aux:pass]->A;
+            R-[root]->_anchor_;
+            _anchor_ -> W;
+            W [lemma = 	"who"|"what"|"when"|"how"|"why"|"which"|"whose"|"whom"|"where"];
+            _anchor_-[cop|aux|aux:pass]->A;
             W << A
         }
-        without { V-[nsubj]->W }
+        without { _anchor_-[nsubj]->W }
         without { 
-            V-[punct]-> Q;
+            _anchor_-[punct]-> Q;
             Q.lemma = re".*[?].*";
         }
         without {
-            V-[det:predet]->W; % exclamative e.g. "what a"
+            _anchor_-[det:predet]->W; % exclamative e.g. "what a"
         }
-        without { V[upos=NOUN]; V-[det]->W } % exlamative e.g. "what stunning views"
-        without { V[upos=ADJ]; V-[advmod]->W } % exclamative e.g. "how rare!"
-        without { V-[nsubj:outer]->S; S << W }
+        without { _anchor_[upos=NOUN]; _anchor_-[det]->W } % exlamative 	e.g. "what stunning views"
+        without { _anchor_[upos=ADJ]; _anchor_-[advmod]->W } % exclamative 	e.g. "how rare!"
+        without { _anchor_-[nsubj:outer]->S; S << W }
         without { W-[acl:relcl]->X }
-        commands {V.Cxn=Interrogative-Wh-Direct}
+        commands {_anchor_.Cxn="Interrogative-WHInfo-Direct";
+                  _anchor_.CxnElt="Clause";
+                  W.CxnElt="WHWord";
+                 }
     }
 
     rule int4_bis { %no QM subject aux inversion
         pattern {
-            R-[root]->V;
-            V [Cxn<>re".*Interrogative-Wh-Direct.*"];
-            V -> W;
+            R-[root]->_anchor_;
+            _anchor_ [Cxn<>re".*Interrogative-WHInfo-Direct.*"];
+            _anchor_ -> W;
             W [lemma = "who"|"what"|"when"|"how"|"why"|"which"|"whose"|"whom"|"where"];
-            V-[cop|aux|aux:pass]->A;
+            _anchor_-[cop|aux|aux:pass]->A;
             W << A
         }
-        without { V-[nsubj]->W }
+        without { _anchor_-[nsubj]->W }
         without { 
-            V-[punct]-> Q;
+            _anchor_-[punct]-> Q;
             Q.lemma = re".*[?].*";
         }
         without {
-            V-[det:predet]->W; % exclamative e.g. "what a"
+            _anchor_-[det:predet]->W; % exclamative e.g. "what a"
         }
-        without { V[upos=NOUN]; V-[det]->W } % exlamative e.g. "what stunning views"
-        without { V[upos=ADJ]; V-[advmod]->W } % exclamative e.g. "how rare!"
-        without { V-[nsubj:outer]->S; S << W }
+        without { _anchor_[upos=NOUN]; _anchor_-[det]->W } % exlamative e.g. "what stunning views"
+        without { _anchor_[upos=ADJ]; _anchor_-[advmod]->W } % exclamative e.g. "how rare!"
+        without { _anchor_-[nsubj:outer]->S; S << W }
         without { W-[acl:relcl]->X }
-        commands {V.Cxn=V.Cxn + "," + "Interrogative-Wh-Direct"}
-    }    
+        commands {_anchor_.Cxn=_anchor_.Cxn + "," + "Interrogative-WHInfo-Direct";
+                  _anchor_.CxnElt="Clause";
+                  W.CxnElt="WHWord";
+                 }
+    }      
 
     rule int5 { %no QM wh-subject
         pattern {
-            R-[root]->V;
-            V [!Cxn];
-            V -> W;
+            R-[root]->_anchor_;
+            _anchor_ -> W;
             W [PronType=Int];
         }
-        with { V-[nsubj]->W }
+        with { _anchor_-[nsubj]->W }
         without { 
-            V-[punct]-> Q;
+            _anchor_-[punct]-> Q;
             Q.lemma = re".*[?].*";
         }
         without {
-            V-[det:predet]->W; % exclamative e.g. "what a"
+            _anchor_-[det:predet]->W; % exclamative e.g. "what a"
         }
-        without { V[upos=NOUN]; V-[det]->W } % exlamative e.g. "what stunning views"
-        without { V[upos=ADJ]; V-[advmod]->W } % exclamative e.g. "how rare!"
-        without { V-[nsubj:outer]->S; S << W }
+        without { _anchor_[upos=NOUN]; _anchor_-[det]->W } % exlamative e.g. "what stunning views"
+        without { _anchor_[upos=ADJ]; _anchor_-[advmod]->W } % exclamative e.g. "how rare!"
+        without { _anchor_-[nsubj:outer]->S; S << W }
         without { W-[acl:relcl]->X }
-        commands {V.Cxn=Interrogative-Wh-Direct}
+        commands {_anchor_.Cxn="Interrogative-WHInfo-Direct";
+                  _anchor_.CxnElt="Clause";
+                  W.CxnElt="WHWord";
+                 }
     }
 
     rule int5_bis { %no QM wh-subject
         pattern {
-            R-[root]->V;
-            V [Cxn<>re".*Interrogative-Wh-Direct.*"];
-            V -> W;
+            R-[root]->_anchor_;
+            _anchor_ [Cxn<>re".*Interrogative-WHInfo-Direct.*"];
+            _anchor_ -> W;
             W [PronType=Int];
         }
-        with { V-[nsubj]->W }
+        with { _anchor_-[nsubj]->W }
         without { 
-            V-[punct]-> Q;
+            _anchor_-[punct]-> Q;
             Q.lemma = re".*[?].*";
         }
         without {
-            V-[det:predet]->W; % exclamative e.g. "what a"
+            _anchor_-[det:predet]->W; % exclamative e.g. "what a"
         }
-        without { V[upos=NOUN]; V-[det]->W } % exlamative e.g. "what stunning views"
-        without { V[upos=ADJ]; V-[advmod]->W } % exclamative e.g. "how rare!"
-        without { V-[nsubj:outer]->S; S << W }
+        without { _anchor_[upos=NOUN]; _anchor_-[det]->W } % exlamative 	e.g. "what stunning views"
+        without { _anchor_[upos=ADJ]; _anchor_-[advmod]->W } % exclamative 	e.g. "how rare!"
+        without { _anchor_-[nsubj:outer]->S; S << W }
         without { W-[acl:relcl]->X }
-        commands {V.Cxn=V.Cxn + "," + "Interrogative-Wh-Direct"}
+        commands {_anchor_.Cxn=_anchor_.Cxn + "," + "Interrogative-WHInfo-	Direct";
+                  _anchor_.CxnElt="Clause";
+                  W.CxnElt="WHWord";
+                 }
     }
 
     rule int8 {% direct YN no metadata
         pattern {
-            R -[root]-> V; 
-            V -[nsubj]-> N1;
-            V -[aux]-> A;
-            V [!Cxn];
+            R -[root]-> _anchor_; 
+            _anchor_ -[nsubj]-> N1;
+            _anchor_ -[aux]-> A;
             A << N1;
             V -[punct]-> Q;
             Q [form="?"];
         }
         without { 
-            V -> W;
+            _anchor_ -> W;
             W [lemma = "who"|"what"|"when"|"why"|"whom"|"which"|"whose"|"how"|"where"];
         }
-        commands {V.Cxn=Interrogative-Polar-Direct}
+        commands {_anchor_.Cxn="Interrogative-Polar-Direct";
+		  _anchor_.CxnElt="Clause";}
         }
 
     rule int8_bis {% direct YN no metadata
         pattern {
-            R -[root]-> V; 
-            V -[nsubj]-> N1;
-            V -[aux]-> A;
-            V [Cxn<>re".*Interrogative-Polar-Direct.*"];
+            R -[root]-> _anchor_; 
+            _anchor_ -[nsubj]-> N1;
+            _anchor_ -[aux]-> A;
+            _anchor_ [Cxn<>re".*Interrogative-Polar-Direct.*"];
             A << N1;
-            V -[punct]-> Q;
+            _anchor_ -[punct]-> Q;
             Q [form="?"];
         }
         without { 
-            V -> W;
+            _anchor_ -> W;
             W [lemma = "who"|"what"|"when"|"why"|"whom"|"which"|"whose"|"how"|"where"];
         }
-        commands {V.Cxn=V.Cxn + "," + "Interrogative-Polar-Direct"}
+        commands {_anchor_.Cxn=_anchor_.Cxn + "," + "Interrogative-Polar-Direct";
+                  _anchor_.CxnElt="Clause";
+                 }
         }
 
     rule int9 {%indirect YN
         pattern {
             V.xpos = re"V.*";
-            V -[ccomp]-> X;
-            V [!Cxn];
-            X -[mark]-> Y;
+            V -["ccomp"|"xcomp"]-> _anchor_;
+            _anchor_ -[mark]-> Y;
             Y [lemma = "if"];
             V << Y;
         }
-        commands {V.Cxn=Interrogative-Polar-Indirect}
+        commands {_anchor_.Cxn="Interrogative-Polar-Indirect";
+                  _anchor_.CxnElt="Clause";}
     }
 
     rule int9_bis {%indirect YN
         pattern {
             V.xpos = re"V.*";
-            V -[ccomp]-> X;
-            V [Cxn<>re".*Interrogative-Polar-Indirect.*"];
-            X -[mark]-> Y;
+            V -["ccomp"|"xcomp"]-> _anchor_;
+            _anchor_ [Cxn<>re".*Interrogative-Polar-Indirect.*"];
+            _anchor_ -[mark]-> Y;
             Y [lemma = "if"];
             V << Y;
         }
-        commands {V.Cxn=V.Cxn + "," + "Interrogative-Polar-Indirect"}
-    }   
+        commands {_anchor_.Cxn=_anchor_.Cxn + "," + "Interrogative-Polar-Indirect";
+                  _anchor_.CxnElt="Clause";}
+    }  
 
     rule int10 {%indirect wh
         pattern {
             V.xpos = re"V.*";
-            V -[ccomp]-> X;
-            V [!Cxn];
-            X -> Y;
+            V -[ccomp]-> _anchor_;
+            _anchor_ -> Y;
             Y [PronType=Int];
             V << Y;
         }
-        commands {V.Cxn=Interrogative-Wh-Indirect}
+	
+        commands {_anchor_.Cxn="Interrogative-WHInfo-Indirect";
+                  _anchor_.CxnElt="Clause";
+                  Y.CxnElt="WHWord";
+                 }
     }
 
     rule int10_bis {%indirect wh
         pattern {
             V.xpos = re"V.*";
-            V -[ccomp]-> X;
-            V [Cxn<>re".*Interrogative-Wh-Indirect.*"];
-            X -> Y;
+            V -[ccomp]-> _anchor_;
+            _anchor_ [Cxn<>re".*Interrogative-WHInfo-Indirect.*"];
+            _anchor_ -> Y;
             Y [PronType=Int];
             V << Y;
         }
-        commands {V.Cxn=V.Cxn + "," + "Interrogative-Wh-Indirect"}
-    }    
+        commands {_anchor_.Cxn=_anchor_.Cxn + "," + "Interrogative-WHInfo-Indirect";
+                  _anchor_.CxnElt="Clause";
+                  Y.CxnElt="WHWord";
+                  }
+    }     
 
 }
 
@@ -439,37 +485,47 @@ package npn {
 
     rule npn {
         pattern {
-            N [ xpos = re"N.*", !Cxn];
+            _anchor_ [ xpos = re"N.*"];
             N2 [xpos = re"N.*" ];
-            N.lemma = N2.lemma;
-            N -> N2;
-            N2 -[case]-> P;
-            N < P;
+            _anchor_.lemma = N2.lemma;
+            _anchor_ -> N2;
+            P[upos="ADP"];
+            _anchor_ < P;
             P < N2;
         }
         without {
             N -[case]-> P2;
             P2 < N;
-            P2 [lemma="from"]
+            P2 [lemma="from"];
         }
-        commands {N.Cxn=NPN}
+	without{ X -[fixed]-> _anchor_}
+
+        commands {_anchor_.Cxn="NPN";
+		  _anchor_.CxnElt="N1";
+                  P.CxnElt="P";
+                  N2.CxnElt="N2";}
     }
 
     rule npn_bis {
         pattern {
-            N [ xpos = re"N.*", Cxn<>re".*NPN.*"];
+            _anchor_ [ xpos = re"N.*", Cxn<>re".*NPN.*"];
             N2 [xpos = re"N.*" ];
-            N.lemma = N2.lemma;
-            N -> N2;
-            N2 -[case]-> P;
+            _anchor_.lemma = N2.lemma;
+            _anchor_ -> N2;
+            P[upos="ADP"];
             N < P;
             P < N2;
         }
         without {
-            N -[case]-> P2;
-            P2 < N;
+            _anchor_ -[case]-> P2;
+            P2 < _anchor_;
             P2 [lemma="from"]
         }
-        commands {N.Cxn=N.Cxn + "," + "NPN"}
+        without {X -[fixed]->_anchor_}
+
+        commands {_anchor_.Cxn=_anchor_.Cxn + "," + "NPN";
+		  _anchor_.CxnElt="N1";
+		  P.CxnElt="P";
+                  N2.CxnElt="N2";}
     }
 }
