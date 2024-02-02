@@ -14,91 +14,98 @@ package conditionals {
         pattern { 
             N [form="अगर"|"यदि"];
             T [form="तो"];
-            V2 -[mark]-> T;
-            V2[!Cxn];
+            _anchor_ -[mark]-> T;
+	    _anchor_ -[advcl]-> V1;
+	    V1 -[mark]-> N;
         }
         without { V1 [upos="VERB", Mood="Sub"] }
-        commands { V2.Cxn=Conditional }
+        commands { 
+		_anchor_.Cxn="Conditional-Generic";
+		_anchor_.CxnElt="Apodosis";
+		V1.CxnElt="Protasis";
+	}
     }
 
-    rule conditional-realistic2 { % Conditionals - realistic type, if-X-only-then, without inversion, with explicit protasis marker
+    rule conditional-realistic2 { % Conditionals - realistic type, if-X-only-then, without inversion, with explicit protasis marker, we could name this Conditional-Generic-Emphatic if we don't want multiple rules for the same construction label
         pattern { 
             N [form="अगर"|"यदि"];
             T [form="तब"];
             H [form="ही"];
             T -[dep]-> H;
             V1 [upos=VERB];
-            V2 [upos=VERB];
+            _anchor_ [upos=VERB];
             V1 -[mark]-> N;
-            V2 -[advcl]-> V1;
-            V2 -[obl]-> T;
-            V2[!Cxn];
+            _anchor_ -[advcl]-> V1;
+            _anchor_ -[obl]-> T;
         }
-        commands { V2.Cxn=Conditional }
+        commands { 
+		_anchor_.Cxn="Conditional-Generic";
+		_anchor_.CxnElt="Apodosis";
+		V1.CxnElt="Protasis";
+	}
     }
 
     rule conditional-inverted { % Conditionals - inverted
         pattern {
             N [form="अगर"|"यदि"];
             V1 -[mark]-> N;
-            V2 -> V1;
-            V2[!Cxn];
+            _anchor_ -> V1;
         }
         without { T [form="तो"] }
-        commands { V2.Cxn=Conditional }
+        commands { 
+		_anchor_.Cxn="Conditional-ClauseInversion";
+		_anchor_.CxnElt="Apodosis";
+		V1.CxnElt="Protasis";
+	}
     }
 
     rule conditional-subjprot-explicit { % Conditionals - subjunctive protasis with explicit protasis marker
         pattern {
             V1 [upos="VERB", Mood="Sub"];
-            V2 [upos="VERB"];
+            _anchor_ [upos="VERB"];
             N [form="अगर"|"यदि"];
             T [form="तो"];
-            V2 -[mark]-> T;
-            V2 -[advcl]-> V1;
-            V2[!Cxn];
+            _anchor_ -[mark]-> T;
+            _anchor_ -[advcl]-> V1;
         }
-        without { K1 [form="कभी"]; V1-> K1; K2 [form="कभी"]; V2-> K2 }
-        commands { V2.Cxn=Conditional }
+        without { K1 [form="कभी"]; V1-> K1; K2 [form="कभी"]; _anchor_-> K2 }
+        commands { 
+		_anchor_.Cxn="Conditional-Marker-Subjunctive";
+		_anchor_.CxnElt="Apodosis";
+		V1.CxnElt="Protasis";
+	}
     }
 
-    rule conditional-subjprot-notexplicit { % Conditionals - subjunctive protasis without explicit protasis marker
+    rule conditional-subjprot-notexplicit { % Conditionals - subjunctive protasis without explicit protasis marker; can be Conditional-Marker-Subjunctive-ImplicitProtMkr if we don't want multiple rules with same label
         pattern {
             V1 [upos="VERB", Mood="Sub"];
-            V2 [upos="VERB"];
+            _anchor_ [upos="VERB"];
             T [form="तो"];
-            V2 -[mark]-> T;
-            V2 -[advcl]-> V1;
-            V2[!Cxn];
+            _anchor_ -[mark]-> T;
+            _anchor_ -[advcl]-> V1;
         }
         without { N [form="अगर"|"यदि"] }
-        without { K1 [form="कभी"]; V1-> K1; K2 [form="कभी"]; V2-> K2 }
-        commands { V2.Cxn=Conditional }
+        without { K1 [form="कभी"]; V1-> K1; K2 [form="कभी"]; _anchor_-> K2 }
+        commands { 
+		_anchor_.Cxn="Conditional-Marker-Subjunctive";
+		_anchor_.CxnElt="Apodosis";
+		V1.CxnElt="Protasis";
+	}
     }
 
     rule conditional-pos-epist-hyp { % Conditionals - positive epistemic stance hypothetical conditional
         pattern {
-            SC [form="ताकि"];
             J [form="जब"];
             T [form="तो"];
-            V -> T;
-            V -[mark]-> SC;
-            V[!Cxn];
+            _anchor_ -[obl]-> T;
+	    V1 -[obl]-> J;
+	    T -[acl:relcl]-> V1;
         }
-        commands { V.Cxn=Conditional }
-    }
-
-    rule conditional-pos-epist-realistic { % Conditionals - positive epistemic stance realistic conditional
-        pattern {
-            T [form="तो"];
-            J [form="जब"];
-            VJ [Aspect <> Perf];
-            VJ -> J;
-            V2 -> T;
-            V2[!Cxn];
-        }
-        without { A [upos=AUX, Tense=Past]; VJ -[aux]-> A }
-        commands { V2.Cxn=Conditional }
+        commands { 
+		_anchor_.Cxn="Conditional-PositiveEpistemic";
+		_anchor_.CxnElt="Apodosis";
+		V1.CxnElt="Protasis";
+	}
     }
 }
 
@@ -107,22 +114,14 @@ package existentials {
     rule exist1{ 
 
         pattern {
-            W1 [lemma="है", upos="AUX"];
-            W2 [upos <> ADJ|ADJ-DET|DET];
-            W2 -[cop]-> W1;
-            W1[!Cxn];
+            _anchor_ [lemma="है", upos="AUX"];
+            W1 [upos <> ADJ|ADJ-DET|DET];
+            W1 -[cop]-> _anchor_;
         }
-        commands { W1.Cxn=Existential }
-    }
-
-    rule exist1_bis{
-        pattern {
-            W1 [lemma="है", upos="AUX"];
-            W2 [upos <> ADJ|ADJ-DET|DET];
-            W2 -[cop]-> W1;
-            W1[Cxn<>re".*Existential.*"];
-        }
-        commands { W1.Cxn= W1.Cxn + "," + "Existential" }
+        commands { 
+		_anchor_.Cxn="Existential-CopPred";
+		W1.CxnElt="Pivot";
+	}
     }
 }
 
@@ -131,205 +130,128 @@ package interrogatives {
     rule int-direct-info { % Interrogatives - Direct information questions
         pattern {
             W [lemma="क्या"|"कौन"|"कहाँ"|"कहां"|"कब"|"कैसे"|"कितना"|"किस"];
-            V -> W;
-            V[!Cxn];
+            _anchor_ -> W;
         }
-        without { SC [form="कि"]; V -[mark]-> SC }
-        without { V1 [upos=VERB]; V1 -[advcl]-> V; }
-        commands { V.Cxn=Interrogative }
-    }
-
-    rule int-direct-info_bis { % Interrogatives - Direct information questions
-        pattern {
-            W [lemma="क्या"|"कौन"|"कहाँ"|"कहां"|"कब"|"कैसे"|"कितना"|"किस"];
-            V -> W;
-            V[Cxn<>re".*Interrogative.*"];
-        }
-        without { SC [form="कि"]; V -[mark]-> SC }
-        without { V1 [upos=VERB]; V1 -[advcl]-> V; }
-        commands { V.Cxn=V.Cxn + "," + "Interrogative" }
+        without { SC [form="कि"]; _anchor_ -[mark]-> SC }
+        without { V1 [upos=VERB]; V1 -[advcl]-> _anchor_; }
+        commands { 
+		_anchor_.Cxn="Interrogative-WHInfo-Direct";
+		_anchor_.CxnElt="Clause";
+		W.CxnElt="WHWord";
+	}
     }  
 
     rule int-indirect-info { % Interrogatives - Indirect information questions
         pattern {
             W [lemma="क्या"|"कौन"|"कहाँ"|"कहां"|"कब"|"कैसे"|"कितना"|"किस"];
-            SC [form="कि"]; V [upos=VERB]; V -> W; V -[mark]-> SC;
-            V[!Cxn];
+            SC [form="कि"]; _anchor_ [upos=VERB]; _anchor_ -> W; _anchor_ -[mark]-> SC;
         }
-        commands { V.Cxn=Interrogative }
-    }
-
-    rule int-indirect-info_bis { % Interrogatives - Indirect information questions
-        pattern {
-            W [lemma="क्या"|"कौन"|"कहाँ"|"कहां"|"कब"|"कैसे"|"कितना"|"किस"];
-            SC [form="कि"]; V [upos=VERB]; V -> W; V -[mark]-> SC;
-            V[Cxn<>re".*Interrogative.*"];
-        }
-        commands { V.Cxn=V.Cxn + "," + "Interrogative" }
+        commands { 
+		_anchor_.Cxn="Interrogative-WHInfo-Indirect";
+		_anchor_.CxnElt="Clause";
+		W.CxnElt="WHWord";
+	}
     }
 
     rule int-direct-polar { % Interrogatives - Direct polar questions
         pattern {
             W [lemma="क्या", upos=ADV];
-            V -> W;
-            V[!Cxn];
+            _anchor_ -> W;
         }
-        without { SC [form="कि"]; V -[mark]-> SC }
-        without { V1 [upos=VERB]; V1 -[advcl]-> V; }
-        commands { V.Cxn=Interrogative }
-    }
-
-    rule int-direct-polar_bis { % Interrogatives - Direct polar questions
-        pattern {
-            W [lemma="क्या", upos=ADV];
-            V -> W;
-            V[Cxn<>re".*Interrogative.*"];
-        }
-        without { SC [form="कि"]; V -[mark]-> SC }
-        without { V1 [upos=VERB]; V1 -[advcl]-> V; }
-        commands { V.Cxn=V.Cxn + "," + "Interrogative" }
+        without { SC [form="कि"]; _anchor_ -[mark]-> SC }
+        without { V1 [upos=VERB]; V1 -[advcl]-> _anchor_; }
+        commands { 
+		_anchor_.Cxn="Interrogative-Polar-Direct";
+		_anchor_.CxnElt="Clause";
+	}
     }
 
     rule int-indirect-polar { % Interrogatives - Indirect polar questions
         pattern {
             W [lemma="क्या"];
             ROOT -["advmod"]-> W;
-            V -> W;
-            V[!Cxn];
+            _anchor_ -> W;
         }
-        commands { V.Cxn=Interrogative }
+        commands { 
+		_anchor_.Cxn="Interrogative-Polar-Indirect";
+		_anchor_.CxnElt="Clause";}
     }
-
-    rule int-indirect-polar_bis { % Interrogatives - Indirect polar questions
-        pattern {
-            W [lemma="क्या"];
-            ROOT -["advmod"]-> W;
-            V -> W;
-            V[Cxn<>re".*Interrogative.*"];
-        }
-        commands { V.Cxn=V.Cxn + "," + "Interrogative" }
-    }
-
 }
 
 package npn {
 
-    rule NPN-succession { % NPN Succession
+    rule NPN-succession { % NPN Succession % Not attested in the corpus
         pattern {
-            N1 [upos="NOUN"];
+            _anchor_ [upos="NOUN"];
             N2 [upos="NOUN"];
-            N1.lemma = N2.lemma;
+            _anchor_.lemma = N2.lemma;
             P [upos="ADP", lemma="ब"];
-            N1 < P;
+            _anchor_ < P;
             P < N2;
-            P[!Cxn];
         }
-        commands { P.Cxn=NPN }
+        commands { 
+		_anchor_.Cxn="NPN";
+		_anchor_.CxnElt="N1";
+      		P.CxnElt="P";  
+      		N2.CxnElt="N2";  
+	}
     }
 
-    rule NPN-succession_bis { % NPN Succession
+    rule NPN-comparison { % NPN Comparison % Not attested in the corpus - not sure if N1 or N2 will be marked as the anchor, for now I marked N1 as the anchor in absence of actual annotated example from corpus
         pattern {
-            N1 [upos="NOUN"];
+            _anchor_ [upos="NOUN"];
             N2 [upos="NOUN"];
-            N1.lemma = N2.lemma;
-            P [upos="ADP", lemma="ब"];
-            N1 < P;
-            P < N2;
-            P[Cxn<>re".*NPN.*"]
-        }
-        commands { P.Cxn=P.Cxn + "," + "NPN" }
-    }
-
-
-    rule NPN-comparison { % NPN Comparison
-        pattern {
-            N1 [upos="NOUN"];
-            N2 [upos="NOUN"];
-            N1.lemma = N2.lemma;
+            _anchor_.lemma = N2.lemma;
             P1 [upos="ADP", lemma="के"];
             P2 [upos="ADP", lemma="बदले"];
             P1 < P2;
-            N1 -[case]-> P1;
-            N1 -[case]-> P2;
-            N1 < P1;
+            _anchor_ -[case]-> P1;
+            _anchor_ -[case]-> P2;
+            _anchor_ < P1;
             P2 < N2;
-            P1[!Cxn];
         }
-        commands { P1.Cxn=NPN }
+        commands { 
+		_anchor_.Cxn="NPN";
+		_anchor_.CxnElt="N1";
+      		P.CxnElt="P";  
+      		N2.CxnElt="N2"; 
+	}
     }
 
-    rule NPN-comparison_bis { % NPN Comparison
+    rule NPN-opposition { % NPN Opposition % Not attested in the corpus
         pattern {
-            N1 [upos="NOUN"];
+            _anchor_ [upos="NOUN"];
             N2 [upos="NOUN"];
-            N1.lemma = N2.lemma;
-            P1 [upos="ADP", lemma="के"];
-            P2 [upos="ADP", lemma="बदले"];
-            P1 < P2;
-            N1 -[case]-> P1;
-            N1 -[case]-> P2;
-            N1 < P1;
-            P2 < N2;
-            P1[Cxn<>re".*NPN.*"]
-        }
-        commands { P1.Cxn=P1.Cxn + "," + "NPN" }
-    }
-
-    rule NPN-opposition { % NPN Opposition
-        pattern {
-            N1 [upos="NOUN"];
-            N2 [upos="NOUN"];
-            N1.lemma = N2.lemma;
+            _anchor_.lemma = N2.lemma;
             P1 [upos="ADP", lemma="के"];
             P2 [upos="ADP", lemma="खिलाफ"];
             P1 < P2;
-            N1 -[case]-> P1;
-            N1 -[case]-> P2;
-            N1 < P1;
+            _anchor_ -[case]-> P1;
+            _anchor_ -[case]-> P2;
+            _anchor_ < P1;
             P2 < N2;
-            P1[!Cxn];
         }
-        commands { P1.Cxn=NPN }
-    }
-
-    rule NPN-opposition_bis { % NPN Opposition
-        pattern {
-            N1 [upos="NOUN"];
-            N2 [upos="NOUN"];
-            N1.lemma = N2.lemma;
-            P1 [upos="ADP", lemma="के"];
-            P2 [upos="ADP", lemma="खिलाफ"];
-            P1 < P2;
-            N1 -[case]-> P1;
-            N1 -[case]-> P2;
-            N1 < P1;
-            P2 < N2;
-            P1[Cxn<>re".*NPN.*"]
-        }
-        commands { P1.Cxn=P1.Cxn + "," + "NPN" }
+        commands { 
+		_anchor_.Cxn="NPN";
+		_anchor_.CxnElt="N1";
+      		P.CxnElt="P";  
+      		N2.CxnElt="N2";
+	}
     }
 
 }
 
 package resultatives {
-    rule resultative-VV { 
+    rule resultative-VV { %not sure if it is resultative or just causative; if it is resultative, the CxnElt "ResultState" in the following is really implied result of V2 - not explicit
         pattern {
-            V1 [upos="VERB", Vib="0"];
+            _anchor_ [upos="VERB", Vib="0"];
             V2 [upos="VERB", lemma="भगा"|"गिरा"|"बिखर"];
-            V2 -["advcl"]-> V1;
-            V2[!Cxn];
+            V2 -["advcl"]-> _anchor_;
         }
-        commands { V2.Cxn=Resultative }
-    }
-
-    rule resultative-VV_bis { 
-        pattern {
-            V1 [upos="VERB", Vib="0"];
-            V2 [upos="VERB", lemma="भगा"|"गिरा"|"बिखर"];
-            V2 -["advcl"]-> V1;
-            V2[Cxn<>re".*Resultative.*"];
-        }
-        commands { V2.Cxn=V2.Cxn + "," + "Resultative" }
+        commands { 
+		_anchor_.Cxn="Resultative";
+		_anchor_.CxnElt="Event";
+	}
     }
 
 }

@@ -10,29 +10,29 @@ strat main {
 package conditionals {
   rule Cond1 { 
     pattern { 
-      X [form="so"|"wenn"|"falls"|"sofern"|"soweit"|"So"|"Wenn"|"Falls"|"Sofern"|"Soweit", upos=SCONJ, !Cxn];
+      X [form="so"|"wenn"|"falls"|"sofern"|"soweit"|"So"|"Wenn"|"Falls"|"Sofern"|"Soweit", upos=SCONJ];
     }
     without{
       A[lemma="auch"|"selbst"|"Auch"|"Selbst"];
       X-[advmod]->A;
     }
-    commands {X.Cxn=Conditional}
+    commands {X.Cxn=Condition-MarkerSimple}
   }
 
   rule Cond2 { 
     pattern { 
-      X[form="Angenommen"|"Vorausgesetzt"|"Unterstellt", !Cxn];
+      X[form="Angenommen"|"Vorausgesetzt"|"Unterstellt"];
       Y1[form<>"dass"|"daß"];
       Y2[form<>"dass"|"daß"];
       X < Y1;
       Y1 < Y2;
     }
-    commands {X.Cxn=Conditional}
+    commands {X.Cxn=Condition-MarkerSimple}
   }
 
   rule Cond3 { 
     pattern { 
-      X[form="angenommen"|"vorausgesetzt"|"unterstellt", !Cxn];
+      X[form="angenommen"|"vorausgesetzt"|"unterstellt"];
       Y1[form<>"dass"|"daß"];
       Y2[form<>"dass"|"daß"];
       A[upos=ADV];
@@ -42,12 +42,12 @@ package conditionals {
       root[form="__0__"];
       root<A;
     }
-    commands {X.Cxn=Conditional}
+    commands {X.Cxn=Conditional-MarkerSimple}
   }
 
   rule Cond4 { 
     pattern { 
-      V1[upos=VERB|AUX,Mood<>Imp, !Cxn];
+      V1[upos=VERB|AUX,Mood<>Imp];
       root[form="__0__"];
       root<V1;
       P[upos=PUNCT];
@@ -55,13 +55,13 @@ package conditionals {
       V2[upos=VERB|AUX];
       P < V2;
     }
-    commands {V1.Cxn=Conditional}
+    commands {V1.Cxn=Conditional-Inverted}
   }
 
 
   rule Cond5 { 
     pattern { 
-      V1[upos=VERB|AUX,Mood<>Imp, !Cxn];
+      V1[upos=VERB|AUX,Mood<>Imp];
       root[form="__0__"];
       root<V1;
       P[upos=PUNCT];
@@ -71,7 +71,7 @@ package conditionals {
       P < A;
       A < V2;
     }
-    commands {V1.Cxn=Conditional}
+    commands {V1.Cxn=Conditional-Inverted}
   }
 
 }
@@ -81,65 +81,38 @@ package existentials {
   rule Ex1 { 
     pattern { 
       E[lemma="es"];
-      G[lemma="geben", !Cxn];
+      G[lemma="geben"];
       G-[nsubj]->E;
     }
-    commands {G.Cxn=Existential}
-  }
-
-  rule Ex1_bis { 
-    pattern { 
-      E[lemma="es"];
-      G[lemma="geben", Cxn <> re".*Existential.*"];
-      G-[nsubj]->E;
-    }
-    commands {G.Cxn=G.Cxn + "," + "Existential"}
+    commands {G.Cxn=Existential-Expl}
   }
 
   rule Ex2 { 
     pattern { 
-      D[lemma="da",upos=ADV, !Cxn];
+      D[lemma="da",upos=ADV];
       I[lemma="sein",upos=AUX];
       D-[cop]->I;
     }
-    commands {D.Cxn=Existential}
-  }
-
-  rule Ex2_bis { 
-    pattern { 
-      D[lemma="da",upos=ADV, Cxn <> re".*Existential.*"];
-      I[lemma="sein",upos=AUX];
-      D-[cop]->I;
-    }
-    commands {D.Cxn=D.Cxn + "," + "Existential"}
+    commands {D.Cxn=Existential-There}
   }
 
 }
 
 package interrogatives {
 
-  rule IntDir { 
-    pattern { 
-      F[lemma="?", upos=PUNCT];
-      W[PronType="Int,Rel"|"Int", !Cxn];
-      W << F;
-    } 
-    commands {W.Cxn=Interrogative}
-  }
-
-  rule IntDir_bis { 
-    pattern { 
-      F[lemma="?", upos=PUNCT];
-      W[PronType="Int,Rel"|"Int", Cxn<>re".*Interrogative.*"];
-      W << F;
-    } 
-    commands {W.Cxn=W.Cxn + "," + Interrogative}
-  }
+rule IntDir { 
+  pattern { 
+    F[lemma="?", upos=PUNCT];
+    H-[punct]->F;
+    W[PronType="Int,Rel"|"Int"];
+    W << F;
+  } 
+  commands {H.Cxn=Interrogative-WHInfo-Direct}
+}
 
   rule IntDirPol { 
     pattern { 
       F[lemma="?", upos=PUNCT];
-      H[!Cxn];
       H-[punct]->F;
     } 
     without {
@@ -148,69 +121,33 @@ package interrogatives {
     without {
       WI[PronType="Int"];
     }
-    commands {H.Cxn=Interrogative}
-  }
-
-  rule IntDirPol_bis { 
-    pattern { 
-      F[lemma="?", upos=PUNCT];
-      H[Cxn<>re".*Interrogative.*"];
-      H-[punct]->F;
-    } 
-    without {
-      W[PronType="Int,Rel"];
-    }
-    without {
-      WI[PronType="Int"];
-    }
-    commands {H.Cxn=H.Cxn + "," + Interrogative}
+    commands {H.Cxn=Interrogative-Polar-Direct}
   }
 
   rule IntOb { 
     pattern{
-      O[lemma=ob, !Cxn];
+      O[lemma=ob];
       X[upos=CCONJ|PUNCT];
       X < O;
     }
-    commands {O.Cxn=Interrogative}
-  }
-
-  rule IntOb_bis { 
-    pattern{
-      O[lemma=ob, Cxn<>re".*Interrogative.*"];
-      X[upos=CCONJ|PUNCT];
-      X < O;
-    }
-    commands {O.Cxn=O.Cxn + "," + Interrogative}
+    commands {O.Cxn=Interrogative-Polar-Indirect}
   }
 
   rule IntIndWh { 
     pattern{
-      O[PronType="Int"|"Int,Rel", !Cxn];
+      O[PronType="Int"|"Int,Rel"];
       X[upos=CCONJ|PUNCT];
       X < O;
     }
     without{
       F[lemma="?"];
     }
-    commands {O.Cxn=Interrogative}
-  }
-
-  rule IntIndWh_bis { 
-    pattern{
-      O[PronType="Int"|"Int,Rel", Cxn<>re".*Interrogative.*"];
-      X[upos=CCONJ|PUNCT];
-      X < O;
-    }
-    without{
-      F[lemma="?"];
-    }
-    commands {O.Cxn=O.Cxn + "," + Interrogative}
+    commands {O.Cxn=Interrogative-WHInfo-Indirect}
   }
 
   rule IntIndPrep { 
     pattern{
-      O[PronType="Int"|"Int,Rel", !Cxn];
+      O[PronType="Int"|"Int,Rel"];
       X[upos=CCONJ|PUNCT];
       A[upos=ADP];
       X < A;
@@ -219,28 +156,15 @@ package interrogatives {
     without{
       F[lemma="?"];
     }
-    commands {O.Cxn=Interrogative}
+    commands {O.Cxn=Interrogative-WHInfo-Indirect}
   }
 
-  rule IntIndPrep_bis { 
-    pattern{
-      O[PronType="Int"|"Int,Rel", Cxn<>re".*Interrogative.*"];
-      X[upos=CCONJ|PUNCT];
-      A[upos=ADP];
-      X < A;
-      A < O;
-    }
-    without{
-      F[lemma="?"];
-    }
-    commands {O.Cxn=O.Cxn + "," + Interrogative}
-  }
 }
 
 package npn {
   rule NPN { 
     pattern {
-      N1[upos=NOUN, !Cxn];
+      N1[upos=NOUN];
       N2[upos=NOUN];
       N1.form = N2.form;
       P[upos=ADP];
@@ -254,19 +178,4 @@ package npn {
     commands {N1.Cxn=NPN}
   }
 
-  rule NPN_bis {
-    pattern {
-      N1[upos=NOUN, Cxn <> re".*NPN.*"];
-      N2[upos=NOUN];
-      N1.form = N2.form;
-      P[upos=ADP];
-      N1 < P;
-      P < N2;
-    }
-    without{
-      A[upos=ADP];
-      A < N1;
-    }
-    commands {N1.Cxn= N1.Cxn + "," + "NPN"}
-  }
 }

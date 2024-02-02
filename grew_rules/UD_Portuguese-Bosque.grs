@@ -150,7 +150,7 @@ package interrogatives {
             _anchor_-[nsubj]->PRED;
             IN[lemma="?"];
         }
-        comands {
+        commands {
             _anchor_.Cxn = "Interrogative-WHInfo-Direct";
             _anchor_.CxnElt = "WHWord";
             PRED.CxnElt = "Clause@p";
@@ -165,7 +165,7 @@ package interrogatives {
         }
         without { QU-[nsubj]->S; }
         global { sent_id <> "CP184-7" | "CP352-1" }
-        comands {
+        commands {
             _anchor_.Cxn = "Interrogative-WHInfo-Direct";
             _anchor_.CxnElt = "Clause@p";
             QU.CxnElt = "WHWord";
@@ -178,7 +178,7 @@ package interrogatives {
             IN [lemma="?"];
             _anchor_-[nsubj]->PRED;
         }
-        comands {
+        commands {
             _anchor_.Cxn = "Interrogative-WHInfo-Direct";
             _anchor_.CxnElt = "WHWord";
             PRED.CxnElt = "Clause@p";
@@ -192,7 +192,7 @@ package interrogatives {
             _anchor_-[advmod]->QU;
         }
         without { QU-[nsubj]->S; }
-        comands {
+        commands {
             _anchor_.Cxn = "Interrogative-WHInfo-Direct";
             _anchor_.CxnElt = "Clause@p";
             QU.CxnElt = "WHWord";
@@ -209,7 +209,7 @@ package interrogatives {
             _anchor_-[obl]->Q;
         }
         global { sent_id <> "CF856-4"; }
-        comands {
+        commands {
             _anchor_.Cxn = "Interrogative-WHInfo-Direct";
             _anchor_.CxnElt = "Clause@p";
             Q.CxnElt = "WHWord@f";
@@ -223,10 +223,10 @@ package interrogatives {
             _anchor_-[advmod]->PQ;
         }
         global { sent_id <> "CP137-1"; }
-        comands {
+        commands {
             _anchor_.Cxn = "Interrogative-WHInfo-Direct";
             _anchor_.CxnElt = "Clause@p";
-            Q.CxnElt = "WHWord";
+            PQ.CxnElt = "WHWord";
         }
     }
 
@@ -237,7 +237,7 @@ package interrogatives {
             _anchor_-[root]->QU;
         }
         without { QU-[nsubj]->S; }
-        comands {
+        commands {
             _anchor_.Cxn = "Interrogative-WHInfo-Direct";
             QU.CxnElt = "WHWord";
         }
@@ -283,7 +283,7 @@ package interrogatives {
         without { WH[lemma="que"]; PRED-[advmod|obl]->WH; }
         without { PRED-[parataxis]->X; }
         global { sent_id <> "CF78-1"|"CF141-2" }
-        comands {
+        commands {
             _anchor_.Cxn = "Interrogative-Polar-Direct";
             _anchor_.CxnElt = "Clause@p";
         }
@@ -303,7 +303,7 @@ package interrogatives {
         without { WH[lemma="como"|"onde"|"quanto"|"qual"|"porque"]; }
         without { WH[lemma="que"]; PRED-[advmod|obl]->WH; }
         global { sent_id <> "CF78-1"|"CF141-2" }
-        comands {
+        commands {
             _anchor_.Cxn = "Interrogative-Polar-Direct";
             _anchor_.CxnElt = "Clause@p";
         }
