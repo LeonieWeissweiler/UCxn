@@ -124,7 +124,7 @@ package existentials {
 		    SUBJ.CxnElt="Pivot";
 	    }
     }
-
+}
 package interrogatives {
 
   rule r1a { %  Main clause polar with particle
