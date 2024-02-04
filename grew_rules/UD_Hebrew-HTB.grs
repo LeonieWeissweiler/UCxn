@@ -86,19 +86,6 @@ package existentials {
 	   }
    }
 
-    rule r3a_bis { % Present tense existential
-	    pattern { 
-		    _anchor_ [lemma="יש"]; 
-		    _anchor_ -[nsubj]->SUBJ 
-	    } 
-	    without {_anchor_-[obl]->N}
-	    without {LE[lemma="ל"]; N -[case]->LE}
-	    commands { 
-		    _anchor_.Cxn="Existential-ExistPred-VblPart";
-		    SUBJ.CxnElt="Pivot";
-	    }
-    }
-
   rule r3b { % Past/future tense existential
 	pattern { 
 		_anchor_[lemma="היה",HebExistential="Yes"]; 
@@ -126,19 +113,6 @@ package existentials {
 	    }
     }
 
-    rule r3d_bis { % Negative existence
-	    pattern { 
-		    _anchor_ [lemma="אין"]; 
-		    _anchor_ -[nsubj]->SUBJ
-	    } 
-	    without {_anchor_-[obl]->N}
-	    without {LE[lemma="ל"]; N -[case]->LE}
-	    commands { 
-		    _anchor_.Cxn="Existential-NotExistPred-VblPart";
-		    SUBJ.CxnElt="Pivot";
-	    }
-    }
-
     rule r3e { % Verbal "exist"
 	    pattern {
 		    _anchor_ [lemma="קיים"]; 
@@ -150,19 +124,6 @@ package existentials {
 		    SUBJ.CxnElt="Pivot";
 	    }
     }
-
-    rule r3e_bis { % Verbal "exist"
-	    pattern {
-		    _anchor_ [lemma="קיים"]; 
-		    _anchor_ -[nsubj]->SUBJ 
-	    } 
-	    without {_anchor_ [HebBinyan="PIEL"]}
-	    commands { 
-		    _anchor_.Cxn="Existential-ExistPred-FullVerb";
-		    SUBJ.CxnElt="Pivot";
-	    }
-   }
-}
 
 package interrogatives {
 
