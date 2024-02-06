@@ -89,12 +89,100 @@ package conditionals {
                   P.CxnElt="Protasis";}
     }
 
-    rule cond6 { %realistic conditional
+    rule cond6 { %realistic conditional - rule 1
         pattern { 
             _anchor_ -[advcl]-> P;
             P -[mark]-> M;
             M [form="if"];
+            P-[re".subj.*"]-> Z;
         }
+		without {P -[cop]-> Z2;}
+        without {P [xpos="VBZ"|"VBD"|"VBP"];}
+        without{
+            P [xpos="VBN"|"VBG"];
+            P -[aux]-> Z3;}
+        global { s_type <> "wh"}
+        commands {_anchor_.Cxn="Conditional-Generic";
+                  _anchor_.CxnElt="Apodosis";
+                  P.CxnElt="Protasis";}
+    }
+	
+    rule cond7 { %realistic conditional - rule 2
+        pattern { 
+            _anchor_ -[advcl]-> P;
+            P -[mark]-> M;
+            M [form="if"];
+            P -[cop]-> Z2;
+        }
+		without { P-[re".subj.*"]-> Z;}
+        global { s_type <> "wh"}
+        commands {_anchor_.Cxn="Conditional-Generic";
+                  _anchor_.CxnElt="Apodosis";
+                  P.CxnElt="Protasis";}
+    }
+
+    rule cond8 { %realistic conditional - rule 3
+        pattern { 
+            _anchor_ -[advcl]-> P;
+            P -[mark]-> M;
+            M [form="if"];
+            P -[cop]-> Z2;
+        }
+		
+        global { s_type <> "wh"}
+        commands {_anchor_.Cxn="Conditional-Generic";
+                  _anchor_.CxnElt="Apodosis";
+                  P.CxnElt="Protasis";}
+    }
+	
+    rule cond9 { %realistic conditional - rule 4
+        pattern { 
+            _anchor_ -[advcl]-> P;
+            P -[mark]-> M;
+            M [form="if"];
+            P [xpos="VBZ"|"VBD"|"VBP"];
+        }
+		without { P-[re".subj.*"]-> Z;}
+        global { s_type <> "wh"}
+        commands {_anchor_.Cxn="Conditional-Generic";
+                  _anchor_.CxnElt="Apodosis";
+                  P.CxnElt="Protasis";}
+    }
+
+    rule cond10 { %realistic conditional - rule 5
+        pattern { 
+            _anchor_ -[advcl]-> P;
+            P -[mark]-> M;
+            M [form="if"];
+            P [xpos="VBZ"|"VBD"|"VBP"];
+        }
+        global { s_type <> "wh"}
+        commands {_anchor_.Cxn="Conditional-Generic";
+                  _anchor_.CxnElt="Apodosis";
+                  P.CxnElt="Protasis";}
+    }
+
+    rule cond11 { %realistic conditional - rule 6
+        pattern { 
+            _anchor_ -[advcl]-> P;
+            P -[mark]-> M;
+            M [form="if"];
+            P [xpos="VBN"|"VBG"];
+            P -[aux]-> Z3;
+		without { P-[re".subj.*"]-> Z;}
+        global { s_type <> "wh"}
+        commands {_anchor_.Cxn="Conditional-Generic";
+                  _anchor_.CxnElt="Apodosis";
+                  P.CxnElt="Protasis";}
+    }
+
+    rule cond12 { %realistic conditional - rule 7
+        pattern { 
+            _anchor_ -[advcl]-> P;
+            P -[mark]-> M;
+            M [form="if"];
+            P [xpos="VBN"|"VBG"];
+            P -[aux]-> Z3;
         global { s_type <> "wh"}
         commands {_anchor_.Cxn="Conditional-Generic";
                   _anchor_.CxnElt="Apodosis";
@@ -107,47 +195,38 @@ package existentials {
 
     rule ex1 { %exist lemma existentials
         pattern { 
-            _anchor_ [lemma="exist", !Cxn];
+            _anchor_ [lemma="exist"];
             _anchor_ -[re".subj"]-> P;
         }
         commands {_anchor_.Cxn="Existential-ExistPred";
                   P.CxnElt="Pivot";}
     }
 
-    rule ex1_bis { %exist lemma existentials
+    rule ex2 { %existential there-exist
         pattern { 
-            _anchor_ [lemma="exist", Cxn<>re".*Existential-Exist.*"];
-            _anchor_ -[re".subj"]-> X;
-        }
-        commands {_anchor_.Cxn=_anchor_.Cxn + "," + "Existential-			  ExistPred";
-                  X.CxnElt="Pivot";}
-    }
-
-    rule ex2 { %existential there
-        pattern { 
-            _anchor_ [lemma="be"|"exist"|"stretch", !Cxn];
+            _anchor_ [lemma="be"|"exist"|"stretch"];
             _anchor_ -[re".subj"]-> P;
             _anchor_ -> Y;
             Y [xpos="EX"];
         }
-        commands {_anchor_.Cxn="Existential-ThereExpl";
+        commands {_anchor_.Cxn="Existential-ExistPred-ThereExpl";
                   P.CxnElt="Pivot";}
     }
 
-    rule ex2_bis { %existential there
-        pattern { 
-            _anchor_ [lemma="be"|"exist"|"stretch", Cxn<>re".*Existential-There.*"];
-            _anchor_ -[re".subj"]-> X;
-            _anchor_ -> Y;
-            Y [xpos="EX"];
-        }
-        commands {_anchor_.Cxn=_anchor_.Cxn + "," + "Existential-ThereExpl";
-                  X.CxnElt="Pivot";}
-    }
+	rule ex3 { %existential there-expl
+			pattern { 
+				_anchor_ [lemma="be"|"stretch"];
+				_anchor_ -[re".subj"]-> P;
+				_anchor_ -> Y;
+				Y [xpos="EX"];
+			}
+			commands {_anchor_.Cxn="Existential-ThereExpl";
+					  P.CxnElt="Pivot";}
+		}
 
-    rule ex3 { %existential here
+    rule ex4 { %existential here
         pattern { 
-            _anchor_ [lemma="be", !Cxn];
+            _anchor_ [lemma="be"];
             _anchor_ -[re".subj"]-> P;
             _anchor_ -> Y;
             Y [lemma="here"];
@@ -156,20 +235,7 @@ package existentials {
                   P.CxnElt="Pivot";}
     }
 
-    rule ex3_bis { %existential here
-        pattern {
-            _anchor_ [lemma="be", Cxn<>re".*Existential-CopPred-Here.*"];
-            _anchor_ -[re".subj"]-> X;
-            _anchor_ -> Y;
-            Y [lemma="here"];
-        }
-        commands {_anchor_.Cxn=_anchor_.Cxn + "," + "Existential-CopPred-HereExpl";
-                  X.CxnElt="Pivot";
-                  }
-    }
-
 }
-
 package interrogatives {
 
     rule int1 { %direct WH question
