@@ -191,8 +191,8 @@ package interrogatives {
 
     rule Interrogative-Polar-Indirect {
         pattern {
-            _anchor_-[ccomp]->X;
-            X-[mark]-> SI;
+            _anchor_-[mark]-> SI;
+            H-[ccomp]->_anchor_;
             SI[lemma=si]
         }
         without { QM[lemma="?"] }
