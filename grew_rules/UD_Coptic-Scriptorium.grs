@@ -12,162 +12,120 @@ package conditionals {
   rule ConditionRealisticConjunction { 
     pattern {
       CONJ [ lemma = re"ⲉϣϫⲉ\|ⲉϣⲱⲡⲉ" ];
-      MAIN -[advcl]-> ADVCL;
-      ADVCL -> CONJ;
-      ADVCL[!Cxn];
+      _anchor_ -[advcl]-> PROTASIS;
+      PROTASIS -> CONJ;
     }
-    commands {ADVCL.Cxn=Conditional-Realistic}
+        commands { 
+           _anchor_.Cxn="Conditional-Realis";
+           PROTASIS.CxnElt="Protasis";
+           _anchor_.CxnElt="Apodosis";
+       }
   }
 
   rule ConditionRealisticConjunction_bis { 
     pattern {
       CONJ [ lemma = re"ⲉϣϫⲉ\|ⲉϣⲱⲡⲉ" ];
-      MAIN -[advcl]-> ADVCL;
-      ADVCL -> CONJ;
-      ADVCL[Cxn<>re".*Conditional-Realistic.*"];
+      _anchor_ -[advcl]-> PROTASIS;
+      PROTASIS -> CONJ;
+      _anchor_[Cxn<>re".*Conditional-Realis.*"];
     }
-    commands {ADVCL.Cxn = ADVCL.Cxn + "," + "Conditional-Realistic"}
+    commands {
+           _anchor_.Cxn="Conditional-Realis";
+           PROTASIS.CxnElt="Protasis";
+           _anchor_.CxnElt="Apodosis";
+    }
   }
 
   rule ConditionRealisticAux { 
     pattern {
-    MAIN -[advcl]-> ADVCL;
+    _anchor_ -[advcl]-> PROTASIS;
     CONJ [ xpos=re"ACOND.*"];
-    ADVCL -> CONJ;
-    ADVCL[!Cxn];
+    PROTASIS -> CONJ;
     }
     without {
       AUX [xpos=FUT];
       PRET [xpos=CPRET];
-      MAIN -> AUX;
-      MAIN -> PRET;
+      _anchor_ -> AUX;
+      _anchor_ -> PRET;
     }
-    commands {ADVCL.Cxn=Conditional-Realistic}
-  }
-
-  rule ConditionRealisticAux_bis { 
-    pattern {
-    MAIN -[advcl]-> ADVCL;
-    CONJ [ xpos=re"ACOND.*"];
-    ADVCL -> CONJ;
-    ADVCL[Cxn<>re".*Conditional-Realistic.*"];
+    commands {
+           _anchor_.Cxn="Conditional-Realis";
+           PROTASIS.CxnElt="Protasis";
+           _anchor_.CxnElt="Apodosis";
     }
-    without {
-      AUX [xpos=FUT];
-      PRET [xpos=CPRET];
-      MAIN -> AUX;
-      MAIN -> PRET;
-    }
-    commands {ADVCL.Cxn= ADVCL.Cxn + "," + "Conditional-Realistic"}
   }
 
   rule ConditionUnrealistic { 
     pattern {
-      MAIN -[advcl]-> ADVCL;
+      _anchor_ -[advcl]-> PROTASIS;
       AUX [xpos=FUT];
-      MAIN -> AUX; 
+      _anchor_ -> AUX; 
       PRET [xpos=CPRET];
-      MAIN -> PRET;
-      ADVCL[!Cxn];
+      _anchor_ -> PRET;
     }
-    commands {ADVCL.Cxn=Conditional-Unrealistic}
+    commands {
+           _anchor_.Cxn="Conditional-Irrealis";
+           PROTASIS.CxnElt="Protasis";
+           _anchor_.CxnElt="Apodosis";
+    }  
   }
 
-  rule ConditionUnrealistic_bis { 
-    pattern {
-      MAIN -[advcl]-> ADVCL;
-      AUX [xpos=FUT];
-      MAIN -> AUX; 
-      PRET [xpos=CPRET];
-      MAIN -> PRET;
-      ADVCL[Cxn<>re".*Conditional-Unrealistic.*"];
-    }
-    commands {ADVCL.Cxn=ADVCL.Cxn + "," + "Conditional-Unrealistic"}
-  }
 }
 
 package existentials {
 
   rule ExistentialPositive { 
     pattern {
-      EXIST [lemma="ⲟⲩⲛ",xpos=EXIST];
-      EXIST -[nsubj]-> SBJ;
-      EXIST[!Cxn];
+      _anchor_ [lemma="ⲟⲩⲛ",xpos=EXIST];
+      _anchor_ -[nsubj]-> SBJ;
+      _anchor_[!Cxn];
     }
-    commands {EXIST.Cxn=Existential-Positive}
+       commands { 
+           _anchor_.Cxn="Existential-ExistPred";
+           SBJ.CxnElt="Pivot";
+       }
   }
 
-  rule ExistentialPositive_bis { 
-    pattern {
-      EXIST [lemma="ⲟⲩⲛ",xpos=EXIST];
-      EXIST -[nsubj]-> SBJ;
-      EXIST[Cxn<>re".*Existential-Positive.*"];
-    }
-    commands {EXIST.Cxn=EXIST.Cxn + "," + "Existential-Positive"}
-  }
 
   rule ExistentialNegative { 
     pattern {
-      EXIST [lemma="ⲙⲛ",xpos=EXIST];
-      EXIST -[nsubj]-> SBJ;
-      EXIST[!Cxn];
+      _anchor_ [lemma="ⲙⲛ",xpos=EXIST];
+      _anchor_ -[nsubj]-> SBJ;
     }
-    commands {EXIST.Cxn=Existential-Negative}
+       commands { 
+           _anchor_.Cxn="Existential-NotExistPred";
+           SBJ.CxnElt="Pivot";
+       }
   }
-
-  rule ExistentialNegative_bis { 
-    pattern {
-      EXIST [lemma="ⲙⲛ",xpos=EXIST];
-      EXIST -[nsubj]-> SBJ;
-      EXIST[Cxn<>re".*Existential-Negative.*"];
-    }
-    commands {EXIST.Cxn=EXIST.Cxn + "," + "Existential-Negative"}
-  }
-}
 
 
 package interrogatives {
 
   rule InterrogativeWh { 
     pattern {
-      PAR -[re"root\|ccomp"]-> GOV; 
+      PAR -[re"root\|ccomp"]-> _anchor_; 
       PINT[xpos="PINT"]; 
-      GOV -> PINT;
-      GOV[!Cxn]
-    }	
-    commands {GOV.Cxn=Interrogative-Wh}
+      _anchor_ -> PINT;
+    }    
+    commands { 
+        _anchor_.Cxn="Interrogative-WHInfo";
+        _anchor_.CxnElt="Clause";
+        PINT.CxnElt="WHWord";
+    }
   }
-
-  rule InterrogativeWh_bis { 
-    pattern {
-      PAR -[re"root\|ccomp"]-> GOV; 
-      PINT[xpos="PINT"]; 
-      GOV -> PINT;
-      GOV[Cxn<>re".*Interrogative-Wh.*"]
-    }	
-    commands {GOV.Cxn=GOV.Cxn + "," + "Interrogative-Wh"}
-  }
-
+  
   rule InterrogativePolar { 
     global { text_en = re".*\?" }
     pattern{
-        ROOT -["root"]-> TOK; 
-        TOK[!Cxn,xpos<>PINT];
+        ROOT -["root"]-> _anchor_; 
+        _anchor_[xpos<>PINT];
     }
     without {PINT[xpos="PINT"]}
     without {WHADV[lemma="ⲡⲱⲥ"]}
-    commands {TOK.Cxn=Interrogative-Polar}
-  }
-
-  rule InterrogativePolar_bis { 
-    global { text_en = re".*\?" }
-    pattern{
-        ROOT -["root"]-> TOK; 
-        TOK[Cxn<>re".*Interrogative-Polar.*",xpos<>PINT];
+    commands { 
+        _anchor_.Cxn="Interrogative-Polar";
+        _anchor_.CxnElt="Clause";
     }
-    without {PINT[xpos="PINT"]}
-    without {WHADV[lemma="ⲡⲱⲥ"]}
-    commands {TOK.Cxn=TOK.Cxn + "," + "Interrogative-Polar"}
   }
 
 }
@@ -176,37 +134,23 @@ package npn {
 
     rule NPN { 
       pattern {
-        N [ xpos = re"N.*" ];
+        _anchor_ [ xpos = re"N.*" ];
         N2 [xpos = re"N.*" ];
-        N.lemma = N2.lemma;
-        N -> N2;
+        _anchor_.lemma = N2.lemma;
+        _anchor_ -> N2;
         N2 -[case]-> P;
-        N < P;
+        _anchor_ < P;
         P < N2;
-        N[!Cxn];
       }
       without {
-        N -[case]-> P2;
-        P2 << N
+        _anchor_ -[case]-> P2;
+        P2 << _anchor_
       }
-      commands {N.Cxn=NPN}
-    }
 
-    rule NPN_bis { 
-      pattern {
-        N [xpos = re"N.*" ];
-        N2 [xpos = re"N.*" ];
-        N.lemma = N2.lemma;
-        N -> N2;
-        N2 -[case]-> P;
-        N < P;
-        P < N2;
-        N[Cxn<>re".*NPN.*"];
-      }
-      without {
-        N -[case]-> P2;
-        P2 << N
-      }
-      commands {N.Cxn=N.Cxn + "," + "NPN"}
-    }
+        commands {_anchor_.Cxn="NPN";
+          _anchor_.CxnElt="N1";
+                  P.CxnElt="P";
+                  N2.CxnElt="N2";}
+                  }
+
 }
