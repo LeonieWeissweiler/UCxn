@@ -89,14 +89,14 @@ package conditionals {
                   P.CxnElt="Protasis";}
     }
 
-    rule cond6 { %realistic conditional - rule 1
+    rule cond6 { %realistic conditional - rule 1 (-cop, +subj, -finite)
         pattern { 
             _anchor_ -[advcl]-> P;
             P -[mark]-> M;
             M [form="if"];
             P-[re".subj.*"]-> Z;
         }
-		without {P -[cop]-> Z2;}
+        without {P -[cop]-> Z2;}
         without {P [xpos="VBZ"|"VBD"|"VBP"];}
         without{
             P [xpos="VBN"|"VBG"];
@@ -107,21 +107,21 @@ package conditionals {
                   P.CxnElt="Protasis";}
     }
 	
-    rule cond7 { %realistic conditional - rule 2
+    rule cond7 { %realistic conditional - rule 2 (+cop, -subj)
         pattern { 
             _anchor_ -[advcl]-> P;
             P -[mark]-> M;
             M [form="if"];
             P -[cop]-> Z2;
         }
-		without { P-[re".subj.*"]-> Z;}
+        without { P-[re".subj.*"]-> Z;}
         global { s_type <> "wh"}
         commands {_anchor_.Cxn="Conditional-Generic";
                   _anchor_.CxnElt="Apodosis";
                   P.CxnElt="Protasis";}
     }
 
-    rule cond8 { %realistic conditional - rule 3
+    rule cond8 { %realistic conditional - rule 3 (+cop, ±subj)
         pattern { 
             _anchor_ -[advcl]-> P;
             P -[mark]-> M;
@@ -135,21 +135,21 @@ package conditionals {
                   P.CxnElt="Protasis";}
     }
 	
-    rule cond9 { %realistic conditional - rule 4
+    rule cond9 { %realistic conditional - rule 4 (±cop, -subj, +finitepred)
         pattern { 
             _anchor_ -[advcl]-> P;
             P -[mark]-> M;
             M [form="if"];
             P [xpos="VBZ"|"VBD"|"VBP"];
         }
-		without { P-[re".subj.*"]-> Z;}
+        without { P-[re".subj.*"]-> Z;}
         global { s_type <> "wh"}
         commands {_anchor_.Cxn="Conditional-Generic";
                   _anchor_.CxnElt="Apodosis";
                   P.CxnElt="Protasis";}
     }
 
-    rule cond10 { %realistic conditional - rule 5
+    rule cond10 { %realistic conditional - rule 5 (±cop, ±subj, +finitepred)
         pattern { 
             _anchor_ -[advcl]-> P;
             P -[mark]-> M;
@@ -162,27 +162,29 @@ package conditionals {
                   P.CxnElt="Protasis";}
     }
 
-    rule cond11 { %realistic conditional - rule 6
+    rule cond11 { %realistic conditional - rule 6 (±cop, -subj, +nonfinitepredwithaux)
         pattern { 
             _anchor_ -[advcl]-> P;
             P -[mark]-> M;
             M [form="if"];
             P [xpos="VBN"|"VBG"];
             P -[aux]-> Z3;
-		without { P-[re".subj.*"]-> Z;}
+        }
+        without { P-[re".subj.*"]-> Z;}
         global { s_type <> "wh"}
         commands {_anchor_.Cxn="Conditional-Generic";
                   _anchor_.CxnElt="Apodosis";
                   P.CxnElt="Protasis";}
     }
 
-    rule cond12 { %realistic conditional - rule 7
+    rule cond12 { %realistic conditional - rule 7 (±cop, ±subj, +nonfinitepredwithaux)
         pattern { 
             _anchor_ -[advcl]-> P;
             P -[mark]-> M;
             M [form="if"];
             P [xpos="VBN"|"VBG"];
             P -[aux]-> Z3;
+        }
         global { s_type <> "wh"}
         commands {_anchor_.Cxn="Conditional-Generic";
                   _anchor_.CxnElt="Apodosis";
