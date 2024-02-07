@@ -8,175 +8,184 @@ strat main {
 }
 
 package conditionals {
-    rule cond1 {
-        pattern { 
-            C[lemma=si]; H[!Cxn];
-            e:H-[mark]->C;
-            a:X-[advcl|advmod]->H
+
+    rule Conditional {
+        pattern {
+            _anchor_-[advcl]->P;
+            P-[mark]->S;
+            S[lemma=si, upos=SCONJ]           
+        }
+
+        without { 
+            P->A;
+            A[Mood=Sub, Tense=Imp, lemma=haber]
         }
         commands {
-            H.Cxn = Condition
+            _anchor_.Cxn = "Conditional";
+            _anchor_.CxnElt = "Apodosis@p";
+            P.CxnElt = "Protasis@f"
         }
     }
+
+    rule Conditional-NegativeEpistemic {
+        pattern { 
+            _anchor_-[advcl]->P;
+                P->A;
+                A[Mood=Sub, Tense=Imp, lemma=haber];
+            P-[mark]->S1;
+            S1[upos=SCONJ,lemma=si]
+        }
+        without {
+            P-[mark]->S2;
+            S2[upos=SCONJ,lemma=como]
+        }
+        commands {
+            _anchor_.Cxn = "Conditional-NegativeEpistemic";
+            _anchor_.CxnElt = "Apodosis@p";
+            P.CxnElt = "Protasis@f"
+        }  
+    }     
 }
 
 package existentials {
 
-    rule exist1 {
+    rule Existential-HavePred1 {
         pattern { 
-            N1[lemma="haber", !Cxn]; 
-            e:N1-[obj]->N2;
+            _anchor_[lemma="haber"];
+            e:_anchor_-[obj]->N2;
             N2[upos=NOUN];
             N2-[det]->N3; N3[upos=DET, Definite=Ind]
         }
-        commands {N1.Cxn = Existential}
-    }
-
-    rule exist1_bis {
-        pattern { 
-            N1[lemma="haber", Cxn<>re".*Existential.*"]; 
-            e:N1-[obj]->N2;
-            N2[upos=NOUN];
-            N2-[det]->N3; N3[upos=DET, Definite=Ind]
+        commands {
+            _anchor_.Cxn = "Existential-HavePred";
+            N2.CxnElt = "Pivot@f"
         }
-        commands {N1.Cxn = N1.Cxn + "," + "Existential"}
     }
     
-    rule exist2 {
+    rule Existential-HavePred2 {
         pattern { 
-            N1[lemma="haber", !Cxn]; 
-            e:N1-[obj]->N2;
+            _anchor_[lemma="haber"]; 
+            e:_anchor_-[obj]->N2;
             N2[upos=NOUN];
             N2-[det]->N3; N3[PronType=Ind]
         }
-        commands {N1.Cxn = Existential}
-    }
-
-    rule exist2_bis {
-        pattern { 
-            N1[lemma="haber", Cxn<>re".*Existential.*"]; 
-            e:N1-[obj]->N2;
-            N2[upos=NOUN];
-            N2-[det]->N3; N3[PronType=Ind]
+        commands {
+            _anchor_.Cxn = "Existential-HavePred";
+            N2.CxnElt = "Pivot@f"
         }
-        commands {N1.Cxn = N1.Cxn + "," + "Existential"}
     }
 }
 
 package interrogatives {
 
-    rule int_polar {
+    rule Interrogative-Polar-Direct {
         pattern { 
-            C[upos<>INTJ|PUNCT, !Cxn]; C->P;
-            P[lemma="?"]; C << P
+            _anchor_[upos<>INTJ|PUNCT]; 
+            _anchor_->P;
+            P[lemma="?"]; _anchor_ << P
         }
-        without { C[PronType=Int|"Int,Rel"]}
+        without { _anchor_[PronType=Int|"Int,Rel"]}
         without { X[PronType=Int|"Int,Rel"]}
-        without { C[upos=PRON|ADV, lemma="cómo"]} 
+        without { _anchor_[upos=PRON|ADV, lemma="cómo"]} 
         without { X[upos=PRON|ADV, lemma="cómo"]} % 'cómo' is wrongly annotated
-        without { C-[conj]->Y; Y-[cc]->O; O[lemma=o]} % avoid choice questions.
-        commands {C.Cxn = Interrogative}
+        without { _anchor_-[conj]->Y; Y-[cc]->O; O[lemma=o]} % avoid choice questions.
+        commands {
+            _anchor_.Cxn = "Interrogative-Polar-Direct";
+            _anchor_.CxnElt = "Clause"
+        }
     }
 
-    rule int_polar_bis {
+    rule Interrogative-Alternative {
         pattern { 
-            C[upos<>INTJ|PUNCT, Cxn<>re".*Interrogative.*"]; C->P;
-            P[lemma="?"]; C << P
+            _anchor_->P; _anchor_[upos<>PUNCT|INTJ]; P[lemma="?"];
+            _anchor_-[conj]->Y; Y-[cc]->O; O[lemma=o]
         }
-        without { C[PronType=Int|"Int,Rel"]}
+        without { _anchor_[PronType=Int|"Int,Rel"]}
         without { X[PronType=Int|"Int,Rel"]}
-        without { C[upos=PRON|ADV, lemma="cómo"]} 
+        without { Y[PronType=Int|"Int,Rel"]}
         without { X[upos=PRON|ADV, lemma="cómo"]} % 'cómo' is wrongly annotated
-        without { C-[conj]->Y; Y-[cc]->O; O[lemma=o]} % avoid choice questions.
-        commands {C.Cxn = C.Cxn + "," + "Interrogative"}
+        commands {
+            _anchor_.Cxn = "Interrogative-Alternative";
+            _anchor_.CxnElt = "Choice1";
+            Y.CxnElt = "Choice2"
+        }  
     }
 
-    rule int_choice {
-        pattern { 
-            C->P; C[upos<>PUNCT|INTJ, !Cxn]; P[lemma="?"];
-            C-[conj]->Y; Y-[cc]->O; O[lemma=o]
+    rule Interrogative-WHInfo-Direct {
+         pattern { 
+            _anchor_->P;
+            P[lemma="?"]; 
+            _anchor_->X; X[PronType=Int|"Int,Rel"];
+            X << _anchor_
         }
-        without { C[PronType=Int|"Int,Rel"]}
-        without { X[PronType=Int|"Int,Rel"]} 
-        without { Y[PronType=Int|"Int,Rel"]} 
-        without { X[upos=PRON|ADV, lemma="cómo"]} % 'cómo' is wrongly annotated
-        commands {C.Cxn = "Interrogative"}  
+        commands {
+            _anchor_.Cxn = "Interrogative-WHInfo-Direct";
+            _anchor_.CxnElt = "Clause";
+            X.Cxn = "WHWord"
+            }
     }
 
-    rule int_choice_bis {
-        pattern { 
-            C->P; C[upos<>PUNCT|INTJ, Cxn<>re".*Interrogative.*"]; P[lemma="?"];
-            C-[conj]->Y; Y-[cc]->O; O[lemma=o]
-        }
-        without { C[PronType=Int|"Int,Rel"]}
-        without { X[PronType=Int|"Int,Rel"]} 
-        without { Y[PronType=Int|"Int,Rel"]} 
-        without { X[upos=PRON|ADV, lemma="cómo"]} % 'cómo' is wrongly annotated
-        commands {C.Cxn = C.Cxn + "," + "Interrogative"}
-    }
-
-    rule int_wh {
-        pattern { 
-            H[!Cxn]; P[lemma="?"]; 
-            H->P; 
-        }
-        without { cond1[upos=PUNCT] }
-        with { X[PronType=Int|"Int,Rel"]}
-        commands {H.Cxn = "Interrogative"}
-    }
-
-    rule int_wh_bis {
-        pattern { 
-            H[Cxn<>re".*Interrogative.*"]; P[lemma="?"]; 
-            H->P; 
-        }
-        without { cond1[upos=PUNCT] }
-        with { X[PronType=Int|"Int,Rel"]}
-        commands {H.Cxn = H.Cxn + "," + "Interrogative"}
-    }
-
-    rule int_embedded {
+    rule Interrogative-WHInfo-Indirect1 {
         pattern {
+        	_anchor_ -[^root|appos]->H;
+            H-[det]->P;
             P[PronType=Int];
-            H->P;
-            H[!Cxn];
         }
-        without { PUNCT[lemma="?"] }
-        commands {H.Cxn = "Interrogative"}
+        without { QM[lemma="?"] }
+        without { _anchor_ -> EM; EM[PuncType=Excl]}
+        commands {
+            _anchor_.Cxn = "Interrogative-WHInfo-Indirect";
+            _anchor_.CxnElt = "Clause";
+            P.Cxn = "WHWord"
+        }
     }
 
-    rule int_embedded_bis {
+    rule Interrogative-WHInfo-Indirect2 {
         pattern {
+            e:_anchor_ -[^conj|flat|det|compound]->P;
             P[PronType=Int];
-            H->P;
-            H[Cxn<>re".*Interrogative.*"];
         }
-        without { PUNCT[lemma="?"] }
-        commands {H.Cxn = H.Cxn + "," + "Interrogative"}
+        without { QM[lemma="?"] }
+        without { _anchor_ -> EM; EM[PunctType=Excl]}
+        without { _anchor_[upos=ADJ] } % Annotation errors
+        commands {
+            _anchor_.Cxn = "Interrogative-WHInfo-Indirect";
+            _anchor_.CxnElt = "Clause";
+            P.Cxn = "WHWord"
+        }
+    }
+
+    rule Interrogative-Polar-Indirect {
+        pattern {
+            _anchor_-[mark]-> SI;
+            H-[ccomp]->_anchor_;
+            SI[lemma=si]
+        }
+        without { QM[lemma="?"] }
+        commands {
+            _anchor_.Cxn = "Interrogative-Polar-Indirect";
+            _anchor_.CxnElt = "Clause"
+        }
     }
 
 }
 
 package npn {
+
     rule npn {
         pattern { 
-            N1[upos=NOUN, !Cxn]; P[upos=ADP]; N2[upos=NOUN];
-            N1 < P; P < N2 ;
-            N1.lemma = N2.lemma;
+            _anchor_[upos=NOUN]; P[upos=ADP]; N2[upos=NOUN];
+            _anchor_ < P; P < N2 ;
+            _anchor_.lemma = N2.lemma;
         }
-        without {N1-[case]->X; X << N1}
-        without {A[upos=ADP]; A->N1}
-        commands {N1.Cxn = NPN}
+        without {_anchor_-[case]->X; X << _anchor_}
+        without {A[upos=ADP]; A->_anchor_}
+        commands {
+            _anchor_.Cxn = "NPN";
+            _anchor_.CxnElt = "N1";
+            P.CxnElt = "P";
+            N2.CXnElt = "N2"
+        }
     }
 
-    rule npn_bis {
-        pattern { 
-            N1[upos=NOUN, Cxn<>re".*NPN.*"]; P[upos=ADP]; N2[upos=NOUN];
-            N1 < P; P < N2 ;
-            N1.lemma = N2.lemma;
-        }
-        without {N1-[case]->X; X << N1}
-        without {A[upos=ADP]; A->N1}
-        commands {N1.Cxn = N1.Cxn + "," + "NPN"}
-    }
 }
