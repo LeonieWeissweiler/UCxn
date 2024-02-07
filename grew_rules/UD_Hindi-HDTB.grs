@@ -15,15 +15,15 @@ package conditionals {
             N [form="अगर"|"यदि"];
             T [form="तो"];
             _anchor_ -[mark]-> T;
-	    _anchor_ -[advcl]-> V1;
-	    V1 -[mark]-> N;
+	        _anchor_ -[advcl]-> V1;
+	        V1 -[mark]-> N;
         }
         without { V1 [upos="VERB", Mood="Sub"] }
         commands { 
-		_anchor_.Cxn="Conditional-Generic";
-		_anchor_.CxnElt="Apodosis";
-		V1.CxnElt="Protasis";
-	}
+            _anchor_.Cxn="Conditional-Generic";
+            _anchor_.CxnElt="Apodosis";
+            V1.CxnElt="Protasis";
+	    }
     }
 
     rule conditional-realistic2 { % Conditionals - realistic type, if-X-only-then, without inversion, with explicit protasis marker, we could name this Conditional-Generic-Emphatic if we don't want multiple rules for the same construction label
@@ -39,10 +39,10 @@ package conditionals {
             _anchor_ -[obl]-> T;
         }
         commands { 
-		_anchor_.Cxn="Conditional-Generic";
-		_anchor_.CxnElt="Apodosis";
-		V1.CxnElt="Protasis";
-	}
+            _anchor_.Cxn="Conditional-Generic";
+            _anchor_.CxnElt="Apodosis";
+            V1.CxnElt="Protasis";
+	    }
     }
 
     rule conditional-inverted { % Conditionals - inverted
@@ -53,10 +53,10 @@ package conditionals {
         }
         without { T [form="तो"] }
         commands { 
-		_anchor_.Cxn="Conditional-ClauseInversion";
-		_anchor_.CxnElt="Apodosis";
-		V1.CxnElt="Protasis";
-	}
+            _anchor_.Cxn="Conditional-ClauseInversion";
+            _anchor_.CxnElt="Apodosis";
+            V1.CxnElt="Protasis";
+	    }
     }
 
     rule conditional-subjprot-explicit { % Conditionals - subjunctive protasis with explicit protasis marker
@@ -70,10 +70,10 @@ package conditionals {
         }
         without { K1 [form="कभी"]; V1-> K1; K2 [form="कभी"]; _anchor_-> K2 }
         commands { 
-		_anchor_.Cxn="Conditional-Marker-Subjunctive";
-		_anchor_.CxnElt="Apodosis";
-		V1.CxnElt="Protasis";
-	}
+            _anchor_.Cxn="Conditional-Marker-Subjunctive";
+            _anchor_.CxnElt="Apodosis";
+            V1.CxnElt="Protasis";
+	    }
     }
 
     rule conditional-subjprot-notexplicit { % Conditionals - subjunctive protasis without explicit protasis marker; can be Conditional-Marker-Subjunctive-ImplicitProtMkr if we don't want multiple rules with same label
@@ -87,10 +87,10 @@ package conditionals {
         without { N [form="अगर"|"यदि"] }
         without { K1 [form="कभी"]; V1-> K1; K2 [form="कभी"]; _anchor_-> K2 }
         commands { 
-		_anchor_.Cxn="Conditional-Marker-Subjunctive";
-		_anchor_.CxnElt="Apodosis";
-		V1.CxnElt="Protasis";
-	}
+            _anchor_.Cxn="Conditional-Marker-Subjunctive";
+            _anchor_.CxnElt="Apodosis";
+            V1.CxnElt="Protasis";
+        }
     }
 
     rule conditional-pos-epist-hyp { % Conditionals - positive epistemic stance hypothetical conditional
@@ -98,31 +98,31 @@ package conditionals {
             J [form="जब"];
             T [form="तो"];
             _anchor_ -[obl]-> T;
-	    V1 -[obl]-> J;
-	    T -[acl:relcl]-> V1;
+            V1 -[obl]-> J;
+            T -[acl:relcl]-> V1;
         }
         commands { 
-		_anchor_.Cxn="Conditional-PositiveEpistemic";
-		_anchor_.CxnElt="Apodosis";
-		V1.CxnElt="Protasis";
-	}
+            _anchor_.Cxn="Conditional-PositiveEpistemic";
+            _anchor_.CxnElt="Apodosis";
+            V1.CxnElt="Protasis"
+	    }
     }
 }
 
 package existentials {
 
     rule exist1{ 
-
         pattern {
             _anchor_ [lemma="है", upos="AUX"];
             W1 [upos <> ADJ|ADJ-DET|DET];
             W1 -[cop]-> _anchor_;
         }
         commands { 
-		_anchor_.Cxn="Existential-CopPred";
-		W1.CxnElt="Pivot";
-	}
+            _anchor_.Cxn="Existential-CopPred";
+            W1.CxnElt="Pivot"
+	    }
     }
+    
 }
 
 package interrogatives {
@@ -135,11 +135,11 @@ package interrogatives {
         without { SC [form="कि"]; _anchor_ -[mark]-> SC }
         without { V1 [upos=VERB]; V1 -[advcl]-> _anchor_; }
         commands { 
-		_anchor_.Cxn="Interrogative-WHInfo-Direct";
-		_anchor_.CxnElt="Clause";
-		W.CxnElt="WHWord";
-	}
-    }  
+            _anchor_.Cxn="Interrogative-WHInfo-Direct";
+            _anchor_.CxnElt="Clause";
+            W.CxnElt="WHWord"
+	    }
+    }
 
     rule int-indirect-info { % Interrogatives - Indirect information questions
         pattern {
@@ -147,10 +147,10 @@ package interrogatives {
             SC [form="कि"]; _anchor_ [upos=VERB]; _anchor_ -> W; _anchor_ -[mark]-> SC;
         }
         commands { 
-		_anchor_.Cxn="Interrogative-WHInfo-Indirect";
-		_anchor_.CxnElt="Clause";
-		W.CxnElt="WHWord";
-	}
+            _anchor_.Cxn="Interrogative-WHInfo-Indirect";
+            _anchor_.CxnElt="Clause";
+            W.CxnElt="WHWord"
+	    }
     }
 
     rule int-direct-polar { % Interrogatives - Direct polar questions
@@ -161,9 +161,9 @@ package interrogatives {
         without { SC [form="कि"]; _anchor_ -[mark]-> SC }
         without { V1 [upos=VERB]; V1 -[advcl]-> _anchor_; }
         commands { 
-		_anchor_.Cxn="Interrogative-Polar-Direct";
-		_anchor_.CxnElt="Clause";
-	}
+            _anchor_.Cxn="Interrogative-Polar-Direct";
+            _anchor_.CxnElt="Clause"
+	    }
     }
 
     rule int-indirect-polar { % Interrogatives - Indirect polar questions
@@ -173,8 +173,9 @@ package interrogatives {
             _anchor_ -> W;
         }
         commands { 
-		_anchor_.Cxn="Interrogative-Polar-Indirect";
-		_anchor_.CxnElt="Clause";}
+            _anchor_.Cxn="Interrogative-Polar-Indirect";
+            _anchor_.CxnElt="Clause"
+        }
     }
 }
 
@@ -190,54 +191,54 @@ package npn {
             P < N2;
         }
         commands { 
-		_anchor_.Cxn="NPN";
-		_anchor_.CxnElt="N1";
+            _anchor_.Cxn="NPN";
+            _anchor_.CxnElt="N1";
       		P.CxnElt="P";  
       		N2.CxnElt="N2";  
-	}
+	    }
     }
 
-    rule NPN-comparison { % NPN Comparison % Not attested in the corpus - not sure if N1 or N2 will be marked as the anchor, for now I marked N1 as the anchor in absence of actual annotated example from corpus
-        pattern {
-            _anchor_ [upos="NOUN"];
-            N2 [upos="NOUN"];
-            _anchor_.lemma = N2.lemma;
-            P1 [upos="ADP", lemma="के"];
-            P2 [upos="ADP", lemma="बदले"];
-            P1 < P2;
-            _anchor_ -[case]-> P1;
-            _anchor_ -[case]-> P2;
-            _anchor_ < P1;
-            P2 < N2;
-        }
-        commands { 
-		_anchor_.Cxn="NPN";
-		_anchor_.CxnElt="N1";
-      		P.CxnElt="P";  
-      		N2.CxnElt="N2"; 
-	}
-    }
+    %rule NPN-comparison { % NPN Comparison % Not attested in the corpus - not sure if N1 or N2 will be marked as the anchor, for now I marked N1 as the anchor in absence of actual annotated example from corpus
+    %    pattern {
+    %        _anchor_ [upos="NOUN"];
+    %        N2 [upos="NOUN"];
+    %        _anchor_.lemma = N2.lemma;
+    %        P1 [upos="ADP", lemma="के"];
+    %        P2 [upos="ADP", lemma="बदले"];
+    %        P1 < P2;
+    %        _anchor_ -[case]-> P1;
+    %        _anchor_ -[case]-> P2;
+    %        _anchor_ < P1;
+    %        P2 < N2;
+    %    }
+    %    commands { 
+    %        _anchor_.Cxn="NPN";
+    %        _anchor_.CxnElt="N1";
+    %  		P.CxnElt="P";  
+    %  		N2.CxnElt="N2"; 
+	%    }
+    %}
 
-    rule NPN-opposition { % NPN Opposition % Not attested in the corpus
-        pattern {
-            _anchor_ [upos="NOUN"];
-            N2 [upos="NOUN"];
-            _anchor_.lemma = N2.lemma;
-            P1 [upos="ADP", lemma="के"];
-            P2 [upos="ADP", lemma="खिलाफ"];
-            P1 < P2;
-            _anchor_ -[case]-> P1;
-            _anchor_ -[case]-> P2;
-            _anchor_ < P1;
-            P2 < N2;
-        }
-        commands { 
-		_anchor_.Cxn="NPN";
-		_anchor_.CxnElt="N1";
-      		P.CxnElt="P";  
-      		N2.CxnElt="N2";
-	}
-    }
+    %rule NPN-opposition { % NPN Opposition % Not attested in the corpus
+    %    pattern {
+    %        _anchor_ [upos="NOUN"];
+    %        N2 [upos="NOUN"];
+    %        _anchor_.lemma = N2.lemma;
+    %        P1 [upos="ADP", lemma="के"];
+    %        P2 [upos="ADP", lemma="खिलाफ"];
+    %        P1 < P2;
+    %        _anchor_ -[case]-> P1;
+    %        _anchor_ -[case]-> P2;
+    %        _anchor_ < P1;
+    %        P2 < N2;
+    %    }
+    %    commands { 
+    %        _anchor_.Cxn="NPN";
+    %        _anchor_.CxnElt="N1";
+    %  		P.CxnElt="P";  
+    %  		N2.CxnElt="N2";
+	%    }
+    %}
 
 }
 
@@ -249,47 +250,8 @@ package resultatives {
             V2 -["advcl"]-> _anchor_;
         }
         commands { 
-		_anchor_.Cxn="Resultative";
-		_anchor_.CxnElt="Event";
-	}
+            _anchor_.Cxn="Resultative";
+            _anchor_.CxnElt="Event";
+	    }
     }
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
