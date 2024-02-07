@@ -17,7 +17,7 @@ package conditionals {
 	    without { KI [lemma="כי"]; IF < KI }
 	    commands { 
 		   _anchor_.Cxn="Conditional-Generic";
-		   COND.CxnElt="Protasis";
+		   PROTASIS.CxnElt="Protasis";
 		   _anchor_.CxnElt="Apodosis";
 	   }
    }
@@ -178,7 +178,7 @@ package interrogatives {
 	commands { 
 		_anchor_.Cxn="Interrogative-WHInfo-Direct";
 		_anchor_.CxnElt="Clause";
-		WH.CxnElt="WHWord";
+		_anchor_.CxnElt="WHWord";
 	}
   }
 
