@@ -22,20 +22,6 @@ package conditionals {
        }
   }
 
-  rule ConditionRealisticConjunction_bis { 
-    pattern {
-      CONJ [ lemma = re"ⲉϣϫⲉ\|ⲉϣⲱⲡⲉ" ];
-      _anchor_ -[advcl]-> PROTASIS;
-      PROTASIS -> CONJ;
-      _anchor_[Cxn<>re".*Conditional-Realis.*"];
-    }
-    commands {
-           _anchor_.Cxn="Conditional-Realis";
-           PROTASIS.CxnElt="Protasis";
-           _anchor_.CxnElt="Apodosis";
-    }
-  }
-
   rule ConditionRealisticAux { 
     pattern {
     _anchor_ -[advcl]-> PROTASIS;
