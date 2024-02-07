@@ -90,14 +90,14 @@ package existentials {
 
     rule Existential-HavePred-ItExpl-ThereExpl {
         pattern { 
-            N1[lemma="y"]; N2 [lemma="avoir", !Cxn]; 
-            N2-[expl:comp]->N1;
-            N2 -[obj]->N3;
-            N3[upos=NOUN]
+            _anchor_ [lemma="avoir"]; N1[lemma="y"]; 
+            _anchor_-[expl:comp]->N1;
+            _anchor_ -[obj]->N2;
+            N2[upos=NOUN]
         }   
         commands {
-            N2.Cxn = "Existential-HavePred-ItExpl-ThereExpl";
-            N3.CxnElt = "Pivot@f"
+            _anchor_.Cxn = "Existential-HavePred-ItExpl-ThereExpl";
+            N2.CxnElt = "Pivot@f"
         }
     }
 
