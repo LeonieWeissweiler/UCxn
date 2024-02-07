@@ -16,7 +16,7 @@ package conditionals {
       PROTASIS -> CONJ;
     }
         commands { 
-           _anchor_.Cxn="Conditional-Realis";
+           _anchor_.Cxn="Conditional-PositiveEpistemic";
            PROTASIS.CxnElt="Protasis";
            _anchor_.CxnElt="Apodosis";
        }
@@ -35,7 +35,7 @@ package conditionals {
       _anchor_ -> PRET;
     }
     commands {
-           _anchor_.Cxn="Conditional-Realis";
+           _anchor_.Cxn="Conditional-PositiveEpistemic";
            PROTASIS.CxnElt="Protasis";
            _anchor_.CxnElt="Apodosis";
     }
@@ -50,7 +50,7 @@ package conditionals {
       _anchor_ -> PRET;
     }
     commands {
-           _anchor_.Cxn="Conditional-Irrealis";
+           _anchor_.Cxn="Conditional-NegativeEpistemic";
            PROTASIS.CxnElt="Protasis";
            _anchor_.CxnElt="Apodosis";
     }  
