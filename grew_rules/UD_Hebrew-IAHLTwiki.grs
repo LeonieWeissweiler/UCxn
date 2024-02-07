@@ -8,71 +8,74 @@ strat main {
 
 package conditionals {
 
-    rule r2a { % Realistic conditional
-	    pattern {
-		    IF [lemma=re"אם\|אילו\|לו"]; 
-		    _anchor_ -[advcl]-> PROTASIS; 
-		    PROTASIS -[mark]-> IF
-	    } 
-	    without { KI [lemma="כי"]; IF < KI }
-	    commands { 
-		   _anchor_.Cxn="Conditional-Generic";
-		   PROTASIS.CxnElt="Protasis";
-		   _anchor_.CxnElt="Apodosis";
-	   }
-   }
+	rule r2a { % Realistic conditional
+		pattern {
+			IF [lemma=re"אם\|אילו\|לו"]; 
+			_anchor_ -[advcl]-> PROTASIS; 
+			PROTASIS -[mark]-> IF
+		} 
+		without { KI [lemma="כי"]; IF < KI }
+		commands { 
+			_anchor_.Cxn="Conditional-Generic";
+			PROTASIS.CxnElt="Protasis";
+			_anchor_.CxnElt="Apodosis";
+		}
+	}
 
-  rule r2b { % Unrealistic conditional
-	  pattern {
-		  IF [lemma=re"אילו\|לו"];
-		  HAYA [lemma="היה"] ; 
-		  _anchor_ -> HAYA ;
-		  _anchor_ -[advcl]-> PROTASIS; 
-		  PROTASIS -[mark]-> IF
-	  } 
-	  without { KI [lemma="כי"]; IF < KI }
-	  commands { 
-		  _anchor_.Cxn="Conditional-NegativeEpistemic"; 
-		  COND.CxnElt="Protasis";
-		  _anchor_.CxnElt="Apodosis";
-	 }
-  }
+	rule r2b { % Unrealistic conditional
+		pattern {
+			IF [lemma=re"אילו\|לו"];
+			HAYA [lemma="היה"] ; 
+			_anchor_ -> HAYA ;
+			_anchor_ -[advcl]-> PROTASIS; 
+			PROTASIS -[mark]-> IF
+		} 
+		without { KI [lemma="כי"]; IF < KI }
+		commands { 
+			_anchor_.Cxn="Conditional-NegativeEpistemic"; 
+			PROTASIS.CxnElt="Protasis";
+			_anchor_.CxnElt="Apodosis";
+		}
+	}
 
- rule r2c { % Conditional MWE
-	 pattern { 
-		 IF [lemma="ב"]; 
-		 M [lemma="מידה"]; 
-		 W [lemma="ו"]; 
-		 B<M; 
-		 M<W; 
-		 PROTASIS -[mark]-> B; 
-		 _anchor_ -[advcl]-> PROTASIS;
-	 }
-	 commands { 
-		 _anchor_.Cxn="Conditional-Generic"; 
-		 PROTASIS.CxnElt="Protasis";
-		 _anchor_.CxnElt="Apodosis";
-	 }
-  }
+	rule r2c { % Conditional MWE
+		pattern { 
+			IF [lemma="ב"]; 
+			M [lemma="מידה"]; 
+			W [lemma="ו"]; 
+			B<M; 
+			M<W; 
+			PROTASIS -[mark]-> B; 
+			_anchor_ -[advcl]-> PROTASIS;
+		}
+		commands { 
+			_anchor_.Cxn="Conditional-Generic"; 
+			PROTASIS.CxnElt="Protasis";
+			_anchor_.CxnElt="Apodosis";
+		}
+	}
 
-   rule r2d { % Conditional MWE
-	 pattern { 
-		 IF [lemma="ב"]; 
-		 M [lemma="תנאי"]; 
-		 W [lemma="ש"]; 
-		 B<M; 
-		 M<W; 
-		 PROTASIS -[mark]-> B; 
-		 _anchor_ -[advcl]-> PROTASIS 
-	 }
-	 commands { 
-		 _anchor_.Cxn="Conditional-Generic"; 
-		 PROTASIS.CxnElt="Protasis";
-		 _anchor_.CxnElt="Apodosis";
-	 }
- }
+	rule r2d { % Conditional MWE
+		pattern { 
+			IF [lemma="ב"]; 
+			M [lemma="תנאי"]; 
+			W [lemma="ש"]; 
+			B<M; 
+			M<W; 
+			PROTASIS -[mark]-> B; 
+			_anchor_ -[advcl]-> PROTASIS 
+		}
+		commands { 
+			_anchor_.Cxn="Conditional-Generic"; 
+			PROTASIS.CxnElt="Protasis";
+			_anchor_.CxnElt="Apodosis";
+		}
+	}
+
 }
+
 package existentials {
+
     rule r3a { % Present tense existential
 	   pattern { 
 		   _anchor_ [lemma="יש"]; 
@@ -124,145 +127,137 @@ package existentials {
 		    SUBJ.CxnElt="Pivot";
 	    }
     }
-
 }
 
 package interrogatives {
 
-  rule r1a { %  Main clause polar with particle
-	pattern { 
-		PRT [lemma = "שמא"|"האם"];  
-		_anchor_-[mark:q]->PRT ;  
-		Q [form="?"]; 
+	rule r1a { %  Main clause polar with particle
+		pattern { 
+			PRT [lemma = "שמא"|"האם"];  
+			_anchor_-[mark:q]->PRT ;  
+			Q [form="?"]; 
+		}
+		commands { 
+			_anchor_.Cxn="Interrogative-Polar-Direct";
+			_anchor_.CxnElt="Clause";
+		}
 	}
-	commands { 
-		_anchor_.Cxn="Interrogative-Polar-Direct";
-		_anchor_.CxnElt="Clause";
-	}
-  }
 
 
-  rule r1b { %  Main clause with wh-word, immediate rel between HD and WH
-	pattern { 
-		Q [form="?"]; 
-		_anchor_-[punct]->Q;
-		WH [lemma=re"מי\|מה\|למה\|מדוע\|איפה\|היכן\|איה\|לאן\|מאין\|מתי\|איך\|כיצד\|כמה\|איזה\|מנין"];
-		_anchor_-> WH; 
+	rule r1b { %  Main clause with wh-word, immediate rel between HD and WH
+		pattern { 
+			Q [form="?"]; 
+			_anchor_-[punct]->Q;
+			WH [lemma=re"מי\|מה\|למה\|מדוע\|איפה\|היכן\|איה\|לאן\|מאין\|מתי\|איך\|כיצד\|כמה\|איזה\|מנין"];
+			_anchor_-> WH; 
+		}
+		commands { 
+			_anchor_.Cxn="Interrogative-WHInfo-Direct";
+			_anchor_.CxnElt="Clause";
+			WH.CxnElt="WHWord";
+		}
 	}
-	commands { 
-		 _anchor_.Cxn="Interrogative-WHInfo-Direct";
-		_anchor_.CxnElt="Clause";
-		WH.CxnElt="WHWord";
+
+	rule r1c { %  Main clause with wh-word ("which X did...)
+		pattern { 
+			Q [form="?"]; 
+			_anchor_-[punct]->Q;
+			WH [lemma=re"מי\|מה\|למה\|מדוע\|איפה\|היכן\|איה\|לאן\|מאין\|מתי\|איך\|כיצד\|כמה\|איזה\|מנין"];
+			_anchor_-> X;
+			X -> WH; 
+		}
+		commands { 
+			_anchor_.Cxn="Interrogative-WHInfo-Direct";
+			_anchor_.CxnElt="Clause";
+			WH.CxnElt="WHWord";
+		}
+	}
+
+	rule r1d { %  Main clause with wh-word, wh-word is the root
+		pattern { 
+			Q [form="?"]; 
+			_anchor_-[punct]->Q;
+			_anchor_[lemma=re"מי\|מה\|האם\|למה\|מדוע\|איפה\|היכן\|איה\|לאן\|מאין\|מתי\|איך\|כיצד\|כמה\|איזה\|מנין"]; 
+		}
+		commands { 
+			_anchor_.Cxn="Interrogative-WHInfo-Direct";
+			_anchor_.CxnElt="Clause";
+			_anchor_.CxnElt="WHWord";
+		}
+	}
+
+	rule r1e { %  Main clause polar without particle or wh-word
+		pattern { 
+			Q [form="?"]; 
+			_anchor_-[punct]->Q 
+		}
+		without {
+			PRT [lemma = "שמא"|"האם"];  
+			_anchor_-[mark:q]->PRT ;  
+			Q [form="?"]; 
+		}
+		without {
+			PRT [lemma=re"מי\|מה\|למה\|מדוע\|איפה\|היכן\|איה\|לאן\|מאין\|מתי\|איך\|כיצד\|כמה\|איזה\|מנין"];
+			_anchor_-> PRT ;
+		}
+		without {
+			PRT [lemma=re"מי\|מה\|למה\|מדוע\|איפה\|היכן\|איה\|לאן\|מאין\|מתי\|איך\|כיצד\|כמה\|איזה\|מנין"];
+			_anchor_-> X;
+			X -> PRT ;
+		}
+		without {
+			_anchor_[lemma=re"מי\|מה\|האם\|למה\|מדוע\|איפה\|היכן\|איה\|לאן\|מאין\|מתי\|איך\|כיצד\|כמה\|איזה\|מנין"];
+		}
+		commands { 
+			_anchor_.Cxn="Interrogative-Polar-Direct";
+			_anchor_.CxnElt="Clause";
+		}
+	}
+
+
+	%embedded clause questions = sentences without a question mark
+
+	rule r1f { %  Embedded clause polar 
+		pattern { 
+			PRT [lemma = "שמא"|"האם"];  
+			_anchor_-[mark:q]->PRT; 
+		}
+		without {
+			Q [form="?"]
+		}
+		commands { 
+			_anchor_.Cxn="Interrogative-Polar-Indirect";
+			_anchor_.CxnElt="Clause";
+		}
+	}
+
+	rule r1g { % Embedded non-subject wh-question
+		pattern {
+			WH [upos=ADV,lemma=re"מי\|מה\|למה\|מדוע\|איפה\|היכן\|איה\|לאן\|מאין\|מתי\|איך\|כיצד\|כמה\|איזה"]; 
+			_anchor_[upos=VERB|ADJ]; 
+			_anchor_-> WH; 
+		}  
+		without {Q [lemma="?"]} 
+		without {WH -[acl:relcl|acl]-> CL} 
+		without {_anchor_-[nsubj]-> WH}
+		commands {
+			_anchor_.Cxn="Interrogative-WHInfo-Indirect";
+			_anchor_.CxnElt="Clause";
+			WH.CxnElt="WHWord";
+		}
+	}
+
+	rule r1h { % Embedded subject wh-question
+		pattern { 
+			WH [lemma=re"מי\|מה", upos=ADV]; 
+			_anchor_-[nsubj]-> WH; 
+		} 
+		without {WH -[acl:relcl]-> RC} 
+		without {Q [form="?"]}
+		commands { 
+			_anchor_.Cxn="Interrogative-WHInfo-Indirect";
+			_anchor_.CxnElt="Clause";
+			WH.CxnElt="WHWord";
+		}
 	}
 }
-
-  rule r1c { %  Main clause with wh-word ("which X did...)
-	pattern { 
-		Q [form="?"]; 
-		_anchor_-[punct]->Q;
-		WH [lemma=re"מי\|מה\|למה\|מדוע\|איפה\|היכן\|איה\|לאן\|מאין\|מתי\|איך\|כיצד\|כמה\|איזה\|מנין"];
-		_anchor_-> X;
-		X -> WH; 
-	}
-	commands { 
-		_anchor_.Cxn="Interrogative-WHInfo-Direct";
-		_anchor_.CxnElt="Clause";
-		WH.CxnElt="WHWord";
-	}
-  }
-
-  rule r1d { %  Main clause with wh-word, wh-word is the root
-	pattern { 
-		Q [form="?"]; 
-		_anchor_-[punct]->Q;
-		_anchor_[lemma=re"מי\|מה\|האם\|למה\|מדוע\|איפה\|היכן\|איה\|לאן\|מאין\|מתי\|איך\|כיצד\|כמה\|איזה\|מנין"]; 
-	}
-	commands { 
-		_anchor_.Cxn="Interrogative-WHInfo-Direct";
-		_anchor_.CxnElt="Clause";
-		WH.CxnElt="WHWord";
-	}
-  }
-
-
-  rule r1e { %  Main clause polar without particle or wh-word
-	pattern { 
-		Q [form="?"]; 
-		_anchor_-[punct]->Q 
-	}
-	without {
-		PRT [lemma = "שמא"|"האם"];  
-		_anchor_-[mark:q]->PRT ;  
-		Q [form="?"]; 
-	}
-	without {
-		PRT [lemma=re"מי\|מה\|למה\|מדוע\|איפה\|היכן\|איה\|לאן\|מאין\|מתי\|איך\|כיצד\|כמה\|איזה\|מנין"];
-		_anchor_-> PRT ;
-	}
-	without {
-		PRT [lemma=re"מי\|מה\|למה\|מדוע\|איפה\|היכן\|איה\|לאן\|מאין\|מתי\|איך\|כיצד\|כמה\|איזה\|מנין"];
-		_anchor_-> X;
-		X -> PRT ;
-	}
-	without {
-		_anchor_[lemma=re"מי\|מה\|האם\|למה\|מדוע\|איפה\|היכן\|איה\|לאן\|מאין\|מתי\|איך\|כיצד\|כמה\|איזה\|מנין"];
-	}
-	commands { 
-		_anchor_.Cxn="Interrogative-Polar-Direct";
-		_anchor_.CxnElt="Clause";
-	}
-  }
-
-
-%embedded clause questions = sentences without a question mark
-
-  rule r1f { %  Embedded clause polar 
-	pattern { 
-		PRT [lemma = "שמא"|"האם"];  
-		_anchor_-[mark:q]->PRT; 
-	}
-	without {
-		Q [form="?"]
-	}
-	commands { 
-		_anchor_.Cxn="Interrogative-Polar-Indirect";
-		_anchor_.CxnElt="Clause";
-	}
-  }
-
-
-  rule r1g { % Embedded non-subject wh-question
-	pattern {
-		WH [upos=ADV,lemma=re"מי\|מה\|למה\|מדוע\|איפה\|היכן\|איה\|לאן\|מאין\|מתי\|איך\|כיצד\|כמה\|איזה"]; 
-		_anchor_[upos=VERB|ADJ]; 
-		_anchor_-> WH; 
-	}  
-	without {Q [lemma="?"]} 
-	without {WH -[acl:relcl|acl]-> CL} 
-	without {_anchor_-[nsubj]-> WH}
-	commands {
-		_anchor_.Cxn="Interrogative-WHInfo-Indirect";
-		_anchor_.CxnElt="Clause";
-		WH.CxnElt="WHWord";
-	}
-  }
-
-  rule r1h { % Embedded subject wh-question
-	pattern { 
-		WH [lemma=re"מי\|מה", upos=ADV]; 
-		_anchor_-[nsubj]-> WH; 
-	} 
-	without {WH -[acl:relcl]-> RC} 
-	without {Q [form="?"]}
-	commands { 
-		_anchor_.Cxn="Interrogative-WHInfo-Indirect";
-		_anchor_.CxnElt="Clause";
-		WH.CxnElt="WHWord";
-	}
-  }
-
-}
-
-
-
-
