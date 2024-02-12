@@ -79,8 +79,8 @@
 
         rule cond5 { %what-if conditional
             pattern { 
-                _anchor_ -[advcl]-> Y;
-                Y -[mark]-> M;
+                _anchor_ -[advcl]-> P;
+                P -[mark]-> M;
                 M [form="if"];
                 _anchor_ [lemma="what"];
             }
