@@ -200,13 +200,17 @@ package existentials {
             _anchor_ [lemma="exist"];
             _anchor_ -[re".subj"]-> P;
         }
-        commands {_anchor_.Cxn="Existential-ExistPred";
+        without {
+            _anchor_ -> Y;
+            Y [xpos="EX"];
+        }
+        commands {_anchor_.Cxn="Existential-ExistPred-NoExpl";
                   P.CxnElt="Pivot";}
     }
 
     rule ex2 { %existential there-exist
         pattern { 
-            _anchor_ [lemma="be"|"exist"|"stretch"];
+            _anchor_ [lemma="exist"];
             _anchor_ -[re".subj"]-> P;
             _anchor_ -> Y;
             Y [xpos="EX"];
@@ -215,18 +219,29 @@ package existentials {
                   P.CxnElt="Pivot";}
     }
 
-	rule ex3 { %existential there-expl
-			pattern { 
-				_anchor_ [lemma="be"|"stretch"];
-				_anchor_ -[re".subj"]-> P;
-				_anchor_ -> Y;
-				Y [xpos="EX"];
-			}
-			commands {_anchor_.Cxn="Existential-ThereExpl";
-					  P.CxnElt="Pivot";}
-		}
+    rule ex3 { %existential there-be
+            pattern { 
+                _anchor_ [lemma="be"];
+                _anchor_ -[re".subj"]-> P;
+                _anchor_ -> Y;
+                Y [xpos="EX"];
+            }
+            commands {_anchor_.Cxn="Existential-CopPred-ThereExpl";
+                      P.CxnElt="Pivot";}
+        }
 
-    rule ex4 { %existential here
+    rule ex4 { %existential there-stretch
+            pattern { 
+                _anchor_ [lemma="stretch"];
+                _anchor_ -[re".subj"]-> P;
+                _anchor_ -> Y;
+                Y [xpos="EX"];
+            }
+            commands {_anchor_.Cxn="Existential-MannerPred-ThereExpl";
+                      P.CxnElt="Pivot";}
+        }
+
+    rule ex5 { %existential here
         pattern { 
             _anchor_ [lemma="be"];
             _anchor_ -[re".subj"]-> P;
@@ -238,7 +253,6 @@ package existentials {
     }
 
 }
-
 package interrogatives {
 
     rule int1 { %direct WH question
