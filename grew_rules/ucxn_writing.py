@@ -12,8 +12,8 @@ from copy import deepcopy
 from pathlib import Path
 
 from grewpy import Corpus, CorpusDraft
-from grewpy import GRS, GRSDraft
-
+from grewpy import GRS, GRSDraft, Rule, Request
+from grewpy.grew import GrewError
 
 def cxnelt_sort_key(misc_values):
     """
@@ -78,6 +78,33 @@ def sort_misc_in_conllu(input_conllu_text: str) -> str:
             output_lines.append(line)
     return '\n'.join(output_lines)
 
+def count_empty_nodes(draft, sent_id, stop):
+    c = 0
+    for i in range(1, stop):
+        if draft[sent_id][str(i)]['wordform'] == "__EMPTY__":
+            c += 1
+    return c
+
+def read_treebanks(paths):
+    """
+    Remove EUD annotations
+    """
+    treebank = []
+    for p in paths:
+        with open(p, encoding="utf-8") as in_stream:
+            for line in in_stream:
+                if line.startswith("#") or line.startswith("\n"):
+                    treebank.append(line)
+                else:
+                    splitted = line.split("\t")
+                    if "." in splitted[0]:
+                        continue
+                    else:
+                        splitted[8] = "_"
+                        treebank.append("\t".join(splitted))
+    return "".join(treebank)
+        
+
 
 if __name__ == "__main__":
     cmd = argparse.ArgumentParser()
@@ -86,73 +113,64 @@ if __name__ == "__main__":
     cmd.add_argument("-cxn_grs", "--cxn_grs", type=str, required=True, help="a ucxn.grs format")
     args = cmd.parse_args()
 
-    # Avoid enhanced edges
     with open(args.cxn_grs) as f:
-        cxn_grs = re.sub(r"(?<!\])->", "-[!enhanced]->", f.read())
+        cxn_grs = f.read()
 
     if Path(args.input).is_dir():
-        corpus = Corpus([p.as_posix() for p in Path(args.input).glob("*.conllu")])
+            paths = [p for p in Path(args.input).glob("*.conllu")]
+            corpus = Corpus(read_treebanks(paths))
     else:
-        corpus = Corpus(args.input)
+        corpus = Corpus(read_treebanks([args.input]))
+
+    print(args.input.split("/")[-1])
 
     draft = CorpusDraft(corpus)
     grs_draft = GRSDraft(cxn_grs)
 
     for package, rules in grs_draft.items():
-        if package != "main":
-            for rule_name, rule in rules.items():
+        if package != "main": #TODO: need to be generalize
+            print(f"Package: {package}")
+            for e, (rule_name, rule) in enumerate(rules.items(), start=1):
+                print(f"- {e}/{len(rules.keys())} rule name: {rule_name}")
                 matching_sentences = set(m['sent_id'] for m in corpus.search(rule.request))
                 for sent_id in matching_sentences:
-                    cxn_rule = deepcopy(rule)    
-                    cxn_rule.request.append('global',f'sent_id={sent_id}')
-                    cxn_commands = list(cxn_rule.commands)
+                    basic_rule = deepcopy(rule)
+                    basic_rule.request.append('global',f'sent_id="{sent_id}"')
+                    cxn_commands = list(basic_rule.commands)
                     cxn_name = cxn_commands[0].split("=")[1].replace('"', '')
+                    print(basic_rule)
+                    for i, match in enumerate(corpus.search(basic_rule.request)):
+                        print()
+                        # if rule_name == "Existential-HavePred-ItExpl-ThereExpl":
+                        #     for m in corpus.search(basic_rule.request):
+                        #         print(m)
+                        #     print("---")
 
-                    for i, match in enumerate(corpus.search(cxn_rule.request)):
-                        cxn_rule = deepcopy(rule)
                         anchor_id = match['matching']['nodes']['_anchor_']
-                        # Build Cxn label and safe commands
+
                         if 'Cxn' in draft[sent_id][anchor_id]:
-                            if cxn_name in draft[sent_id][anchor_id]['Cxn']:
+                            cxn_feat = draft[sent_id][anchor_id]['Cxn']
+                            if cxn_name in cxn_feat:
                                 n_cxns = re.split(r"[;#]",draft[sent_id][anchor_id]['Cxn']).count(cxn_name)
-                                cxn_value = f'{cxn_name.split("#")[0]}#{n_cxns+1}'
-
+                                new_cxn = f'{cxn_name.split("#")[0]}#{n_cxns+1}'
                             else:
-                                cxn_value = f'{cxn_name}#1'
-
-                            cxn_rule.request.append('without',f'_anchor_[Cxn=re".*{cxn_value}.*"]')
-                            cxn_rule.commands[0] = f'_anchor_.Cxn=_anchor_.Cxn + ";" + "{cxn_value}"'
-
+                                new_cxn = f'{cxn_name}#1'
+                            draft[sent_id][anchor_id]['Cxn'] = f"{cxn_feat};{new_cxn}"
                         else:
-                            cxn_value = f'{cxn_name}#1'
-                            cxn_rule.commands[0] = f'_anchor_.Cxn="{cxn_value}"'
-                            cxn_rule.request.append('without',f'_anchor_[Cxn]')
+                            new_cxn = f'{cxn_name}#1'
+                            draft[sent_id][anchor_id]["Cxn"] = new_cxn
 
-                        #CxnElts
-                        for j, command in enumerate(rule.commands[1:], start=1):
+                        for command in rule.commands[1:]:
                             node = command.split('=')[0].split('.')[0]
                             node_id = match['matching']['nodes'][node]
                             cxn_elt_name = command.split('=')[1].replace('"', '')
-                            cxn_elt_value = f'{anchor_id}:{cxn_value}.{cxn_elt_name}'
-
-                            # CxnElt safe command
-                            cxn_rule.request.append('without',f'{node}[CxnElt=re".*{cxn_elt_value}.*"]')
+                            new_cxn_elt = f'{anchor_id}:{new_cxn}.{cxn_elt_name}'
 
                             if "CxnElt" in draft[sent_id][node_id]:
-                                cxn_rule.commands[j] = f'{node}.CxnElt= {node}.CxnElt + ";" + "{cxn_elt_value}"'
+                                cxn_elt_feat = draft[sent_id][node_id]['CxnElt']
+                                draft[sent_id][node_id]["CxnElt"] = f"{cxn_elt_feat};{new_cxn_elt}"
                             else:
-                                cxn_rule.commands[j] = f'{node}.CxnElt="{cxn_elt_value}"'
-
-                        # Graph transformation
-                        cxn_grs = GRS(GRSDraft({"cxn": cxn_rule, "main": "cxn"}))
-                        transformed_graphs = cxn_grs.run(draft[sent_id])
-                        
-                        if transformed_graphs:
-                            if len(transformed_graphs) > 1:
-                                # Handle several matchings with the same anchor
-                                draft[sent_id] = transformed_graphs[i]
-                            else:
-                                draft[sent_id] = transformed_graphs.pop()
+                                draft[sent_id][node_id]["CxnElt"] = new_cxn_elt
 
     with open(args.output, "w", encoding="utf-8") as f:
         conllu = sort_misc_in_conllu(draft.to_conll())
