@@ -151,14 +151,15 @@ package interrogatives {
 
     rule Interrogative-WHInfo-Indirect1 {
         pattern {
-            e:_anchor_-[^conj|det]->P; 
+            _anchor_->P; 
             P[PronType=Int];
         }
+        without {_anchor_-[conj|det]->P}
         without { QM[lemma="?"] }
         commands {
             _anchor_.Cxn = "Interrogative-WHInfo-Indirect";
             _anchor_.CxnElt = "Clause";
-            P.CxnElt = "WhWord"
+            P.CxnElt = "WHWord"
         }
     }
 
@@ -172,7 +173,7 @@ package interrogatives {
         commands {
             _anchor_.Cxn = "Interrogative-WHInfo-Indirect";
             _anchor_.CxnElt = "Clause";
-            P.CxnElt = "WhWord"
+            P.CxnElt = "WHWord"
         }
     }
 

@@ -127,11 +127,12 @@ package interrogatives {
 
     rule Interrogative-WHInfo-Indirect1 {
         pattern {
-        	_anchor_ -[^root|appos]->H;
+        	_anchor_ ->H;
             H-[det]->P;
             P[PronType=Int];
         }
         without { QM[lemma="?"] }
+        without {_anchor_-[root|appos]->H}
         without { _anchor_ -> EM; EM[PuncType=Excl]}
         commands {
             _anchor_.Cxn = "Interrogative-WHInfo-Indirect";
@@ -142,10 +143,11 @@ package interrogatives {
 
     rule Interrogative-WHInfo-Indirect2 {
         pattern {
-            e:_anchor_ -[^conj|flat|det|compound]->P;
+            _anchor_ ->P;
             P[PronType=Int];
         }
         without { QM[lemma="?"] }
+        without {_anchor_-[conj|flat|det|compound]->P}
         without { _anchor_ -> EM; EM[PunctType=Excl]}
         without { _anchor_[upos=ADJ] } % Annotation errors
         commands {
@@ -187,5 +189,4 @@ package npn {
             N2.CXnElt = "N2"
         }
     }
-
 }
