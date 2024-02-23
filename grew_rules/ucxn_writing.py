@@ -12,7 +12,7 @@ from copy import deepcopy
 from pathlib import Path
 
 from grewpy import Corpus, CorpusDraft
-from grewpy import GRS, GRSDraft, Rule, Request
+from grewpy import GRSDraft
 from grewpy.grew import GrewError
 
 def cxnelt_sort_key(misc_values):
@@ -138,14 +138,8 @@ if __name__ == "__main__":
                     basic_rule.request.append('global',f'sent_id="{sent_id}"')
                     cxn_commands = list(basic_rule.commands)
                     cxn_name = cxn_commands[0].split("=")[1].replace('"', '')
-                    print(basic_rule)
+                    
                     for i, match in enumerate(corpus.search(basic_rule.request)):
-                        print()
-                        # if rule_name == "Existential-HavePred-ItExpl-ThereExpl":
-                        #     for m in corpus.search(basic_rule.request):
-                        #         print(m)
-                        #     print("---")
-
                         anchor_id = match['matching']['nodes']['_anchor_']
 
                         if 'Cxn' in draft[sent_id][anchor_id]:
