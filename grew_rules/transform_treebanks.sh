@@ -8,6 +8,8 @@ Block_comment
 grs_directory="/home/santiago/UCxn/grew_rules"
 ud_directory="/home/santiago/data/treebanks/ud-treebanks-v2.13"
 
+> errors.log
+
 for grs_path in "$grs_directory"/*.grs; do
     if [ -e "$grs_path" ]; then
         grs=$(basename "$grs_path")
@@ -16,7 +18,7 @@ for grs_path in "$grs_directory"/*.grs; do
             echo "Processing treebank: $treebank"
             treebank_path="$ud_directory/$treebank"
             output_name="ucxn_${treebank,,}.conllu" #lowercase
-            python3 ucxn_writing.py -i "$treebank_path" -o "$output_name".conllu -cxn_grs "$grs"
+            python3 ucxn_writing.py -i "$treebank_path" -o "$output_name" -cxn_grs "$grs"
         else
             echo "Ignoring $grs"
         fi
