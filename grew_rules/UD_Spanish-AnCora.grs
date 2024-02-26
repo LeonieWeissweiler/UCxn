@@ -121,7 +121,7 @@ package interrogatives {
         commands {
             _anchor_.Cxn = "Interrogative-WHInfo-Direct";
             _anchor_.CxnElt = "Clause";
-            X.Cxn = "WHWord"
+            X.CxnElt = "WHWord"
             }
     }
 
@@ -137,7 +137,7 @@ package interrogatives {
         commands {
             _anchor_.Cxn = "Interrogative-WHInfo-Indirect";
             _anchor_.CxnElt = "Clause";
-            P.Cxn = "WHWord"
+            P.CxnElt = "WHWord"
         }
     }
 
@@ -153,7 +153,7 @@ package interrogatives {
         commands {
             _anchor_.Cxn = "Interrogative-WHInfo-Indirect";
             _anchor_.CxnElt = "Clause";
-            P.Cxn = "WHWord"
+            P.CxnElt = "WHWord"
         }
     }
 
