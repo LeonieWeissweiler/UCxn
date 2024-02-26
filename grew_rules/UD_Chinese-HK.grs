@@ -30,6 +30,7 @@ package interrogatives {
     }
     commands { 
       _anchor_.Cxn=Interrogative-Polar-Direct;
+      _anchor_.CxnElt=Clause
     }
   }
 
@@ -52,6 +53,7 @@ package interrogatives {
         }
     commands { 
       _anchor_.Cxn=Interrogative-Polar-Direct;
+      _anchor_.CxnElt=Clause
     }
   }
 
@@ -87,6 +89,7 @@ package interrogatives {
     }
     commands {
       _anchor_.Cxn=Interrogative
+      _anchor_.CxnElt=Clause
     }
   }
 }
