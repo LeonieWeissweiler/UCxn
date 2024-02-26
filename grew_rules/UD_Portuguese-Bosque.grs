@@ -333,7 +333,7 @@ package interrogatives {
         without { CH1-[conj]->CH3; }
         commands {
             _anchor_.Cxn = "Interrogative-Alternative";
-            _anchor_.Cxn = "Clause";
+            _anchor_.CxnElt = "Clause";
             CH1.CxnElt = "Choice1";
             CH2.CxnElt = "Choice2";
         }
@@ -354,7 +354,7 @@ package interrogatives {
         without { CH1-[conj]->CH4; }
         commands {
             _anchor_.Cxn = "Interrogative-Alternative";
-            _anchor_.Cxn = "Clause";
+            _anchor_.CxnElt = "Clause";
             CH1.CxnElt = "Choice1";
             CH2.CxnElt = "Choice2";
             CH3.CxnElt = "Choice3";
@@ -377,7 +377,7 @@ package interrogatives {
         }
         commands {
             _anchor_.Cxn = "Interrogative-Alternative";
-            _anchor_.Cxn = "Clause";
+            _anchor_.CxnElt = "Clause";
             CH1.CxnElt = "Choice1";
             CH2.CxnElt = "Choice2";
             CH3.CxnElt = "Choice3";
