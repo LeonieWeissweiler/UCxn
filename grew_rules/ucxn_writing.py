@@ -10,10 +10,10 @@ import re
 import argparse
 from copy import deepcopy
 from pathlib import Path
+import logging
 
 from grewpy import Corpus, CorpusDraft
-from grewpy import GRSDraft
-from grewpy.grew import GrewError
+from grewpy import GRSDraft, GRS
 
 def cxnelt_sort_key(misc_values):
     """
@@ -78,34 +78,30 @@ def sort_misc_in_conllu(input_conllu_text: str) -> str:
             output_lines.append(line)
     return '\n'.join(output_lines)
 
-def count_empty_nodes(draft, sent_id, stop):
-    c = 0
-    for i in range(1, stop):
-        if draft[sent_id][str(i)]['wordform'] == "__EMPTY__":
-            c += 1
-    return c
+def check_first_command(command, rule_name, file):
+    node, misc = command.split("=")[0].split(".")
+    if node != "_anchor_" or misc != "Cxn":
+        logging.error(f"rule {rule_name}: The first command does not define a Cxn on the _anchor_ node; {file}")
+        return False
+    return True
 
-def read_treebanks(paths):
-    """
-    Remove EUD annotations
-    """
-    treebank = []
-    for p in paths:
-        with open(p, encoding="utf-8") as in_stream:
-            for line in in_stream:
-                if line.startswith("#") or line.startswith("\n"):
-                    treebank.append(line)
-                else:
-                    splitted = line.split("\t")
-                    if "." in splitted[0]:
-                        continue
-                    else:
-                        splitted[8] = "_"
-                        treebank.append("\t".join(splitted))
-    return "".join(treebank)
+
+def check_rule(rule, rule_name, file):
+    commands = rule.commands
+    res = check_first_command(commands[0], rule_name, file)
+
+    cxn_anchor_count = sum(1 for command in commands if command.split("=")[0].split(".")[1] == "Cxn")
+    cxn_elts_count = sum(1 for command in commands if command.split("=")[0].split(".")[1] == "CxnElt")
+    
+    if cxn_anchor_count > 1:
+        logging.error(f"rule {rule_name}: more than one Cxn; {file}")
+        res = False
+    if cxn_elts_count == 0:
+        logging.error(f"rule {rule_name}: no CxnElt were found; {file}")
+        res = False
+    return res
         
-
-
+        
 if __name__ == "__main__":
     cmd = argparse.ArgumentParser()
     cmd.add_argument("-i", "--input", type=str, required=True, help="a conllu file or a directory of conllu files")
@@ -113,34 +109,51 @@ if __name__ == "__main__":
     cmd.add_argument("-cxn_grs", "--cxn_grs", type=str, required=True, help="a ucxn.grs format")
     args = cmd.parse_args()
 
-    with open(args.cxn_grs) as f:
+    logging.basicConfig(filename='errors.log', filemode='a', format='%(name)s - %(levelname)s - %(message)s')
+
+    with open(args.cxn_grs, encoding="utf-8") as f:
         cxn_grs = f.read()
 
     if Path(args.input).is_dir():
-            paths = [p for p in Path(args.input).glob("*.conllu")]
-            corpus = Corpus(read_treebanks(paths))
+            paths = [p.as_posix() for p in Path(args.input).glob("*.conllu")]
+            corpus = Corpus(paths)
+            GRS.UD2bUD.apply(corpus)
     else:
-        corpus = Corpus(read_treebanks([args.input]))
+        corpus = Corpus(args.input)
+        GRS.UD2bUD.apply(corpus)
 
-    print(args.input.split("/")[-1])
+    print(f"Length: {len(corpus)} phrases")
 
     draft = CorpusDraft(corpus)
     grs_draft = GRSDraft(cxn_grs)
 
-    for package, rules in grs_draft.items():
-        if package != "main": #TODO: need to be generalize
-            print(f"Package: {package}")
-            for e, (rule_name, rule) in enumerate(rules.items(), start=1):
-                print(f"- {e}/{len(rules.keys())} rule name: {rule_name}")
+    for package_name, package in grs_draft.items():
+        if not isinstance(package, str):
+            print(f"Package: {package_name}")
+            for e, (rule_name, rule) in enumerate(package.items(), start=1):
+
+                check = check_rule(rule, rule_name, args.cxn_grs)
+
+                if check == False:
+                    continue
+
+                print(f"- {e}/{len(package.keys())} rule name: {rule_name}")
+                print("-- Machings:", len([m['sent_id'] for m in corpus.search(rule.request)]))
                 matching_sentences = set(m['sent_id'] for m in corpus.search(rule.request))
+
                 for sent_id in matching_sentences:
+
                     basic_rule = deepcopy(rule)
                     basic_rule.request.append('global',f'sent_id="{sent_id}"')
                     cxn_commands = list(basic_rule.commands)
                     cxn_name = cxn_commands[0].split("=")[1].replace('"', '')
-                    
+
                     for i, match in enumerate(corpus.search(basic_rule.request)):
+
                         anchor_id = match['matching']['nodes']['_anchor_']
+                        if anchor_id == "0":
+                            logging.warning(f"Anchor ID is 0; rule {rule_name}; matching {match}; file {args.cxn_grs}")
+                            continue
 
                         if 'Cxn' in draft[sent_id][anchor_id]:
                             cxn_feat = draft[sent_id][anchor_id]['Cxn']
@@ -159,6 +172,10 @@ if __name__ == "__main__":
                             node_id = match['matching']['nodes'][node]
                             cxn_elt_name = command.split('=')[1].replace('"', '')
                             new_cxn_elt = f'{anchor_id}:{new_cxn}.{cxn_elt_name}'
+
+                            if node_id == "0":
+                                logging.warning(f"CxnElt ID is 0; rule {rule_name}; matching {match}")
+                                continue
 
                             if "CxnElt" in draft[sent_id][node_id]:
                                 cxn_elt_feat = draft[sent_id][node_id]['CxnElt']
