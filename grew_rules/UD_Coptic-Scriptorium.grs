@@ -63,8 +63,7 @@ package existentials {
   rule ExistentialPositive { 
     pattern {
       _anchor_ [lemma="ⲟⲩⲛ",xpos=EXIST];
-      _anchor_ -[nsubj]-> SBJ;
-      _anchor_[!Cxn];
+      _anchor_ -[nsubj]-> SBJ
     }
        commands { 
            _anchor_.Cxn="Existential-ExistPred";
