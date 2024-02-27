@@ -330,6 +330,7 @@ package interrogatives {
             CH2-[cc]->OR;
             CH1->IN;
         }
+        without { _anchor_[!upos]; }
         without { CH1-[conj]->CH3; }
         commands {
             _anchor_.Cxn = "Interrogative-Alternative";
@@ -339,8 +340,27 @@ package interrogatives {
         }
     }
 
+    rule InterrogativeAlternativeRule1NoVerb {
+        pattern {
+            OR [lemma="ou"];
+            IN [lemma="?"];
+            *-[root]->_anchor_;
+            _anchor_-[conj]->CH2;
+            CH2-[cc]->OR;
+            _anchor_->IN;
+        }
+        without { _anchor_-[conj]->CH3; }
+        commands {
+            _anchor_.Cxn = "Interrogative-Alternative";
+            _anchor_.CxnElt = "Clause";
+            _anchor_.CxnElt = "Choice1";
+            CH2.CxnElt = "Choice2";
+        }
+    }
+
     rule InterrogativeAlternativeRule2 {
         pattern {
+            _anchor_[!upos];
             OR [lemma="ou"];
             IN [lemma="?"];
             _anchor_->CH1;
@@ -351,6 +371,7 @@ package interrogatives {
             CH1 << CH2;
             CH2 << CH3;
         }
+        without { _anchor_[!upos]; }
         without { CH1-[conj]->CH4; }
         commands {
             _anchor_.Cxn = "Interrogative-Alternative";
@@ -363,6 +384,7 @@ package interrogatives {
 
     rule InterrogativeAlternativeRule3 {
         pattern {
+            _anchor_[!upos];
             OR [lemma="ou"];
             IN [lemma="?"];
             _anchor_->CH1;
@@ -375,10 +397,34 @@ package interrogatives {
             CH2 << CH3;
             CH3 << CH4;
         }
+        without { _anchor_[!upos]; }
         commands {
             _anchor_.Cxn = "Interrogative-Alternative";
             _anchor_.CxnElt = "Clause";
             CH1.CxnElt = "Choice1";
+            CH2.CxnElt = "Choice2";
+            CH3.CxnElt = "Choice3";
+        }
+    }
+
+    rule InterrogativeAlternativeRule3NoVerb {
+        pattern {
+            OR [lemma="ou"];
+            IN [lemma="?"];
+            *-[root]->_anchor_;
+            _anchor_-[conj]->CH2;
+            _anchor_-[conj]->CH3;
+            _anchor_-[conj]->CH4;
+            CH4-[cc]->OR;
+            _anchor_->IN;
+            _anchor_ << CH2;
+            CH2 << CH3;
+            CH3 << CH4;
+        }
+        commands {
+            _anchor_.Cxn = "Interrogative-Alternative";
+            _anchor_.CxnElt = "Clause";
+            _anchor_.CxnElt = "Choice1";
             CH2.CxnElt = "Choice2";
             CH3.CxnElt = "Choice3";
         }
