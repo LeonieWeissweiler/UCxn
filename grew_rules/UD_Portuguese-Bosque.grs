@@ -232,14 +232,15 @@ package interrogatives {
 
     rule InterrogativeWHInfoDirectRule7 {
         pattern {
-            QU [lemma="como"|"onde"|"quanto", upos=ADV, !PronType];
+            *-[root]->_anchor_;
+            _anchor_ [lemma="como"|"onde"|"quanto", upos=ADV, !PronType];
             IN [lemma="?"];
-            _anchor_-[root]->QU;
         }
-        without { QU-[nsubj]->S; }
+        without { _anchor_-[nsubj]->S; }
         commands {
-            QU.Cxn = "Interrogative-WHInfo-Direct";
-            QU.CxnElt = "WHWord";
+            _anchor_.Cxn = "Interrogative-WHInfo-Direct";
+            _anchor_.Clause = "Clause";
+            _anchor_.CxnElt = "WHWord";
         }
     }
 
@@ -325,12 +326,11 @@ package interrogatives {
         pattern {
             OR [lemma="ou"];
             IN [lemma="?"];
-            _anchor_->CH1;
+            _anchor_-[^root]->CH1;
             CH1-[conj]->CH2;
             CH2-[cc]->OR;
             CH1->IN;
         }
-        without { _anchor_[!upos]; }
         without { CH1-[conj]->CH3; }
         commands {
             _anchor_.Cxn = "Interrogative-Alternative";
@@ -349,7 +349,7 @@ package interrogatives {
             CH2-[cc]->OR;
             _anchor_->IN;
         }
-        without { _anchor_-[conj]->CH3; }
+        without { _anchor_-[conj]->CH3 }
         commands {
             _anchor_.Cxn = "Interrogative-Alternative";
             _anchor_.CxnElt = "Clause";
@@ -360,19 +360,17 @@ package interrogatives {
 
     rule InterrogativeAlternativeRule2 {
         pattern {
-            _anchor_[!upos];
             OR [lemma="ou"];
             IN [lemma="?"];
-            _anchor_->CH1;
+            _anchor_-[^root]->CH1;
             CH1-[conj]->CH2;
             CH1-[conj]->CH3;
             CH3-[cc]->OR;
-            CH1->IN;
+            CH1->IN;    
             CH1 << CH2;
-            CH2 << CH3;
+            CH2 << CH3
         }
-        without { _anchor_[!upos]; }
-        without { CH1-[conj]->CH4; }
+        without { CH1-[conj]->CH4 }
         commands {
             _anchor_.Cxn = "Interrogative-Alternative";
             _anchor_.CxnElt = "Clause";
@@ -382,12 +380,33 @@ package interrogatives {
         }
     }
 
-    rule InterrogativeAlternativeRule3 {
+    rule InterrogativeAlternativeRule2NoVerb  {
         pattern {
-            _anchor_[!upos];
             OR [lemma="ou"];
             IN [lemma="?"];
-            _anchor_->CH1;
+            *-[root]->_anchor_;
+            _anchor_-[conj]->CH2;
+            _anchor_-[conj]->CH3;
+            CH3-[cc]->OR;
+            CH2->IN;
+            _anchor_ << CH2; 
+            CH2 << CH3;
+        }
+        without { _anchor_-[conj]->CH3 }
+        commands {
+            _anchor_.Cxn = "Interrogative-Alternative";
+            _anchor_.CxnElt = "Clause";
+            _anchor_.CxnElt = "Choice1";
+            CH2.CxnElt = "Choice2";
+            CH3.CxnElt = "Choice3";
+        }
+    }
+
+    rule InterrogativeAlternativeRule3NoVerb {
+        pattern {
+            OR [lemma="ou"];
+            IN [lemma="?"];
+            _anchor_-[^root]->CH1;
             CH1-[conj]->CH2;
             CH1-[conj]->CH3;
             CH1-[conj]->CH4;
@@ -395,15 +414,15 @@ package interrogatives {
             CH1->IN;
             CH1 << CH2;
             CH2 << CH3;
-            CH3 << CH4;
+            CH3 << CH4
         }
-        without { _anchor_[!upos]; }
         commands {
             _anchor_.Cxn = "Interrogative-Alternative";
             _anchor_.CxnElt = "Clause";
             CH1.CxnElt = "Choice1";
             CH2.CxnElt = "Choice2";
             CH3.CxnElt = "Choice3";
+            CH4.CxnElt = "Choice4";
         }
     }
 
@@ -419,7 +438,7 @@ package interrogatives {
             _anchor_->IN;
             _anchor_ << CH2;
             CH2 << CH3;
-            CH3 << CH4;
+            CH3 << CH4
         }
         commands {
             _anchor_.Cxn = "Interrogative-Alternative";
@@ -427,9 +446,9 @@ package interrogatives {
             _anchor_.CxnElt = "Choice1";
             CH2.CxnElt = "Choice2";
             CH3.CxnElt = "Choice3";
+            CH4.CxnElt = "Choice4";
         }
     }
-
 }
 
 package npn {
