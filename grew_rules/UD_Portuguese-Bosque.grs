@@ -238,7 +238,7 @@ package interrogatives {
         }
         without { QU-[nsubj]->S; }
         commands {
-            _anchor_.Cxn = "Interrogative-WHInfo-Direct";
+            QU.Cxn = "Interrogative-WHInfo-Direct";
             QU.CxnElt = "WHWord";
         }
     }
