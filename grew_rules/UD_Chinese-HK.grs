@@ -58,12 +58,13 @@ package interrogatives {
   }
 
 
-  rule r2c { % Content questions with questions words (什么 ， 谁 …) (upos = PRON for excluding wh-indefinite)
+  rule r2c { % Content questions with questions words (什么 ， 谁 …) (upos = PRON for excluding wh-indefinite) when the WH-word IS NOT the head of the sentence
     pattern { 
-      _anchor_-[obj]-> Q;
-      Q[upos=PRON, lemma="怎麼"|"什麼"|"誰"|"為什麼"|"哪兒"|"哪裡"|"哪裏"|"幾"|"多少"|"哪"];
+      e: _anchor_-> Q;
+      Q[lemma="怎"|"怎麼"|"什麼"|"誰"|"為什麼"|"哪兒"|"哪裡"|"哪裏"|"幾"|"多少"|"哪"|"幹麼"|"怎樣"|"甚麼"];
     }
     with {
+        e.label <> "root";
         P[lemma="？"];
     }
     commands { 
@@ -71,6 +72,22 @@ package interrogatives {
       _anchor_.CxnElt="Clause";
       Q.CxnElt="WHWord";
     }
+  }
+
+    rule r2cbis { % Content questions with questions words (什么 ， 谁 …) (upos = PRON for excluding wh-indefinite) when the WH-word IS the head of the sentence
+      pattern { 
+        e: ROOT-> _anchor_;
+        _anchor_[lemma="怎"|"怎麼"|"什麼"|"誰"|"為什麼"|"哪兒"|"哪裡"|"哪裏"|"幾"|"多少"|"哪"|"幹麼"|"怎樣"|"甚麼"];
+      }
+      with {
+          e.label = "root";
+          P[lemma="？"];
+      }
+      commands { 
+        _anchor_.Cxn="Interrogative-WHInfo-Direct";
+          _anchor_.CxnElt="Clause";
+          _anchor_.CxnElt="WHWord";
+      }
   }
 
   rule r2d { % Matching based on the question mark only AND removing all other strategies
@@ -82,7 +99,10 @@ package interrogatives {
       MA[form="嗎"]
     }
     without { 
-      WH [upos=PRON, lemma="怎麼"|"什麼"|"誰"|"為什麼"|"哪兒"|"哪裡"|"哪裏"|"幾"|"多少"|"哪"]; 
+      WH [lemma="怎"|"怎麼"|"什麼"|"誰"|"為什麼"|"哪兒"|"哪裡"|"哪裏"|"幾"|"多少"|"哪"|"幹麼"|"怎樣"|"甚麼"]; 
+    }
+    without { 
+      _anchor_ [lemma="怎"|"怎麼"|"什麼"|"誰"|"為什麼"|"哪兒"|"哪裡"|"哪裏"|"幾"|"多少"|"哪"|"幹麼"|"怎樣"|"甚麼"]; 
     }
     without { 
       M[form="還是"];
