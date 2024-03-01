@@ -11,26 +11,53 @@ package conditionals {
   rule Cond1 { 
     pattern { 
       X [form="so"|"wenn"|"falls"|"sofern"|"soweit"|"So"|"Wenn"|"Falls"|"Sofern"|"Soweit", upos=SCONJ];
+      P -[mark]-> X;
+       _anchor_ -[advcl]-> P
+    }
+      without { P-[re".subj.*"]-> Z;}
+      without {P -[cop]-> Z2;}
+    without{
+    P[upos="VERB"];
     }
     without{
-      A[lemma="auch"|"selbst"|"Auch"|"Selbst"];
-      X-[advmod]->A;
+    A[lemma="auch"|"selbst"|"Auch"|"Selbst"];
+    X-[advmod]->A;
     }
-    commands {X.Cxn=Condition-MarkerSimple}
-  }
+        commands {_anchor_.Cxn="Conditional-Reduced";
+        _anchor_.CxnElt="Apodosis";
+                P.CxnElt="Protasis";}
+    }
 
   rule Cond2 { 
+    pattern { 
+      X [form="so"|"wenn"|"falls"|"sofern"|"soweit"|"So"|"Wenn"|"Falls"|"Sofern"|"Soweit", upos=SCONJ];
+    P -[mark]-> X;
+     P[upos="VERB"];
+       _anchor_ -[advcl]-> P
+    }
+
+        commands {_anchor_.Cxn="Conditional-MarkerSimple";
+        _anchor_.CxnElt="Apodosis";
+                P.CxnElt="Protasis";}
+    }
+
+  rule Cond3 { 
     pattern { 
       X[form="Angenommen"|"Vorausgesetzt"|"Unterstellt"];
       Y1[form<>"dass"|"daß"];
       Y2[form<>"dass"|"daß"];
       X < Y1;
       Y1 < Y2;
+      X -[ccomp]-> P;
+      X -[parataxis]-> _anchor_;
     }
-    commands {X.Cxn=Condition-MarkerSimple}
-  }
+        commands {_anchor_.Cxn="Conditional-MarkerSimple";
+        _anchor_.CxnElt="Apodosis";
+                P.CxnElt="Protasis";}
+    }
 
-  rule Cond3 { 
+
+  rule Cond4 { 
     pattern { 
       X[form="angenommen"|"vorausgesetzt"|"unterstellt"];
       Y1[form<>"dass"|"daß"];
@@ -41,11 +68,17 @@ package conditionals {
       Y1 < Y2;
       root[form="__0__"];
       root<A;
+      P[upos="VERB"];
+       X -[ccomp]-> P;
+      X -[parataxis]-> _anchor_;
     }
-    commands {X.Cxn=Conditional-MarkerSimple}
-  }
+        commands {_anchor_.Cxn="Conditional-MarkerSimple";
+        _anchor_.CxnElt="Apodosis";
+                P.CxnElt="Protasis";}
+    }
 
-  rule Cond4 { 
+
+  rule Cond5 { 
     pattern { 
       V1[upos=VERB|AUX,Mood<>Imp];
       root[form="__0__"];
@@ -59,7 +92,7 @@ package conditionals {
   }
 
 
-  rule Cond5 { 
+  rule Cond6 { 
     pattern { 
       V1[upos=VERB|AUX,Mood<>Imp];
       root[form="__0__"];
