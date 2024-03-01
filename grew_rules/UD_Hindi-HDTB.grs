@@ -20,13 +20,13 @@ package conditionals {
         }
         without { V1 [upos="VERB", Mood="Sub"] }
         commands { 
-            _anchor_.Cxn="Conditional-Generic";
+            _anchor_.Cxn="Conditional-NeutralEpistemic";
             _anchor_.CxnElt="Apodosis";
             V1.CxnElt="Protasis";
 	    }
     }
 
-    rule conditional-realistic2 { % Conditionals - realistic type, if-X-only-then, without inversion, with explicit protasis marker, we could name this Conditional-Generic-Emphatic if we don't want multiple rules for the same construction label
+    rule conditional-realistic2 { % Conditionals - realistic type, if-X-only-then, without inversion, with explicit protasis marker, we could name this Conditional-NeutralEpistemic-Emphatic if we don't want multiple rules for the same construction label
         pattern { 
             N [form="अगर"|"यदि"];
             T [form="तब"];
@@ -39,7 +39,7 @@ package conditionals {
             _anchor_ -[obl]-> T;
         }
         commands { 
-            _anchor_.Cxn="Conditional-Generic";
+            _anchor_.Cxn="Conditional-NeutralEpistemic";
             _anchor_.CxnElt="Apodosis";
             V1.CxnElt="Protasis";
 	    }
