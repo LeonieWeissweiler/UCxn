@@ -49,7 +49,7 @@ package conditionals {
         pattern {
             N [form="अगर"|"यदि"];
             V1 -[mark]-> N;
-            _anchor_ -> V1;
+            _anchor_ -[^root]-> V1;
         }
         without { T [form="तो"] }
         commands { 
@@ -130,7 +130,7 @@ package interrogatives {
     rule int-direct-info { % Interrogatives - Direct information questions
         pattern {
             W [lemma="क्या"|"कौन"|"कहाँ"|"कहां"|"कब"|"कैसे"|"कितना"|"किस"];
-            _anchor_ -> W;
+            _anchor_ -[^root]-> W;
         }
         without { SC [form="कि"]; _anchor_ -[mark]-> SC }
         without { V1 [upos=VERB]; V1 -[advcl]-> _anchor_; }
