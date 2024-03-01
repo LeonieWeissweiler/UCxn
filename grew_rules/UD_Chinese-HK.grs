@@ -7,14 +7,27 @@ strat main {
 }
 
 package conditionals {
-  rule r4 { 
+  rule rCond1 { 
     pattern {
-      IF [lemma="如果"|"假如"|"假設"|"假使"|"倘若"|"倘使"];
+      IF [lemma="如果"];
       PROTASIS -[mark]-> IF;
       _anchor_ -[advcl]->PROTASIS;
     }
     commands {
-      _anchor_.Cxn=Conditional-Generic;
+      _anchor_.Cxn=Conditional;
+      _anchor_.CxnElt="Apodosis";
+      PROTASIS.CxnElt="Protasis";
+    }
+  }
+
+  rule rCond2 { 
+    pattern {
+      IF [lemma="假如"|"假設"|"假使"|"倘若"|"倘使"];
+      PROTASIS -[mark]-> IF;
+      _anchor_ -[advcl]->PROTASIS;
+    }
+    commands {
+      _anchor_.Cxn=Conditional-NegativeEpistemic;
       _anchor_.CxnElt="Apodosis";
       PROTASIS.CxnElt="Protasis";
     }
