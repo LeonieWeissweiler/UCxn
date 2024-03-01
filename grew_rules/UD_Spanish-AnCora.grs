@@ -21,7 +21,7 @@ package conditionals {
             A[Mood=Sub, Tense=Imp, lemma=haber]
         }
         commands {
-            _anchor_.Cxn = "Conditional";
+            _anchor_.Cxn = "Conditional-NeutralEpistemic";
             _anchor_.CxnElt = "Apodosis@p";
             P.CxnElt = "Protasis@f"
         }
