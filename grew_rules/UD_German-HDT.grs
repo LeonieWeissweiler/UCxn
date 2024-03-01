@@ -190,19 +190,43 @@ rule IntDir {
 		  _anchor_.CxnElt="Clause";}
 }
 
-  rule IntIndPrep { 
+  rule IntIndPrep2{ 
     pattern{
-      O[PronType="Int"|"Int,Rel"];
+      W[PronType=re"Int.*"];
       X[upos=CCONJ|PUNCT];
       A[upos=ADP];
       X < A;
-      A < O;
+      A < W;
+      _anchor_->W;
+    }
+
+    without{        _anchor_-[det]->W;}
+    without{
+      F[lemma="?"];
+    }
+    commands {_anchor_.Cxn="Interrogative-WHInfo-Indirect";
+	  _anchor_.CxnElt="Clause";
+	  Q.CxnElt="WHWord";
+	 }
+
+}
+  rule IntIndPrep1{ 
+    pattern{
+      W[PronType=re"Int.*"];
+      X[upos=CCONJ|PUNCT];
+      A[upos=ADP];
+      X < A;
+      A < W;
+      N-[det]->W;
+      _anchor_->N;
     }
     without{
       F[lemma="?"];
     }
-    commands {O.Cxn=Interrogative-WHInfo-Indirect}
-  }
+    commands {_anchor_.Cxn="Interrogative-WHInfo-Indirect";
+	  _anchor_.CxnElt="Clause";
+	  Q.CxnElt="WHWord";
+	 }
 
 }
 
