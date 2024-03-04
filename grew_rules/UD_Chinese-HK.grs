@@ -121,7 +121,7 @@ package interrogatives {
       M[form="還是"];
     }
     commands {
-      _anchor_.Cxn=Interrogative;
+      _anchor_.Cxn=Interrogative-Reduced;
       _anchor_.CxnElt=Clause
     }
   }
