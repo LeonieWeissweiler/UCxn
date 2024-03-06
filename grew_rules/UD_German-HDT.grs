@@ -127,7 +127,7 @@ package conditionals {
 	_anchor_-[obl]->F;
 	F-[ccomp]->P;
 	}
-    commands {_anchor_.Cxn=Conditional-MarkerComplex;
+    commands {_anchor_.Cxn=Conditional-Marker-Complex;
         _anchor_.CxnElt="Apodosis";
                 P.CxnElt="Protasis";}
     }
