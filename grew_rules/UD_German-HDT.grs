@@ -36,7 +36,7 @@ package conditionals {
       _anchor_ -[advcl]-> P
     }
     commands {
-      _anchor_.Cxn="Conditional-MarkerSimple";
+      _anchor_.Cxn="Conditional-Marker-Simple";
       _anchor_.CxnElt="Apodosis";
       P.CxnElt="Protasis"
     }
@@ -53,7 +53,7 @@ package conditionals {
       X -[parataxis]-> _anchor_;
     }
     commands {
-      _anchor_.Cxn="Conditional-MarkerSimple";
+      _anchor_.Cxn="Conditional-Marker-Simple";
       _anchor_.CxnElt="Apodosis";
       P.CxnElt="Protasis"
     }
@@ -75,7 +75,7 @@ package conditionals {
       X -[parataxis]-> _anchor_;
     }
     commands {
-      _anchor_.Cxn="Conditional-MarkerSimple";
+      _anchor_.Cxn="Conditional-Marker-Simple";
       _anchor_.CxnElt="Apodosis";
       P.CxnElt="Protasis"
     }
