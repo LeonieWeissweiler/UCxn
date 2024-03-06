@@ -111,6 +111,29 @@ package conditionals {
                 P.CxnElt="Protasis";}
     }
 
+  rule Cond7 { 
+	pattern { 
+	S[form="__0__"|"-"|"("|":"];
+	S<X;
+	X[form="Für"|"Gesetzt"|"für"|"gesetzt"];
+	D[form="den"];
+	F[form="Fall"];
+	Y1[form="dass"|"daß"];
+	K[form=","];
+	X <D;
+	D<F;
+	F<K;
+	K<Y1;
+	_anchor_-[obl]->F;
+	F-[ccomp]->P;
+	}
+    commands {_anchor_.Cxn=Conditional-MarkerComplex;
+        _anchor_.CxnElt="Apodosis";
+                P.CxnElt="Protasis";}
+    }
+
+}
+
 package existentials {
 
   rule Ex1 { 
