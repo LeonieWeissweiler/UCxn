@@ -12,34 +12,35 @@ package conditionals {
     pattern { 
       X [form="so"|"wenn"|"falls"|"sofern"|"soweit"|"So"|"Wenn"|"Falls"|"Sofern"|"Soweit", upos=SCONJ];
       P -[mark]-> X;
-       _anchor_ -[advcl]-> P
+        _anchor_ -[advcl]-> P
     }
-      without { P-[re".subj.*"]-> Z;}
-      without {P -[cop]-> Z2;}
-    without{
-    P[upos="VERB"];
+    without { P-[re".subj.*"]-> Z;}
+    without {P -[cop]-> Z2;}
+    without {P[upos="VERB"];}
+    without {
+      A[lemma="auch"|"selbst"|"Auch"|"Selbst"];
+      X-[advmod]->A;
     }
-    without{
-    A[lemma="auch"|"selbst"|"Auch"|"Selbst"];
-    X-[advmod]->A;
+    commands {
+      _anchor_.Cxn="Conditional-Reduced";
+      _anchor_.CxnElt="Apodosis";
+      P.CxnElt="Protasis"
     }
-        commands {_anchor_.Cxn="Conditional-Reduced";
-        _anchor_.CxnElt="Apodosis";
-                P.CxnElt="Protasis";}
-    }
+  }
 
   rule Cond2 { 
     pattern { 
       X [form="so"|"wenn"|"falls"|"sofern"|"soweit"|"So"|"Wenn"|"Falls"|"Sofern"|"Soweit", upos=SCONJ];
-    P -[mark]-> X;
-     P[upos="VERB"];
-       _anchor_ -[advcl]-> P
+      P -[mark]-> X;
+      P[upos="VERB"];
+      _anchor_ -[advcl]-> P
     }
-
-        commands {_anchor_.Cxn="Conditional-MarkerSimple";
-        _anchor_.CxnElt="Apodosis";
-                P.CxnElt="Protasis";}
+    commands {
+      _anchor_.Cxn="Conditional-MarkerSimple";
+      _anchor_.CxnElt="Apodosis";
+      P.CxnElt="Protasis"
     }
+  }
 
   rule Cond3 { 
     pattern { 
@@ -51,11 +52,12 @@ package conditionals {
       X -[ccomp]-> P;
       X -[parataxis]-> _anchor_;
     }
-        commands {_anchor_.Cxn="Conditional-MarkerSimple";
-        _anchor_.CxnElt="Apodosis";
-                P.CxnElt="Protasis";}
+    commands {
+      _anchor_.Cxn="Conditional-MarkerSimple";
+      _anchor_.CxnElt="Apodosis";
+      P.CxnElt="Protasis"
     }
-
+  }
 
   rule Cond4 { 
     pattern { 
@@ -69,14 +71,15 @@ package conditionals {
       root[form="__0__"];
       root<A;
       P[upos="VERB"];
-       X -[ccomp]-> P;
+      X -[ccomp]-> P;
       X -[parataxis]-> _anchor_;
     }
-        commands {_anchor_.Cxn="Conditional-MarkerSimple";
-        _anchor_.CxnElt="Apodosis";
-                P.CxnElt="Protasis";}
+    commands {
+      _anchor_.Cxn="Conditional-MarkerSimple";
+      _anchor_.CxnElt="Apodosis";
+      P.CxnElt="Protasis"
     }
-
+  }
 
   rule Cond5 { 
     pattern { 
@@ -88,11 +91,12 @@ package conditionals {
       A[upos=VERB|AUX];
       PUNCT < A;
     }
-        commands {_anchor_.Cxn="Conditional-SubjVerbInversion";
-        _anchor_.CxnElt="Apodosis";
-                P.CxnElt="Protasis";}
+    commands {
+      _anchor_.Cxn="Conditional-SubjVerbInversion";
+      _anchor_.CxnElt="Apodosis";
+      P.CxnElt="Protasis"
     }
-
+  }
 
   rule Cond6 { 
     pattern { 
@@ -106,32 +110,35 @@ package conditionals {
       PUNCT < C;
       C < A;
     }
-    commands {_anchor_.Cxn=Conditional-SubjVerbInversion;
-        _anchor_.CxnElt="Apodosis";
-                P.CxnElt="Protasis";}
+    commands {
+      _anchor_.Cxn=Conditional-SubjVerbInversion;
+      _anchor_.CxnElt="Apodosis";
+      P.CxnElt="Protasis"
     }
+  }
 
   rule Cond7 { 
-	pattern { 
-	S[form="__0__"|"-"|"("|":"];
-	S<X;
-	X[form="Für"|"Gesetzt"|"für"|"gesetzt"];
-	D[form="den"];
-	F[form="Fall"];
-	Y1[form="dass"|"daß"];
-	K[form=","];
-	X <D;
-	D<F;
-	F<K;
-	K<Y1;
-	_anchor_-[obl]->F;
-	F-[ccomp]->P;
-	}
-    commands {_anchor_.Cxn=Conditional-Marker-Complex;
-        _anchor_.CxnElt="Apodosis";
-                P.CxnElt="Protasis";}
+    pattern { 
+      S[form="__0__"|"-"|"("|":"];
+      S<X;
+      X[form="Für"|"Gesetzt"|"für"|"gesetzt"];
+      D[form="den"];
+      F[form="Fall"];
+      Y1[form="dass"|"daß"];
+      K[form=","];
+      X <D;
+      D<F;
+      F<K;
+      K<Y1;
+      _anchor_-[obl]->F;
+      F-[ccomp]->P;
     }
-
+    commands {
+      _anchor_.Cxn=Conditional-Marker-Complex;
+      _anchor_.CxnElt="Apodosis";
+      P.CxnElt="Protasis"
+    }
+  }
 }
 
 package existentials {
@@ -143,61 +150,68 @@ package existentials {
       _anchor_-[nsubj]->E;
       _anchor_-[obj]->P;
     }
-    commands {_anchor_.Cxn=Existential-Expl;
-                P.CxnElt="Pivot";}
-        }
+    commands {
+      _anchor_.Cxn=Existential-Expl;
+      P.CxnElt="Pivot"
+    }
+  }
 
   rule Ex2 { 
     pattern { 
       D[lemma="da",upos=ADV];
       _anchor_[lemma="sein",upos=AUX];
       D-[cop]->_anchor_;
-      D-[re".subj"]->P;
+      D-[re".subj"]->P
     }
-    commands {_anchor_.Cxn=Existential-There;
-                P.CxnElt="Pivot";}
-        }
+    commands {
+      _anchor_.Cxn=Existential-There;
+      P.CxnElt="Pivot"
+    }
+  }
+}
 
 package interrogatives {
 
-rule IntDir { 
-  pattern { 
-    F[lemma="?", upos=PUNCT];
-    _anchor_-[punct]->F;
-    W[PronType=re"Int.*"];
-    W << F;
-     _anchor_ -> W;
-  } 
-  commands {_anchor_.Cxn=Interrogative-WHInfo-Direct;
-                  _anchor_.CxnElt="Clause";
-                  W.CxnElt="WHWord";}
+  rule IntDir { 
+    pattern { 
+      F[lemma="?", upos=PUNCT];
+      _anchor_-[punct]->F;
+      W[PronType=re"Int.*"];
+      W << F;
+      _anchor_ -> W;
+    } 
+    commands {
+      _anchor_.Cxn=Interrogative-WHInfo-Direct;
+      _anchor_.CxnElt="Clause";
+      W.CxnElt="WHWord"
     }
+  }
 
   rule IntDirPol { 
     pattern { 
       F[lemma="?", upos=PUNCT];
       _anchor_-[punct]->F;
     } 
-    without {
-      W[PronType="Int,Rel"];
+    without { W[PronType="Int,Rel"] }
+    without { WI[PronType="Int"] }
+    commands {
+      _anchor_.Cxn="Interrogative-Polar-Direct";
+		  _anchor_.CxnElt="Clause"
     }
-    without {
-      WI[PronType="Int"];
-    }
-    commands {_anchor_.Cxn=Interrogative-Polar-Direct;
-		  _anchor_.CxnElt="Clause";}
-}
+  }
 
   rule IntOb { 
     pattern{
       O[lemma=ob];
       X[upos=CCONJ|PUNCT];
       X < O;
-      _anchor_-[mark]->O;
+      _anchor_-[mark]->O
     }
-    commands {_anchor_.Cxn=Interrogative-Polar-Indirect;
-		  _anchor_.CxnElt="Clause";}
-}
+    commands {
+      _anchor_.Cxn="Interrogative-Polar-Indirect";
+		  _anchor_.CxnElt="Clause"
+    }
+  }
 
   rule IntIndWh { 
     pattern{
@@ -206,12 +220,12 @@ rule IntDir {
       X < O;
       _anchor_-[advmod]->O;
     }
-    without{
-      F[lemma="?"];
+    without{ F[lemma="?"] }
+    commands {
+      _anchor_.Cxn="Interrogative-WHInfo-Indirect";
+		  _anchor_.CxnElt="Clause"
     }
-    commands {_anchor_.Cxn=Interrogative-WHInfo-Indirect;
-		  _anchor_.CxnElt="Clause";}
-}
+  }
 
   rule IntIndPrep2{ 
     pattern{
@@ -220,19 +234,17 @@ rule IntDir {
       A[upos=ADP];
       X < A;
       A < W;
-      _anchor_->W;
+      _anchor_->W
     }
-
-    without{        _anchor_-[det]->W;}
-    without{
-      F[lemma="?"];
-    }
-    commands {_anchor_.Cxn="Interrogative-WHInfo-Indirect";
+    without{ _anchor_-[det]->W }
+    without{ F[lemma="?"] }
+    commands {
+    _anchor_.Cxn="Interrogative-WHInfo-Indirect";
 	  _anchor_.CxnElt="Clause";
-	  Q.CxnElt="WHWord";
-	 }
+	  Q.CxnElt="WHWord"
+	  }
+  }
 
-}
   rule IntIndPrep1{ 
     pattern{
       W[PronType=re"Int.*"];
@@ -241,16 +253,15 @@ rule IntDir {
       X < A;
       A < W;
       N-[det]->W;
-      _anchor_->N;
+      _anchor_->N
     }
-    without{
-      F[lemma="?"];
-    }
-    commands {_anchor_.Cxn="Interrogative-WHInfo-Indirect";
+    without{ F[lemma="?"] }
+    commands {
+    _anchor_.Cxn="Interrogative-WHInfo-Indirect";
 	  _anchor_.CxnElt="Clause";
-	  Q.CxnElt="WHWord";
-	 }
-
+	  Q.CxnElt="WHWord"
+	  }
+  }
 }
 
 package npn {
@@ -261,16 +272,17 @@ package npn {
       _anchor_.form = N2.form;
       P[upos=ADP];
       _anchor_ < P;
-      P < N2;
+      P < N2
     }
     without{
       A[upos=ADP];
-      A < _anchor_;
+      A < _anchor_
     }
-        commands {_anchor_.Cxn="NPN";
+    commands {
+      _anchor_.Cxn="NPN";
 		  _anchor_.CxnElt="N1";
-                  P.CxnElt="P";
-                  N2.CxnElt="N2";}
+      P.CxnElt="P";
+      N2.CxnElt="N2"
     }
-
+  }
 }
