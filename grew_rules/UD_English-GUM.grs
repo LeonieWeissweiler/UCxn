@@ -30,12 +30,12 @@
             pattern { 
                 _anchor_ -[advcl]-> P;
                 P -[mark]-> I;
-                I [form="if"];
+                I [lemma="if"];
                 M [lemma="could"|"would"|"might"];
                 M [xpos="MD"];
                 H [lemma="have"];
-                X -[aux]->H;
-                X -> M;
+                _anchor_ -[aux]->H;
+                _anchor_ -[aux]-> M;
             }
             commands {_anchor_.Cxn="Conditional-NegativeEpistemic";
                     _anchor_.CxnElt="Apodosis";
@@ -67,12 +67,12 @@
                 I [lemma="if"];
                 M [lemma="could"|"would"|"might"];
                 M [xpos="MD"];
-                _anchor_ -> M;
-                P -[cop|aux]-> Z;
-                Z [xpos = "VBD"];
+                _anchor_ -[aux]-> M;
             }
-            without { _anchor_ -[aux]-> H;}
-            commands {_anchor_.Cxn="Conditional-NeutralEpistemic";
+            without { _anchor_ -[aux]-> H;
+                    H [lemma="have"];
+                    }
+            commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic";
                     _anchor_.CxnElt="Apodosis";
                     P.CxnElt="Protasis";}
         }
@@ -101,8 +101,13 @@
             without{
                 P [xpos="VBN"|"VBG"];
                 P -[aux]-> Z3;}
+            without{
+                MD [lemma="could"|"would"|"might"];
+                MD [xpos="MD"];
+                _anchor_ -[aux]-> MD;
+                }
             global { s_type <> "wh"}
-            commands {_anchor_.Cxn="Conditional-Generic";
+            commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic";
                     _anchor_.CxnElt="Apodosis";
                     P.CxnElt="Protasis";}
         }
@@ -115,8 +120,13 @@
                 P -[cop]-> Z2;
             }
             without { P-[re".subj.*"]-> Z;}
+            without{
+                MD [lemma="could"|"would"|"might"];
+                MD [xpos="MD"];
+                _anchor_ -[aux]-> MD;
+                }
             global { s_type <> "wh"}
-            commands {_anchor_.Cxn="Conditional-Generic";
+            commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic";
                     _anchor_.CxnElt="Apodosis";
                     P.CxnElt="Protasis";}
         }
@@ -128,9 +138,13 @@
                 M [form="if"];
                 P -[cop]-> Z2;
             }
-            
+            without{
+                MD [lemma="could"|"would"|"might"];
+                MD [xpos="MD"];
+                _anchor_ -[aux]-> MD;
+                }
             global { s_type <> "wh"}
-            commands {_anchor_.Cxn="Conditional-Generic";
+            commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic";
                     _anchor_.CxnElt="Apodosis";
                     P.CxnElt="Protasis";}
         }
@@ -142,9 +156,14 @@
                 M [form="if"];
                 P [xpos="VBZ"|"VBD"|"VBP"];
             }
+            without{
+                MD [lemma="could"|"would"|"might"];
+                MD [xpos="MD"];
+                _anchor_ -[aux]-> MD;
+                }
             without { P-[re".subj.*"]-> Z;}
             global { s_type <> "wh"}
-            commands {_anchor_.Cxn="Conditional-Generic";
+            commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic";
                     _anchor_.CxnElt="Apodosis";
                     P.CxnElt="Protasis";}
         }
@@ -156,8 +175,13 @@
                 M [form="if"];
                 P [xpos="VBZ"|"VBD"|"VBP"];
             }
+            without{
+                MD [lemma="could"|"would"|"might"];
+                MD [xpos="MD"];
+                _anchor_ -[aux]-> MD;
+                }
             global { s_type <> "wh"}
-            commands {_anchor_.Cxn="Conditional-Generic";
+            commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic";
                     _anchor_.CxnElt="Apodosis";
                     P.CxnElt="Protasis";}
         }
@@ -170,9 +194,14 @@
                 P [xpos="VBN"|"VBG"];
                 P -[aux]-> Z3
             }
+            without{
+                MD [lemma="could"|"would"|"might"];
+                MD [xpos="MD"];
+                _anchor_ -[aux]-> MD;
+                }
             without { P-[re".subj.*"]-> Z;}
             global { s_type <> "wh"}
-            commands {_anchor_.Cxn="Conditional-Generic";
+            commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic";
                     _anchor_.CxnElt="Apodosis";
                     P.CxnElt="Protasis";}
         }
@@ -185,8 +214,13 @@
                 P [xpos="VBN"|"VBG"];
                 P -[aux]-> Z3
             }
+            without{
+                MD [lemma="could"|"would"|"might"];
+                MD [xpos="MD"];
+                _anchor_ -[aux]-> MD;
+                }
             global { s_type <> "wh"}
-            commands {_anchor_.Cxn="Conditional-Generic";
+            commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic";
                     _anchor_.CxnElt="Apodosis";
                     P.CxnElt="Protasis";}
         }
