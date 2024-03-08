@@ -104,7 +104,7 @@ package conditionals {
         without{
             MD [lemma="could"|"would"|"might"];
             MD [xpos="MD"];
-            anchor_ -[aux]-> MD;
+            _anchor_ -[aux]-> MD;
             }
         commands {_anchor_.Cxn="Conditional-Generic";
                   _anchor_.CxnElt="Apodosis";
@@ -122,7 +122,7 @@ package conditionals {
         without{
             MD [lemma="could"|"would"|"might"];
             MD [xpos="MD"];
-            anchor_ -[aux]-> MD;
+            _anchor_ -[aux]-> MD;
             }
         commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic";
                   _anchor_.CxnElt="Apodosis";
@@ -139,7 +139,7 @@ package conditionals {
         without{
             MD [lemma="could"|"would"|"might"];
             MD [xpos="MD"];
-            anchor_ -[aux]-> MD;
+            _anchor_ -[aux]-> MD;
             }
         commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic";
                   _anchor_.CxnElt="Apodosis";
@@ -157,7 +157,7 @@ package conditionals {
         without{
             MD [lemma="could"|"would"|"might"];
             MD [xpos="MD"];
-            anchor_ -[aux]-> MD;
+            _anchor_ -[aux]-> MD;
             }
         commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic";
                   _anchor_.CxnElt="Apodosis";
@@ -174,7 +174,7 @@ package conditionals {
         without{
             MD [lemma="could"|"would"|"might"];
             MD [xpos="MD"];
-            anchor_ -[aux]-> MD;
+            _anchor_ -[aux]-> MD;
             }
         commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic";
                   _anchor_.CxnElt="Apodosis";
@@ -192,7 +192,7 @@ package conditionals {
         without{
             MD [lemma="could"|"would"|"might"];
             MD [xpos="MD"];
-            anchor_ -[aux]-> MD;
+            _anchor_ -[aux]-> MD;
             }
         without { P-[re".subj.*"]-> Z;}
         commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic";
@@ -211,7 +211,7 @@ package conditionals {
         without{
             MD [lemma="could"|"would"|"might"];
             MD [xpos="MD"];
-            anchor_ -[aux]-> MD;
+            _anchor_ -[aux]-> MD;
             }
         commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic";
                   _anchor_.CxnElt="Apodosis";
