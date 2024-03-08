@@ -16,7 +16,7 @@ package conditionals {
 		} 
 		without { KI [lemma="כי"]; IF < KI }
 		commands { 
-			_anchor_.Cxn="Conditional-Generic";
+			_anchor_.Cxn="Conditional-NeutralEpistemic";
 			PROTASIS.CxnElt="Protasis";
 			_anchor_.CxnElt="Apodosis";
 		}
@@ -49,7 +49,7 @@ package conditionals {
 			_anchor_ -[advcl]-> PROTASIS;
 		}
 		commands { 
-			_anchor_.Cxn="Conditional-Generic"; 
+			_anchor_.Cxn="Conditional-NeutralEpistemic"; 
 			PROTASIS.CxnElt="Protasis";
 			_anchor_.CxnElt="Apodosis";
 		}
@@ -66,7 +66,7 @@ package conditionals {
 			_anchor_ -[advcl]-> PROTASIS 
 		}
 		commands { 
-			_anchor_.Cxn="Conditional-Generic"; 
+			_anchor_.Cxn="Conditional-NeutralEpistemic"; 
 			PROTASIS.CxnElt="Protasis";
 			_anchor_.CxnElt="Apodosis";
 		}
