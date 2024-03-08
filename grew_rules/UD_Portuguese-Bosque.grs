@@ -108,7 +108,7 @@ package existentials {
             _anchor_-[obj]->PIV;
         }
         commands {
-            _anchor_.Cxn = "Existential";
+            _anchor_.Cxn = "Existential-HavePred";
             PIV.CxnElt = "Pivot@f";
         }
     }
