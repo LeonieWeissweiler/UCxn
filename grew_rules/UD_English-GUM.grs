@@ -119,25 +119,6 @@
                 M [form="if"];
                 P -[cop]-> Z2;
             }
-            without { P-[re".subj.*"]-> Z;}
-            without{
-                MD [lemma="could"|"would"|"might"];
-                MD [xpos="MD"];
-                _anchor_ -[aux]-> MD;
-                }
-            global { s_type <> "wh"}
-            commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic";
-                    _anchor_.CxnElt="Apodosis";
-                    P.CxnElt="Protasis";}
-        }
-
-        rule cond8 { %realistic conditional - rule 3
-            pattern { 
-                _anchor_ -[advcl]-> P;
-                P -[mark]-> M;
-                M [form="if"];
-                P -[cop]-> Z2;
-            }
             without{
                 MD [lemma="could"|"would"|"might"];
                 MD [xpos="MD"];
@@ -149,64 +130,25 @@
                     P.CxnElt="Protasis";}
         }
         
+        rule cond8 { %realistic conditional - rule 3
+            pattern { 
+                _anchor_ -[advcl]-> P;
+                P -[mark]-> M;
+                M [form="if"];
+                P [xpos="VBZ"|"VBD"|"VBP"];
+            }
+            without{
+                MD [lemma="could"|"would"|"might"];
+                MD [xpos="MD"];
+                _anchor_ -[aux]-> MD;
+                }
+            global { s_type <> "wh"}
+            commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic";
+                    _anchor_.CxnElt="Apodosis";
+                    P.CxnElt="Protasis";}
+        }
+
         rule cond9 { %realistic conditional - rule 4
-            pattern { 
-                _anchor_ -[advcl]-> P;
-                P -[mark]-> M;
-                M [form="if"];
-                P [xpos="VBZ"|"VBD"|"VBP"];
-            }
-            without{
-                MD [lemma="could"|"would"|"might"];
-                MD [xpos="MD"];
-                _anchor_ -[aux]-> MD;
-                }
-            without { P-[re".subj.*"]-> Z;}
-            global { s_type <> "wh"}
-            commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic";
-                    _anchor_.CxnElt="Apodosis";
-                    P.CxnElt="Protasis";}
-        }
-
-        rule cond10 { %realistic conditional - rule 5
-            pattern { 
-                _anchor_ -[advcl]-> P;
-                P -[mark]-> M;
-                M [form="if"];
-                P [xpos="VBZ"|"VBD"|"VBP"];
-            }
-            without{
-                MD [lemma="could"|"would"|"might"];
-                MD [xpos="MD"];
-                _anchor_ -[aux]-> MD;
-                }
-            global { s_type <> "wh"}
-            commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic";
-                    _anchor_.CxnElt="Apodosis";
-                    P.CxnElt="Protasis";}
-        }
-
-        rule cond11 { %realistic conditional - rule 6
-            pattern { 
-                _anchor_ -[advcl]-> P;
-                P -[mark]-> M;
-                M [form="if"];
-                P [xpos="VBN"|"VBG"];
-                P -[aux]-> Z3
-            }
-            without{
-                MD [lemma="could"|"would"|"might"];
-                MD [xpos="MD"];
-                _anchor_ -[aux]-> MD;
-                }
-            without { P-[re".subj.*"]-> Z;}
-            global { s_type <> "wh"}
-            commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic";
-                    _anchor_.CxnElt="Apodosis";
-                    P.CxnElt="Protasis";}
-        }
-
-        rule cond12 { %realistic conditional - rule 7
             pattern { 
                 _anchor_ -[advcl]-> P;
                 P -[mark]-> M;
