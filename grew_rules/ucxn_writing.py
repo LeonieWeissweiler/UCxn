@@ -48,12 +48,12 @@ def sort_cxns_in_misc(misc: str) -> str:
         for i in range(len(miscs_feats)):
             if miscs_feats[i].startswith('Cxn'):
                 cxn_feat, cxn_values = miscs_feats[i].split("=")
-                splitted_cxn_values = cxn_values.split(';')
+                splitted_cxn_values = cxn_values.split(',')
                 if cxn_feat == "Cxn":
                     splitted_cxn_values.sort()
                 else:
                     splitted_cxn_values.sort(key=cxnelt_sort_key)
-                cxn_values = ';'.join(splitted_cxn_values)
+                cxn_values = ','.join(splitted_cxn_values)
                 miscs_feats[i] = f"{cxn_feat}={cxn_values}"
         misc = '|'.join(miscs_feats)
         return misc
@@ -84,7 +84,6 @@ def check_first_command(command, rule_name, file):
         logging.error(f"rule {rule_name}: The first command does not define a Cxn on the _anchor_ node; {file}")
         return False
     return True
-
 
 def check_rule(rule, rule_name, file):
     commands = rule.commands
@@ -139,49 +138,45 @@ if __name__ == "__main__":
 
                 print(f"- {e}/{len(package.keys())} rule name: {rule_name}")
                 print("-- Machings:", len([m['sent_id'] for m in corpus.search(rule.request)]))
-                matching_sentences = set(m['sent_id'] for m in corpus.search(rule.request))
 
-                for sent_id in matching_sentences:
+                for match in corpus.search(rule.request):
 
-                    basic_rule = deepcopy(rule)
-                    basic_rule.request.append('global',f'sent_id="{sent_id}"')
-                    cxn_commands = list(basic_rule.commands)
+                    cxn_commands = list(rule.commands)
                     cxn_name = cxn_commands[0].split("=")[1].replace('"', '')
+                    sent_id = match['sent_id']
+                    anchor_id = match['matching']['nodes']['_anchor_']
+                    
+                    if anchor_id == "0":
+                        logging.warning(f"Anchor ID is 0; rule {rule_name}; matching {match}; file {args.cxn_grs}")
+                        continue
 
-                    for i, match in enumerate(corpus.search(basic_rule.request)):
-
-                        anchor_id = match['matching']['nodes']['_anchor_']
-                        if anchor_id == "0":
-                            logging.warning(f"Anchor ID is 0; rule {rule_name}; matching {match}; file {args.cxn_grs}")
-                            continue
-
-                        if 'Cxn' in draft[sent_id][anchor_id]:
-                            cxn_feat = draft[sent_id][anchor_id]['Cxn']
-                            if cxn_name in cxn_feat:
-                                n_cxns = re.split(r"[;#]",draft[sent_id][anchor_id]['Cxn']).count(cxn_name)
-                                new_cxn = f'{cxn_name.split("#")[0]}#{n_cxns+1}'
-                            else:
-                                new_cxn = f'{cxn_name}#1'
-                            draft[sent_id][anchor_id]['Cxn'] = f"{cxn_feat};{new_cxn}"
+                    if 'Cxn' in draft[sent_id][anchor_id]:
+                        cxn_feat = draft[sent_id][anchor_id]['Cxn']
+                        if cxn_name in cxn_feat:
+                            n_cxns = re.split(r"[,#]",draft[sent_id][anchor_id]['Cxn']).count(cxn_name)
+                            new_cxn = f'{cxn_name.split("#")[0]}#{n_cxns+1}'
                         else:
                             new_cxn = f'{cxn_name}#1'
-                            draft[sent_id][anchor_id]["Cxn"] = new_cxn
+                        draft[sent_id][anchor_id]['Cxn'] = f"{cxn_feat},{new_cxn}"
+                    else:
+                        new_cxn = f'{cxn_name}#1'
+                        draft[sent_id][anchor_id]["Cxn"] = new_cxn
 
-                        for command in rule.commands[1:]:
-                            node = command.split('=')[0].split('.')[0]
-                            node_id = match['matching']['nodes'][node]
-                            cxn_elt_name = command.split('=')[1].replace('"', '')
-                            new_cxn_elt = f'{anchor_id}:{new_cxn}.{cxn_elt_name}'
+                    for command in rule.commands[1:]:
+                        node = command.split('=')[0].split('.')[0]
+                        node_id = match['matching']['nodes'][node]
+                        cxn_elt_name = command.split('=')[1].replace('"', '')
+                        new_cxn_elt = f'{anchor_id}:{new_cxn}.{cxn_elt_name}'
 
-                            if node_id == "0":
-                                logging.warning(f"CxnElt ID is 0; rule {rule_name}; matching {match}")
-                                continue
+                        if node_id == "0":
+                            logging.warning(f"CxnElt ID is 0; rule {rule_name}; matching {match}")
+                            continue
 
-                            if "CxnElt" in draft[sent_id][node_id]:
-                                cxn_elt_feat = draft[sent_id][node_id]['CxnElt']
-                                draft[sent_id][node_id]["CxnElt"] = f"{cxn_elt_feat};{new_cxn_elt}"
-                            else:
-                                draft[sent_id][node_id]["CxnElt"] = new_cxn_elt
+                        if "CxnElt" in draft[sent_id][node_id]:
+                            cxn_elt_feat = draft[sent_id][node_id]['CxnElt']
+                            draft[sent_id][node_id]["CxnElt"] = f"{cxn_elt_feat},{new_cxn_elt}"
+                        else:
+                            draft[sent_id][node_id]["CxnElt"] = new_cxn_elt
 
     with open(args.output, "w", encoding="utf-8") as f:
         conllu = sort_misc_in_conllu(draft.to_conll())
