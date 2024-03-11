@@ -9,7 +9,7 @@ strat main {
 
 package conditionals {
 
-    rule Conditional {
+    rule Conditional-NeutralEpistemic {
         pattern {
             _anchor_-[advcl]->P;
             P-[mark]->SI;
@@ -28,7 +28,7 @@ package conditionals {
             A2[Tense=Imp]; 
         }
         commands {
-            _anchor_.Cxn = "Conditional";
+            _anchor_.Cxn = "Conditional-NeutralEpistemic";
             _anchor_.CxnElt = "Apodosis@p";
             P.CxnElt = "Protasis@f"
         }
