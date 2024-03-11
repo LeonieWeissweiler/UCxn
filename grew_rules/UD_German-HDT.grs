@@ -88,8 +88,8 @@ package conditionals {
       root<P;
       PUNCT[upos=PUNCT];
       P << PUNCT;
-      A[upos=VERB|AUX];
-      PUNCT < A;
+      _achor_[upos=VERB|AUX];
+      PUNCT < _anchor_;
     }
     commands {
       _anchor_.Cxn="Conditional-SubjVerbInversion";
@@ -102,13 +102,13 @@ package conditionals {
     pattern { 
       P[upos=VERB|AUX,Mood<>Imp];
       root[form="__0__"];
-      root<V1;
+      root<P;
       PUNCT[upos=PUNCT];
       P << PUNCT;
       C[lemma="so"|"dann"];
-      A[upos=VERB|AUX];
+      _anchor_[upos=VERB|AUX];
       PUNCT < C;
-      C < A;
+      C < _anchor_;
     }
     commands {
       _anchor_.Cxn=Conditional-SubjVerbInversion;
@@ -241,7 +241,7 @@ package interrogatives {
     commands {
     _anchor_.Cxn="Interrogative-WHInfo-Indirect";
 	  _anchor_.CxnElt="Clause";
-	  Q.CxnElt="WHWord"
+	  W.CxnElt="WHWord"
 	  }
   }
 
@@ -259,7 +259,7 @@ package interrogatives {
     commands {
     _anchor_.Cxn="Interrogative-WHInfo-Indirect";
 	  _anchor_.CxnElt="Clause";
-	  Q.CxnElt="WHWord"
+	  W.CxnElt="WHWord"
 	  }
   }
 }
