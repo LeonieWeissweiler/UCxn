@@ -88,7 +88,7 @@ package conditionals {
       root<P;
       PUNCT[upos=PUNCT];
       P << PUNCT;
-      _achor_[upos=VERB|AUX];
+      _anchor_[upos=VERB|AUX];
       PUNCT < _anchor_;
     }
     commands {
