@@ -132,7 +132,6 @@ if __name__ == "__main__":
             for e, (rule_name, rule) in enumerate(package.items(), start=1):
 
                 check = check_rule(rule, rule_name, args.cxn_grs)
-
                 if check == False:
                     continue
 
