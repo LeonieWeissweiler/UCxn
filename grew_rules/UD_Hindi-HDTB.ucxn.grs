@@ -102,7 +102,7 @@ package conditionals {
             T -[acl:relcl]-> V1;
         }
         commands { 
-            _anchor_.Cxn="Conditional-PositiveEpistemic";
+            _anchor_.Cxn="Conditional-NeutralEpistemic";
             _anchor_.CxnElt="Apodosis";
             V1.CxnElt="Protasis"
 	    }
