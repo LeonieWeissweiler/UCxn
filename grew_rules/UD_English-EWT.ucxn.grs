@@ -9,7 +9,7 @@ strat main {
 
 package conditionals {
 
-    rule cond1 { %reduced conditional
+    rule cond1 { %reduced conditional %Example: "We will still be around to assist them if needed."
         pattern { 
             _anchor_ -[advcl]-> P;
             P -[mark]-> I;
@@ -21,63 +21,81 @@ package conditionals {
         without{
             P [xpos="VBN"|"VBG"];
             P -[aux]-> Z3;}
-        commands {_anchor_.Cxn="Conditional-Reduced";
-		  _anchor_.CxnElt="Apodosis";
+        without {_anchor_ [lemma="what"];}
+        commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic-Reduced";
+                  _anchor_.CxnElt="Apodosis";
                   P.CxnElt="Protasis";}
     }
 
-    rule cond2 { %unrealistic modal conditional
+    rule cond2 { %unrealistic modal conditional %Example: "one answer to Bush's charge about Edwards is that if it had any merit, Bush should have declined to run himself."
         pattern { 
             _anchor_ -[advcl]-> P;
             P -[mark]-> I;
             I [lemma="if"];
-            M [lemma="could"|"would"|"might"];
             M [xpos="MD"];
             H [lemma="have"];
             _anchor_ -[aux]->H;
             _anchor_ -[aux]-> M;
         }
-        commands {_anchor_.Cxn="Conditional-NegativeEpistemic";
+        without {_anchor_ [lemma="what"];}
+        commands {_anchor_.Cxn="Conditional-NegativeEpistemic-NoInversion";
                   _anchor_.CxnElt="Apodosis";
                   P.CxnElt="Protasis";}
     }
 
-    rule cond3 { %unrealistic inverted conditional
+    rule cond3 { %unrealistic inverted conditional %Example: "Then and there they would have plunged their knives into me could they have seen how to escape the consequences of the deed."
         pattern { 
             _anchor_ -[advcl]-> P;
-            M [lemma="could"|"would"|"might"];
             M [xpos="MD"];
             H [lemma="have"];
             _anchor_ -[aux]->H;
-            _anchor_ -> M;
+            _anchor_ -[aux]-> M;
             P -[re".subj.*"]-> S;
-            H2 [lemma = "have"];
-            P -> H2;
+            H2 [upos="AUX"];
+            P -[aux]-> H2;
             H2 << S;
         }
-        commands {_anchor_.Cxn="Conditional-SubjVerbInversion";
+        without {_anchor_ [lemma="what"];}
+        commands {_anchor_.Cxn="Conditional-NegativeEpistemic-SubjVerbInversion";
                   _anchor_.CxnElt="Apodosis";
-		  P.CxnElt="Protasis";}
+                  P.CxnElt="Protasis";}
     }
 
-        rule cond4 { %hypothetical modal conditional
+    rule cond4 { %unspecified inverted conditional %Example: "I would be delighted to arrange tickets for you and your family should you ever have occasion to visit Houston."
+        pattern { 
+            _anchor_ -[advcl]-> P;
+            M [xpos="MD"];
+            _anchor_ -[aux]-> M;
+            P -[re".subj.*"]-> S;
+            H2 [upos="AUX"];
+            P -[aux]-> H2;
+            H2 << S;
+        }
+        without { _anchor_ -[aux]-> H;
+                H [lemma="have"];}
+        without {_anchor_ [lemma="what"];}
+        commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic-SubjVerbInversion";
+                  _anchor_.CxnElt="Apodosis";
+                  P.CxnElt="Protasis";}
+
+        rule cond5 { %hypothetical modal conditional %don't think we need this one %Example: "If the PX comes back again, I will call their in-house attys."
             pattern { 
                 _anchor_ -[advcl]-> P;
                 P -[mark]-> I;
                 I [lemma="if"];
-                M [lemma="could"|"would"|"might"];
                 M [xpos="MD"];
                 _anchor_ -[aux]-> M;
             }
             without { _anchor_ -[aux]-> H;
                     H [lemma="have"];
                     }
-            commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic";
+            without {_anchor_ [lemma="what"];}
+            commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic-NoInversion";
                     _anchor_.CxnElt="Apodosis";
                     P.CxnElt="Protasis";}
         }
 
-    rule cond5 { %what-if conditional
+    rule cond6 { %what-if conditional Example: "What if Google Morphed Into GoogleOS?"
         pattern { 
             _anchor_ -[advcl]-> P;
             P -[mark]-> M;
@@ -89,7 +107,7 @@ package conditionals {
                   P.CxnElt="Protasis";}
     }
 
-    rule cond6 { %realistic conditional - rule 1 (-cop, +subj, -finite)
+    rule cond7 { %realistic conditional - rule 1 (-cop, +subj, -finite) Example: "Can police trace a cell phone even if it is switched off?"
         pattern { 
             _anchor_ -[advcl]-> P;
             P -[mark]-> M;
@@ -102,16 +120,18 @@ package conditionals {
             P [xpos="VBN"|"VBG"];
             P -[aux]-> Z3;}
         without{
-            MD [lemma="could"|"would"|"might"];
             MD [xpos="MD"];
             _anchor_ -[aux]-> MD;
+            H [lemma="have"];
+            _anchor_ -[aux]->H;
             }
-        commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic";
+        without {_anchor_ [lemma="what"];}
+        commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic-NoInversion";
                   _anchor_.CxnElt="Apodosis";
                   P.CxnElt="Protasis";}
     }
 
-    rule cond7 { %realistic conditional - rule 2 (+cop, ±subj)
+    rule cond8 { %realistic conditional - rule 2 (+cop, ±subj) Example: "It's okay if it's a little pricier." Probably needs to be collapsed with 7
         pattern { 
             _anchor_ -[advcl]-> P;
             P -[mark]-> M;
@@ -123,12 +143,13 @@ package conditionals {
             MD [xpos="MD"];
             _anchor_ -[aux]-> MD;
             }
-        commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic";
+        without {_anchor_ [lemma="what"];}
+        commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic-NoInversion";
                   _anchor_.CxnElt="Apodosis";
                   P.CxnElt="Protasis";}
     }
 
-    rule cond8 { %realistic conditional - rule 3 (±cop, ±subj, +finitepred)
+    rule cond9 { %realistic conditional - rule 3 (±cop, ±subj, +finitepred) Example: "Call me if you have time." Can be collapsed with 7
         pattern { 
             _anchor_ -[advcl]-> P;
             P -[mark]-> M;
@@ -140,13 +161,14 @@ package conditionals {
             MD [xpos="MD"];
             _anchor_ -[aux]-> MD;
             }
-        commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic";
+        without {_anchor_ [lemma="what"];}
+        commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic-NoInversion";
                   _anchor_.CxnElt="Apodosis";
                   P.CxnElt="Protasis";}
     }
 
 
-    rule cond9 { %realistic conditional - rule 4 (±cop, ±subj, +nonfinitepredwithaux)
+    rule cond10 { %realistic conditional - rule 4 (±cop, ±subj, +nonfinitepredwithaux) Example: "why did he do another if Donatello had already made one?" Can be collapsed
         pattern { 
             _anchor_ -[advcl]-> P;
             P -[mark]-> M;
@@ -159,7 +181,8 @@ package conditionals {
             MD [xpos="MD"];
             _anchor_ -[aux]-> MD;
             }
-        commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic";
+        without {_anchor_ [lemma="what"];}
+        commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic-NoInversion";
                   _anchor_.CxnElt="Apodosis";
                   P.CxnElt="Protasis";}
     }
