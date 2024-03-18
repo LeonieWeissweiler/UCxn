@@ -122,9 +122,10 @@
                 P [xpos="VBN"|"VBG"];
                 P -[aux]-> Z3;}
             without{
-                MD [lemma="could"|"would"|"might"];
                 MD [xpos="MD"];
                 _anchor_ -[aux]-> MD;
+                H [lemma="have"];
+                _anchor_ -[aux]->H;
                 }
             without {_anchor_ [lemma="what"];}
             global { s_type <> "wh"}
