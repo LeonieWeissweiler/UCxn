@@ -151,7 +151,7 @@ package existentials {
       _anchor_-[obj]->P;
     }
     commands {
-      _anchor_.Cxn=Existential-Expl;
+      _anchor_.Cxn=Existential-ItExpl;
       P.CxnElt="Pivot"
     }
   }
@@ -164,7 +164,7 @@ package existentials {
       D-[re".subj"]->P
     }
     commands {
-      _anchor_.Cxn=Existential-There;
+      _anchor_.Cxn=Existential-ThereExpl;
       P.CxnElt="Pivot"
     }
   }
