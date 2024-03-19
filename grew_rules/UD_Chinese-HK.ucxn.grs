@@ -14,7 +14,7 @@ package conditionals {
       _anchor_ -[advcl]->PROTASIS;
     }
     commands {
-      _anchor_.Cxn=Conditional;
+      _anchor_.Cxn=Conditional-NeutralEpistemic;
       _anchor_.CxnElt="Apodosis";
       PROTASIS.CxnElt="Protasis";
     }
@@ -151,16 +151,17 @@ package resultatives {
 %  }
 %}
 
-%package existentials {
+package existentials {
   % Existential
-  % we still get around 50% false positive, so we comment it at the moment
-  %rule r5 { 
-  %  pattern { 
-  %    YOU [form="有"]; YOU-[obj]-> OBJ ;
-  %  }
-  %  without {
-  %    YOU-[nsubj]->SUBJ;
-  %  } 
-  %  commands {YOU.Cxn=Existential}
-  %}
-%}
+  % we still get around 50% false positive (both matches and false-positive follow the same VERB-obj->NOUN pattern)
+  % for examples, such false positives are the samples 228, 265, 278, 314, 315, 429
+  rule r5 { 
+    pattern { 
+      YOU [form="有"]; YOU-[obj]-> OBJ ;
+    }
+    without {
+      YOU-[nsubj]->SUBJ;
+    } 
+    commands {YOU.Cxn=Existential}
+  }
+}
