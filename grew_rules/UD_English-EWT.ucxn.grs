@@ -77,23 +77,24 @@ package conditionals {
         commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic-SubjVerbInversion";
                   _anchor_.CxnElt="Apodosis";
                   P.CxnElt="Protasis";}
-
-        rule cond5 { %hypothetical modal conditional %don't think we need this one %Example: "If the PX comes back again, I will call their in-house attys."
-            pattern { 
-                _anchor_ -[advcl]-> P;
-                P -[mark]-> I;
-                I [lemma="if"];
-                M [xpos="MD"];
-                _anchor_ -[aux]-> M;
-            }
-            without { _anchor_ -[aux]-> H;
-                    H [lemma="have"];
-                    }
-            without {_anchor_ [lemma="what"];}
-            commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic-NoInversion";
-                    _anchor_.CxnElt="Apodosis";
-                    P.CxnElt="Protasis";}
+    }
+    
+    rule cond5 { %hypothetical modal conditional %don't think we need this one %Example: "If the PX comes back again, I will call their in-house attys."
+        pattern { 
+            _anchor_ -[advcl]-> P;
+            P -[mark]-> I;
+            I [lemma="if"];
+            M [xpos="MD"];
+            _anchor_ -[aux]-> M;
         }
+        without { _anchor_ -[aux]-> H;
+                H [lemma="have"];
+                }
+        without {_anchor_ [lemma="what"];}
+        commands {_anchor_.Cxn="Conditional-UnspecifiedEpistemic-NoInversion";
+                _anchor_.CxnElt="Apodosis";
+                P.CxnElt="Protasis";}
+    }
 
     rule cond6 { %what-if conditional Example: "What if Google Morphed Into GoogleOS?"
         pattern { 
