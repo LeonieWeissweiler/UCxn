@@ -146,7 +146,6 @@
                 _anchor_ -[aux]->H;
             }
             without { _anchor_ [lemma="what"]; }
-            global { s_type <> "wh" }
             commands {
                 _anchor_.Cxn="Conditional-UnspecifiedEpistemic-NoInversion";
                 _anchor_.CxnElt="Apodosis";
