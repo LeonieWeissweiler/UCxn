@@ -157,11 +157,13 @@ package existentials {
   % for examples, such false positives are the samples 228, 265, 278, 314, 315, 429
   rule r5 { 
     pattern { 
-      YOU [form="有"]; YOU-[obj]-> OBJ ;
+      _anchor_ [form="有"]; _anchor_-[obj]-> OBJ ;
     }
     without {
-      YOU-[nsubj]->SUBJ;
+      _anchor_-[nsubj]->SUBJ;
     } 
-    commands {YOU.Cxn=Existential}
+    commands {
+      _anchor_.Cxn="Existential";
+      OBJ.CxnElt="Pivot"}
   }
 }
