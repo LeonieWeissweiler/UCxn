@@ -261,5 +261,26 @@ package interrogatives {
 
 }
 
+package npn {
+
+    rule npn {
+	pattern { 
+		_anchor_ [upos=NOUN];
+		N2[upos=NOUN];
+		_anchor_.form = N2.form;
+		P[upos=ADP,form<>"של"];
+		_anchor_ < P;
+    		P < N2;
+	}
+	without {C1-[compound:smixut]->_anchor_}
+	without {N2-[compound:smixut]->C2}
+	without {_anchor_-[case]->C3} 
+
+        commands {_anchor_.Cxn="NPN";
+		  _anchor_.CxnElt="N1";
+                  P.CxnElt="P";
+                  N2.CxnElt="N2";}
+    }
+}
 
 
