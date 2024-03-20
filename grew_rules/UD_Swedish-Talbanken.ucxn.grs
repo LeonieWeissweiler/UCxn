@@ -3,8 +3,7 @@ strat main {
     Onf(conditionals),
     Onf(existentials),
     Onf(interrogatives),
-    Onf(npn),
-    Onf(resultatives)
+    Onf(npn)
   )
 }
 
