@@ -45,15 +45,48 @@ package conditionals {
 	    }
     }
 
-    rule conditional-inverted { % Conditionals - inverted
+    %rule conditional-inverted { % Conditionals - inverted
+    %    pattern {
+    %        N [form="अगर"|"यदि"];
+    %        V1 -[mark]-> N;
+    %        _anchor_ -[^root]-> V1;
+    %    }
+    %    without { T [form="तो"] }
+    %    commands { 
+    %        _anchor_.Cxn="Conditional-ClauseInversion";
+    %        _anchor_.CxnElt="Apodosis";
+    %        V1.CxnElt="Protasis";
+    %	    }
+    %}
+
+    rule conditional-neutral-epistemic 
         pattern {
             N [form="अगर"|"यदि"];
             V1 -[mark]-> N;
+            V1 -[aux|cop]-> A;
+            A [Mood="Ind"];
             _anchor_ -[^root]-> V1;
         }
         without { T [form="तो"] }
         commands { 
-            _anchor_.Cxn="Conditional-ClauseInversion";
+            _anchor_.Cxn="Conditional-NeutralEpistemic";
+            _anchor_.CxnElt="Apodosis";
+            V1.CxnElt="Protasis";
+	    }
+    }
+
+    rule conditional-neg-epistemic 
+        pattern { 
+            N [form="अगर"|"यदि"];
+            V1 -[mark]-> N;
+            V1 [Aspect="Perf"];
+            V1 -[aux|aux:pass]-> A;
+            A [Aspect="Imp"];
+            _anchor_ -[^root]-> V1;
+        }
+        without { T [form="तो"] }
+        commands { 
+            _anchor_.Cxn="Conditional-NegativeEpistemic";
             _anchor_.CxnElt="Apodosis";
             V1.CxnElt="Protasis";
 	    }
