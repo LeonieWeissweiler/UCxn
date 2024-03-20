@@ -169,8 +169,7 @@ package interrogatives {
     rule int-indirect-polar { % Interrogatives - Indirect polar questions
         pattern {
             W [lemma="क्या"];
-            ROOT -["advmod"]-> W;
-            _anchor_ -> W;
+            _anchor_ -["advmod"]-> W;
         }
         commands { 
             _anchor_.Cxn="Interrogative-Polar-Indirect";
