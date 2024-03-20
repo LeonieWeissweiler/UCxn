@@ -164,21 +164,3 @@ package npn {
   }
 
 }
-
-package resultatives {
-
-  rule r4 { % Resultative (only with “göra” [make])
-    pattern { 
-      _anchor_[upos="VERB", lemma = "göra"];
-      X [upos="ADJ"];
-      _anchor_ -[xcomp]-> X;
-      _anchor_ -[obj|iobj|nsubj:pass]-> O;
-    }
-    commands { 
-      _anchor_.Cxn="Resultative";
-      _anchor_.CxnElt="Event";
-      X.CxnElt="ResultState";  
-    }
-  }
-
-}
