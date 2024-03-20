@@ -156,7 +156,7 @@ package interrogatives {
     rule int-direct-polar { % Interrogatives - Direct polar questions
         pattern {
             W [lemma="क्या", upos=ADV];
-            _anchor_ -> W;
+            _anchor_ -["obl"]-> W;
         }
         without { SC [form="कि"]; _anchor_ -[mark]-> SC }
         without { V1 [upos=VERB]; V1 -[advcl]-> _anchor_; }
