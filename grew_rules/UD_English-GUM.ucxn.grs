@@ -13,7 +13,7 @@
             pattern { 
                 _anchor_ -[advcl]-> P;
                 P -[mark]-> M;
-                M [form="if"];
+                M [lemma="if"];
                 _anchor_ [lemma="what"];
                 _anchor_ < M;
             }
@@ -139,7 +139,7 @@
             pattern { 
                 _anchor_ -[advcl]-> P;
                 P -[mark]-> M;
-                M [form="if"];
+                M [lemma="if"];
                 P -[1=nsubj|csubj|expl]-> S;
             }
             without {
