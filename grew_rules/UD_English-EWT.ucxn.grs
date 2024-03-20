@@ -15,10 +15,13 @@ package conditionals {
                 P -[mark]-> M;
                 M [form="if"];
                 _anchor_ [lemma="what"];
+                _anchor_ < M;
             }
-            commands {_anchor_.Cxn="Conditional-Interrogative";
-                    _anchor_.CxnElt="Apodosis";
-                    P.CxnElt="Protasis";}
+            commands {
+                _anchor_.Cxn="Conditional-Interrogative";
+                _anchor_.CxnElt="Apodosis";
+                P.CxnElt="Protasis";
+            }
         }
 
         rule cond1 { %reduced unspecified conditional %Example: "We will still be around to assist them if needed."
