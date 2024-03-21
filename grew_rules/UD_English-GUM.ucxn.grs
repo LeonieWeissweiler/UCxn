@@ -231,17 +231,30 @@
                     _anchor_.CxnElt="Clause";
                     W.CxnElt="WHWord";}
         }
+
+        rule int1P { %direct WH question, WH as predicate
+            pattern {
+                R-[root]->_anchor_;
+                _anchor_-[punct]-> Q;
+                Q.lemma = re".*[?].*";
+                _anchor_ [lemma = "who"|"what"|"when"|"how"|"why"|"which"|"whose"|"whom"|"where"]
+            }
+            without { I[lemma="if"]; _anchor_ < I }
+            commands {_anchor_.Cxn="Interrogative-WHInfo-Direct";
+                    _anchor_.CxnElt="Clause";
+                    _anchor_.CxnElt="WHWord";}
+        }
     
 
-        rule int2 {%direct WH, whose question
+        rule int2 {%direct WH, "how X" or "whose X" question (no "whose X" direct questions attested in the data)
             pattern {
                 R-[root]->_anchor_;
                 _anchor_-[punct]-> Q;
                 Q.lemma = re".*[?].*";
                 _anchor_ -> N;
-                N [xpos="NN"];
+                N [upos=ADJ|ADV|NOUN];
                 N -> W;
-                W [PronType=Int];
+                W [PronType=Int,lemma=how|whose];
             }
             commands {_anchor_.Cxn="Interrogative-WHInfo-Direct";
                     _anchor_.CxnElt="Clause";
@@ -391,20 +404,53 @@
         }
     
 
-        rule int10 {%indirect wh
+        rule int10 {%indirect wh (direct counterpart: int1)
             pattern {
                 V.xpos = re"V.*";
                 V -[ccomp]-> _anchor_;
-                _anchor_ -> Y;
-                Y [PronType=Int];
-                V << Y;
+                _anchor_ -> W;
+                W [PronType=Int];
+                V << W;
             }
         
             commands {_anchor_.Cxn="Interrogative-WHInfo-Indirect";
                     _anchor_.CxnElt="Clause";
-                    Y.CxnElt="WHWord";
+                    W.CxnElt="WHWord";
                     }
-        }    
+        }
+
+        rule int10P {%indirect wh, wh predicate (direct counterpart: int1P)
+            pattern {
+                V.xpos = re"V.*";
+                V -[ccomp]-> _anchor_;
+                _anchor_ [PronType=Int];
+                V << _anchor_;
+            }
+            without { I[lemma="if"]; _anchor_ < I }
+        
+            commands {_anchor_.Cxn="Interrogative-WHInfo-Indirect";
+                    _anchor_.CxnElt="Clause";
+                    _anchor_.CxnElt="WHWord";
+                    }
+        }
+
+        rule int11 {%indirect wh "how X", "whose X" (direct counterpart: int2)
+            pattern {
+                V.xpos = re"V.*";
+                V -[ccomp]-> _anchor_;
+                _anchor_ -> N;
+                N [upos=ADJ|ADV|NOUN];
+                V << W;
+                _anchor_ -> N;
+                N -> W;
+                W [PronType=Int,lemma=how|whose];
+            }
+        
+            commands {_anchor_.Cxn="Interrogative-WHInfo-Indirect";
+                    _anchor_.CxnElt="Clause";
+                    W.CxnElt="WHWord";
+                    }
+        }
 
     }
 
