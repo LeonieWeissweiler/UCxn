@@ -274,16 +274,16 @@ package npn {
 
 }
 
-package resultatives {
-    rule resultative-VV { %not sure if it is resultative or just causative; if it is resultative, the CxnElt "ResultState" in the following is really implied result of V2 - not explicit
-        pattern {
-            _anchor_ [upos="VERB", Vib="0"];
-            V2 [upos="VERB", lemma="भगा"|"गिरा"|"बिखर"];
-            V2 -["advcl"]-> _anchor_;
-        }
-        commands { 
-            _anchor_.Cxn="Resultative";
-            _anchor_.CxnElt="Event";
-	    }
-    }
-}
+%package resultatives {
+%    rule resultative-VV { %not sure if it is resultative or just causative; if it is resultative, the CxnElt "ResultState" in the following is really implied result of V2 - not explicit
+%        pattern {
+%            _anchor_ [upos="VERB", Vib="0"];
+%            V2 [upos="VERB", lemma="भगा"|"गिरा"|"बिखर"];
+%            V2 -["advcl"]-> _anchor_;
+%        }
+%        commands { 
+%            _anchor_.Cxn="Resultative";
+%            _anchor_.CxnElt="Event";
+%	    }
+%    }
+%}
