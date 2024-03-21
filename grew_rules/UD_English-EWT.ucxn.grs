@@ -255,7 +255,7 @@ package interrogatives {
             _anchor_ -> N;
             N [upos=ADJ|ADV|NOUN];
             N -> W;
-            W [PronType=Int,lemma=how|whose];
+            W [PronType=Int,lemma=how|whose|what|which];
         }
         commands {_anchor_.Cxn="Interrogative-WHInfo-Direct";
                 _anchor_.CxnElt="Clause";
@@ -407,7 +407,7 @@ package interrogatives {
             V << W;
             _anchor_ -> N;
             N -> W;
-            W [PronType=Int,lemma=how|whose];
+            W [PronType=Int,lemma=how|whose|what|which];
         }
     
         commands {_anchor_.Cxn="Interrogative-WHInfo-Indirect";
