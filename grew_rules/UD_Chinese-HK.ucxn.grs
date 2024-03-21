@@ -163,7 +163,7 @@ package existentials {
       _anchor_-[nsubj]->SUBJ;
     } 
     commands {
-      _anchor_.Cxn="Existential";
+      _anchor_.Cxn="Existential-HavePred";
       OBJ.CxnElt="Pivot"}
   }
 }
