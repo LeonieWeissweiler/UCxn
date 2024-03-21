@@ -252,7 +252,7 @@
                 _anchor_-[punct]-> Q;
                 Q.lemma = re".*[?].*";
                 _anchor_ -> N;
-                N [upos=ADJ|ADV|NOUN];
+                N [upos=ADJ|ADV|NOUN|PRON]; % PRON for "which one"
                 N -> W;
                 W [PronType=Int,lemma=how|whose|what|which];
             }
@@ -262,6 +262,22 @@
                     }
         }
 
+        rule int2b {%direct WH, "how much/many X"
+            pattern {
+                R-[root]->_anchor_;
+                _anchor_-[punct]-> Q;
+                Q.lemma = re".*[?].*";
+                _anchor_ -[^ccomp]-> M;
+                M-[amod|advmod]->N;
+                N [upos=ADJ|ADV|NOUN];
+                N -> W;
+                W [PronType=Int,lemma=how];
+            }
+            commands {_anchor_.Cxn="Interrogative-WHInfo-Direct";
+                    _anchor_.CxnElt="Clause";
+                    W.CxnElt="WHWord";
+                    }
+        }
 
 
         rule int3 { %no QM no inversion
@@ -439,9 +455,8 @@
                 V.xpos = re"V.*";
                 V -[ccomp]-> _anchor_;
                 _anchor_ -> N;
-                N [upos=ADJ|ADV|NOUN];
+                N [upos=ADJ|ADV|NOUN|PRON];
                 V << W;
-                _anchor_ -> N;
                 N -> W;
                 W [PronType=Int,lemma=how|whose|what|which];
             }
@@ -452,6 +467,23 @@
                     }
         }
 
+        rule int11b {%indirect wh "how much/many X" (direct counterpart: int2b)
+            pattern {
+                V.xpos = re"V.*";
+                V -[ccomp]-> _anchor_;
+                _anchor_ -> M;
+                N [upos=ADJ|ADV|NOUN|PRON];
+                V << W;
+                M-[amod|advmod]->N;
+                N -> W;
+                W [PronType=Int,lemma=how];
+            }
+        
+            commands {_anchor_.Cxn="Interrogative-WHInfo-Indirect";
+                    _anchor_.CxnElt="Clause";
+                    W.CxnElt="WHWord";
+                    }
+        }
     }
 
     package npn {
