@@ -1,4 +1,4 @@
-strat main { 
+strat main {
   Seq(
     Onf(conditionals),
     Onf(existentials),
@@ -10,7 +10,7 @@ strat main {
 package conditionals {
 
         rule cond6 { %what-if conditional Example: "What if Google Morphed Into GoogleOS?"
-            pattern { 
+            pattern {
                 _anchor_ -[advcl]-> P;
                 P -[mark]-> M;
                 M [lemma="if"];
@@ -25,7 +25,7 @@ package conditionals {
         }
 
         rule cond1 { %reduced unspecified conditional %Example: "We will still be around to assist them if needed."
-            pattern { 
+            pattern {
                 _anchor_ -[advcl]-> P;
                 P -[mark]-> I;
                 I [lemma="if"];
@@ -75,7 +75,7 @@ package conditionals {
         }
 
         rule cond2 { %counterfactual modal conditional %Example: "If it had any merit, Bush should have declined to run himself."
-            pattern { 
+            pattern {
                 _anchor_ -[advcl]-> P;
                 P -[mark]-> I;
                 I [lemma="if"];
@@ -94,7 +94,7 @@ package conditionals {
         }
 
         rule cond3 { %counterfactual modal inverted conditional %Example: "They would have plunged their knives into me could they have seen how to escape the consequences of the deed."
-            pattern { 
+            pattern {
                 _anchor_ -[advcl]-> P;
                 M [xpos="MD"];
                 H [lemma="have"];
@@ -114,7 +114,7 @@ package conditionals {
         }
 
         rule cond4 { %unspecified inverted conditional %Example: "I would be delighted to host should you ever have occasion to visit Houston."
-            pattern { 
+            pattern {
                 _anchor_ -[advcl]-> P;
                 M [xpos="MD"];
                 _anchor_ -[aux]-> M;
@@ -136,7 +136,7 @@ package conditionals {
         }
 
         rule cond7 { %unspecified conditional %Example: "Can police trace a cell phone even if it is switched off?"
-            pattern { 
+            pattern {
                 _anchor_ -[advcl]-> P;
                 P -[mark]-> M;
                 M [lemma="if"];
@@ -160,7 +160,7 @@ package conditionals {
 package existentials {
 
     rule ex1 { %exist lemma existentials
-        pattern { 
+        pattern {
             _anchor_ [lemma="exist"];
             _anchor_ -[re".subj"]-> P;
         }
@@ -173,7 +173,7 @@ package existentials {
     }
 
     rule ex2 { %existential there-exist
-        pattern { 
+        pattern {
             _anchor_ [lemma="exist"];
             _anchor_ -[re".subj"]-> P;
             _anchor_ -> Y;
@@ -184,7 +184,7 @@ package existentials {
     }
 
     rule ex3 { %existential there-be
-            pattern { 
+            pattern {
                 _anchor_ [lemma="be"];
                 _anchor_ -[re".subj"]-> P;
                 _anchor_ -> Y;
@@ -195,7 +195,7 @@ package existentials {
         }
 
     rule ex4 { %existential there-stretch
-            pattern { 
+            pattern {
                 _anchor_ [lemma="stretch"];
                 _anchor_ -[re".subj"]-> P;
                 _anchor_ -> Y;
@@ -206,7 +206,7 @@ package existentials {
         }
 
     rule ex5 { %existential here
-        pattern { 
+        pattern {
             _anchor_ [lemma="be"];
             _anchor_ -[re".subj"]-> P;
             _anchor_ -> Y;
@@ -253,9 +253,26 @@ package interrogatives {
             _anchor_-[punct]-> Q;
             Q.lemma = re".*[?].*";
             _anchor_ -> N;
-            N [upos=ADJ|ADV|NOUN];
+            N [upos=ADJ|ADV|NOUN|PRON]; % PRON for "which one"
             N -> W;
             W [PronType=Int,lemma=how|whose|what|which];
+        }
+        commands {_anchor_.Cxn="Interrogative-WHInfo-Direct";
+                _anchor_.CxnElt="Clause";
+                W.CxnElt="WHWord";
+                }
+    }
+
+    rule int2b {%direct WH, "how much/many X"
+        pattern {
+            R-[root]->_anchor_;
+            _anchor_-[punct]-> Q;
+            Q.lemma = re".*[?].*";
+            _anchor_ -[^ccomp]-> M;
+            M-[amod|advmod]->N;
+            N [upos=ADJ|ADV|NOUN];
+            N -> W;
+            W [PronType=Int,lemma=how];
         }
         commands {_anchor_.Cxn="Interrogative-WHInfo-Direct";
                 _anchor_.CxnElt="Clause";
@@ -271,7 +288,7 @@ package interrogatives {
             W << _anchor_
         }
         without { _anchor_-[nsubj]->W }
-        without { 
+        without {
             _anchor_-[punct]-> Q;
             Q.lemma = re".*[?].*";
         }
@@ -298,7 +315,7 @@ package interrogatives {
             W << A
         }
         without { _anchor_-[nsubj]->W }
-        without { 
+        without {
             _anchor_-[punct]-> Q;
             Q.lemma = re".*[?].*";
         }
@@ -322,7 +339,7 @@ package interrogatives {
             W [PronType=Int];
         }
         with { _anchor_-[nsubj]->W }
-        without { 
+        without {
             _anchor_-[punct]-> Q;
             Q.lemma = re".*[?].*";
         }
@@ -348,7 +365,7 @@ package interrogatives {
             V -[punct]-> Q;
             Q [form="?"];
         }
-        without { 
+        without {
             _anchor_ -> W;
             W [lemma = "who"|"what"|"when"|"why"|"whom"|"which"|"whose"|"how"|"where"];
         }
@@ -403,11 +420,28 @@ package interrogatives {
             V.xpos = re"V.*";
             V -[ccomp]-> _anchor_;
             _anchor_ -> N;
-            N [upos=ADJ|ADV|NOUN];
+            N [upos=ADJ|ADV|NOUN|PRON];
             V << W;
-            _anchor_ -> N;
             N -> W;
             W [PronType=Int,lemma=how|whose|what|which];
+        }
+    
+        commands {_anchor_.Cxn="Interrogative-WHInfo-Indirect";
+                _anchor_.CxnElt="Clause";
+                W.CxnElt="WHWord";
+                }
+    }
+
+    rule int11b {%indirect wh "how much/many X" (direct counterpart: int2b)
+        pattern {
+            V.xpos = re"V.*";
+            V -[ccomp]-> _anchor_;
+            _anchor_ -> M;
+            N [upos=ADJ|ADV|NOUN|PRON];
+            V << W;
+            M-[amod|advmod]->N;
+            N -> W;
+            W [PronType=Int,lemma=how];
         }
     
         commands {_anchor_.Cxn="Interrogative-WHInfo-Indirect";
