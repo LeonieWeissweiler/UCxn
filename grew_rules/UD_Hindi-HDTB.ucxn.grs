@@ -3,8 +3,7 @@ strat main {
     Onf(conditionals),
     Onf(existentials),
     Onf(interrogatives),
-    Onf(npn),
-    Onf(resultatives)
+    Onf(npn)
   )
 }
 
@@ -44,20 +43,6 @@ package conditionals {
             V1.CxnElt="Protasis";
 	    }
     }
-
-    %rule conditional-inverted { % Conditionals - inverted
-    %    pattern {
-    %        N [form="अगर"|"यदि"];
-    %        V1 -[mark]-> N;
-    %        _anchor_ -[^root]-> V1;
-    %    }
-    %    without { T [form="तो"] }
-    %    commands { 
-    %        _anchor_.Cxn="Conditional-ClauseInversion";
-    %        _anchor_.CxnElt="Apodosis";
-    %        V1.CxnElt="Protasis";
-    %	    }
-    %}
 
     rule conditional-neutral-epistemic 
         pattern {
@@ -230,60 +215,5 @@ package npn {
 	    }
     }
 
-    %rule NPN-comparison { % NPN Comparison % Not attested in the corpus - not sure if N1 or N2 will be marked as the anchor, for now I marked N1 as the anchor in absence of actual annotated example from corpus
-    %    pattern {
-    %        _anchor_ [upos="NOUN"];
-    %        N2 [upos="NOUN"];
-    %        _anchor_.lemma = N2.lemma;
-    %        P1 [upos="ADP", lemma="के"];
-    %        P2 [upos="ADP", lemma="बदले"];
-    %        P1 < P2;
-    %        _anchor_ -[case]-> P1;
-    %        _anchor_ -[case]-> P2;
-    %        _anchor_ < P1;
-    %        P2 < N2;
-    %    }
-    %    commands { 
-    %        _anchor_.Cxn="NPN";
-    %        _anchor_.CxnElt="N1";
-    %  		P.CxnElt="P";  
-    %  		N2.CxnElt="N2"; 
-	%    }
-    %}
-
-    %rule NPN-opposition { % NPN Opposition % Not attested in the corpus
-    %    pattern {
-    %        _anchor_ [upos="NOUN"];
-    %        N2 [upos="NOUN"];
-    %        _anchor_.lemma = N2.lemma;
-    %        P1 [upos="ADP", lemma="के"];
-    %        P2 [upos="ADP", lemma="खिलाफ"];
-    %        P1 < P2;
-    %        _anchor_ -[case]-> P1;
-    %        _anchor_ -[case]-> P2;
-    %        _anchor_ < P1;
-    %        P2 < N2;
-    %    }
-    %    commands { 
-    %        _anchor_.Cxn="NPN";
-    %        _anchor_.CxnElt="N1";
-    %  		P.CxnElt="P";  
-    %  		N2.CxnElt="N2";
-	%    }
-    %}
-
 }
 
-%package resultatives {
-%    rule resultative-VV { %not sure if it is resultative or just causative; if it is resultative, the CxnElt "ResultState" in the following is really implied result of V2 - not explicit
-%        pattern {
-%            _anchor_ [upos="VERB", Vib="0"];
-%            V2 [upos="VERB", lemma="भगा"|"गिरा"|"बिखर"];
-%            V2 -["advcl"]-> _anchor_;
-%        }
-%        commands { 
-%            _anchor_.Cxn="Resultative";
-%            _anchor_.CxnElt="Event";
-%	    }
-%    }
-%}
