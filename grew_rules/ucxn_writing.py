@@ -1,29 +1,44 @@
 # -*- coding: utf-8 -*-
 """
 The script is part of the paper
-'Typologically-Informed Annotation of Constructions atop Universal~Dependencies'submitted to LREC-COLING 2024.
+'UCxn: Typologically Informed Annotation of Constructions atop Universal~Dependencies' submitted to LREC-COLING 2024.
 It takes the rules of .ucxn.grs file, a custom format of Grew writing rules specified for this project, 
 and apply them to UD treebanks following the UCxn Specification v0.1.
 """
 
 import re
 import argparse
-from copy import deepcopy
 from pathlib import Path
 import logging
 
 from grewpy import Corpus, CorpusDraft
 from grewpy import GRSDraft, GRS
 
+def remove_enhanced(grs_draft):
+    s = str(grs_draft)
+    sub_string = re.sub(r'\-\[(.+?=[^\]]+)]->', r'-[\1, !enhanced]->', s)
+    result = re.sub(r'(?<!\])\->', "-[!enhanced]->", sub_string)
+    return result
+
+def remove_existing_cxns(corpus):
+    grs = """
+    package remove_cxns {
+        rule remove { % remove existing cxns
+            pattern { X[Cxn] }
+            commands { del_feat X.Cxn}
+        }
+    }
+    strat main { Onf(remove_cxns) }
+    """
+    return GRS(grs).apply(corpus)
+
 def cxnelt_sort_key(misc_values):
     """
     Custom sort key for the CxnElts
     """
     values = misc_values.split(':')
-
     # Digit part into an integer for sorting
     head_id = int(values[0])
-
     # Further split the rest of the string by '#' if it exists
     subvalues = values[1].split('#')
     if len(subvalues) > 1:
@@ -37,9 +52,9 @@ def cxnelt_sort_key(misc_values):
 def sort_cxns_in_misc(misc: str) -> str:
     """
     Take a misc string and order the Cxn and CxnElt misc feats:
-        - Cxn=Resultative#2;Resultative;Interrogative-Indirect -> Interrogative-Indirect;Resultative;Resultative#2
-        - CxnElt=10:Int-Indirect#2.Clause;10:Int-Indirect.Clause;10:Int-Indirect#3.Clause;8:Resultative.Event \
-        -> 8:Resultative.Event;10:Int-Indirect.Clause;10:Int-Indirect#2.Clause;10:Int-Indirect#3.Clause
+        - Cxn=Resultative#2,Resultative,Interrogative-Indirect -> Interrogative-Indirect,Resultative,Resultative#2
+        - CxnElt=10:Int-Indirect#2.Clause,10:Int-Indirect.Clause,10:Int-Indirect#3.Clause,8:Resultative.Event \
+        -> 8:Resultative.Event,10:Int-Indirect.Clause,10:Int-Indirect#2.Clause,10:Int-Indirect#3.Clause
     """
     if misc == '_':
         return misc
@@ -115,16 +130,16 @@ if __name__ == "__main__":
 
     if Path(args.input).is_dir():
             paths = [p.as_posix() for p in Path(args.input).glob("*.conllu")]
-            corpus = Corpus(paths)
-            GRS.UD2bUD.apply(corpus)
+            corpus = remove_existing_cxns(Corpus(paths))
+            #GRS.UD2bUD.apply(corpus) #to remove enhanced annotations
     else:
-        corpus = Corpus(args.input)
-        GRS.UD2bUD.apply(corpus)
+        corpus = remove_existing_cxns(Corpus(args.input))
+        #GRS.UD2bUD.apply(corpus)
 
     print(f"Length: {len(corpus)} phrases")
 
     draft = CorpusDraft(corpus)
-    grs_draft = GRSDraft(cxn_grs)
+    grs_draft = GRSDraft(remove_enhanced(cxn_grs))
 
     for package_name, package in grs_draft.items():
         if not isinstance(package, str):
@@ -136,10 +151,10 @@ if __name__ == "__main__":
                     continue
 
                 print(f"- {e}/{len(package.keys())} rule name: {rule_name}")
-                print("-- Machings:", len([m['sent_id'] for m in corpus.search(rule.request)]))
+                matchings = 0
 
                 for match in corpus.search(rule.request):
-
+                    matchings += 1
                     cxn_commands = list(rule.commands)
                     cxn_name = cxn_commands[0].split("=")[1].replace('"', '')
                     sent_id = match['sent_id']
@@ -155,10 +170,10 @@ if __name__ == "__main__":
                             n_cxns = re.split(r"[,#]",draft[sent_id][anchor_id]['Cxn']).count(cxn_name)
                             new_cxn = f'{cxn_name.split("#")[0]}#{n_cxns+1}'
                         else:
-                            new_cxn = f'{cxn_name}#1'
+                            new_cxn = f'{cxn_name}'
                         draft[sent_id][anchor_id]['Cxn'] = f"{cxn_feat},{new_cxn}"
                     else:
-                        new_cxn = f'{cxn_name}#1'
+                        new_cxn = f'{cxn_name}'
                         draft[sent_id][anchor_id]["Cxn"] = new_cxn
 
                     for command in rule.commands[1:]:
@@ -176,6 +191,7 @@ if __name__ == "__main__":
                             draft[sent_id][node_id]["CxnElt"] = f"{cxn_elt_feat},{new_cxn_elt}"
                         else:
                             draft[sent_id][node_id]["CxnElt"] = new_cxn_elt
+                print("-- Machings:", matchings)
 
     with open(args.output, "w", encoding="utf-8") as f:
         conllu = sort_misc_in_conllu(draft.to_conll())
