@@ -394,10 +394,17 @@
             pattern {
                 R -[root]-> _anchor_; 
                 _anchor_ -[nsubj]-> N1;
-                _anchor_ -[aux]-> A;
+                _anchor_ -[1=aux|cop]-> A;
                 A << N1;
-                V -[punct]-> Q;
+                _anchor_ -[punct]-> Q;
                 Q [form="?"];
+            }
+            without { _anchor_ [PronType=Int]; }
+            without {
+                _anchor_ -> N;
+                N [upos="NOUN"];
+                N -[det]-> W;
+                W [lemma = "what"|"which"|"whose"];  
             }
             without { 
                 _anchor_ -> W;
