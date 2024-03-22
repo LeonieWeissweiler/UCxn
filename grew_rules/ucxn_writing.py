@@ -115,7 +115,6 @@ def check_rule(rule, rule_name, file):
         res = False
     return res
         
-        
 if __name__ == "__main__":
     cmd = argparse.ArgumentParser()
     cmd.add_argument("-i", "--input", type=str, required=True, help="a conllu file or a directory of conllu files")
@@ -142,36 +141,45 @@ if __name__ == "__main__":
     grs_draft = GRSDraft(remove_enhanced(cxn_grs))
 
     for package_name, package in grs_draft.items():
+        cxns = {}
         if not isinstance(package, str):
             print(f"Package: {package_name}")
             for e, (rule_name, rule) in enumerate(package.items(), start=1):
-
                 check = check_rule(rule, rule_name, args.cxn_grs)
                 if check == False:
                     continue
-
+                cxn_commands = list(rule.commands)
+                cxn_name = cxn_commands[0].split("=")[1].replace('"', '')
+                cxn_elt_nodes = [command.split(".")[0] for command in cxn_commands[1:]]
                 print(f"- {e}/{len(package.keys())} rule name: {rule_name}")
-                matchings = 0
 
-                for match in corpus.search(rule.request):
-                    matchings += 1
-                    cxn_commands = list(rule.commands)
-                    cxn_name = cxn_commands[0].split("=")[1].replace('"', '')
+                matchings = corpus.search(rule.request)
+                if cxn_name not in cxns:
+                    cxns[cxn_name] = list()
+
+                for match in matchings:
                     sent_id = match['sent_id']
                     anchor_id = match['matching']['nodes']['_anchor_']
-                    
+                    cxn_elts_ids = tuple(sorted(cxn_elt_id) for k, cxn_elt_id in match['matching']['nodes'].items() if k in cxn_elt_nodes)
+                    id_tpl = (sent_id, anchor_id, cxn_elts_ids)
+
+                    if id_tpl in cxns[cxn_name]:
+                        continue
+                    else:
+                        cxns[cxn_name].append(id_tpl)
+
                     if anchor_id == "0":
                         logging.warning(f"Anchor ID is 0; rule {rule_name}; matching {match}; file {args.cxn_grs}")
                         continue
 
                     if 'Cxn' in draft[sent_id][anchor_id]:
-                        cxn_feat = draft[sent_id][anchor_id]['Cxn']
-                        if cxn_name in cxn_feat:
+                        cxn_value = draft[sent_id][anchor_id]['Cxn']
+                        if cxn_name in cxn_value:
                             n_cxns = re.split(r"[,#]",draft[sent_id][anchor_id]['Cxn']).count(cxn_name)
                             new_cxn = f'{cxn_name.split("#")[0]}#{n_cxns+1}'
                         else:
                             new_cxn = f'{cxn_name}'
-                        draft[sent_id][anchor_id]['Cxn'] = f"{cxn_feat},{new_cxn}"
+                        draft[sent_id][anchor_id]['Cxn'] = f"{cxn_value},{new_cxn}"
                     else:
                         new_cxn = f'{cxn_name}'
                         draft[sent_id][anchor_id]["Cxn"] = new_cxn
@@ -191,7 +199,7 @@ if __name__ == "__main__":
                             draft[sent_id][node_id]["CxnElt"] = f"{cxn_elt_feat},{new_cxn_elt}"
                         else:
                             draft[sent_id][node_id]["CxnElt"] = new_cxn_elt
-                print("-- Machings:", matchings)
+                print("-- Machings:", len(matchings))
 
     with open(args.output, "w", encoding="utf-8") as f:
         conllu = sort_misc_in_conllu(draft.to_conll())
