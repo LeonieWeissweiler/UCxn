@@ -44,7 +44,7 @@ package conditionals {
 	    }
     }
 
-    rule conditional-neutral-epistemic 
+    rule conditional-neutral-epistemic {
         pattern {
             N [form="अगर"|"यदि"];
             V1 -[mark]-> N;
@@ -60,7 +60,7 @@ package conditionals {
 	    }
     }
 
-    rule conditional-neg-epistemic 
+    rule conditional-neg-epistemic {
         pattern { 
             N [form="अगर"|"यदि"];
             V1 -[mark]-> N;
