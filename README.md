@@ -61,6 +61,8 @@ Example Sentence:
 
 # Interesting Links
 
+- [Database of Croft's Comparative Concepts](https://comparative-concepts.github.io/cc-database/) ([GitHub repo](https://github.com/spraakbanken/ComparativeConcepts))
+
 ## Existing Constructicons
 
 Overview: CAW (Constructicon Alignment Workshop, November 2022): https://www.globalframenet.org/caw2022 
@@ -72,11 +74,6 @@ Overview: CAW (Constructicon Alignment Workshop, November 2022): https://www.glo
 - Brazilian Portuguese: FrameNet Brasil (FU Juiz de Fora): https://www2.ufjf.br/framenetbr-en/
 - Japanese: Japanese FrameNet (Keio University): https://jfn.st.hc.keio.ac.jp/
 - Russian: Russian Constructicon (UiT Arctic University of Norway): https://constructicon.github.io/russian/
-
-## Database of Croft's Comparative Concepts
-
-- Searchable interface: https://spraakbanken.github.io/ComparativeConcepts/
-- GitHub repo: https://github.com/spraakbanken/ComparativeConcepts
 
 ## Search/query engines
 
