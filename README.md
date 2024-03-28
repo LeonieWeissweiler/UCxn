@@ -7,10 +7,10 @@ Full technical specifications for Version 1, as described in the paper, are in t
 ## Example Annotation
 ID | FORM | LEMMA | UPOS | ... | UCxn
 --- |--- |--- |--- |--- |--- |
-| 1 | You | you | PRON | ... | _
-| 2 | have | have | VERB | ... | Cxn=Interrogative-Polar-Direct
-| 3 | a | a | DET | ... | _
-| 4 | pencil | pencil | NOUN | ... | _
+| 1 | what | what | PRON | ... | CxnElt=2:Interrogative-WHInfo-Direct.WHWord
+| 2 | happened | happen | VERB | ... | Cxn=Interrogative-WHInfo-Direct\|CxnElt=2:Interrogative-WHInfo-Direct.Clause
+| 3 | to | to | ADP | ... | _
+| 4 | you | you | PRON | ... | _
 | 5 | ? | ? | PUNCT | ... | _
 
 ## Annotated Data Statistics
