@@ -1,8 +1,13 @@
 # UCxn: Typologically Informed Annotation of Constructions Atop Universal Dependencies
 
-Repository for the ongoing UCxn Project to add construction information to Universal Dependencies, and code and dataset for [Typologically Informed Annotation of Constructions Atop Universal Dependencies](https://arxiv.org/abs/2403.17748)
+Repository for the ongoing UCxn Project to add construction information to [Universal Dependencies](https://universaldependencies.org/) (UD), and code and dataset for "**[UCxn: Typologically Informed Annotation of Constructions Atop Universal Dependencies](https://arxiv.org/abs/2403.17748)**" (Weissweiler et al., LREC-COLING 2024).
+It presents an approach to annotating constructions as a layer on top of UD ("UCxn"), with case studies exploring 5 typologically defined construction families in 10 languages, and Grew rules to automatically infer the construction annotations.
 
-Full technical specifications for Version 1, as described in the paper, are in the `docs` folder. Grew-match queries matching the paper are found in the `grew_rules` folder, and the matching annotated corpora in `annotated_corpora`. To try out the rules and see a visual representation, go to the [https://match.grew.fr/](grew-match website).
+This paper can be found in the `docs` folder, alongside a full technical specification for the annotation scheme and construction subtypes in Version 1.
+
+[Grew](https://grew.fr/) queries described by the paper are found in the `grew_rules` folder, and the automatically annotated corpora in `annotated_corpora`. In addition, annotations can be explored in [Grew-match](https://match.grew.fr/), e.g. [the UCxn-enhanced English-GUM corpus](https://universal.grew.fr/?corpus=UD_English-GUM@ucxn).
+
+The UD 2.13 release served as the input for producing the rule-based annotations in `annotated_corpora`. (English-GUM contained some pilot construction annotations in the 2.13 release; those were removed before applying the Grew rules.) Individual treebanks are encouraged to incorporate UCxn annotations, ideally with manual checking, into official UD treebank repositories for future releases.
 
 ## Example Annotation
 ID | FORM | LEMMA | UPOS | ... | UCxn
