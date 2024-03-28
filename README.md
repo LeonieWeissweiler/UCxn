@@ -45,7 +45,7 @@ If you use the dataset or code, please cite our paper:
 ```
 @misc{weissweiler2024ucxn,
       title={UCxn: Typologically Informed Annotation of Constructions Atop Universal Dependencies}, 
-      author={Leonie Weissweiler and Nina Böbel and Kirian Guiller and Santiago Herrera and Wesley Scivetti and Arthur Lorenzi and Nurit Melnik and Archna Bhatia and Hinrich Schütze and Lori Levin and Amir Zeldes and Joakim Nivre and William Croft and Nathan Schneider},
+      author={Leonie Weissweiler and Nina B\"{o}bel and Kirian Guiller and Santiago Herrera and Wesley Scivetti and Arthur Lorenzi and Nurit Melnik and Archna Bhatia and Hinrich Sch\"{u}tze and Lori Levin and Amir Zeldes and Joakim Nivre and William Croft and Nathan Schneider},
       year={2024},
       eprint={2403.17748},
       archivePrefix={arXiv},
