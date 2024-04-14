@@ -49,7 +49,7 @@ If you use the dataset or code, please cite our paper:
 
 ```
 @misc{weissweiler2024ucxn,
-      title={UCxn: Typologically Informed Annotation of Constructions Atop Universal Dependencies}, 
+      title={{UCxn}: Typologically Informed Annotation of Constructions Atop {U}niversal {D}ependencies}, 
       author={Leonie Weissweiler and Nina B\"{o}bel and Kirian Guiller and Santiago Herrera and Wesley Scivetti and Arthur Lorenzi and Nurit Melnik and Archna Bhatia and Hinrich Sch\"{u}tze and Lori Levin and Amir Zeldes and Joakim Nivre and William Croft and Nathan Schneider},
       year={2024},
       eprint={2403.17748},
