@@ -23,9 +23,13 @@ def remove_enhanced(grs_draft):
 def remove_existing_cxns(corpus):
     grs = """
     package remove_cxns {
-        rule remove { % remove existing cxns
+        rule removeCxn { % remove existing cxns
             pattern { X[Cxn] }
             commands { del_feat X.Cxn}
+        }
+        rule removeCxnElt { % remove existing cnxelts
+            pattern { X[CxnElt] }
+            commands { del_feat X.CxnElt}
         }
     }
     strat main { Onf(remove_cxns) }
@@ -207,6 +211,6 @@ if __name__ == "__main__":
                     print("-- Machings:", len(matchings))
         corpus.clean()
 
-        with open(f"{args.output}/ucxn_{filename}", "w", encoding="utf-8") as f:
+        with open(f"{args.output}/{filename}", "w", encoding="utf-8") as f:
             conllu = sort_misc_in_conllu(draft.to_conll())
             f.write(conllu)
