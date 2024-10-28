@@ -1,10 +1,22 @@
 strat main { 
   Seq(
+    Onf(remove_cxns),
     Onf(conditionals),
     Onf(existentials),
     Onf(interrogatives),
     Onf(npn)
   )
+}
+
+package remove_cxns {
+    rule removeCxn {
+        pattern { X[Cxn] }
+        commands { del_feat X.Cxn}
+    }
+    rule removeCxnElt {
+        pattern { X[CxnElt] }
+        commands { del_feat X.CxnElt}
+    }
 }
 
 package conditionals {
