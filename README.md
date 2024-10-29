@@ -48,12 +48,17 @@ ID | FORM | LEMMA | UPOS | ... | UCxn
 If you use the dataset or code, please cite our paper:
 
 ```
-@misc{weissweiler2024ucxn,
-      title={{UCxn}: Typologically Informed Annotation of Constructions Atop {U}niversal {D}ependencies}, 
-      author={Leonie Weissweiler and Nina B\"{o}bel and Kirian Guiller and Santiago Herrera and Wesley Scivetti and Arthur Lorenzi and Nurit Melnik and Archna Bhatia and Hinrich Sch\"{u}tze and Lori Levin and Amir Zeldes and Joakim Nivre and William Croft and Nathan Schneider},
-      year={2024},
-      eprint={2403.17748},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL}
+@inproceedings{weissweiler-etal-2024-ucxn,
+    title = "{UC}xn: Typologically Informed Annotation of Constructions Atop {U}niversal {D}ependencies",
+    author = {Weissweiler, Leonie  and B{\"o}bel, Nina  and Guiller, Kirian  and Herrera, Santiago  and Scivetti, Wesley  and Lorenzi, Arthur  and Melnik, Nurit  and Bhatia, Archna  and Sch{\"u}tze, Hinrich  and Levin, Lori  and Zeldes, Amir  and Nivre, Joakim  and Croft, William  and Schneider, Nathan},
+    editor = "Calzolari, Nicoletta  and Kan, Min-Yen  and Hoste, Veronique  and Lenci, Alessandro  and Sakti, Sakriani  and Xue, Nianwen",
+    booktitle = "Proceedings of the 2024 Joint International Conference on Computational Linguistics, Language Resources and Evaluation (LREC-COLING 2024)",
+    month = may,
+    year = "2024",
+    address = "Torino, Italia",
+    publisher = "ELRA and ICCL",
+    url = "https://aclanthology.org/2024.lrec-main.1471",
+    pages = "16919--16932",
 }
+
 ```
