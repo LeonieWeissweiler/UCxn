@@ -380,6 +380,17 @@ package interrogatives {
 		  _anchor_.CxnElt="Clause";}
         }
 
+    rule int8b {%direct YN, no metadata for existential interrogative polars
+        pattern {
+            R -[root]-> _anchor_;
+            _anchor_ [lemma="be"];
+            _anchor_ -[expl]-> t;
+            _anchor_ < t;
+        }
+        commands {_anchor_.Cxn="Interrogative-Polar-Direct";
+		  _anchor_.CxnElt="Clause";}
+        }
+
     rule int9 {%indirect YN
         pattern {
             V.xpos = re"V.*";
